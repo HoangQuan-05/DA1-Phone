@@ -1,5 +1,5 @@
 <?php
-
+    require_once "env.php";
 // Kết nối CSDL qua PDO
 function connectDB() {
     // Kết nối CSDL
@@ -17,7 +17,12 @@ function connectDB() {
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
         return $conn;
+        
+        
     } catch (PDOException $e) {
         echo ("Connection failed: " . $e->getMessage());
+        
     }
 }
+
+
