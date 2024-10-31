@@ -12,4 +12,4 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 
 define('PATH_ROOT'    , __DIR__ . '/../');
-
+//ưew
