@@ -63,12 +63,12 @@
     .noi_dung {
         display: flex;
         justify-content: space-between;
-        max-width: 80%;
+        width: 80%;
         margin-left: 15px;
     }
 
     .noi_dung div p {
-        max-width: 70%;
+        width: 865px;
     }
 
     .admin div h5 {
@@ -94,7 +94,7 @@
     }
 
     .form {
-        width: 80%; 
+        width: 80%;
         position: relative;
     }
 
@@ -103,8 +103,9 @@
         width: 100%;
         padding: 10px;
         padding-right: 80px;
-       
+
     }
+
     #tin_nhan::-webkit-scrollbar {
         width: 0px;
 
@@ -126,8 +127,8 @@
         width: 50px;
         border-radius: 50%;
         font-size: 18px;
-       
-        
+
+
 
     }
 
@@ -136,15 +137,16 @@
     }
 
     textarea {
-       
-        border-radius:0 0 8px 8px;
+
+        border-radius: 0 0 8px 8px;
         /* Bo góc tròn */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
         /* Đổ bóng nhẹ */
         outline: none;
         /* Bỏ viền mặc định khi focus */
         transition: box-shadow 0.3s ease-in-out;
         /* Hiệu ứng khi focus */
+        border: 1px solid #D9D9D9;
     }
 
     textarea:focus {
@@ -203,42 +205,43 @@
                                 <div class="box">
                                     <div class="list">
                                         <!-- khach hang hoi -->
-                                        <div class="khach_hang">
-                                            <img src="../admin/assets/images/about.jpg" alt="">
-                                            <div class="noi_dung">
-                                                <div>
-                                                    <h5>Truong Quan</h5>
-                                                    <p>Ten Hag đã phản ứng một cách bất thường sau khi được thông báo về việc không còn là HLV trưởng MU. Ông đã ngay lập tức tới sân bay Manchester, nơi một chiếc máy bay phản lực tư nhân của hãng Cessna Citation đã chờ sẵn.
-
-                                                    </p>
+                                       <?php foreach($du_lieu as $value) :?>
+                                        <?php //id sau nay lay bang SESSION
+                                             if( $value['id_nguoi_gui'] ==3) :?>
+                                            <div class="khach_hang">
+                                                <img src="../admin/assets/images/about.jpg" alt="">
+                                                <div class="noi_dung">
+                                                    <div style=" width: 735px;">
+                                                        <h5><?= $value['tens'] ?></h5>
+                                                        <p><?= $value['noi_dung'] ?></p>
+                                                    </div>
+                                                    <span><?= $value['thoi_gian'] ?></span>
                                                 </div>
-                                                <span>20/10/2025</span>
                                             </div>
-
-                                        </div>
-
+                                       <?php endif ?>
                                         <!-- admin tra loi -->
+                                        
+                                        <?php if( $value['id_nguoi_gui'] ==4) :?>
+                                            <div class="khach_hang item_admin">
 
+                                                <div class="admin">
+                                                    <div>
+                                                    <h5><?= $value['tens'] ?></h5>
+                                                        <p style="margin-right: 30px;"><?= $value['noi_dung'] ?>
+                                                        </p>
+                                                    </div>
 
-                                        <div class="khach_hang item_admin">
-                                            <div class="admin">
-                                                <div>
-                                                    <h5>Truong Quan</h5>
-                                                    <p>Ten Hag đã phản ứng một cách bất thường sau khi được thông báo về việc không còn là HLV trưởng MU. Ông đã ngay lập tức tới sân bay Manchester, nơi một chiếc máy bay phản lực tư nhân của hãng Cessna Citation đã chờ sẵn.
-
-                                                    </p>
                                                 </div>
-
+                                                <img src="../admin/assets/images/about.jpg" alt="">
                                             </div>
-                                            <img src="../admin/assets/images/about.jpg" alt="">
-                                        </div>
-
+                                            <?php endif ?>
+                                        <?php endforeach ?>
                                     </div>
                                     <div class="form">
                                         <form action="">
-                                            <textarea name="" id="tin_nhan" rows="2" placeholder="Nhập tin nhắn"></textarea>
+                                            <textarea name="noi_dung" id="tin_nhan" rows="2" placeholder="Nhập tin nhắn"></textarea>
 
-                                            <button type="submit"><i class="fa-regular fa-paper-plane" ></i></button>
+                                            <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
                                         </form>
 
                                     </div>

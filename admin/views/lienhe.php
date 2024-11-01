@@ -55,9 +55,13 @@
         display: flex;
         border-radius: 5px;
         margin-top: 10px;
-        box-shadow: 1px 1px 5px rgb(200, 200, 200);
+        /* box-shadow: 0px 0px 3px #D2D2D8; */
         cursor: pointer;
+        transition: .3s ease;
 
+    }
+    .khach_hang:hover{
+        box-shadow: 0px 0px 3px #D2D2D8;
     }
 
     .noi_dung {
@@ -127,22 +131,31 @@
 
                                 <div class="pagination justify-content-center">
                                     <div class="list">
-                                        <a href="index.php?act=ho_tro_khach_hang">
-                                            <div class="khach_hang">
-                                                <img src="../admin/assets/images/about.jpg" alt="">
-                                                <div class="noi_dung">
-                                                    <div>
-                                                        <h5>Truong Quan</h5>
-                                                        <p>Ten Hag đã phản ứng một cách bất thường sau khi được thông báo về việc không còn là HLV trưởng MU. Ông đã ngay lập tức tới sân bay Manchester, nơi một chiếc máy bay phản lực tư nhân của hãng Cessna Citation đã chờ sẵn.</p>
+                                        <!-- tin nhan khach hang -->
+                                  
+                                     
+
+                                        <?php foreach ($du_lieu as $data) : ?>
+                                            <?php if ($data['id_nguoi_gui'] != 4) : ?>
+                                                <!-- id nguoi gui khac id admin -->
+                                                <a href="index.php?act=ho_tro_khach_hang">
+                                                    <div class="khach_hang">
+                                                        <img src="../admin/assets/images/about.jpg" alt="">
+                                                        <div class="noi_dung">
+                                                            <div>
+                                                                <h5><?= $data['tens'] ?></h5>
+                                                                <p><?= $data['noi_dung'] ?></p>
+                                                            </div>
+                                                            <span><?= $data['thoi_gian'] ?></span>
+                                                        </div>
                                                     </div>
-                                                    <span>20/10/2025</span>
-                                                </div>
+                                                </a>
+                                            <?php endif;
+                                             ?>
 
-                                            </div>
-                                        </a>
-
+                                        <?php endforeach; ?>
                                     </div>
-                                    
+
                                 </div>
 
 

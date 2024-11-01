@@ -3,6 +3,7 @@
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
+require_once 'models/md_lien_he.php';
 
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
