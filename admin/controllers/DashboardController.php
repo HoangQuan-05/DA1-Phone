@@ -7,4 +7,7 @@ class DashboardController {
     public function lien_he(){
         require_once "./views/lienhe.php";
     }
+    public function ho_tro_khach_hang(){
+        require_once "./views/hotrokhachhang.php";
+    }
 }

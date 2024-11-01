@@ -21,27 +21,29 @@
 <style>
     .list {
         width: 80%;
-        /* border: 1px solid black; */
-        height: 100vh;
+        background-color: var(--vz-footer-bg);
+        border-radius: 10px 10px 0 0px;
+        height: 500px;
+        overflow-y: scroll;
+
     }
 
-    .list a {
+    .list::-webkit-scrollbar {
+        width: 5px;
 
-        text-decoration: none;
-        /* Xóa gạch chân */
-        color: inherit;
-        /* Sử dụng màu sắc của thẻ cha */
-        background: none;
-        /* Xóa background nếu có */
-        padding: 0;
-        /* Xóa padding */
-        margin: 0;
-        /* Xóa margin */
-        border: none;
-        /* Xóa viền nếu có */
+        /* Độ rộng của thanh cuộn */
     }
 
 
+    .list::-webkit-scrollbar-thumb {
+        background-color: rgb(163, 163, 163);
+        border-radius: 10px;
+        /* Màu thanh cuộn */
+    }
+
+    .list::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
 
     .khach_hang img {
         margin: 10px;
@@ -51,34 +53,105 @@
     }
 
     .khach_hang {
-        /* border: 1px solid black; */
         display: flex;
+        height: auto;
         border-radius: 5px;
         margin-top: 10px;
-        box-shadow: 1px 1px 5px rgb(200, 200, 200);
-        cursor: pointer;
 
     }
 
     .noi_dung {
         display: flex;
         justify-content: space-between;
-        width: 86%;
-        /* border: 1px solid black; */
+        max-width: 80%;
         margin-left: 15px;
     }
 
     .noi_dung div p {
-        margin-left: 10px;
+        max-width: 70%;
+    }
+
+    .admin div h5 {
+        display: flex;
+        justify-content: end;
+    }
+
+    .admin {
+        width: 90%;
+
+    }
+
+    .admin div p {
+        float: right;
+        max-width: 70%;
+    }
+
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form {
+        width: 80%; 
+        position: relative;
+    }
+
+
+    #tin_nhan {
         width: 100%;
-        /* border: 1px solid black; */
-        height: 40px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        /* Giới hạn số dòng là 2 */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        padding: 10px;
+        padding-right: 80px;
+       
+    }
+    #tin_nhan::-webkit-scrollbar {
+        width: 0px;
+
+        /* Độ rộng của thanh cuộn */
+    }
+
+
+
+
+    .form form button {
+        border: none;
+        background-color: red;
+        color: white;
+        transition: .5s ease;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        font-size: 18px;
+       
+        
+
+    }
+
+    .form form button:active {
+        transform: scale(0.95);
+    }
+
+    textarea {
+       
+        border-radius:0 0 8px 8px;
+        /* Bo góc tròn */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Đổ bóng nhẹ */
+        outline: none;
+        /* Bỏ viền mặc định khi focus */
+        transition: box-shadow 0.3s ease-in-out;
+        /* Hiệu ứng khi focus */
+    }
+
+    textarea:focus {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        /* Tăng đổ bóng khi focus */
+        border-color: #aaa;
+        /* Màu viền khi focus */
     }
 </style>
 
@@ -115,7 +188,7 @@
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
                                                 <h3 class="fs-16 mb-1">
-                                                    Danh sách cần hỗ trợ
+                                                    Hỗ trợ khách hàng
                                                 </h3>
 
                                             </div>
@@ -125,25 +198,56 @@
                                     <!--end col-->
                                 </div>
 
-                                <div class="pagination justify-content-center">
+
+
+                                <div class="box">
                                     <div class="list">
-                                        <a href="index.php?act=ho_tro_khach_hang">
-                                            <div class="khach_hang">
-                                                <img src="../admin/assets/images/about.jpg" alt="">
-                                                <div class="noi_dung">
-                                                    <div>
-                                                        <h5>Truong Quan</h5>
-                                                        <p>Ten Hag đã phản ứng một cách bất thường sau khi được thông báo về việc không còn là HLV trưởng MU. Ông đã ngay lập tức tới sân bay Manchester, nơi một chiếc máy bay phản lực tư nhân của hãng Cessna Citation đã chờ sẵn.</p>
-                                                    </div>
-                                                    <span>20/10/2025</span>
+                                        <!-- khach hang hoi -->
+                                        <div class="khach_hang">
+                                            <img src="../admin/assets/images/about.jpg" alt="">
+                                            <div class="noi_dung">
+                                                <div>
+                                                    <h5>Truong Quan</h5>
+                                                    <p>Ten Hag đã phản ứng một cách bất thường sau khi được thông báo về việc không còn là HLV trưởng MU. Ông đã ngay lập tức tới sân bay Manchester, nơi một chiếc máy bay phản lực tư nhân của hãng Cessna Citation đã chờ sẵn.
+
+                                                    </p>
+                                                </div>
+                                                <span>20/10/2025</span>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- admin tra loi -->
+
+
+                                        <div class="khach_hang item_admin">
+                                            <div class="admin">
+                                                <div>
+                                                    <h5>Truong Quan</h5>
+                                                    <p>Ten Hag đã phản ứng một cách bất thường sau khi được thông báo về việc không còn là HLV trưởng MU. Ông đã ngay lập tức tới sân bay Manchester, nơi một chiếc máy bay phản lực tư nhân của hãng Cessna Citation đã chờ sẵn.
+
+                                                    </p>
                                                 </div>
 
                                             </div>
-                                        </a>
+                                            <img src="../admin/assets/images/about.jpg" alt="">
+                                        </div>
 
                                     </div>
-                                    
+                                    <div class="form">
+                                        <form action="">
+                                            <textarea name="" id="tin_nhan" rows="2" placeholder="Nhập tin nhắn"></textarea>
+
+                                            <button type="submit"><i class="fa-regular fa-paper-plane" ></i></button>
+                                        </form>
+
+                                    </div>
+
+
+
+
                                 </div>
+
 
 
                             </div>
@@ -208,5 +312,11 @@
     ?>
 
 </body>
+<script>
+    var form = document.querySelector('form')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+    })
+</script>
 
 </html>

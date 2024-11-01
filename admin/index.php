@@ -10,15 +10,18 @@ require_once 'controllers/DashboardController.php';
 // Require toàn bộ file Models
 
 // Route
-$act = $_GET['act'] ?? '/';
+$act = $_GET['act'] ?? 'dashboard';
 
 
 switch ($act) {
-    case 'dashboard':
-      ( new DashboardController() )->index();
-        break;
+  case 'dashboard':
+    (new DashboardController())->index();
+    break;
 
-    case 'lienhe':
-        (new DashboardController())->lien_he();
-        break;
+  case 'lienhe':
+    (new DashboardController())->lien_he();
+    break;
+  case 'ho_tro_khach_hang':
+    (new DashboardController())->ho_tro_khach_hang();
+    break;
 };
