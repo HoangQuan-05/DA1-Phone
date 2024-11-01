@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
@@ -12,9 +12,13 @@ require_once 'controllers/DashboardController.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
-match ($act) {
-    // Dashboards
-    '/'                 => (new DashboardController())->index(),
+switch ($act) {
+    case 'dashboard':
+      ( new DashboardController() )->index();
+        break;
+
+    case 'lienhe':
+        (new DashboardController())->lien_he();
+        break;
 };
