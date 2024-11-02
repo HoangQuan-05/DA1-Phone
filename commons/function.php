@@ -26,7 +26,7 @@ function connectDB() {
 }
 
 
-function view ($view,$data=[]){
+function view ($view,$data=[],$id=null){
     extract($data);
     require_once "views/$view.php";
 }

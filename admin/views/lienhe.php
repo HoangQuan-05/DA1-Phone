@@ -60,7 +60,8 @@
         transition: .3s ease;
 
     }
-    .khach_hang:hover{
+
+    .khach_hang:hover {
         box-shadow: 0px 0px 3px #D2D2D8;
     }
 
@@ -132,28 +133,45 @@
                                 <div class="pagination justify-content-center">
                                     <div class="list">
                                         <!-- tin nhan khach hang -->
-                                  
-                                     
+
+                                        <?php
+                                        $check = [];
+                                        ?>
 
                                         <?php foreach ($du_lieu as $data) : ?>
-                                            <?php if ($data['id_nguoi_gui'] != 4) : ?>
+                                            <?php
+                                            // Kiểm tra xem ID người gửi đã có trong mảng $check hay chưa
+                                            if (!in_array($data['id_nguoi_gui'], $check)) :
+                                            ?>
                                                 <!-- id nguoi gui khac id admin -->
-                                                <a href="index.php?act=ho_tro_khach_hang">
+                                                <a href="index.php?act=ho_tro_khach_hang&id=<?= $data['id_nguoi_gui'] ?>">
                                                     <div class="khach_hang">
                                                         <img src="../admin/assets/images/about.jpg" alt="">
                                                         <div class="noi_dung">
                                                             <div>
                                                                 <h5><?= $data['tens'] ?></h5>
-                                                                <p><?= $data['noi_dung'] ?></p>
+                                                                <!--  -->
+                                                                <?php foreach ($nguoi_nt as $value) : ?>
+                                                                    <?php if (
+                                                                        $value['id_nguoi_gui'] == $data['id_nguoi_gui'] && $value['id_nguoi_nhan'] == $data['id_nguoi_nhan'] ||
+                                                                        $value['id_nguoi_gui'] == $data['id_nguoi_nhan'] && $value['id_nguoi_nhan'] == $data['id_nguoi_gui']
+                                                                    ) : ?>
+                                                                        <p><?= $value['noi_dung'] ?></p>
+                                                                    <?php endif ?>
+                                                                <?php endforeach; ?>
+
+
                                                             </div>
                                                             <span><?= $data['thoi_gian'] ?></span>
                                                         </div>
                                                     </div>
                                                 </a>
-                                            <?php endif;
-                                             ?>
-
+                                            <?php
+                                                $check[] = $data['id_nguoi_gui']; // Thêm ID người gửi vào mảng $check
+                                            endif;
+                                            ?>
                                         <?php endforeach; ?>
+
                                     </div>
 
                                 </div>
@@ -170,7 +188,7 @@
             </div>
             <!-- End Page-content -->
 
-            <footer class="footer">
+            <!-- <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
@@ -185,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
         </div>
         <!-- end main content-->
 

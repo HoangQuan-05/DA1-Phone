@@ -190,7 +190,8 @@
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
                                                 <h3 class="fs-16 mb-1">
-                                                    Hỗ trợ khách hàng
+                                                    <a href="index.php?act=lienhe"><i class="fa-solid fa-chevron-left"></i> Hỗ trợ khách hàng</a>
+                                                
                                                 </h3>
 
                                             </div>
@@ -204,41 +205,44 @@
 
                                 <div class="box">
                                     <div class="list">
-                                        <!-- khach hang hoi -->
-                                       <?php foreach($du_lieu as $value) :?>
-                                        <?php //id sau nay lay bang SESSION
-                                             if( $value['id_nguoi_gui'] ==3) :?>
-                                            <div class="khach_hang">
-                                                <img src="../admin/assets/images/about.jpg" alt="">
-                                                <div class="noi_dung">
-                                                    <div style=" width: 735px;">
-                                                        <h5><?= $value['tens'] ?></h5>
-                                                        <p><?= $value['noi_dung'] ?></p>
-                                                    </div>
-                                                    <span><?= $value['thoi_gian'] ?></span>
-                                                </div>
-                                            </div>
-                                       <?php endif ?>
-                                        <!-- admin tra loi -->
                                         
-                                        <?php if( $value['id_nguoi_gui'] ==4) :?>
-                                            <div class="khach_hang item_admin">
+                                        
 
-                                                <div class="admin">
-                                                    <div>
-                                                    <h5><?= $value['tens'] ?></h5>
-                                                        <p style="margin-right: 30px;"><?= $value['noi_dung'] ?>
-                                                        </p>
+                                        <!-- khach hang hoi -->
+                                        <?php foreach ($du_lieu as $value) : ?>
+                                            <?php //id sau nay lay bang SESSION
+                                            if ($value['id_nguoi_gui'] == $id) : ?>
+                                                <div class="khach_hang">
+                                                    <img src="../admin/assets/images/about.jpg" alt="">
+                                                    <div class="noi_dung">
+                                                        <div style=" width: 735px;">
+                                                            <h5><?= $value['tens'] ?></h5>
+                                                            <p><?= $value['noi_dung'] ?></p>
+                                                        </div>
+                                                        <span><?= $value['thoi_gian'] ?></span>
                                                     </div>
-
                                                 </div>
-                                                <img src="../admin/assets/images/about.jpg" alt="">
-                                            </div>
+                                            <?php endif ?>
+                                            <!-- admin tra loi -->
+
+                                            <?php if ($value['id_nguoi_gui'] == 4) : ?>
+                                                <div class="khach_hang item_admin">
+
+                                                    <div class="admin">
+                                                        <div>
+                                                            <h5><?= $value['tens'] ?></h5>
+                                                            <p style="margin-right: 30px;"><?= $value['noi_dung'] ?>
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
+                                                    <img src="../admin/assets/images/about.jpg" alt="">
+                                                </div>
                                             <?php endif ?>
                                         <?php endforeach ?>
                                     </div>
                                     <div class="form">
-                                        <form action="">
+                                        <form action="" method="POST">
                                             <textarea name="noi_dung" id="tin_nhan" rows="2" placeholder="Nhập tin nhắn"></textarea>
 
                                             <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
@@ -316,10 +320,7 @@
 
 </body>
 <script>
-    var form = document.querySelector('form')
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-    })
+
 </script>
 
 </html>
