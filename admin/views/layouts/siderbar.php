@@ -78,6 +78,11 @@
                     <i class="fa-regular fa-comments"></i> <span data-key="t-dashboards">Liên hệ hỗ trợ</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="index.php?act=banner">
+                    <i class='fa fa-window-maximize'></i> <span data-key="t-dashboards">Banner</span>
+                    </a>
+                </li>
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
 

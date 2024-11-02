@@ -30,3 +30,8 @@ function view ($view,$data=[],$id=null){
     extract($data);
     require_once "views/$view.php";
 }
+
+function views($view, $data = [], $subfolder = 'admin/views') {
+    extract($data);
+    include_once PATH_ROOT . "{$subfolder}/$view.php";
+}
