@@ -53,6 +53,7 @@
                     <a class="nav-link menu-link" href="index.php?act=dashboard">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
+                 
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
@@ -61,12 +62,12 @@
                     <div class="collapse menu-dropdown" id="sidebarDanhMuc">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="index.php?act=danhmuc" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-nestable-list">
+                                <a href="index.php?act=add_danhmuc" class="nav-link" data-key="t-nestable-list">
                                     Thêm mới
                                 </a>
                             </li>

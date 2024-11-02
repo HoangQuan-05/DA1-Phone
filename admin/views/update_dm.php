@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- CSS -->
     <?php
     require_once "layouts/libs_css.php";
@@ -45,6 +45,8 @@
         text-decoration: none;
     }
 
+
+
     button {
         border: none;
     }
@@ -66,9 +68,7 @@
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
+
         <div class="main-content">
 
             <div class="page-content">
@@ -81,42 +81,22 @@
                                 <div class="row mb-3 pb-1">
                                     <div class="col-12">
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                            <h1>Danh Sách Banner</h1>
-
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <th>id_banner</th>
-                                                        <th>hinh_anh</th>
-                                                        <th>Mô tả</th>
-                                                        <th><i class='fa fa-cog'></i></th>
-                                                    </tr>
-                                                  
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($banner as $banners): ?>
-                                                        <tr>
-
-                                                            <td><?= $banners['id_banner'] ?></td>
-
-                                                            <td><img src="<?= $banners['hinh_anhs'] ?>" width="100px" alt=""></td>
-                                                            <td><?= $banners['mo_ta'] ?></td>
+                                            <div class="container mt-5">
+                                                <h2 class="text-center">Update danh mục</h2>
+                                                <form method="POST">
+                                                    <div class="form-group">
+                                                        <label>Tên:</label>
+                                                        <input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục" value="<?php echo $data['ten_danh_muc']; ?>">
+                                                    </div>
 
 
-                                                            <td>
-                                                                <button> <a href="index.php?act=update&id=<?= $banners['id_banner'] ?>"><i class="fas fa-pencil-alt"></i></a></button>
-                                                                <button><a onclick="return confirm('ban co muon xoa')" href="index.php?act=delete&id=<?= $banners['id_banner'] ?>"><i class="fas fa-trash"></i></a></button>
+                                                    <button type="submit" class="btn btn-primary">Update</button>
 
-                                                            </td>
-
-                                                        </tr>
-                                                    <?php endforeach ?>
-
-                                                </tbody>
-                                            </table>
-
-
+                                                </form>
+                                                <p id="error"></p>
+                                            </div>
                                         </div>
+
                                     </div>
 
 
@@ -129,7 +109,7 @@
                     </div>
                     <!-- container-fluid -->
                 </div>
-                <button><a href="index.php?act=them"><i class="fas fa-plus"></i>them moi</a></button>
+
                 <!-- End Page-content -->
 
                 <footer class="footer">

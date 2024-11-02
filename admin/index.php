@@ -5,6 +5,8 @@ require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once 'models/md_lien_he.php';
 require_once 'models/banners.php';
+require_once "models/md_danh_muc.php";
+require_once 'controllers/danhmuc_ctl.php';
 
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
@@ -42,4 +44,18 @@ switch ($act) {
   case 'update':
     (new bannercontroller())->update();
     break;
+  case 'danhmuc':
+    (new Danhmuc_ctl())->danh_muc();
+    break;
+  case 'add_danhmuc':
+    (new Danhmuc_ctl())->add_danh_muc();
+    break;
+  case 'delete_dm':
+    (new Danhmuc_ctl())->delete_dm();
+    break;
+  case 'update_danh_muc':
+    (new Danhmuc_ctl())->update_dm();
+    break;
 };
+
+
