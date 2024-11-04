@@ -8,24 +8,24 @@ class DashboardController
     }
     public function lien_he()
     {
-        $id_nguoi_nt = (new lien_he())->inbox(); 
-        $array = []; 
+        $id_nguoi_nt = (new lien_he())->inbox();
+        $array = [];
         foreach ($id_nguoi_nt as $item1) {
             $data = (new lien_he())->noi_dung_hien_thi($item1['id_nguoi_gui'], $item1['id_nguoi_nhan']);
             $isDuplicate = false;
-                  foreach ($array as $item2) {
-                    if(isset($item2['id_nguoi_gui'])){
-                        if ($data['id_nguoi_gui'] == $item2['id_nguoi_gui'] && $data['id_nguoi_nhan'] == $item2['id_nguoi_nhan']) {
-                    $isDuplicate = true;
-                    break;
-                }
+            foreach ($array as $item2) {
+                if (isset($item2['id_nguoi_gui'])) {
+                    if ($data['id_nguoi_gui'] == $item2['id_nguoi_gui'] && $data['id_nguoi_nhan'] == $item2['id_nguoi_nhan']) {
+                        $isDuplicate = true;
+                        break;
                     }
+                }
             }
             if ($isDuplicate != true) {
-                $array [] = $data;
+                $array[] = $data;
             }
         }
-        $du_lieu =  (new lien_he())->tin_nhan_khach_hang(4);//sau doi sang session
+        $du_lieu =  (new lien_he())->tin_nhan_khach_hang(4); //sau doi sang session
         view('lienhe', ['du_lieu' => $du_lieu, 'data' => $data, 'nguoi_nt' => $array]);
     }
 

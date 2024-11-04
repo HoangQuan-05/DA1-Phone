@@ -53,7 +53,7 @@
                     <a class="nav-link menu-link" href="index.php?act=dashboard">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
-                 
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
@@ -75,13 +75,32 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
+                        <i class="fa-solid fa-newspaper"></i><span data-key="t-advance-ui">Tin tức</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarDanhMuc">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="index.php?act=tin_tuc" class="nav-link" data-key="t-sweet-alerts">
+                                    Danh sách
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.php?act=add_tin_tuc" class="nav-link" data-key="t-nestable-list">
+                                    Thêm mới
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="index.php?act=lienhe">
-                    <i class="fa-regular fa-comments"></i> <span data-key="t-dashboards">Liên hệ hỗ trợ</span>
+                        <i class="fa-regular fa-comments"></i> <span data-key="t-dashboards">Liên hệ hỗ trợ</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="index.php?act=banner">
-                    <i class='fa fa-window-maximize'></i> <span data-key="t-dashboards">Banner</span>
+                        <i class='fa fa-window-maximize'></i> <span data-key="t-dashboards">Banner</span>
                     </a>
                 </li>
 

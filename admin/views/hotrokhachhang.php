@@ -241,8 +241,8 @@
                                             <?php endif ?>
                                         <?php endforeach ?>
                                     </div>
-                                    <div class="form">
-                                        <form action="" method="POST">
+                                    <div class="form" >
+                                        <form action="" method="POST" >
                                             <textarea name="noi_dung" id="tin_nhan" rows="2" placeholder="Nhập tin nhắn"></textarea>
 
                                             <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
@@ -314,6 +314,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
+
     <?php
     require_once "layouts/libs_js.php";
     ?>

@@ -6,12 +6,14 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once 'models/md_lien_he.php';
 require_once 'models/banners.php';
 require_once "models/md_danh_muc.php";
-require_once 'controllers/danhmuc_ctl.php';
+require_once "models/md_tin_tuc.php";
+
 
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/bannercontroller.php';
-
+require_once 'controllers/danhmuc_ctl.php';
+require_once  'controllers/tin_tuc_ctl.php';
 // Require toàn bộ file Models
 
 // Route
@@ -56,6 +58,16 @@ switch ($act) {
   case 'update_danh_muc':
     (new Danhmuc_ctl())->update_dm();
     break;
+  case 'tin_tuc':
+    (new Tin_tuc_ctl())->hien_thi_tin_tuc();
+    break;
+  case 'delete_tin_tuc':
+    (new Tin_tuc_ctl())->delete_tin_tuc();
+    break;
+  case 'add_tin_tuc':
+    (new Tin_tuc_ctl())->add_tin_tuc();
+    break;
+  case 'edit_tin_tuc':
+    (new Tin_tuc_ctl())->edit_tin_tuc();
+    break;
 };
-
-
