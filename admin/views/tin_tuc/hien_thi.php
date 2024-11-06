@@ -306,9 +306,15 @@
                                                             <td>
                                                                 <h6><?= $values['ngay_xuat_ban'] ?></h6>
                                                             </td>
-                                                            <td>
-                                                                <h6><?= $values['trang_thai'] ?></h6>
-                                                            </td>
+                                                            <?php if ($values['trang_thai'] == 'Hiển thị') : ?>
+                                                                <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
+
+
+
+                                                            <?php else : ?>
+                                                                <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
+
+                                                            <?php endif ?>
                                                             <td>
                                                                 <a href="index.php?act=edit_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                                                                 <a onclick="return confirm('chac chan')" href="index.php?act=delete_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>

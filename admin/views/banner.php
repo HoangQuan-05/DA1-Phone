@@ -92,7 +92,7 @@
                                                         <th>Ngày</th>
                                                         <th><i class='fa fa-cog'></i></th>
                                                     </tr>
-                                                  
+
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach ($banner as $banners): ?>
@@ -101,8 +101,19 @@
                                                             <td><?= $banners['id_banner'] ?></td>
 
                                                             <td><img src="<?= $banners['hinh_anhs'] ?>" width="100px" alt=""></td>
-                                                            <td><?= $banners['trang_thai'] ?></td>
-                                                            <td><?= $banners['ngay_them'] ?></td>
+
+                                                            <?php if ($banners['trang_thai'] == 'Hiển thị') : ?>
+                                                                <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
+
+
+
+                                                            <?php else : ?>
+                                                                <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
+
+                                                            <?php endif ?>
+                                                            <td>
+                                                                <?= $banners['ngay_them'] ?>
+                                                            </td>
 
 
                                                             <td>

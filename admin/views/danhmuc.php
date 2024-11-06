@@ -285,7 +285,15 @@
                                                         <tr>
                                                             <td><?= $value['id_danh_muc'] ?></td>
                                                             <td><?= $value['ten_danh_muc'] ?></td>
-                                                            <td><?= $value['trang_thai'] ?></td>
+                                                            <?php if ($value['trang_thai'] == 'Hiển thị') : ?>
+                                                                <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
+
+
+
+                                                            <?php else : ?>
+                                                                <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
+
+                                                            <?php endif ?>
                                                             <td>
                                                                 <a href="index.php?act=update_danh_muc&id=<?= $value['id_danh_muc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                                                                 <a onclick="return confirm('chac chan')" href="index.php?act=delete_dm&id=<?= $value['id_danh_muc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
