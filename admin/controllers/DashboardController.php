@@ -8,6 +8,7 @@ class DashboardController
     }
     public function lien_he()
     {
+        $data = null;
         $id_nguoi_nt = (new lien_he())->inbox();
         $array = [];
         foreach ($id_nguoi_nt as $item1) {
@@ -27,6 +28,7 @@ class DashboardController
         }
         $du_lieu =  (new lien_he())->tin_nhan_khach_hang(4); //sau doi sang session
         view('lienhe', ['du_lieu' => $du_lieu, 'data' => $data, 'nguoi_nt' => $array]);
+        
     }
 
 

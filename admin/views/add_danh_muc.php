@@ -88,6 +88,13 @@
                                                         <label >Tên:</label>
                                                         <input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục" >
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label >Trạng thái:</label>
+                                                        <select name="trang_thai" id="">
+                                                            <option value="Hiển thị">Hiển thị</option>
+                                                            <option value="Ẩn">Ẩn</option>
+                                                        </select>
+                                                    </div>  
 
 
                                                     <button type="submit" class="btn btn-primary">Thêm</button>

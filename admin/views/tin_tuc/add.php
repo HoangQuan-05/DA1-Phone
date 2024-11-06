@@ -230,7 +230,7 @@
     }
 
     #editor {
-        height: 440px;
+        height: 400px;
     }
 
     textarea {
@@ -270,10 +270,18 @@
                                 <form id="myForm" action="" onsubmit="submitForm(event)" method="POST">
                                     <label for="title">Tiêu đề:</label>
                                     <textarea name="tieu_des" id="title"></textarea> <br>
+                                    
+                                        <label>Trạng thái:</label>
+                                        <select name="trang_thai" id="">
+                                            <option value="Hiển thị">Hiển thị</option>
+                                            <option value="Ẩn" >Ẩn</option>
+                                        </select>
+                                    <br>
 
                                     <label for="content">Nội dung:</label>
-                                    <div id="editor" ></div>
 
+                                    <div id="editor"></div>
+                                    <p id="er_news"></p>
                                     <button class="btn btn-primary" type="submit" style="margin-top:20px">Gửi</button>
                                 </form>
 
@@ -340,6 +348,7 @@
         const quill = new Quill('#editor', {
             theme: 'snow'
         });
+        var er = document.getElementById('er_news');
 
         function submitForm(event) {
             event.preventDefault(); // Ngăn chặn form gửi tự động

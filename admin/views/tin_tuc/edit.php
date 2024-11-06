@@ -271,6 +271,13 @@
                                 <form id="myForm" action="" onsubmit="submitForm(event)" method="POST">
                                     <label for="title">Tiêu đề:</label>
                                     <textarea name="tieu_des" id="title"><?php echo $data['tieu_des']; ?></textarea> <br>
+                                    <label>Trạng thái:</label>
+                                        <select name="trang_thai" id="">
+                                            <option value="<?php echo $data['trang_thai']; ?>" hidden> <?php echo $data['trang_thai']; ?></option>
+                                            <option value="Hiển thị">Hiển thị</option>
+                                            <option value="Ẩn" >Ẩn</option>
+                                        </select>
+                                        <br>
 
                                     <label for="content">Nội dung:</label>
                                     <div id="editor"><?php echo $data['noi_dungs']; ?></div>

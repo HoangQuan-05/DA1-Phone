@@ -23,9 +23,9 @@ class DanhMuc
 
     public function create($data)
     {
-        $sql = "INSERT INTO danh_muc (ten_danh_muc) VALUES (:ten_danh_muc)";
+        $sql = "INSERT INTO danh_muc (ten_danh_muc, trang_thai) VALUES (:ten_danh_muc, :trang_thai)";
         $stmt = $this->conn->prepare($sql);
-        return $stmt->execute(['ten_danh_muc' => $data['name']]);
+        return $stmt->execute(['ten_danh_muc'=>$data['name'], 'trang_thai'=>$data['trang_thai']]);
     }
     public function find($id) {
         $sql = "SELECT * FROM danh_muc WHERE id_danh_muc = :id_danh_muc";
@@ -34,8 +34,8 @@ class DanhMuc
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     public function update($id, $data) {
-        $sql = "UPDATE danh_muc SET ten_danh_muc = :ten_danh_muc WHERE id_danh_muc = :id_danh_muc";
+        $sql = "UPDATE danh_muc SET ten_danh_muc = :ten_danh_muc, trang_thai= :trang_thai WHERE id_danh_muc = :id_danh_muc";
         $stmt = $this->conn->prepare($sql);
-        return $stmt->execute(['ten_danh_muc' => $data['name'], 'id_danh_muc' => $id]);
+        return $stmt->execute(['ten_danh_muc' => $data['name'],'trang_thai' => $data['trang_thai'], 'id_danh_muc' => $id]);
     }
 }

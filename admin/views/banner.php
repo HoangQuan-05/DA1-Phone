@@ -88,7 +88,8 @@
                                                     <tr>
                                                         <th>id_banner</th>
                                                         <th>hinh_anh</th>
-                                                        <th>Mô tả</th>
+                                                        <th>Trạng thái</th>
+                                                        <th>Ngày</th>
                                                         <th><i class='fa fa-cog'></i></th>
                                                     </tr>
                                                   
@@ -100,7 +101,8 @@
                                                             <td><?= $banners['id_banner'] ?></td>
 
                                                             <td><img src="<?= $banners['hinh_anhs'] ?>" width="100px" alt=""></td>
-                                                            <td><?= $banners['mo_ta'] ?></td>
+                                                            <td><?= $banners['trang_thai'] ?></td>
+                                                            <td><?= $banners['ngay_them'] ?></td>
 
 
                                                             <td>

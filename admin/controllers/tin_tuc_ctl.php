@@ -21,10 +21,18 @@ class Tin_tuc_ctl
     {
         view('tin_tuc/add');
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            (new tin_tuc())->create_news($_POST);
-            echo "<script type='text/javascript'>
+
+            if ($_POST['tieu_des'] != null) {
+                (new tin_tuc())->create_news($_POST);
+                echo "<script type='text/javascript'>
             window.location.href = 'index.php?act=tin_tuc';
         </script>";
+            } else {
+                echo "<script type='text/javascript'>
+                
+                er.innerText = 'Không được để trống';
+              </script>";
+            }
         }
     }
     public function edit_tin_tuc()

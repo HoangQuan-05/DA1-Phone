@@ -19,15 +19,16 @@ class banners{
 
     }
     public function insert($data){
-        $sql="INSERT INTO banner(hinh_anhs,mo_ta) VALUES (:hinh_anhs,:mo_ta)";
+        $sql="INSERT INTO banner(hinh_anhs,trang_thai) VALUES (:hinh_anhs,:trang_thai)";
         $stmt= $this->conn->prepare($sql);
       
         $stmt->execute($data);
+       
    
     
     }
     public function update($data){
-        $sql= "UPDATE banner SET hinh_anhs=:hinh_anhs,mo_ta=:mo_ta WHERE id_banner=:id_banner";
+        $sql= "UPDATE banner SET hinh_anhs=:hinh_anhs,trang_thai=:trang_thai WHERE id_banner=:id_banner";
         $stmt= $this ->conn->prepare($sql);
         $stmt->execute($data);
     }

@@ -88,6 +88,14 @@
                                                         <label>Tên:</label>
                                                         <input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục" value="<?php echo $data['ten_danh_muc']; ?>">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label >Trạng thái:</label>
+                                                        <select name="trang_thai" id="">
+                                                            <option value="<?php echo $data['trang_thai'];?>" hidden><?php echo $data['trang_thai']; ?></option>
+                                                            <option value="Hiển thị">Hiển thị</option>
+                                                            <option value="Ẩn">Ẩn</option>
+                                                        </select>
+                                                    </div>  
 
 
                                                     <button type="submit" class="btn btn-primary">Update</button>

@@ -37,6 +37,19 @@
         font-size: 13px;
     }
 
+    #tieu_de {
+        max-width: 600px;
+    }
+
+    #tieu_de {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
     .table-responsive {
         margin: 30px 0;
     }
@@ -265,7 +278,7 @@
                                                         <h2> <b>Tin tức</b></h2>
                                                     </div>
                                                     <div class="col-sm-7">
-                                                        <a href="index.php?act=add_danhmuc" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Thêm mới</span></a>
+                                                        <a href="index.php?act=add_tin_tuc" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Thêm mới</span></a>
 
                                                     </div>
                                                 </div>
@@ -275,22 +288,32 @@
                                                     <tr>
                                                         <th>id</th>
                                                         <th>Tiêu đề</th>
+                                                        <th>Ngày xuất bản</th>
+                                                        <th>Trạng thái</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
-                                                
+
 
                                                 <tbody>
-                                                    <?php foreach($data as $values) :?>
+                                                    <?php foreach ($data as $values) : ?>
 
-                                                    <tr>
-                                                        <td><?= $values['id_tin_tuc'] ?></td>
-                                                        <td><h6><?= $values['tieu_des'] ?></h6></td>
-                                                        <td>
-                                                            <a href="index.php?act=edit_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                                            <a onclick="return confirm('chac chan')" href="index.php?act=delete_tin_tuc&id=<?= $values['id_tin_tuc']?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                                        </td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td><?= $values['id_tin_tuc'] ?></td>
+                                                            <td>
+                                                                <p id="tieu_de"><?= $values['tieu_des'] ?></p>
+                                                            </td>
+                                                            <td>
+                                                                <h6><?= $values['ngay_xuat_ban'] ?></h6>
+                                                            </td>
+                                                            <td>
+                                                                <h6><?= $values['trang_thai'] ?></h6>
+                                                            </td>
+                                                            <td>
+                                                                <a href="index.php?act=edit_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                                <a onclick="return confirm('chac chan')" href="index.php?act=delete_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                            </td>
+                                                        </tr>
                                                     <?php endforeach ?>
 
                                                 </tbody>

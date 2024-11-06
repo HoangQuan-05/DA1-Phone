@@ -1,6 +1,4 @@
-
-   
-   <!doctype html>
+<!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -21,54 +19,81 @@
 
 </head>
 <style>
-     .add-form {
-    max-width: 600px; /* Set a maximum width for the form */
-    margin: 20px auto; /* Center the form on the page */
-    padding: 20px; /* Add padding inside the form */
-    border: 1px solid #ddd; /* Add a light gray border */
-    border-radius: 8px; /* Round the corners of the form */
-    background-color: #f9f9f9; /* Light background color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-}
+    .add-form {
+        max-width: 600px;
+        /* Set a maximum width for the form */
+        margin: 20px auto;
+        /* Center the form on the page */
+        padding: 20px;
+        /* Add padding inside the form */
+        border: 1px solid #ddd;
+        /* Add a light gray border */
+        border-radius: 8px;
+        /* Round the corners of the form */
+        background-color: #f9f9f9;
+        /* Light background color */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* Add shadow for depth */
+    }
 
-.add-form h1 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Darker text color */
-}
+    .add-form h1 {
+        text-align: center;
+        /* Center the heading */
+        color: #333;
+        /* Darker text color */
+    }
 
-.form-input,
-.form-textarea {
-    width: 100%; /* Make inputs and textarea full-width */
-    padding: 10px; /* Add padding inside inputs */
-    margin: 10px 0; /* Space between inputs */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size for inputs */
-}
+    .form-input,
+    .form-textarea {
+        width: 100%;
+        /* Make inputs and textarea full-width */
+        padding: 10px;
+        /* Add padding inside inputs */
+        margin: 10px 0;
+        /* Space between inputs */
+        border: 1px solid #ccc;
+        /* Light border */
+        border-radius: 4px;
+        /* Rounded corners */
+        font-size: 16px;
+        /* Font size for inputs */
+    }
 
-.form-input:focus,
-.form-textarea:focus {
-    border-color: #007bff; /* Change border color on focus */
-    outline: none; /* Remove default outline */
-}
+    .form-input:focus,
+    .form-textarea:focus {
+        border-color: #007bff;
+        /* Change border color on focus */
+        outline: none;
+        /* Remove default outline */
+    }
 
-.submit-btn {
-    display: block; /* Center the button */
-    width: 100%; /* Full width for button */
-    padding: 10px; /* Add padding */
-    background-color: #007bff; /* Button color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size for button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
-}
+    .submit-btn {
+        display: block;
+        /* Center the button */
+        width: 100%;
+        /* Full width for button */
+        padding: 10px;
+        /* Add padding */
+        background-color: #007bff;
+        /* Button color */
+        color: white;
+        /* Text color */
+        border: none;
+        /* Remove border */
+        border-radius: 4px;
+        /* Rounded corners */
+        font-size: 16px;
+        /* Font size for button */
+        cursor: pointer;
+        /* Pointer cursor on hover */
+        transition: background-color 0.3s;
+        /* Smooth transition */
+    }
 
-.submit-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
+    .submit-btn:hover {
+        background-color: #0056b3;
+        /* Darker blue on hover */
+    }
 </style>
 
 <body>
@@ -102,157 +127,160 @@
                                 <div class="row mb-3 pb-1">
                                     <div class="col-12">
                                         <center>
-                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                            <div class="d-flex align-items-lg-center flex-lg-row flex-column">
 
-                                        <h2>UPDATE <i class="fas fa-pencil-alt"></i></h2>
+                                                <h2>UPDATE <i class="fas fa-pencil-alt"></i></h2>
 
-<form action="" method="post" enctype="multipart/form-data" class="update-form">
-    <input type="hidden" name="hinh_anhs" value="<?= $banners['hinh_anhs'] ?>">
-    
-    <!-- Display current image with some spacing -->
-    <div class="form-group">
-        <label>Current Image:</label><br>
-        <img src="<?= $banners['hinh_anhs'] ?>" width="66" alt="Current Image">
-    </div>
+                                                <form action="" method="post" enctype="multipart/form-data" class="update-form">
+                                                    <input type="hidden" name="hinh_anhs" value="<?= $banners['hinh_anhs'] ?>">
 
-    <!-- Image upload field -->
-    <div class="form-group">
-        <label for="hinh_anhs">Image:</label>
-        <input type="file" name="hinh_anhs" id="hinh_anhs">
-    </div>
+                                                    <!-- Display current image with some spacing -->
+                                                    <div class="form-group">
+                                                        <label>Current Image:</label><br>
+                                                        <img src="<?= $banners['hinh_anhs'] ?>" width="66" alt="Current Image">
+                                                    </div>
 
-    <!-- Description field -->
-    <div class="form-group">
-        <label for="mo_ta">Description:</label>
-        <input type="text" name="mo_ta" id="mo_ta" value="<?= $banners['mo_ta'] ?>">
-    </div>
+                                                    <!-- Image upload field -->
+                                                    <div class="form-group">
+                                                        <label for="hinh_anhs">Image:</label>
+                                                        <input type="file" name="hinh_anhs" id="hinh_anhs">
+                                                    </div>
 
-    <!-- Hidden field for ID -->
-    <input type="hidden" name="id_banner" value="<?= $banners['id_banner'] ?>">
+                                                    <!-- Description field -->
+                                                    <div class="form-group">
+                                                    <select name="trang_thai" id="">
+                                                        <option value="<?= $banners['trang_thai'] ?>" hidden><?= $banners['trang_thai'] ?></option>
+                                                        <option value="Hiển thị">Hiển thị</option>
+                                                        <option value="Ẩn">Ẩn</option>
+                                                    </select>
+                                                    </div>
 
-    <button type="submit" class="submit-button">Update</button>
-</form>
+                                                    <!-- Hidden field for ID -->
+                                                    <input type="hidden" name="id_banner" value="<?= $banners['id_banner'] ?>">
 
-<style>
-    .update-form {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        font-family: Arial, sans-serif;
-    }
+                                                    <button type="submit" class="submit-button">Update</button>
+                                                </form>
 
-    .update-form h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-        font-size: 1.5em;
-    }
+                                                <style>
+                                                    .update-form {
+                                                        max-width: 400px;
+                                                        margin: 0 auto;
+                                                        padding: 20px;
+                                                        background-color: #f9f9f9;
+                                                        border-radius: 8px;
+                                                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                                        font-family: Arial, sans-serif;
+                                                    }
 
-    .form-group {
-        margin-bottom: 15px;
-    }
+                                                    .update-form h2 {
+                                                        text-align: center;
+                                                        color: #333;
+                                                        margin-bottom: 20px;
+                                                        font-size: 1.5em;
+                                                    }
 
-    .form-group label {
-        display: block;
-        font-weight: bold;
-        color: #555;
-    }
+                                                    .form-group {
+                                                        margin-bottom: 15px;
+                                                    }
 
-    .form-group input[type="text"], 
-    .form-group input[type="file"] {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 1em;
-    }
+                                                    .form-group label {
+                                                        display: block;
+                                                        font-weight: bold;
+                                                        color: #555;
+                                                    }
 
-    .submit-button {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-size: 1em;
-        cursor: pointer;
-    }
+                                                    .form-group input[type="text"],
+                                                    .form-group input[type="file"] {
+                                                        width: 100%;
+                                                        padding: 8px;
+                                                        margin-top: 5px;
+                                                        border: 1px solid #ccc;
+                                                        border-radius: 4px;
+                                                        font-size: 1em;
+                                                    }
 
-    .submit-button:hover {
-        background-color: #45a049;
-    }
-</style>
+                                                    .submit-button {
+                                                        width: 100%;
+                                                        padding: 10px;
+                                                        background-color: #4CAF50;
+                                                        color: white;
+                                                        border: none;
+                                                        border-radius: 4px;
+                                                        font-size: 1em;
+                                                        cursor: pointer;
+                                                    }
 
+                                                    .submit-button:hover {
+                                                        background-color: #45a049;
+                                                    }
+                                                </style>
+
+                                            </div>
+                                        </center>
                                     </div>
-                                    </center>
+
+
                                 </div>
 
 
-                            </div>
-
-
-                        </div> <!-- end col -->
-                    </div>
-
-                </div>
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
+                            </div> <!-- end col -->
                         </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
+
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> © Velzon.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by Themesbrand
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
+            <!-- end main content-->
+
         </div>
-        <!-- end main content-->
-
-    </div>
-    <!-- END layout-wrapper -->
+        <!-- END layout-wrapper -->
 
 
 
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
+        <!--start back-to-top-->
+        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+        <!--end back-to-top-->
 
-    <!--preloader-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
+        <!--preloader-->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner-border text-primary avatar-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        <div class="customizer-setting d-none d-md-block">
+            <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+                <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+            </div>
         </div>
-    </div>
 
-    <!-- JAVASCRIPT -->
-    <?php
-    require_once "layouts/libs_js.php";
-    ?>
-    
+        <!-- JAVASCRIPT -->
+        <?php
+        require_once "layouts/libs_js.php";
+        ?>
+
 
 </body>
 

@@ -275,7 +275,7 @@
                                                     <tr>
                                                         <th>id</th>
                                                         <th>Name</th>
-
+                                                        <th>Trạng thái</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -285,6 +285,7 @@
                                                         <tr>
                                                             <td><?= $value['id_danh_muc'] ?></td>
                                                             <td><?= $value['ten_danh_muc'] ?></td>
+                                                            <td><?= $value['trang_thai'] ?></td>
                                                             <td>
                                                                 <a href="index.php?act=update_danh_muc&id=<?= $value['id_danh_muc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                                                                 <a onclick="return confirm('chac chan')" href="index.php?act=delete_dm&id=<?= $value['id_danh_muc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
