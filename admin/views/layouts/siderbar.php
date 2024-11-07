@@ -75,10 +75,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
+                    <a class="nav-link menu-link" href="#tintuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
                         <i class="fa-solid fa-newspaper"></i><span data-key="t-advance-ui">Tin tức</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDanhMuc">
+                    <div class="collapse menu-dropdown" id="tintuc">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="index.php?act=tin_tuc" class="nav-link" data-key="t-sweet-alerts">
