@@ -22,7 +22,7 @@ class Tin_tuc_ctl
         view('tin_tuc/add');
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            if ($_POST['tieu_des'] != null) {
+            if ($_POST['tieu_de'] != null) {
                 (new tin_tuc())->create_news($_POST);
                 echo "<script type='text/javascript'>
             window.location.href = 'index.php?act=tin_tuc';
@@ -41,7 +41,7 @@ class Tin_tuc_ctl
         $data = (new tin_tuc())->find_one($id);
         view('tin_tuc/edit', ['data' => $data]);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($_POST['tieu_des'] && $_POST['noi_dungs'] != "") {
+            if ($_POST['tieu_de'] && $_POST['noi_dung'] != "") {
                 $du_lieu = $_POST;
                 print_r($du_lieu);
                 (new tin_tuc())->update_tin_tuc($id, $du_lieu);

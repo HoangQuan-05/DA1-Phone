@@ -301,7 +301,7 @@
                                                         <tr>
                                                             <td><?= $values['id_tin_tuc'] ?></td>
                                                             <td>
-                                                                <p id="tieu_de"><?= $values['tieu_des'] ?></p>
+                                                                <p id="tieu_de"><?= $values['tieu_de'] ?></p>
                                                             </td>
                                                             <td>
                                                                 <h6><?= $values['ngay_xuat_ban'] ?></h6>

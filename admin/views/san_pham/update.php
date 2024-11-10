@@ -267,24 +267,122 @@
                         <div class="col">
 
                             <div class="h-100">
-                                <form id="myForm" action="" onsubmit="submitForm(event)" method="POST">
-                                    <label for="title">Tiêu đề:</label>
-                                    <textarea name="tieu_de" id="title"></textarea> <br>
-                                    
-                                        <label>Trạng thái:</label>
-                                        <select name="trang_thai" id="">
-                                            <option value="Hiển thị">Hiển thị</option>
-                                            <option value="Ẩn" >Ẩn</option>
+                                <h2>Thêm sản phẩm</h2> <br>
+                                <form class="row g-3" method="POST" enctype="multipart/form-data">
+                                    <div class="col-md-6">
+                                        <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
+                                        <input type="text" class="form-control" id="inputEmail4" value="<?php echo $data['ten_san_pham']; ?>" placeholder="Nhập tên sản phẩm..." name="ten_san_pham">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputState" class="form-label">Danh mục</label>
+                                        <select id="inputState" class="form-select" name="id_danh_muc">
+                                            <option hidden value="<?php echo $data['id_danh_muc']; ?>"><?php echo $data['ten_danh_muc']; ?></option>
+                                            <?php foreach ($danh_muc as $dm) : ?>
+                                                <option value="<?= $dm['id_danh_muc'] ?>"><?= $dm['ten_danh_muc'] ?></option>
+                                            <?php endforeach ?>
                                         </select>
-                                    <br>
+                                    </div>
 
-                                    <label for="content">Nội dung:</label>
+                                    <div class="col-12">
+                                        <label for="floatingTextarea2">Mô tả ngắn</label>
+                                        <textarea class="form-control" placeholder="Nhập mô tả ngắn..." id="floatingTextarea2" name="mo_ta_ngan" style="height: 100px"><?php echo $data['mo_ta_ngan']; ?></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="floatingTextarea2">Mô tả dài</label>
+                                        <textarea class="form-control" placeholder="Nhập mô tả dài..." id="floatingTextarea2" name="mo_ta_dai" style="height: 150px"><?php echo $data['mo_ta_dai']; ?></textarea>
+                                    </div>
+                                    <div class="col-md-12"">
+                                       <!-- Ảnh -->
+                                        <?php foreach ($anhs as $value) : ?>
+                                            <img width=" 200px" src="image/<?= $value['hinh_anh'] ?>" alt="">
 
-                                    <div id="editor"></div>
-                                    <p id="er_news"></p>
-                                    <button class="btn btn-primary" type="submit" style="margin-top:20px">Gửi</button>
+                                    <?php endforeach ?>
+                                    </div>
+
+                                    <div class=" col-md-12"">
+                                        <label for=" imageUpload" class="form-label">Chọn nhiều ảnh:</label>
+                                        <input type="file" class="form-control" id="imageUpload" name="hinh_anh[]" accept="image/*" multiple>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-flex-start">
+
+                                            <div class="col-7" id="ram_rom">
+                                                <label for="inputPassword2" class="me-2">Ram/Rom</label>
+                                                <?php foreach ($all_phien_ban as $key => $value) : ?>
+                                                    <br>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <input type="text" class="form-control w-75 p-3" id="inputPassword2" readonly placeholder="Ram/Rom" name="phien_ban[]" value="<?= $value['phien_ban'] ?>">
+                                                    </div>
+                                                <?php endforeach ?>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-flex-start">
+                                            <div class="col-7" id="mau_sac">
+                                                <label for="inputPassword2" class="me-2">Màu sắc</label>
+                                                <?php foreach ($all_mau_sac as $key => $value) : ?>
+                                                    <br>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <input type="text" class="form-control w-75 p-3" id="inputPassword2" readonly placeholder="Màu sắc..." name="mau_sac[]" value="<?= $value['mau_sac'] ?>">
+                                                    </div>
+                                                <?php endforeach ?>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-flex-start">
+                                            <div class="col-7" id="gia_ban">
+                                                <label for="inputPassword2" class="me-2">Giá bán</label>
+
+                                                <?php foreach ($sp_chi_tiet as $key => $value) : ?>
+                                                    <br>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <input type="number" class="form-control w-75 p-3" id="inputPassword2" placeholder="Giá bán..." name="gia_ban[]" value="<?= $value['gia_ban'] ?>">
+                                                    </div>
+                                                <?php endforeach ?>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-flex-start">
+                                            <div class="col-7" id="so_luong">
+                                                <label for="inputPassword2" class="me-2">Số lượng</label>
+                                                <?php foreach ($sp_chi_tiet as $value) : ?>
+                                                    <br>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <input type="number" class="form-control w-75 p-3" id="inputPassword2" placeholder="Số lượng..." name="so_luong[]" value="<?= $value['so_luong'] ?>">
+                                                    </div>
+                                                <?php endforeach ?>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        function removeField(button) {
+                                            button.closest('.d-flex').remove();
+                                        }
+                                    </script>
+                                    <div class="col-12">
+                                        <h5 style="color:red;" id="er_san_pham"></h5>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                    </div>
+
                                 </form>
-
 
 
                             </div>
@@ -297,7 +395,7 @@
             </div>
             <!-- End Page-content -->
 
-            <footer class="footer">
+            <!-- <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
@@ -312,7 +410,7 @@
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
         </div>
         <!-- end main content-->
 
@@ -345,29 +443,9 @@
     <!-- JAVASCRIPT -->
     <script>
         // Khởi tạo Quill
-        const quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-        var er = document.getElementById('er_news');
-
-        function submitForm(event) {
-            event.preventDefault(); // Ngăn chặn form gửi tự động
-
-            // Lấy nội dung từ Quill dưới dạng HTML
-            const content = quill.root.innerHTML;
-
-            // Tạo một trường ẩn và thêm vào form
-            const input = document.createElement('textarea');
-            input.setAttribute('name', 'noi_dung'); // Tên này sẽ gửi đi với dữ liệu POST
-            input.style.display = 'none';
-            input.value = content;
-
-            // Thêm trường ẩn vào form và gửi form
-            const form = document.getElementById('myForm');
-            form.append(input);
-            form.submit();
-        }
+        var er_san_pham = document.getElementById('er_san_pham');
     </script>
+
     <?php
     require_once "views/layouts/libs_js.php";
     ?>

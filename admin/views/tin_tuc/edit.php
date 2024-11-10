@@ -270,7 +270,7 @@
                             <div class="h-100">
                                 <form id="myForm" action="" onsubmit="submitForm(event)" method="POST">
                                     <label for="title">Tiêu đề:</label>
-                                    <textarea name="tieu_des" id="title"><?php echo $data['tieu_des']; ?></textarea> <br>
+                                    <textarea name="tieu_de" id="title"><?php echo $data['tieu_de']; ?></textarea> <br>
                                     <label>Trạng thái:</label>
                                         <select name="trang_thai" id="">
                                             <option value="<?php echo $data['trang_thai']; ?>" hidden> <?php echo $data['trang_thai']; ?></option>
@@ -280,7 +280,7 @@
                                         <br>
 
                                     <label for="content">Nội dung:</label>
-                                    <div id="editor"><?php echo $data['noi_dungs']; ?></div>
+                                    <div id="editor"><?php echo $data['noi_dung']; ?></div>
                                     <p id="er_news"></p>
 
                                     <button class="btn btn-primary" type="submit" style="margin-top:20px">Update</button>
@@ -360,7 +360,7 @@
 
                 // Tạo một trường ẩn và thêm vào form
                 const input = document.createElement('textarea');
-                input.setAttribute('name', 'noi_dungs'); // Tên này sẽ gửi đi với dữ liệu POST
+                input.setAttribute('name', 'noi_dung'); // Tên này sẽ gửi đi với dữ liệu POST
                 input.style.display = 'none';
                 input.value = content;
 

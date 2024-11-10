@@ -74,6 +74,27 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
+                    <i class="fa-solid fa-basket-shopping"></i> <span data-key="t-advance-ui">Sản phẩm</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarSanPham">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="index.php?act=san_pham" class="nav-link" data-key="t-sweet-alerts">
+                                    Danh sách
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.php?act=them_san_pham" class="nav-link" data-key="t-nestable-list">
+                                    Thêm mới
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#tintuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
                         <i class="fa-solid fa-newspaper"></i><span data-key="t-advance-ui">Tin tức</span>
@@ -101,6 +122,11 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="index.php?act=banner">
                         <i class='fa fa-window-maximize'></i> <span data-key="t-dashboards">Banner</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="index.php?act=khachhang">
+                        <i class="fa-solid fa-user"></i><span data-key="t-dashboards">Khách hàng</span>
                     </a>
                 </li>
 

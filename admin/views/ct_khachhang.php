@@ -17,13 +17,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <!-- CSS -->
     <?php
-    require_once "views/layouts/libs_css.php";
+    require_once "layouts/libs_css.php";
     ?>
     <script>
         $(document).ready(function() {
@@ -228,15 +226,6 @@
         margin-top: 10px;
         font-size: 13px;
     }
-
-    #editor {
-        height: 400px;
-    }
-
-    textarea {
-        height: 70px;
-        width: 100%;
-    }
 </style>
 
 <body>
@@ -246,9 +235,9 @@
 
         <!-- HEADER -->
         <?php
-        require_once "views/layouts/header.php";
+        require_once "layouts/header.php";
 
-        require_once "views/layouts/siderbar.php";
+        require_once "layouts/siderbar.php";
         ?>
 
         <!-- Left Sidebar End -->
@@ -267,26 +256,43 @@
                         <div class="col">
 
                             <div class="h-100">
-                                <form id="myForm" action="" onsubmit="submitForm(event)" method="POST">
-                                    <label for="title">Tiêu đề:</label>
-                                    <textarea name="tieu_de" id="title"></textarea> <br>
-                                    
-                                        <label>Trạng thái:</label>
-                                        <select name="trang_thai" id="">
-                                            <option value="Hiển thị">Hiển thị</option>
-                                            <option value="Ẩn" >Ẩn</option>
-                                        </select>
-                                    <br>
-
-                                    <label for="content">Nội dung:</label>
-
-                                    <div id="editor"></div>
-                                    <p id="er_news"></p>
-                                    <button class="btn btn-primary" type="submit" style="margin-top:20px">Gửi</button>
-                                </form>
-
-
-
+                                <div class="container-xl">
+                                    <div class="table-responsive">
+                                        <div class="table-wrapper">
+                                            <div class="table-title">
+                                                <div class="row">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h2><b>Chi tiết Khách Hàng</b></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tên</th>
+                                                        <th>Email</th>
+                                                        <th>Số Điện Thoại</th>
+                                                        <td>Ngày Sinh</td>
+                                                        <td>Ngày Đăng Ký</td>
+                                                        <td>Địa chỉ</td>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                            <td><?= $data['tens'] ?></td>
+                                                            <td><?= $data['email'] ?></td>
+                                                            <td><?= $data['so_dien_thoai'] ?></td>
+                                                            <td><?= $data['ngay_sinh'] ?></td>
+                                                            <td><?= $data['ngay_dang_ky'] ?></td>
+                                                            <td><?= $data['dia_chi'] ?></td>
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div> <!-- end col -->
@@ -343,33 +349,8 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script>
-        // Khởi tạo Quill
-        const quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-        var er = document.getElementById('er_news');
-
-        function submitForm(event) {
-            event.preventDefault(); // Ngăn chặn form gửi tự động
-
-            // Lấy nội dung từ Quill dưới dạng HTML
-            const content = quill.root.innerHTML;
-
-            // Tạo một trường ẩn và thêm vào form
-            const input = document.createElement('textarea');
-            input.setAttribute('name', 'noi_dung'); // Tên này sẽ gửi đi với dữ liệu POST
-            input.style.display = 'none';
-            input.value = content;
-
-            // Thêm trường ẩn vào form và gửi form
-            const form = document.getElementById('myForm');
-            form.append(input);
-            form.submit();
-        }
-    </script>
     <?php
-    require_once "views/layouts/libs_js.php";
+    require_once "layouts/libs_js.php";
     ?>
 
 

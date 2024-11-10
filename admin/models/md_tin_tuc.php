@@ -25,7 +25,7 @@ class tin_tuc
 
     public function create_news($data)
     {
-        $sql = "INSERT INTO tin_tuc (tieu_des,noi_dungs,trang_thai) VALUES (:tieu_des, :noi_dungs,:trang_thai)";
+        $sql = "INSERT INTO tin_tuc (tieu_de,noi_dung,trang_thai) VALUES (:tieu_de, :noi_dung,:trang_thai)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
@@ -39,7 +39,7 @@ class tin_tuc
     }
 
     public function update_tin_tuc($id,$data){
-        $sql ="UPDATE tin_tuc SET tieu_des = :tieu_des, noi_dungs =:noi_dungs, trang_thai =:trang_thai WHERE id_tin_tuc = $id";
+        $sql ="UPDATE tin_tuc SET tieu_de = :tieu_de, noi_dung =:noi_dung, trang_thai =:trang_thai WHERE id_tin_tuc = $id";
         $result = $this->conn->prepare($sql);
         $result->execute($data);
     }

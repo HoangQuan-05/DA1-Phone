@@ -17,8 +17,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <!-- CSS -->
@@ -38,6 +36,21 @@
         font-family: 'Varela Round', sans-serif;
         font-size: 13px;
     }
+
+    td {
+        height: 100px;
+    }
+
+
+    #mo_ta {
+        max-width: 300px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 
     .table-responsive {
         margin: 30px 0;
@@ -229,13 +242,14 @@
         font-size: 13px;
     }
 
-    #editor {
-        height: 400px;
+    table {
+        text-align: center;
     }
 
-    textarea {
-        height: 70px;
-        width: 100%;
+    #xoa {
+        background-color: rebeccapurple;
+        color: white;
+
     }
 </style>
 
@@ -267,26 +281,101 @@
                         <div class="col">
 
                             <div class="h-100">
-                                <form id="myForm" action="" onsubmit="submitForm(event)" method="POST">
-                                    <label for="title">Tiêu đề:</label>
-                                    <textarea name="tieu_de" id="title"></textarea> <br>
-                                    
-                                        <label>Trạng thái:</label>
-                                        <select name="trang_thai" id="">
-                                            <option value="Hiển thị">Hiển thị</option>
-                                            <option value="Ẩn" >Ẩn</option>
-                                        </select>
-                                    <br>
+                                <div class="container-2xl">
+                                    <div class="table-responsive">
+                                        <div class="table-wrapper">
+                                            <div class="table-title">
+                                                <div class="row">
+                                                    <div class="col-sm-5">
+                                                        <h2> <b>Sản phẩm</b></h2>
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <a id="xoa" href="" class="btn btn-secondary"><span class="">Xóa</span></a>
+                                                        <a href="index.php?act=them_san_pham" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Thêm mới</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th><input type="checkbox" name="" id=""></th>
+                                                        <th>id</th>
+                                                        <th>Tên sản phẩm</th>
+                                                        <th>Hình Ảnh</th>
+                                                        <th>Danh mục</th>
+                                                        <th>Giá</th>
+                                                        <th>Mô tả</th>
+                                                        <th>Lượt xem</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
 
-                                    <label for="content">Nội dung:</label>
 
-                                    <div id="editor"></div>
-                                    <p id="er_news"></p>
-                                    <button class="btn btn-primary" type="submit" style="margin-top:20px">Gửi</button>
-                                </form>
+                                                <tbody>
+                                                    <?php
+                                                    $id = []; // Initialize once before the loop
+                                                    foreach ($data as $value) :
+                                                        if (!in_array($value['id_san_pham'], $id)) :
+                                                    ?>
+                                                            <tr>
+                                                                <td><input type="checkbox" name="" id=""></td>
+                                                                <td><?= $value['id_san_pham'] ?></td>
+                                                                <td><?= $value['ten_san_pham'] ?></td>
+
+                                                                <?php
+                                                                $stt = false;
+                                                                foreach ($anh as $img) :
+                                                                    if ($value['id_san_pham'] == $img['id_san_pham']) :
+                                                                ?>
+                                                                        <td>
+                                                                            <img style="width:100px;" src="image/<?= $img['hinh_anh'] ?>" alt="<?= $value['ten_san_pham'] ?>">
+                                                                        </td>
+                                                                    <?php
+                                                                        $stt = true;
+                                                                        break;
+                                                                    endif;
+                                                                endforeach;
+
+                                                                if (!$stt) :
+                                                                    ?>
+                                                                    <td><img style="width:100px;" src="" alt="<?= $value['ten_san_pham'] ?>"></td>
+                                                                <?php endif; ?>
+
+                                                                <td><?= $value['ten_danh_muc'] ?></td>
+                                                                <td><?=  number_format($value['gia_ban'] , ) ?> VND</td>
+                                                                <td>
+                                                                    <p id="mo_ta"><?= $value['mo_ta_ngan'] ?></p>
+                                                                </td>
+                                                                <td><?= $value['luot_xem'] ?></td>
+                                                                <td>
+                                                                    <a href="index.php?act=update_san_pham&id=<?= $value['id_san_pham'] ?>" class="settings" title="Update" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                                    <a onclick="return confirm('Chắc chắn xóa?')" href="index.php?act=delete_san_pham&id=<?= $value['id_san_pham'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                                </td>
+                                                            </tr>
+                                                    <?php
+                                                            $id[] = $value['id_san_pham']; // Append current ID to avoid duplicates
+                                                        endif;
+                                                    endforeach;
+                                                    ?>
+                                                    
+                                                </tbody>
+
+                                            </table>
+                                            <div class="clearfix">
+
+                                                <ul class="pagination">
+
+
+                                                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                                    <li class="page-item"><a href="#" class="page-link">2</a></li>
 
 
 
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div> <!-- end col -->
@@ -343,31 +432,6 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script>
-        // Khởi tạo Quill
-        const quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-        var er = document.getElementById('er_news');
-
-        function submitForm(event) {
-            event.preventDefault(); // Ngăn chặn form gửi tự động
-
-            // Lấy nội dung từ Quill dưới dạng HTML
-            const content = quill.root.innerHTML;
-
-            // Tạo một trường ẩn và thêm vào form
-            const input = document.createElement('textarea');
-            input.setAttribute('name', 'noi_dung'); // Tên này sẽ gửi đi với dữ liệu POST
-            input.style.display = 'none';
-            input.value = content;
-
-            // Thêm trường ẩn vào form và gửi form
-            const form = document.getElementById('myForm');
-            form.append(input);
-            form.submit();
-        }
-    </script>
     <?php
     require_once "views/layouts/libs_js.php";
     ?>
