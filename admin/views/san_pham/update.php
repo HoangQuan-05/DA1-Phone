@@ -375,6 +375,10 @@
                                             button.closest('.d-flex').remove();
                                         }
                                     </script>
+                                     <div class="col-md-12">
+                                        <label for="inputEmail4" class="form-label">Giảm giá sản phẩm (%)</label>
+                                        <input type="number" class="form-control" id="inputEmail4" placeholder="Theo %..." name="gia_giam">
+                                    </div>
                                     <div class="col-12">
                                         <h5 style="color:red;" id="er_san_pham"></h5>
                                     </div>
