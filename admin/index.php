@@ -12,7 +12,7 @@ require_once 'controllers/danhmuc_ctl.php';
 require_once 'controllers/tin_tuc_ctl.php';
 require_once 'controllers/ctl_san_pham.php';
 require_once  'controllers/khachhang_ctl.php';
-
+require_once "models/khuyenmai.php";
 
 // Require toàn bộ file Models
 require_once 'models/md_lien_he.php';
@@ -21,6 +21,9 @@ require_once "models/md_danh_muc.php";
 require_once "models/md_tin_tuc.php";
 require_once 'models/md_san_pham.php';
 require_once "models/md_khach_hang.php";
+require_once  'controllers/khuyenmaicontroller.php';
+
+
 // Route
 $act = $_GET['act'] ?? 'dashboard';
 
@@ -84,13 +87,34 @@ switch ($act) {
   case 'update_san_pham':
     (new Ctl_san_pham())->update_san_pham();
     break;
+  case 'delete_san_pham':
+    (new Ctl_san_pham())->delete_san_pham();
+    break;
   case 'khachhang':
     (new KhachHang_ctl())->khach_hang();
     break;
-  case 'ct_khachhang':
-    (new KhachHang_ctl())->ct_khach_hang();
+  case 'update_khachhang':
+    (new KhachHang_ctl())->update_khach_hang();
     break;
-  case 'delete_san_pham':
-    (new Ctl_san_pham())->delete_san_pham();
+  case 'dl_khachhang':
+    (new KhachHang_ctl())->dl_khach_hang();
+    break;
+  case 'add_khachhang':
+    (new KhachHang_ctl())->add_khach_hang();
+    break;
+  case 'khuyen_mai':
+    (new khuyenmaicontroller())->khuyenmai();
+    break;
+  case 'deletel':
+    (new khuyenmaicontroller())->deletel();
+    break;
+  case 'voucher':
+    (new khuyenmaicontroller())->voucher();
+    break;
+  case 'add_khuyenmai':
+    (new khuyenmaicontroller())->add();
+    break;
+  case 'updatekm':
+    (new khuyenmaicontroller())->updatekm();
     break;
 };

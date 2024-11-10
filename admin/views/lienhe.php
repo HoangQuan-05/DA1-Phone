@@ -58,6 +58,7 @@
         /* box-shadow: 0px 0px 3px #D2D2D8; */
         cursor: pointer;
         transition: .3s ease;
+        background-color: #f7f7f7;
 
     }
 

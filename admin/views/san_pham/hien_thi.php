@@ -281,36 +281,30 @@
                         <div class="col">
 
                             <div class="h-100">
-                                <div class="container-2xl">
+                                <div class="container-fluid">
                                     <div class="table-responsive">
                                         <div class="table-wrapper">
-                                            <div class="table-title">
-                                                <div class="row">
-                                                    <div class="col-sm-5">
-                                                        <h2> <b>Sản phẩm</b></h2>
-                                                    </div>
-                                                    <div class="col-sm-7">
-                                                        <a id="xoa" href="" class="btn btn-secondary"><span class="">Xóa</span></a>
-                                                        <a href="index.php?act=them_san_pham" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Thêm mới</span></a>
-                                                    </div>
+                                            <div class="table-title d-flex justify-content-between align-items-center">
+                                                <h2><b>Sản phẩm</b></h2>
+                                                <div>
+                                                    <a id="xoa" href="" class="btn btn-danger"><span>Xóa</span></a>
+                                                    <a href="index.php?act=them_san_pham" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Thêm mới</span></a>
                                                 </div>
                                             </div>
                                             <table class="table table-striped table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th><input type="checkbox" name="" id=""></th>
-                                                        <th>id</th>
+                                                        <th>ID</th>
                                                         <th>Tên sản phẩm</th>
-                                                        <th>Hình Ảnh</th>
+                                                        <th>Hình ảnh</th>
                                                         <th>Danh mục</th>
                                                         <th>Giá</th>
                                                         <th>Mô tả</th>
                                                         <th>Lượt xem</th>
-                                                        <th>Action</th>
+                                                        <th>Hành động</th>
                                                     </tr>
                                                 </thead>
-
-
                                                 <tbody>
                                                     <?php
                                                     $id = []; // Initialize once before the loop
@@ -321,56 +315,49 @@
                                                                 <td><input type="checkbox" name="" id=""></td>
                                                                 <td><?= $value['id_san_pham'] ?></td>
                                                                 <td><?= $value['ten_san_pham'] ?></td>
-
                                                                 <?php
                                                                 $stt = false;
                                                                 foreach ($anh as $img) :
                                                                     if ($value['id_san_pham'] == $img['id_san_pham']) :
                                                                 ?>
                                                                         <td>
-                                                                            <img style="width:100px;" src="image/<?= $img['hinh_anh'] ?>" alt="<?= $value['ten_san_pham'] ?>">
+                                                                            <img style="width:100px;" src="image/<?= $img['hinh_anh'] ?>" alt="<?= $value['ten_san_pham'] ?>" class="img-fluid">
                                                                         </td>
                                                                     <?php
                                                                         $stt = true;
                                                                         break;
                                                                     endif;
                                                                 endforeach;
-
                                                                 if (!$stt) :
                                                                     ?>
-                                                                    <td><img style="width:100px;" src="" alt="<?= $value['ten_san_pham'] ?>"></td>
+                                                                    <td><img style="width:100px;" src="" alt="<?= $value['ten_san_pham'] ?>" class="img-fluid"></td>
                                                                 <?php endif; ?>
-
                                                                 <td><?= $value['ten_danh_muc'] ?></td>
-                                                                <td><?=  number_format($value['gia_ban'] , ) ?> VND</td>
+                                                                <td><?= number_format($value['gia_ban'],) ?> VND</td>
                                                                 <td>
                                                                     <p id="mo_ta"><?= $value['mo_ta_ngan'] ?></p>
                                                                 </td>
                                                                 <td><?= $value['luot_xem'] ?></td>
+                                                             
                                                                 <td>
-                                                                    <a href="index.php?act=update_san_pham&id=<?= $value['id_san_pham'] ?>" class="settings" title="Update" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                                                    <a onclick="return confirm('Chắc chắn xóa?')" href="index.php?act=delete_san_pham&id=<?= $value['id_san_pham'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                                                </td>
+                                                                <a href="index.php?act=update_san_pham&id=<?= $value['id_san_pham'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                                <a onclick="return confirm('Chắc chắn xóa?')" href="index.php?act=delete_san_pham&id=<?= $value['id_san_pham'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                            </td>
                                                             </tr>
                                                     <?php
                                                             $id[] = $value['id_san_pham']; // Append current ID to avoid duplicates
                                                         endif;
                                                     endforeach;
                                                     ?>
-                                                    
                                                 </tbody>
-
                                             </table>
+
+                                            <!-- Pagination -->
                                             <div class="clearfix">
-
-                                                <ul class="pagination">
-
-
+                                                <ul class="pagination justify-content-center">
                                                     <li class="page-item active"><a href="#" class="page-link">1</a></li>
                                                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-
-
-
+                                                    <!-- Add more pagination items as needed -->
                                                 </ul>
                                             </div>
                                         </div>
