@@ -30,73 +30,15 @@
     </script>
 </head>
 <style>
-    .table-title {
-        background-color: #f8f9fa;
-        /* Light background for header */
-        color: #495057;
-        /* Dark gray text for contrast */
-        padding: 16px;
-        border-bottom: 2px solid #dee2e6;
-    }
-
-    .table-title h2 {
-        margin: 0;
-    }
-
-    .table-responsive {
-        margin-top: 20px;
-    }
-
-    .table thead th {
-        background-color: #e3f2fd;
-        /* Light blue header */
-        color: #0d6efd;
-        /* Dark blue text */
-    }
-
-    .table tbody tr:nth-child(odd) {
-        background-color: #f9f9f9;
-        /* Light gray for odd rows */
-    }
-
-    .table tbody tr:nth-child(even) {
-        background-color: #ffffff;
-        /* White for even rows */
-    }
-
-    .table td,
-    .table th {
+    table td,
+    table th {
+        text-align: center;
+        /* Căn giữa theo chiều ngang */
         vertical-align: middle;
-    }
+        /* Căn giữa theo chiều dọc */
+        padding: 8px;
+        /* Khoảng cách nội dung với viền ô */
 
-    .pagination .page-item.active .page-link {
-        background-color: #0d6efd;
-        /* Blue for active page */
-        color: #fff;
-    }
-
-    .pagination .page-link {
-        color: #0d6efd;
-        /* Blue text for pagination links */
-    }
-
-    .form-control {
-        max-width: 250px;
-        /* Limit search bar width */
-        margin-right: 10px;
-    }
-
-    .btn-action {
-        color: #0d6efd;
-    }
-
-    .btn-action.delete {
-        color: #e63946;
-        /* Red for delete */
-    }
-
-    .btn-action:hover {
-        opacity: 0.8;
     }
 </style>
 
@@ -126,66 +68,45 @@
 
                     <div class="row">
                         <div class="col">
+                            <div class="table-responsive">
+                                <table style="background-color: white;" class="table table-hover table-nowrap">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">AVT</th>
+                                            <th scope="col">Tên khách hàng</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Số điện thoại</th>
+                                            <th scope="col">Ngày sinh</th>
+                                            <th scope="col">Ngày đăng ký</th>
+                                            <th scope="col">Địa chỉ</th>
+                                            <th scope="col">Vai trò</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($data as $value) : ?>
+                                            <tr>
+                                                <td><?= $value['id_khach_hang'] ?></td>
+                                                <td><img style="width:60px; height:60px;  border-radius: 50%;" src="<?= $value['anh_dai_dien'] ?>" alt=""></td>
+                                                <td><?= $value['tens'] ?></td>
+                                                <td><?= $value['email'] ?></td>
+                                                <td><?= $value['so_dien_thoai'] ?></td>
+                                                <td><?= $value['ngay_sinh'] ?></td>
+                                                <td><?= $value['ngay_dang_ky'] ?></td>
+                                                <td><?= $value['dia_chi'] ?></td>
+                                                <td><?= $value['vai_tro'] ?></td>
+                                                <td>
+                                                    <a href="index.php?act=update_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="index.php?act=dl_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
 
-                            <div class="container h-100">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="table-responsive">
-                                            <div class="table-wrapper">
-                                                <div class="table-title d-flex justify-content-between align-items-center">
-                                                    <h2><b>Danh Sách Khách Hàng</b></h2>
-                                                    <form action="" method="GET" class="d-flex">
-                                                        <input type="text" name="search" class="form-control" placeholder="Tìm kiếm...">
-                                                    </form>
-                                                </div>
-
-                                                <table class="table table-striped table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Tên</th>
-                                                            <th>Ảnh</th>
-                                                            <th>Email</th>
-                                                            <th>Số Điện Thoại</th>
-                                                            <th>Ngày Sinh</th>
-                                                            <th>Ngày Đăng Ký</th>
-                                                            <th>Địa Chỉ</th>
-                                                            <th>Vai Trò</th>
-                                                            <th>Chi Tiết</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php foreach ($data as $value) : ?>
-                                                            <tr>
-                                                                <td><?= $value['id_khach_hang'] ?></td>
-                                                                <td><?= $value['tens'] ?></td>
-                                                                <td><img src="<?= $value['anh_dai_dien'] ?>" width="100" alt=""></td>
-                                                                <td><?= $value['email'] ?></td>
-                                                                <td><?= $value['so_dien_thoai'] ?></td>
-                                                                <td><?= $value['ngay_sinh'] ?></td>
-                                                                <td><?= $value['ngay_dang_ky'] ?></td>
-                                                                <td><?= $value['dia_chi'] ?></td>
-                                                                <td><?= $value['vai_tro'] ?></td>
-                                                                <td>
-                                                                    <a href="index.php?act=update_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                                                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="index.php?act=dl_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach ?>
-                                                    </tbody>
-                                                </table>
-
-                                                <div class="clearfix">
-                                                    <ul class="pagination">
-                                                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                                                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
+
 
                         </div> <!-- end col -->
                     </div>

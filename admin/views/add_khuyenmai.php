@@ -123,58 +123,57 @@
                 <div class="container-fluid">
 
                     <div class="row">
-                        <div class="col">
-
-
-                            <div class="container h-100 d-flex justify-content-center align-items-center">
-                                <div class="form-container">
-                                    <div class="text-center mb-4">
-                                        <h1><i class="fas fa-plus"></i> Thêm Dữ Liệu</h1>
+                        <div class="h-100">
+                            <div class="container mt-5">
+                                <div class="row mb-3 pb-1">
+                                    <div class="col-12">
+                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                            <h1><i class="fas fa-plus"></i> Thêm Dữ Liệu</h1>
+                                            <form action="index.php?act=voucher" method="post" enctype="multipart/form-data" class="w-100" onsubmit="return validateForm()">
+                                                <div class="form-group mb-3">
+                                                    <label for="ten_voucher">Tên:</label>
+                                                    <input type="text" class="form-control" name="ten_voucher" id="ten_voucher">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="hinh_anh">Ảnh:</label>
+                                                    <input type="file" class="form-control" name="hinh_anh" id="hinh_anh">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="thoi_gian">Thời gian:</label>
+                                                    <input type="number" class="form-control" name="thoi_gian" id="thoi_gian">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="voucher">Voucher %:</label>
+                                                    <input type="text" class="form-control" name="voucher" id="voucher">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="mo_ta">Mô tả:</label>
+                                                    <textarea class="form-control" name="mo_ta" cols="66" rows="8" id="mo_ta"></textarea>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="id_danh_muc">Danh mục:</label>
+                                                    <select class="form-select" name="id_danh_muc" id="id_danh_muc">
+                                                        <?php foreach ($danhmuc as $dm) : ?>
+                                                            <option value="<?= $dm['id_danh_muc'] ?>"><?= $dm['ten_danh_muc'] ?></option>
+                                                        <?php endforeach ?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3 text-center">
+                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                                </div>
+                                                <p id="error" class="text-danger text-center"></p>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <form action="index.php?act=voucher" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="ten_voucher">Tên:</label>
-                                            <input type="text" class="form-control" name="ten_voucher" id="ten_voucher" placeholder="Nhập tên voucher">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="hinh_anh">Ảnh:</label>
-                                            <input type="file" class="form-control-file" name="hinh_anh" id="hinh_anh">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="thoi_gian">Thời gian:</label>
-                                            <input type="number" class="form-control" name="thoi_gian" id="thoi_gian" placeholder="Có hiệu hiệu trong giờ">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="voucher">Voucher %:</label>
-                                            <input type="number" class="form-control" name="voucher" id="voucher" placeholder="Nhập phần trăm giảm giá">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="mo_ta">Mô tả:</label>
-                                            <textarea name="mo_ta" class="form-control" cols="30" rows="4" id="mo_ta" placeholder="Nhập mô tả"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="id_danh_muc">Danh mục:</label>
-                                            <select name="id_danh_muc" class="form-control" id="id_danh_muc">
-                                                <?php foreach ($danhmuc as $dm) : ?>
-                                                    
-                                                    <option value="<?= $dm['id_danh_muc'] ?>">
-                                                        <?= $dm['ten_danh_muc'] ?>
-                                                    </option>
-                                                <?php endforeach ?>
-                                            </select>
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary submit-btn">Thêm mới</button>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
-                        </div>
+
+                        </div> <!-- end col -->
 
                     </div>
                     <!-- container-fluid -->
                 </div>
-          
+
                 <!-- End Page-content -->
 
                 <footer class="footer">
@@ -223,6 +222,23 @@
         </div>
 
         <!-- JAVASCRIPT -->
+        <script>
+            function validateForm() {
+                var ten_voucher = document.getElementById('ten_voucher').value;
+                var voucher = document.getElementById('voucher').value;
+                var thoi_gian = document.getElementById('thoi_gian').value;
+                var mo_ta = document.getElementById('mo_ta').value;
+
+                // Check if required fields are filled
+                if (ten_voucher == "" || voucher == "" || thoi_gian == "" || mo_ta == "") {
+                    document.getElementById('error').innerText = "Tất cả các trường là bắt buộc!";
+                    return false;
+                }
+
+                // If all checks pass, return true to submit the form
+                return true;
+            }
+        </script>
         <?php
         require_once "layouts/libs_js.php";
         ?>

@@ -1,70 +1,42 @@
-var btn_ram = document.getElementById("add_ram");
-var btn_mau_sac = document.getElementById("add_mau_sac");
-
-var ram_rom = document.getElementById("ram_rom");
-var mau_sac = document.getElementById("mau_sac");
-
-btn_ram.addEventListener("click", () => {
-  
-  const lineBreak = document.createElement("br");
-  var div_ram = document.createElement("div");
-  div_ram.classList.add(
-    "d-flex",
-    "justify-content-between",
-    "align-items-center"
-  );
-
-  const btn_xoa = document.createElement("div");
-  btn_xoa.classList.add("btn", "btn-primary", `"ram_delete"`);
-  btn_xoa.innerHTML = "Xoa";
-
-  var input_ram = document.createElement("input");
-  input_ram.type = "text";
-  input_ram.name = "phien_ban[]";
-  input_ram.placeholder = "Ram/Rom";
-  input_ram.classList.add("form-control", "w-75", "p-3");
-
-  ram_rom.append(lineBreak);
-  div_ram.append(input_ram);
-  div_ram.append(btn_xoa);
-  ram_rom.append(div_ram);
-
-  btn_xoa.addEventListener("click", () => {
-    lineBreak.remove()
-    div_ram.remove();
-  });
-});
-
-
-
-btn_mau_sac.addEventListener("click", () => {
-  
-    const lineBreak = document.createElement("br");
-    var div_ram = document.createElement("div");
-    div_ram.classList.add(
-      "d-flex",
-      "justify-content-between",
-      "align-items-center"
-    );
-  
-    const btn_xoa = document.createElement("div");
-    btn_xoa.classList.add("btn", "btn-primary");
-    btn_xoa.innerHTML = "Xoa";
-  
-    var input_mau_sac = document.createElement("input");
-    input_mau_sac.type = "text";
-    input_mau_sac.name = "mau_sac[]";
-    input_mau_sac.placeholder = "Mùa sắc";
-    input_mau_sac.classList.add("form-control", "w-75", "p-3");
-  
-    mau_sac.append(lineBreak);
-    div_ram.append(input_mau_sac);
-    div_ram.append(btn_xoa);
-    mau_sac.append(div_ram);
-  
-    btn_xoa.addEventListener("click", () => {
-      lineBreak.remove()
-      div_ram.remove();
-    });
-  });
-  
+<div class="container h-100">
+<div class="row mb-3 pb-1">
+    <div class="col-12">
+        <div class="text-center mb-4">
+            <h1>Danh Sách Voucher</h1>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="custom-table-header">
+                    <tr>
+                        <th>ID Voucher</th>
+                        <th>Tên Voucher</th>
+                        <th>Hình Ảnh</th>
+                        <th>Voucher (%)</th>
+                        <th>Thời Gian</th>
+                        <th>Mô Tả</th>
+                        <th>Danh Mục</th>
+                        <th><i class='fa fa-cog'></i> Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($khuyenmai as $khuyenmais): ?>
+                        <tr class="custom-table-row">
+                            <td><?= $khuyenmais['id_voucher'] ?></td>
+                            <td><?= $khuyenmais['ten_voucher'] ?></td>
+                            <td><img src="<?= $khuyenmais['hinh_anh'] ?>" width="100" alt="Ảnh sản phẩm"></td>
+                            <td><?= $khuyenmais['voucher'] ?> %</td>
+                            <td><?= $khuyenmais['thoi_gian'] ?> Giờ</td>
+                            <td><?= $khuyenmais['mo_ta'] ?></td>
+                            <td><?= $khuyenmais['ten_danh_muc'] ?></td>
+                            <td>
+                                <a onclick="return confirm('Bạn có muốn xóa?')" href="index.php?act=deletel&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-delete btn-sm"><i class="fas fa-trash"></i></a>
+                                <a href="index.php?act=updatekm&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-edit btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

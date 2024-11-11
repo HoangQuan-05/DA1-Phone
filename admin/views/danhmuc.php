@@ -29,7 +29,7 @@
         });
     </script>
 </head>
-<style>
+<!-- <style>
     body {
         color: #566787;
         background: #f5f5f5;
@@ -226,7 +226,7 @@
         margin-top: 10px;
         font-size: 13px;
     }
-</style>
+</style> -->
 
 <body>
 
@@ -255,67 +255,40 @@
                     <div class="row">
                         <div class="col">
 
-                            <div class="h-100">
-                                <div class="container-xl">
-                                    <div class="table-responsive">
-                                        <div class="table-wrapper">
-                                            <div class="table-title">
-                                                <div class="row">
-                                                    <div class="col-sm-5">
-                                                        <h2> <b>Danh Muc</b></h2>
-                                                    </div>
-                                                    <div class="col-sm-7">
-                                                        <a href="index.php?act=add_danhmuc" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+                            <div class="table-responsive">
+                                <table style="background-color: white;" class="table table-hover table-nowrap">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col">Action</th>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <table class="table table-striped table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>id</th>
-                                                        <th>Name</th>
-                                                        <th>Trạng thái</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                               
-                                                <tbody>
-                                                    <?php foreach ($data as $value) : ?>
-                                                        <tr>
-                                                            <td><?= $value['id_danh_muc'] ?></td>
-                                                            <td><?= $value['ten_danh_muc'] ?></td>
-                                                            <?php if ($value['trang_thai'] == 'Hiển thị') : ?>
-                                                                <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($data as $value) : ?>
+                                            <tr>
+                                                <td><?= $value['id_danh_muc'] ?></td>
+                                                <td><?= $value['ten_danh_muc'] ?></td>
+                                                <?php if ($value['trang_thai'] == 'Hiển thị') : ?>
+                                                    <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
 
 
 
-                                                            <?php else : ?>
-                                                                <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
+                                                <?php else : ?>
+                                                    <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
 
-                                                            <?php endif ?>
-                                                            <td>
-                                                                <a href="index.php?act=update_danh_muc&id=<?= $value['id_danh_muc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                                                <a onclick="return confirm('chac chan')" href="index.php?act=delete_dm&id=<?= $value['id_danh_muc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach ?>
-                                                </tbody>
-                                            </table>
-                                            <div class="clearfix">
+                                                <?php endif ?>
+                                                <td>
+                                                    <a href="index.php?act=update_danh_muc&id=<?= $value['id_danh_muc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                    <a onclick="return confirm('chac chan')" href="index.php?act=delete_dm&id=<?= $value['id_danh_muc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
 
-                                                <ul class="pagination">
-
-
-                                                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                                                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
 
                         </div> <!-- end col -->
@@ -375,7 +348,7 @@
     <?php
     require_once "layouts/libs_js.php";
     ?>
-   
+
 
 </body>
 

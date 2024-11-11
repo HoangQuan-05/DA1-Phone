@@ -19,36 +19,48 @@
 
 </head>
 <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th,
-    td {
-        padding: 10px;
-        border: 1px solid #ddd;
+    table td,
+    table th {
         text-align: center;
-    }
-
-    th {
-        background-color: #f4f4f4;
-    }
-
-    img {
-        max-width: 100px;
-        border-radius: 8px;
-    }
-
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    button {
-        border: none;
+        /* Căn giữa theo chiều ngang */
+        vertical-align: middle;
+        /* Căn giữa theo chiều dọc */
+        padding: 8px;
+        /* Khoảng cách nội dung với viền ô */
+       
+        /* Viền cho các ô */
     }
 </style>
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th,
+td {
+padding: 10px;
+border: 1px solid #ddd;
+text-align: center;
+}
+
+th {
+background-color: #f4f4f4;
+}
+
+img {
+max-width: 100px;
+border-radius: 8px;
+}
+
+a {
+color: #007bff;
+text-decoration: none;
+}
+
+button {
+border: none;
+}
+</style> -->
 
 <body>
 
@@ -77,66 +89,53 @@
                     <div class="row">
                         <div class="col">
 
-                            <div class="h-100">
-                                <div class="row mb-3 pb-1">
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                            <h1>Danh Sách Banner</h1>
+                            <div class="table-responsive">
+                                <table style="background-color: white;" class="table table-hover table-nowrap">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Hình ảnh</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col">Ngày đăng</th>
+                                            <th scope="col">Action</th>
 
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <th>id_banner</th>
-                                                        <th>hinh_anh</th>
-                                                        <th>Trạng thái</th>
-                                                        <th>Ngày</th>
-                                                        <th><i class='fa fa-cog'></i></th>
-                                                    </tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($banner as $banners): ?>
+                                            <tr>
 
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($banner as $banners): ?>
-                                                        <tr>
+                                                <td><?= $banners['id_banner'] ?></td>
 
-                                                            <td><?= $banners['id_banner'] ?></td>
+                                                <td><img src="<?= $banners['hinh_anhs'] ?>" width="100px" alt=""></td>
 
-                                                            <td><img src="<?= $banners['hinh_anhs'] ?>" width="100px" alt=""></td>
-
-                                                            <?php if ($banners['trang_thai'] == 'Hiển thị') : ?>
-                                                                <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
+                                                <?php if ($banners['trang_thai'] == 'Hiển thị') : ?>
+                                                    <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
 
 
 
-                                                            <?php else : ?>
-                                                                <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
+                                                <?php else : ?>
+                                                    <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
 
-                                                            <?php endif ?>
-                                                            <td>
-                                                                <?= $banners['ngay_them'] ?>
-                                                            </td>
-
-
-                                                            <td>
-                                                                <button> <a href="index.php?act=update&id=<?= $banners['id_banner'] ?>"><i class="fas fa-pencil-alt"></i></a></button>
-                                                                <button><a onclick="return confirm('ban co muon xoa')" href="index.php?act=delete&id=<?= $banners['id_banner'] ?>"><i class="fas fa-trash"></i></a></button>
-
-                                                            </td>
-
-                                                        </tr>
-                                                    <?php endforeach ?>
-
-                                                </tbody>
-                                            </table>
+                                                <?php endif ?>
+                                                <td>
+                                                    <?= $banners['ngay_them'] ?>
+                                                </td>
 
 
-                                        </div>
-                                    </div>
+                                                <td>
+                                                    <button> <a href="index.php?act=update&id=<?= $banners['id_banner'] ?>"><i class="fas fa-pencil-alt"></i></a></button>
+                                                    <button><a onclick="return confirm('ban co muon xoa')" href="index.php?act=delete&id=<?= $banners['id_banner'] ?>"><i class="fas fa-trash"></i></a></button>
 
+                                                </td>
 
-                                </div>
+                                            </tr>
+                                        <?php endforeach ?>
 
+                                    </tbody>
+                                </table>
+                            </div>
 
-                            </div> <!-- end col -->
                         </div>
 
                     </div>

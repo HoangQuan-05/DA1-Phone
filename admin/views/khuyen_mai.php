@@ -19,45 +19,15 @@
 
 </head>
 <style>
-    .custom-table-header {
-        background-color: #e3f2fd;
-        /* Light blue for header */
-        color: #0d6efd;
-        /* Darker blue text */
-    }
+    table td,
+    table th {
+        text-align: center;
+        /* Căn giữa theo chiều ngang */
+        vertical-align: middle;
+        /* Căn giữa theo chiều dọc */
+        padding: 8px;
+        /* Khoảng cách nội dung với viền ô */
 
-    .custom-table-row:nth-child(odd) {
-        background-color: #f9f9f9;
-        /* Very light gray for odd rows */
-    }
-
-    .custom-table-row:nth-child(even) {
-        background-color: #ffffff;
-        /* White for even rows */
-    }
-
-    .custom-button-delete {
-        background-color: #ffccd5;
-        /* Light red for delete button */
-        color: #e63946;
-        /* Darker red text */
-    }
-
-    .custom-button-edit {
-        background-color: #d1e7dd;
-        /* Light green for edit button */
-        color: #1b4332;
-        /* Darker green text */
-    }
-
-    .custom-button-delete:hover {
-        background-color: #f8b4b4;
-        /* Darker shade on hover */
-    }
-
-    .custom-button-edit:hover {
-        background-color: #b7d9c8;
-        /* Darker shade on hover */
     }
 </style>
 
@@ -88,48 +58,40 @@
                     <div class="row">
                         <div class="col">
 
-                            <div class="container h-100">
-                                <div class="row mb-3 pb-1">
-                                    <div class="col-12">
-                                        <div class="text-center mb-4">
-                                            <h1>Danh Sách Voucher</h1>
-                                        </div>
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-hover">
-                                                <thead class="custom-table-header">
-                                                    <tr>
-                                                        <th>ID Voucher</th>
-                                                        <th>Tên Voucher</th>
-                                                        <th>Hình Ảnh</th>
-                                                        <th>Voucher (%)</th>
-                                                        <th>Thời Gian</th>
-                                                        <th>Mô Tả</th>
-                                                        <th>Danh Mục</th>
-                                                        <th><i class='fa fa-cog'></i> Hành Động</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($khuyenmai as $khuyenmais): ?>
-                                                        <tr class="custom-table-row">
-                                                            <td><?= $khuyenmais['id_voucher'] ?></td>
-                                                            <td><?= $khuyenmais['ten_voucher'] ?></td>
-                                                            <td><img src="<?= $khuyenmais['hinh_anh'] ?>" width="100" alt="Ảnh sản phẩm"></td>
-                                                            <td><?= $khuyenmais['voucher'] ?> %</td>
-                                                            <td><?= $khuyenmais['thoi_gian'] ?> Giờ</td>
-                                                            <td><?= $khuyenmais['mo_ta'] ?></td>
-                                                            <td><?= $khuyenmais['ten_danh_muc'] ?></td>
-                                                            <td>
-                                                                <a onclick="return confirm('Bạn có muốn xóa?')" href="index.php?act=deletel&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-delete btn-sm"><i class="fas fa-trash"></i></a>
-                                                                <a href="index.php?act=updatekm&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-edit btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="table-responsive">
+                                <table style="background-color: white;" class="table table-hover table-nowrap">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">ID Voucher</th>
+                                            <th scope="col">Tên Voucher</th>
+                                            <th scope="col">Hình Ảnh</th>
+                                            <th scope="col">Voucher (%)</th>
+                                            <th scope="col">Thời Gian</th>
+                                            <th scope="col">Mô Tả</th>
+                                            <th scope="col">Danh Mục</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($khuyenmai as $khuyenmais): ?>
+                                            <tr class="custom-table-row">
+                                                <td><?= $khuyenmais['id_voucher'] ?></td>
+                                                <td><?= $khuyenmais['ten_voucher'] ?></td>
+                                                <td><img style="width:70px; height:70px;" src="<?= $khuyenmais['hinh_anh'] ?>" alt="Ảnh sản phẩm"></td>
+                                                <td><?= $khuyenmais['voucher'] ?> %</td>
+                                                <td><?= $khuyenmais['thoi_gian'] ?> Giờ</td>
+                                                <td><?= $khuyenmais['mo_ta'] ?></td>
+                                                <td><?= $khuyenmais['ten_danh_muc'] ?></td>
+                                                <td>
+                                                    <a onclick="return confirm('Bạn có muốn xóa?')" href="index.php?act=deletel&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-delete btn-sm"><i class="fas fa-trash"></i></a>
+                                                    <a href="index.php?act=updatekm&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-edit btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
                             </div>
+
                         </div>
 
                     </div>
