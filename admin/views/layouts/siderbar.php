@@ -145,8 +145,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="index.php?act=khuyen_mai">
-                        <i class="fa fa-gift" ></i>
+                        <i class="fa fa-gift"></i>
                         <span data-key="t-dashboards">Voucher</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="index.php?act=don_hang">
+                    <i class="fa-solid fa-money-bills"></i>
+                        <span data-key="t-dashboards">Đơn hàng</span>
                     </a>
                 </li>
 

@@ -11,8 +11,11 @@ require_once 'controllers/bannercontroller.php';
 require_once 'controllers/danhmuc_ctl.php';
 require_once 'controllers/tin_tuc_ctl.php';
 require_once 'controllers/ctl_san_pham.php';
-require_once  'controllers/khachhang_ctl.php';
-require_once "models/khuyenmai.php";
+require_once 'controllers/khachhang_ctl.php';
+require_once 'controllers/khuyenmaicontroller.php';
+require_once 'controllers/ctl_don_hang.php';
+
+
 
 // Require toàn bộ file Models
 require_once 'models/md_lien_he.php';
@@ -21,7 +24,8 @@ require_once "models/md_danh_muc.php";
 require_once "models/md_tin_tuc.php";
 require_once 'models/md_san_pham.php';
 require_once "models/md_khach_hang.php";
-require_once  'controllers/khuyenmaicontroller.php';
+require_once "models/khuyenmai.php";
+require_once "models/md_don_hang.php";
 
 
 // Route
@@ -116,5 +120,11 @@ switch ($act) {
     break;
   case 'updatekm':
     (new khuyenmaicontroller())->updatekm();
+    break;
+  case 'don_hang':
+    (new Don_hang())->all_don_hang();
+    break;
+  case 'don_hang_chi_tiet':
+    (new Don_hang())->don_hang_chi_tiet();
     break;
 };
