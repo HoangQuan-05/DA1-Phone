@@ -37,9 +37,7 @@
         vertical-align: middle;
         /* Căn giữa theo chiều dọc */
         padding: 8px;
-        /* Khoảng cách nội dung với viền ô */
-        border: 1px solid #ddd;
-        /* Viền cho các ô */
+
     }
 </style>
 
@@ -65,9 +63,19 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
-
+                <div class="container-fluid" style="background-color: white; min-height:78vh; padding:35px; border-radius:10px;">
                     <div class="row">
+                        <nav class="navbar navbar-light ">
+                            <div class="container-fluid">
+                                <a class="navbar-brand">Sản phẩm</a>
+                                <form method="GET" action="index.php" class="d-flex">
+                                    <input type="hidden" name="act" value="san_pham">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="ten_san_pham">
+                                    <button class="btn btn-outline-success" style="height: 33.5px;" type="submit">Search</button>
+                                </form>
+
+                            </div>
+                        </nav>
                         <div class="col">
 
                             <div class="table-responsive">
@@ -93,15 +101,15 @@
                                         ?>
                                                 <tr>
 
-                                                    <td><?= $value['id_san_pham'] ?></td>
-                                                    <td><?= $value['ten_san_pham'] ?></td>
+                                                    <td style="text-align: center; vertical-align: middle;"><?= $value['id_san_pham'] ?></td>
+                                                    <td style="text-align: center; vertical-align: middle;"><?= $value['ten_san_pham'] ?></td>
                                                     <?php
                                                     $stt = false;
                                                     foreach ($anh as $img) :
                                                         if ($value['id_san_pham'] == $img['id_san_pham']) :
                                                     ?>
-                                                            <td>
-                                                                <img style="width:60px; height:60px" src="image/<?= $img['hinh_anh'] ?>" alt="<?= $value['ten_san_pham'] ?>" class="img-fluid">
+                                                            <td style="text-align: center; vertical-align: middle;">
+                                                                <img style="width:100px; height:100px" src="image/<?= $img['hinh_anh'] ?>" alt="<?= $value['ten_san_pham'] ?>" class="img-fluid">
                                                             </td>
                                                         <?php
                                                             $stt = true;
@@ -110,18 +118,18 @@
                                                     endforeach;
                                                     if (!$stt) :
                                                         ?>
-                                                        <td><img style="width:60px; height:60px" src="" alt="<?= $value['ten_san_pham'] ?>" class="img-fluid"></td>
+                                                        <td style="text-align: center; vertical-align: middle;"><img style="width:100px; height:100px" src="" alt="<?= $value['ten_san_pham'] ?>" class="img-fluid"></td>
                                                     <?php endif; ?>
-                                                    <td><?= $value['ten_danh_muc'] ?></td>
-                                                    <td><?= number_format($value['gia_ban'],) ?> VND</td>
-                                                    <td>
+                                                    <td style="text-align: center; vertical-align: middle;"><?= $value['ten_danh_muc'] ?></td>
+                                                    <td style="text-align: center; vertical-align: middle;"><?= number_format($value['gia_ban'],) ?> VND</td>
+                                                    <td style="text-align: center; vertical-align: middle;">
                                                         <p id="mo_ta"><?= $value['mo_ta_ngan'] ?></p>
                                                     </td>
-                                                    <td><?= $value['luot_xem'] ?></td>
+                                                    <td style="text-align: center; vertical-align: middle;"><?= $value['luot_xem'] ?></td>
 
-                                                    <td>
-                                                        <a href="index.php?act=update_san_pham&id=<?= $value['id_san_pham'] ?>" class="settings" title="Update" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                                        <a onclick="return confirm('Chắc chắn xóa?')" href="index.php?act=delete_san_pham&id=<?= $value['id_san_pham'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <a style="display: inline-block;" href="index.php?act=update_san_pham&id=<?= $value['id_san_pham'] ?>" class="settings" title="Update" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                        <a style="display: inline-block;" onclick="return confirm('Chắc chắn xóa?')" href="index.php?act=delete_san_pham&id=<?= $value['id_san_pham'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                                     </td>
                                                 </tr>
                                         <?php

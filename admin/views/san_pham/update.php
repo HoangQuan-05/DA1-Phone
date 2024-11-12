@@ -261,7 +261,7 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; min-height:78vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
                         <div class="col">
@@ -375,7 +375,7 @@
                                             button.closest('.d-flex').remove();
                                         }
                                     </script>
-                                     <div class="col-md-12">
+                                    <div class="col-md-12">
                                         <label for="inputEmail4" class="form-label">Giảm giá sản phẩm (%)</label>
                                         <input type="number" class="form-control" id="inputEmail4" placeholder="Theo %..." name="gia_giam">
                                     </div>
@@ -398,8 +398,8 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
-            <!-- <footer class="footer">
+            <br>
+            <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
@@ -414,7 +414,7 @@
                         </div>
                     </div>
                 </div>
-            </footer> -->
+            </footer>
         </div>
         <!-- end main content-->
 

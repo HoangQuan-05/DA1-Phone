@@ -262,7 +262,7 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; min-height:78vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
                         <div class="col">
@@ -272,12 +272,12 @@
                                     <label for="title">Tiêu đề:</label>
                                     <textarea name="tieu_de" id="title"><?php echo $data['tieu_de']; ?></textarea> <br>
                                     <label>Trạng thái:</label>
-                                        <select name="trang_thai" id="">
-                                            <option value="<?php echo $data['trang_thai']; ?>" hidden> <?php echo $data['trang_thai']; ?></option>
-                                            <option value="Hiển thị">Hiển thị</option>
-                                            <option value="Ẩn" >Ẩn</option>
-                                        </select>
-                                        <br>
+                                    <select name="trang_thai" id="">
+                                        <option value="<?php echo $data['trang_thai']; ?>" hidden> <?php echo $data['trang_thai']; ?></option>
+                                        <option value="Hiển thị">Hiển thị</option>
+                                        <option value="Ẩn">Ẩn</option>
+                                    </select>
+                                    <br>
 
                                     <label for="content">Nội dung:</label>
                                     <div id="editor"><?php echo $data['noi_dung']; ?></div>
@@ -297,7 +297,7 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
+            <br>    
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -369,7 +369,7 @@
                 form.append(input);
                 form.submit()
             } else {
-                
+
                 er.innerText = 'Không được để trống';
 
             }

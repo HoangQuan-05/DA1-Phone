@@ -20,7 +20,7 @@ class khuyenmais{
 
     }
     public function insert($data){
-        $sql="INSERT INTO khuyen_mai(voucher,mo_ta,thoi_gian,ten_voucher,hinh_anh,id_danh_muc) VALUES (:voucher,:mo_ta,:thoi_gian,:ten_voucher,:hinh_anh,:id_danh_muc)";
+        $sql="INSERT INTO khuyen_mai(voucher,mo_ta,ngay_bat_dau,ngay_ket_thuc,ten_voucher,hinh_anh,id_danh_muc) VALUES (:voucher,:mo_ta,:ngay_bat_dau,:ngay_ket_thuc,:ten_voucher,:hinh_anh,:id_danh_muc)";
         $stmt= $this->conn->prepare($sql);
       
         $stmt->execute($data);
@@ -29,9 +29,10 @@ class khuyenmais{
     
     }
     public function updatekm($data){
-        $sql= "UPDATE khuyen_mai SET voucher=:voucher,mo_ta=:mo_ta,thoi_gian=:thoi_gian,ten_voucher=:ten_voucher,hinh_anh=:hinh_anh,id_danh_muc=:id_danh_muc WHERE id_voucher=:id_voucher";
+        $sql= "UPDATE khuyen_mai SET voucher=:voucher,mo_ta=:mo_ta,ngay_bat_dau=:ngay_bat_dau,ngay_ket_thuc=:ngay_ket_thuc,ten_voucher=:ten_voucher,hinh_anh=:hinh_anh,id_danh_muc=:id_danh_muc WHERE id_voucher=:id_voucher";
         $stmt= $this ->conn->prepare($sql);
         $stmt->execute($data);
+
     }
     public function find_one($id){
         $sql="SELECT*FROM khuyen_mai WHERE id_voucher=$id";

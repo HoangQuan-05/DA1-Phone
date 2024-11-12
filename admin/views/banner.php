@@ -11,6 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <!-- CSS -->
     <?php
@@ -19,48 +26,15 @@
 
 </head>
 <style>
-    table td,
-    table th {
-        text-align: center;
-        /* Căn giữa theo chiều ngang */
-        vertical-align: middle;
-        /* Căn giữa theo chiều dọc */
-        padding: 8px;
-        /* Khoảng cách nội dung với viền ô */
-       
-        /* Viền cho các ô */
+    table tr  {
+    text-align: center;
+    vertical-align: middle;
+}
+
+    button {
+        border: none;
     }
 </style>
-table {
-width: 100%;
-border-collapse: collapse;
-}
-
-th,
-td {
-padding: 10px;
-border: 1px solid #ddd;
-text-align: center;
-}
-
-th {
-background-color: #f4f4f4;
-}
-
-img {
-max-width: 100px;
-border-radius: 8px;
-}
-
-a {
-color: #007bff;
-text-decoration: none;
-}
-
-button {
-border: none;
-}
-</style> -->
 
 <body>
 
@@ -84,9 +58,10 @@ border: none;
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; height:80vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
+                        <h3>Banner</h3>
                         <div class="col">
 
                             <div class="table-responsive">
@@ -100,35 +75,25 @@ border: none;
                                             <th scope="col">Action</th>
 
                                         </tr>
+
                                     </thead>
                                     <tbody>
                                         <?php foreach ($banner as $banners): ?>
                                             <tr>
-
-                                                <td><?= $banners['id_banner'] ?></td>
-
-                                                <td><img src="<?= $banners['hinh_anhs'] ?>" width="100px" alt=""></td>
-
+                                                <td style="text-align: center; vertical-align: middle;"><?= $banners['id_banner'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><img src="<?= $banners['hinh_anhs'] ?>" width="100px" alt=""></td>
                                                 <?php if ($banners['trang_thai'] == 'Hiển thị') : ?>
-                                                    <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
-
-
-
+                                                    <td style="text-align: center; vertical-align: middle;"><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
                                                 <?php else : ?>
-                                                    <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
-
+                                                    <td style="text-align: center; vertical-align: middle;"> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
                                                 <?php endif ?>
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <?= $banners['ngay_them'] ?>
                                                 </td>
-
-
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <button> <a href="index.php?act=update&id=<?= $banners['id_banner'] ?>"><i class="fas fa-pencil-alt"></i></a></button>
                                                     <button><a onclick="return confirm('ban co muon xoa')" href="index.php?act=delete&id=<?= $banners['id_banner'] ?>"><i class="fas fa-trash"></i></a></button>
-
                                                 </td>
-
                                             </tr>
                                         <?php endforeach ?>
 
@@ -136,12 +101,12 @@ border: none;
                                 </table>
                             </div>
 
-                        </div>
-
+                        </div> <!-- end col -->
                     </div>
                     <!-- container-fluid -->
+                    <button><a href="index.php?act=them"><i class="fas fa-plus"></i>them moi</a></button>
                 </div>
-                <button><a href="index.php?act=them"><i class="fas fa-plus"></i>them moi</a></button>
+
                 <!-- End Page-content -->
 
                 <footer class="footer">

@@ -19,22 +19,6 @@
 
 </head>
 <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th,
-    td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-
-    th {
-        background-color: #f4f4f4;
-    }
-
     img {
         max-width: 100px;
         border-radius: 8px;
@@ -49,27 +33,6 @@
         border: none;
     }
 
-    .form-container {
-        max-width: 600px;
-        padding: 40px;
-        background-color: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-container h1 {
-        color: #007bff;
-        font-size: 1.8rem;
-    }
-
-    .form-group {
-        margin-bottom: 0.5rem;
-        /* Increased space between fields */
-    }
-
-    .form-group label {
-        font-weight: 500;
-    }
 
     .form-control,
     .form-control-file,
@@ -120,11 +83,11 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white;   border-radius:10px;">
 
                     <div class="row">
                         <div class="h-100">
-                            <div class="container mt-5">
+                            <div class="container mt-3">
                                 <div class="row mb-3 pb-1">
                                     <div class="col-12">
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
@@ -139,8 +102,12 @@
                                                     <input type="file" class="form-control" name="hinh_anh" id="hinh_anh">
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <label for="thoi_gian">Thời gian:</label>
-                                                    <input type="number" class="form-control" name="thoi_gian" id="thoi_gian">
+                                                    <label for="thoi_gian">Thời gian bắt đầu:</label>
+                                                    <input type="date" class="form-control" name="ngay_bat_dau" id="ngay_bat_dau">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="thoi_gian">Thời gian kết thúc:</label>
+                                                    <input type="date" class="form-control" name="ngay_ket_thuc" id="ngay_ket_thuc">
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label for="voucher">Voucher %:</label>
@@ -226,11 +193,12 @@
             function validateForm() {
                 var ten_voucher = document.getElementById('ten_voucher').value;
                 var voucher = document.getElementById('voucher').value;
-                var thoi_gian = document.getElementById('thoi_gian').value;
+                var ngay_ket_thuc = document.getElementById('ngay_ket_thuc').value;
+                var ngay_bat_dau = document.getElementById('ngay_bat_dau').value;
                 var mo_ta = document.getElementById('mo_ta').value;
 
                 // Check if required fields are filled
-                if (ten_voucher == "" || voucher == "" || thoi_gian == "" || mo_ta == "") {
+                if (ten_voucher == "" || voucher == "" || ngay_ket_thuc == "" || mo_ta == "" || ngay_bat_dau == "")  {
                     document.getElementById('error').innerText = "Tất cả các trường là bắt buộc!";
                     return false;
                 }

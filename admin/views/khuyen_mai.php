@@ -11,6 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <!-- CSS -->
     <?php
@@ -53,7 +60,7 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; height:80vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
                         <div class="col">
@@ -66,7 +73,8 @@
                                             <th scope="col">Tên Voucher</th>
                                             <th scope="col">Hình Ảnh</th>
                                             <th scope="col">Voucher (%)</th>
-                                            <th scope="col">Thời Gian</th>
+                                            <th scope="col">Ngày bắt đầu</th>
+                                            <th scope="col">Ngày kết thúc</th>
                                             <th scope="col">Mô Tả</th>
                                             <th scope="col">Danh Mục</th>
                                             <th scope="col">Action</th>
@@ -75,14 +83,15 @@
                                     <tbody>
                                         <?php foreach ($khuyenmai as $khuyenmais): ?>
                                             <tr class="custom-table-row">
-                                                <td><?= $khuyenmais['id_voucher'] ?></td>
-                                                <td><?= $khuyenmais['ten_voucher'] ?></td>
-                                                <td><img style="width:70px; height:70px;" src="<?= $khuyenmais['hinh_anh'] ?>" alt="Ảnh sản phẩm"></td>
-                                                <td><?= $khuyenmais['voucher'] ?> %</td>
-                                                <td><?= $khuyenmais['thoi_gian'] ?> Giờ</td>
-                                                <td><?= $khuyenmais['mo_ta'] ?></td>
-                                                <td><?= $khuyenmais['ten_danh_muc'] ?></td>
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['id_voucher'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ten_voucher'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><img style="width:70px; height:70px;" src="<?= $khuyenmais['hinh_anh'] ?>" alt="Ảnh sản phẩm"></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['voucher'] ?> %</td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ngay_bat_dau'] ?> </td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ngay_ket_thuc'] ?> </td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['mo_ta'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ten_danh_muc'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <a onclick="return confirm('Bạn có muốn xóa?')" href="index.php?act=deletel&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-delete btn-sm"><i class="fas fa-trash"></i></a>
                                                     <a href="index.php?act=updatekm&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-edit btn-sm"><i class="fas fa-pencil-alt"></i></a>
                                                 </td>
@@ -94,10 +103,10 @@
 
                         </div>
 
-                    </div>
+                    </div> <button style="border: none;"><a href="index.php?act=add_khuyenmai"><i class="fas fa-plus"></i>them moi</a></button>
                     <!-- container-fluid -->
                 </div>
-                <button style="border: none;"><a href="index.php?act=add_khuyenmai"><i class="fas fa-plus"></i>them moi</a></button>
+
                 <!-- End Page-content -->
 
                 <footer class="footer">

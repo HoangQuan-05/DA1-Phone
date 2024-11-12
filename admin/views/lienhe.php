@@ -21,8 +21,7 @@
 <style>
     .list {
         width: 80%;
-        /* border: 1px solid black; */
-        height: 100vh;
+      
     }
 
     .list a {
@@ -53,17 +52,17 @@
     .khach_hang {
         /* border: 1px solid black; */
         display: flex;
-        border-radius: 5px;
+        border-radius: 10px;
         margin-top: 10px;
         /* box-shadow: 0px 0px 3px #D2D2D8; */
         cursor: pointer;
-        transition: .3s ease;
+        transition: .2s ease;
         background-color: #f7f7f7;
 
     }
 
     .khach_hang:hover {
-        box-shadow: 0px 0px 3px #D2D2D8;
+        box-shadow: 0px 0px 5px #D2D2D8;
     }
 
     .noi_dung {
@@ -110,7 +109,7 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white;  padding:35px; border-radius:10px; min-height:78vh;">
 
                     <div class="row">
                         <div class="col">
@@ -189,7 +188,7 @@
             </div>
             <!-- End Page-content -->
 
-            <!-- <footer class="footer">
+            <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
@@ -204,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-            </footer> -->
+            </footer>
         </div>
         <!-- end main content-->
 

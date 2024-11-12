@@ -33,12 +33,8 @@
     table td,
     table th {
         text-align: center;
-        /* Căn giữa theo chiều ngang */
         vertical-align: middle;
-        /* Căn giữa theo chiều dọc */
         padding: 8px;
-        /* Khoảng cách nội dung với viền ô */
-
     }
 </style>
 
@@ -64,10 +60,23 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; padding:35px; border-radius:10px; min-height:78vh;">
+                    <nav class="navbar navbar-light ">
+                        <div class="container-fluid">
+                            <a class="navbar-brand">Khách hàng</a>
+                            <form method="GET" action="index.php" class="d-flex">
+                                <input type="hidden" name="act" value="khachhang">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="ten_khach_hang">
+                                <button class="btn btn-outline-success" style="height: 33.5px;" type="submit">Search</button>
+                            </form>
 
+                        </div>
+                    </nav>
                     <div class="row">
+
                         <div class="col">
+
+
                             <div class="table-responsive">
                                 <table style="background-color: white;" class="table table-hover table-nowrap">
                                     <thead class="table-light">
@@ -87,18 +96,18 @@
                                     <tbody>
                                         <?php foreach ($data as $value) : ?>
                                             <tr>
-                                                <td><?= $value['id_khach_hang'] ?></td>
-                                                <td><img style="width:60px; height:60px;  border-radius: 50%;" src="<?= $value['anh_dai_dien'] ?>" alt=""></td>
-                                                <td><?= $value['tens'] ?></td>
-                                                <td><?= $value['email'] ?></td>
-                                                <td><?= $value['so_dien_thoai'] ?></td>
-                                                <td><?= $value['ngay_sinh'] ?></td>
-                                                <td><?= $value['ngay_dang_ky'] ?></td>
-                                                <td><?= $value['dia_chi'] ?></td>
-                                                <td><?= $value['vai_tro'] ?></td>
-                                                <td>
-                                                    <a href="index.php?act=update_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="index.php?act=dl_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['id_khach_hang'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><img style="width:60px; height:60px;  border-radius: 50%;" src="<?= $value['anh_dai_dien'] ?>" alt=""></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['tens'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['email'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['so_dien_thoai'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['ngay_sinh'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['ngay_dang_ky'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['dia_chi'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['vai_tro'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;">
+                                                    <a style="display: inline-block;" href="index.php?act=update_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                    <a style="display: inline-block;" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="index.php?act=dl_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>
@@ -115,7 +124,7 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
+            <br>
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -132,6 +141,7 @@
                     </div>
                 </div>
             </footer>
+
         </div>
         <!-- end main content-->
 

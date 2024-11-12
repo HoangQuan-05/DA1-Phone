@@ -76,12 +76,24 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; min-height:78vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
                         <div class="col">
+                        <nav class="navbar navbar-light ">
+                            <div class="container-fluid">
+                                <a class="navbar-brand">Tin tức</a>
+                                <form method="GET" action="index.php" class="d-flex" >
+                                    <input type="hidden" name="act" value="tin_tuc">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="tieu_de">
+                                    <button class="btn btn-outline-success" style="height: 33.5px;" type="submit">Search</button>
+                                </form>
 
+                            </div>
+                        </nav>
+                            
                             <div class="table-responsive">
+
                                 <table style="background-color: white;" class="table table-hover table-nowrap">
                                     <thead class="table-light">
                                         <tr>
@@ -97,25 +109,25 @@
                                         <?php foreach ($data as $values) : ?>
 
                                             <tr>
-                                                <td><?= $values['id_tin_tuc'] ?></td>
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $values['id_tin_tuc'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <p id="tieu_de"><?= $values['tieu_de'] ?></p>
                                                 </td>
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <h6><?= $values['ngay_xuat_ban'] ?></h6>
                                                 </td>
                                                 <?php if ($values['trang_thai'] == 'Hiển thị') : ?>
-                                                    <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
+                                                    <td style="text-align: center; vertical-align: middle;"><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
 
 
 
                                                 <?php else : ?>
-                                                    <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
+                                                    <td style="text-align: center; vertical-align: middle;"> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
 
                                                 <?php endif ?>
                                                 <td>
-                                                    <a href="index.php?act=edit_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                                    <a onclick="return confirm('chac chan')" href="index.php?act=delete_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                                    <a style="display: inline-block;" href="index.php?act=edit_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                                    <a style="display: inline-block;" onclick="return confirm('chac chan')" href="index.php?act=delete_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>

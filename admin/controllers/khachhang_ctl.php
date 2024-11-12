@@ -18,12 +18,13 @@ class KhachHang_ctl
 
     public function add_khach_hang()
     {
+        view("add_khachhang");
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
             $anh_dai_dien = "";
             $file_anh = $_FILES['anh_dai_dien'];
-            $data["vai_tro"] = "khach hang ";
-           
+            $data["vai_tro"] = "khach hang";
+
 
             if ($file_anh['size'] > 0) {
                 $anh_dai_dien = "image/" . basename($file_anh['name']);
@@ -32,10 +33,11 @@ class KhachHang_ctl
 
             $data['anh_dai_dien'] = $anh_dai_dien;
             (new KhachHang())->create($data);
-            header("Location: index.php?act=khachhang");
-            exit();
-        } else {
-            view("add_khachhang");
+            echo "<pre>";
+            print_r($data);
+            echo "</pre>";
+            // header("Location: index.php?act=khachhang");
+            
         }
     }
 
@@ -51,7 +53,7 @@ class KhachHang_ctl
                 $anh_dai_dien = "image/" . basename($file_anh['name']);
                 move_uploaded_file($file_anh['tmp_name'], $anh_dai_dien);
                 $data['anh_dai_dien'] = $anh_dai_dien;
-            }else{
+            } else {
                 $data['anh_dai_dien'] = $du_lieu_avt['anh_dai_dien'];
             }
 

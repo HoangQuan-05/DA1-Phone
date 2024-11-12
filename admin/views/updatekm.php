@@ -106,6 +106,17 @@
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+
+    #cn_vc {
+        position: relative;
+        right: 120px;
+    }
+
+    .form_ud {
+        right: 120px;
+        position: relative;
+        top: 50px;
+    }
 </style>
 
 <body>
@@ -129,18 +140,16 @@
         <!-- ============================================================== -->
         <div class="main-content">
 
-            <div class="page-content">
+            <div class="page-content" style="background-color: white; min-height:100vh; padding:35px; border-radius:10px;">
                 <div class="container-fluid">
 
                     <div class="row">
                         <div class="col">
 
 
-                            <div class="container h-100 d-flex justify-content-center align-items-center">
+                            <div class="container h-100 d-flex justify-content-center align-items-center form_ud">
+                                <h1 id="cn_vc"><i class="fas fa-plus"></i> Cập nhật Voucher</h1>
                                 <div class="col-12 col-md-8 col-lg-6">
-                                    <div class="text-center mb-4">
-                                        <h1><i class="fas fa-plus"></i> Sửa Dữ Liệu</h1>
-                                    </div>
                                     <form action="" method="post" enctype="multipart/form-data" class="p-4 bg-white rounded shadow">
                                         <div class="form-group">
                                             <label for="ten_voucher">Tên sản phẩm:</label>
@@ -157,16 +166,21 @@
                                             <label for="hinh_anh">Ảnh sản phẩm mới:</label>
                                             <input type="file" class="form-control-file" name="hinh_anh" id="hinh_anh">
                                         </div>
-
-                                        <div class="form-group">
-                                            <label for="thoi_gian">Giá:</label>
-                                            <input type="number" class="form-control" name="thoi_gian" id="thoi_gian" value="<?= $khuyenmai['thoi_gian'] ?>">
+                                        <div class="form-group mb-3">
+                                            <label for="thoi_gian">Thời gian bắt đầu:</label>
+                                            <input type="date" class="form-control" name="ngay_bat_dau" id="ngay_bat_dau" value="<?= $khuyenmai['ngay_bat_dau'] ?>">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="thoi_gian">Thời gian kết thúc:</label>
+                                            <input type="date" class="form-control" name="ngay_ket_thuc" id="ngay_ket_thuc" value="<?= $khuyenmai['ngay_ket_thuc'] ?>">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="voucher">Số lượng:</label>
-                                            <input type="number" class="form-control" name="voucher" id="voucher" value="<?= $khuyenmai['voucher'] ?>">
+                                            <label for="thoi_gian">Giảm %:</label>
+                                            <input type="number" class="form-control" name="voucher" id="thoi_gian" value="<?= $khuyenmai['voucher'] ?>">
                                         </div>
+
+
 
                                         <div class="form-group">
                                             <label for="mo_ta">Mô tả:</label>
@@ -199,7 +213,7 @@
                 </div>
                 <!-- End Page-content -->
 
-                <footer class="footer">
+                <!-- <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
@@ -214,7 +228,7 @@
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> -->
             </div>
             <!-- end main content-->
 

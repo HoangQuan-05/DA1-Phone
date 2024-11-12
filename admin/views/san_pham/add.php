@@ -261,14 +261,14 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white;  padding:35px; border-radius:10px; min-height:78vh;">
 
                     <div class="row">
                         <div class="col">
 
                             <div class="h-100">
                                 <h2>Thêm sản phẩm</h2> <br>
-                                <form class="row g-3" method="POST" enctype="multipart/form-data">
+                                <form class="row g-3" method="POST" enctype="multipart/form-data" onsubmit="submitForm(event)" id="myForm">
                                     <div class="col-md-6">
                                         <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
                                         <input type="text" class="form-control" id="inputEmail4" placeholder="Nhập tên sản phẩm..." name="ten_san_pham">
@@ -289,7 +289,8 @@
                                     </div>
                                     <div class="col-12">
                                         <label for="floatingTextarea2">Mô tả dài</label>
-                                        <textarea class="form-control" placeholder="Nhập mô tả dài..." id="floatingTextarea2" name="mo_ta_dai" style="height: 150px"></textarea>
+                                        <!-- <textarea class="form-control" placeholder="Nhập mô tả dài..." id="floatingTextarea2" name="mo_ta_dai" style="height: 150px"></textarea> -->
+                                        <div id="editor"></div>
                                     </div>
 
                                     <div class="col-md-12"">
@@ -373,7 +374,7 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
+            <br>
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -422,6 +423,29 @@
     <!-- JAVASCRIPT -->
     <script>
         // Khởi tạo Quill
+        const quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+        
+        function submitForm(event) {
+            event.preventDefault(); // Ngăn chặn form gửi tự động
+
+            // Lấy nội dung từ Quill dưới dạng HTML
+            const content = quill.root.innerHTML;
+
+            // Tạo một trường ẩn và thêm vào form
+            const input = document.createElement('textarea');
+            input.setAttribute('name', 'mo_ta_dai'); // Tên này sẽ gửi đi với dữ liệu POST
+            input.style.display = 'none';
+            input.value = content;
+            input.placeholder="Nhập mô tả dài..."
+
+            // Thêm trường ẩn vào form và gửi form
+            const form = document.getElementById('myForm');
+            form.append(input);
+            form.submit();
+        }
+
         var er_san_pham = document.getElementById('er_san_pham');
 
 

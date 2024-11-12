@@ -8,6 +8,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <?php require_once "layouts/libs_css.php"; ?>
 </head>
 <style>
@@ -50,7 +51,7 @@
         ?>
         <div class="main-content">
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; min-height:78vh; border-radius:10px;">
                     <div class="row">
                         <div class="col">
                             <div class="h-100">
