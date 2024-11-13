@@ -43,6 +43,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
         vertical-align: middle;
         padding: 8px;
     }
+    
 </style>
 
 <body>

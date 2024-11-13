@@ -36,6 +36,14 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
         });
     </script>
 </head>
+<style>
+    tr,
+    th,
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
 
 
 

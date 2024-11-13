@@ -66,6 +66,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
 
                                                     <input type="hidden" name="id" value="<?= $trangthais['id'] ?>">
+                                                    <p id="er_trang_thai"></p>
                                                     <button type="submit" class="btn btn-primary">Update</button>
                                             </div>
                                             </form>
@@ -134,6 +135,9 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
     </div>
 
     <!-- JAVASCRIPT -->
+     <script>
+        var er_trang_thai = document.getElementById('er_trang_thai');
+     </script>
     <?php
     require_once "views/layouts/libs_js.php";
     ?>

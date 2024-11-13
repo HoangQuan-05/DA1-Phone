@@ -25,20 +25,27 @@ class trang_thai_ctl
     public function store_tt()
     {
         $data = $_POST;
-       
+
         (new trangthais())->insert($data);
         header("Location: index.php?act=trang_thai");
     }
     public function update_tt()
     {
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $data = $_POST;
-           
-            (new trangthais())->update($data);
-            header("Location: index.php?act=trang_thai");
-        }
         $id = $_GET['id'];
         $trangthais = (new trangthais())->find_one($id);
         views("trang_thai_don_hang/update_trang_thai", ['trangthais' => $trangthais]);
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $data = $_POST;
+            if ($data['trang_thai'] != "") {
+                (new trangthais())->update($data);
+                echo "<script type='text/javascript'>
+                window.location.href = 'index.php?act=trang_thai';
+            </script>";
+            } else {
+                echo "<script type='text/javascript'>
+                er_trang_thai.innerText = 'Không được để trống';
+              </script>";
+            }
+        }
     }
 }

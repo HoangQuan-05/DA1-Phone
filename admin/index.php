@@ -32,12 +32,13 @@ require_once "models/ql_trang_thai.php";
 
 
 // Route
-$act = $_GET['act'] ?? 'dashboard';
+$act = $_GET['act'] ?? '';
 session_start();
 
 
 switch ($act) {
   case 'dashboard':
+  case '':
     (new DashboardController())->index();
     break;
 
