@@ -81,7 +81,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Mật khẩu:</label>
-                                                        <input type="password" class="form-control" name="mat_khau" placeholder="Nhập mat_khau">
+                                                        <input type="password" class="form-control" name="mat_khau" placeholder="Nhập mật khẩu">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Số Điện Thoại:</label>
@@ -95,6 +95,7 @@
                                                         <label>Địa Chỉ:</label>
                                                         <input type="text" class="form-control" name="dia_chi" placeholder="Nhập địa chỉ">
                                                     </div>
+                                                    <p id="er_khach_hang"></p>
                                                     <button type="submit" class="btn btn-primary">Cập Nhật</button>
                                                 </form>
                                                 <p id="error"></p>
@@ -151,6 +152,9 @@
         </div>
 
         <!-- JAVASCRIPT -->
+         <script>
+            var er_khach_hang =document.getElementById('er_khach_hang')
+         </script>
         <?php
         require_once "layouts/libs_js.php";
         ?>

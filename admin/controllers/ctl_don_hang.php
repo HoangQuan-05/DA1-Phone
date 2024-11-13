@@ -20,8 +20,8 @@ class Don_hang
             $tt = $_POST['trang_thai'];
             (new Md_Hoa_Don())->update_tt($id, $tt);
             echo "<script type='text/javascript'>
-                        window.location.href = 'index.php?act=don_hang';
-                    </script>";
+                    window.location.href = 'index.php?act=don_hang';
+                </script>";
         }
     }
 }

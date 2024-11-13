@@ -21,7 +21,7 @@
 
     <!-- CSS -->
     <?php
-    require_once "layouts/libs_css.php";
+    require_once "views/layouts/libs_css.php";
     ?>
 
 </head>
@@ -36,6 +36,10 @@
         /* Khoảng cách nội dung với viền ô */
 
     }
+
+    button {
+        border: none;
+    }
 </style>
 
 <body>
@@ -45,9 +49,9 @@
 
         <!-- HEADER -->
         <?php
-        require_once "layouts/header.php";
+        require_once "views/layouts/header.php";
 
-        require_once "layouts/siderbar.php";
+        require_once "views/layouts/siderbar.php";
         ?>
 
         <!-- Left Sidebar End -->
@@ -63,47 +67,45 @@
                 <div class="container-fluid" style="background-color: white; min-height:80vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
+                        <h3>Quản lý trạng thái đơn hàng</h3>
                         <div class="col">
 
                             <div class="table-responsive">
                                 <table style="background-color: white;" class="table table-hover table-nowrap">
                                     <thead class="table-light">
                                         <tr>
-                                            <th scope="col">ID Voucher</th>
-                                            <th scope="col">Tên Voucher</th>
-                                            <th scope="col">Hình Ảnh</th>
-                                            <th scope="col">Voucher (%)</th>
-                                            <th scope="col">Ngày bắt đầu</th>
-                                            <th scope="col">Ngày kết thúc</th>
-                                            <th scope="col">Mô Tả</th>
-                                            <th scope="col">Danh Mục</th>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Trạng Thái</th>
                                             <th scope="col">Action</th>
+
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($khuyenmai as $khuyenmais): ?>
-                                            <tr class="custom-table-row">
-                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['id_voucher'] ?></td>
-                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ten_voucher'] ?></td>
-                                                <td style="text-align: center; vertical-align: middle;"><img style="width:70px; height:70px;" src="<?= $khuyenmais['hinh_anh'] ?>" alt="Ảnh sản phẩm"></td>
-                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['voucher'] ?> %</td>
-                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ngay_bat_dau'] ?> </td>
-                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ngay_ket_thuc'] ?> </td>
-                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['mo_ta'] ?></td>
-                                                <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ten_danh_muc'] ?></td>
-                                                <td style="text-align: center; vertical-align: middle;">
-                                                    <a onclick="return confirm('Bạn có muốn xóa?')" href="index.php?act=deletel&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-delete btn-sm"><i class="fas fa-trash"></i></a>
-                                                    <a href="index.php?act=updatekm&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-edit btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                        <?php foreach ($trangthais as $trangthai): ?>
+                                            <tr>
+                                                <td><?= $trangthai['id']; ?></td>
+                                                <td><?= $trangthai['trang_thai']; ?></td>
+
+
+
+
+                                                <td>
+                                                    <button> <a href="index.php?act=update_trang_thai&id=<?= $trangthai['id'] ?>"><i class="fas fa-pencil-alt"></i></a></button>
+                                                    <button><a onclick="return confirm('ban co muon xoa')" href="index.php?act=delete_tt&id=<?= $trangthai['id'] ?>"><i class="fas fa-trash"></i></a></button>
+
                                                 </td>
+
                                             </tr>
                                         <?php endforeach ?>
+
                                     </tbody>
-                                </table>
+                                </table> <button><a href="index.php?act=add_trang_thai"><i class="fas fa-plus"></i>Them moi</a></button>
                             </div>
 
                         </div>
 
-                    </div> <button style="border: none;"><a href="index.php?act=add_khuyenmai"><i class="fas fa-plus"></i>them moi</a></button>
+                    </div>
                     <!-- container-fluid -->
                 </div>
 
@@ -156,7 +158,8 @@
 
         <!-- JAVASCRIPT -->
         <?php
-        require_once "layouts/libs_js.php";
+        require_once "views/layouts/libs_js.php";
+
         ?>
 
 </body>

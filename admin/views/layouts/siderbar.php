@@ -150,8 +150,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="index.php?act=trang_thai">
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span data-key="t-dashboards">Trạng thái đơn hàng</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="index.php?act=don_hang">
-                    <i class="fa-solid fa-money-bills"></i>
+                        <i class="fa-solid fa-money-bills"></i>
                         <span data-key="t-dashboards">Đơn hàng</span>
                     </a>
                 </li>

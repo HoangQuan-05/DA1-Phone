@@ -32,12 +32,28 @@ class KhachHang_ctl
             }
 
             $data['anh_dai_dien'] = $anh_dai_dien;
-            (new KhachHang())->create($data);
-            echo "<pre>";
-            print_r($data);
-            echo "</pre>";
-            // header("Location: index.php?act=khachhang");
-            
+            if ($data['tens'] != "" && $data['email'] != "" && $data['mat_khau'] != "" && $data['so_dien_thoai'] != "" && $data['ngay_sinh'] != "" && $data['dia_chi'] != "") {
+                if (filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                    if (strlen($data['so_dien_thoai']) == 10) { //KIỂM TRA ĐỘ DÀI SĐT
+                        (new KhachHang())->create($data);
+                        echo "<script type='text/javascript'>
+                                window.location.href = 'index.php?act=khachhang';
+                            </script>";
+                    } else {
+                        echo "<script type='text/javascript'>
+                    er_khach_hang.innerText = 'Số điện thoại không hợp lệ';
+                  </script>";
+                    }
+                } else {
+                    echo "<script type='text/javascript'>
+                    er_khach_hang.innerText = 'Email không hợp lệ';
+                  </script>";
+                }
+            } else {
+                echo "<script type='text/javascript'>
+                er_khach_hang.innerText = 'Không được bỏ trống';
+              </script>";
+            }
         }
     }
 
