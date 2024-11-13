@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -80,18 +87,18 @@
 
                     <div class="row">
                         <div class="col">
-                        <nav class="navbar navbar-light ">
-                            <div class="container-fluid">
-                                <a class="navbar-brand">Tin tức</a>
-                                <form method="GET" action="index.php" class="d-flex" >
-                                    <input type="hidden" name="act" value="tin_tuc">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="tieu_de">
-                                    <button class="btn btn-outline-success" style="height: 33.5px;" type="submit">Search</button>
-                                </form>
+                            <nav class="navbar navbar-light ">
+                                <div class="container-fluid">
+                                    <a class="navbar-brand">Tin tức</a>
+                                    <form method="GET" action="index.php" class="d-flex">
+                                        <input type="hidden" name="act" value="tin_tuc">
+                                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="tieu_de">
+                                        <button class="btn btn-outline-success" style="height: 33.5px;" type="submit">Search</button>
+                                    </form>
 
-                            </div>
-                        </nav>
-                            
+                                </div>
+                            </nav>
+
                             <div class="table-responsive">
 
                                 <table style="background-color: white;" class="table table-hover table-nowrap">

@@ -15,6 +15,7 @@ require_once 'controllers/khachhang_ctl.php';
 require_once 'controllers/khuyenmaicontroller.php';
 require_once 'controllers/ctl_don_hang.php';
 require_once 'controllers/ctl_trang_thai.php';
+require_once 'controllers/ctl_login.php';
 
 
 
@@ -32,6 +33,7 @@ require_once "models/ql_trang_thai.php";
 
 // Route
 $act = $_GET['act'] ?? 'dashboard';
+session_start();
 
 
 switch ($act) {
@@ -144,5 +146,11 @@ switch ($act) {
     break;
   case 'update_trang_thai':
     (new trang_thai_ctl())->update_tt();
+    break;
+  case 'logout':
+    (new loginController())->log_out();
+    break;
+  case 'login':
+    (new loginController())->login();
     break;
 };

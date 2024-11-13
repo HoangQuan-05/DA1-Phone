@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -26,10 +33,10 @@
 
 </head>
 <style>
-    table tr  {
-    text-align: center;
-    vertical-align: middle;
-}
+    table tr {
+        text-align: center;
+        vertical-align: middle;
+    }
 
     button {
         border: none;

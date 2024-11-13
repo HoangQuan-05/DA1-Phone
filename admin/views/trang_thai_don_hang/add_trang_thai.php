@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -50,98 +57,98 @@
                                 <div class="row mb-3 pb-1">
                                     <div class="col-12">
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                            <h1><i class="fas fa-plus"></i> Thêm Dữ Liệu</h1>
-                                            <form action="index.php?act=store_tt" method="post"  class="w-100" onsubmit="return validateForm()">
+                                            <h1 style="position: relative; right:50px;"><i class="fas fa-plus"></i> Thêm trạng thái</h1>
+                                            <form action="index.php?act=store_tt" method="post" class="w-100" onsubmit="return validateForm()">
                                                 <div class="form-group mb-3">
                                                     <label for="trang_thai">Trang thái đơn hàng</label>
                                                     <input type="text" class="form-control" name="trang_thai" id="trang_thai">
                                                 </div>
-                                               
-                                                    </select>
-                                                </div>
-                                                <div class="form-group mb-3 text-center">
-                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
-                                                </div>
-                                                <p id="error" class="text-danger text-center"></p>
-                                            </form>
+
+                                                </select>
                                         </div>
+                                        <div class="form-group mb-3 text-center">
+                                            <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                        </div>
+                                        <p id="error" class="text-danger text-center"></p>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                        </div> <!-- end col -->
+                    </div> <!-- end col -->
 
-                    </div>
-                    <!-- container-fluid -->
                 </div>
+                <!-- container-fluid -->
+            </div>
 
-                <!-- End Page-content -->
+            <!-- End Page-content -->
 
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script> © Velzon.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by Themesbrand
-                                </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © Velzon.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Themesbrand
                             </div>
                         </div>
                     </div>
-                </footer>
-            </div>
-            <!-- end main content-->
-
-        </div>
-        <!-- END layout-wrapper -->
-
-
-
-        <!--start back-to-top-->
-        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-            <i class="ri-arrow-up-line"></i>
-        </button>
-        <!--end back-to-top-->
-
-        <!--preloader-->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner-border text-primary avatar-sm" role="status">
-                    <span class="visually-hidden">Loading...</span>
                 </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
         </div>
+    </div>
 
-        <div class="customizer-setting d-none d-md-block">
-            <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-                <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-            </div>
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
+    </div>
 
-        <!-- JAVASCRIPT -->
-        <script>
-            function validateForm() {
-                var trang_thai = document.getElementById('trang_thai').value;
-                
-                // Check if required fields are filled
-                if (trang_thai == "" ) {
-                    document.getElementById('error').innerText = "Tất cả các trường là bắt buộc!";
-                    return false;
-                }
+    <!-- JAVASCRIPT -->
+    <script>
+        function validateForm() {
+            var trang_thai = document.getElementById('trang_thai').value;
 
-                // If all checks pass, return true to submit the form
-                return true;
+            // Check if required fields are filled
+            if (trang_thai == "") {
+                document.getElementById('error').innerText = "Tất cả các trường là bắt buộc!";
+                return false;
             }
-        </script>
-        <?php
-        require_once "views/layouts/libs_js.php";
-        
-        ?>
-        
+
+            // If all checks pass, return true to submit the form
+            return true;
+        }
+    </script>
+    <?php
+    require_once "views/layouts/libs_js.php";
+
+    ?>
+
 
 </body>
 

@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -30,7 +37,7 @@
 
         require_once "layouts/siderbar.php";
         ?>
-        
+
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -47,6 +54,7 @@
                         <div class="col">
 
                             <div class="h-100">
+
                                 <div class="row mb-3 pb-1">
                                     <div class="col-12">
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">

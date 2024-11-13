@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -426,7 +433,7 @@
         const quill = new Quill('#editor', {
             theme: 'snow'
         });
-        
+
         function submitForm(event) {
             event.preventDefault(); // Ngăn chặn form gửi tự động
 
@@ -438,7 +445,7 @@
             input.setAttribute('name', 'mo_ta_dai'); // Tên này sẽ gửi đi với dữ liệu POST
             input.style.display = 'none';
             input.value = content;
-            input.placeholder="Nhập mô tả dài..."
+            input.placeholder = "Nhập mô tả dài..."
 
             // Thêm trường ẩn vào form và gửi form
             const form = document.getElementById('myForm');

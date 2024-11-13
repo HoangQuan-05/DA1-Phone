@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -54,7 +61,7 @@
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid" style="background-color: white; height:80vh; padding:35px; border-radius:10px;">
+                <div class="container-fluid" style="background-color: white; min-height:80vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
                         <nav class="navbar navbar-light ">
@@ -78,12 +85,37 @@
                                             <th scope="col">Ngày đặt</th>
                                             <th scope="col">Trạng thái đơn hàng</th>
                                             <th scope="col">Hình thức thanh toán</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">Trạng thái thanh toán</th>
+                                            <th scope="col">Tổng tiền</th>
+                                            <th scope="col">Aciton</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       
+                                        <?php
+                                        $processed_ids = []; // Array to keep track of processed ids
+                                        foreach ($data_hoa_don as $value) :
+                                            if (in_array($value['id_hd'], $processed_ids)) {
+                                                continue;
+                                            }
+                                            $processed_ids[] = $value['id_hd'];
+                                        ?>
+                                            <tr>
+                                                <td><?= $value['id_hd'] ?></td>
+                                                <td><?= $value['ngay_dat'] ?></td>
+                                                <td style="color:red"><?= $value['trang_thai'] ?></td>
+                                                <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
+                                                <td><?= $value['trang_thai_thanh_toan'] ?></td>
+                                                <td><?= number_format($value['tong_tien'], 0, '', '.') ?>
+                                                    VND</td>
+                                                <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hd'] ?>">Xem chi tiết</a> |
+                                                    <button style="border:none;" disabled>Xoa</button>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+
+
+
 
                                     </tbody>
                                 </table>
@@ -97,7 +129,7 @@
             </div>
             <!-- End Page-content -->
 
-            <footer class="footer">
+            <!-- <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
@@ -112,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
         </div>
         <!-- end main content-->
 

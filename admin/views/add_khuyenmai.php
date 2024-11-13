@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -198,7 +205,7 @@
                 var mo_ta = document.getElementById('mo_ta').value;
 
                 // Check if required fields are filled
-                if (ten_voucher == "" || voucher == "" || ngay_ket_thuc == "" || mo_ta == "" || ngay_bat_dau == "")  {
+                if (ten_voucher == "" || voucher == "" || ngay_ket_thuc == "" || mo_ta == "" || ngay_bat_dau == "") {
                     document.getElementById('error').innerText = "Tất cả các trường là bắt buộc!";
                     return false;
                 }

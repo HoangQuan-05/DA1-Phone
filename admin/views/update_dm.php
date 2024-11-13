@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -89,13 +96,13 @@
                                                         <input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục" value="<?php echo $data['ten_danh_muc']; ?>">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label >Trạng thái:</label>
+                                                        <label>Trạng thái:</label>
                                                         <select name="trang_thai" id="">
-                                                            <option value="<?php echo $data['trang_thai'];?>" hidden><?php echo $data['trang_thai']; ?></option>
+                                                            <option value="<?php echo $data['trang_thai']; ?>" hidden><?php echo $data['trang_thai']; ?></option>
                                                             <option value="Hiển thị">Hiển thị</option>
                                                             <option value="Ẩn">Ẩn</option>
                                                         </select>
-                                                    </div>  
+                                                    </div>
 
 
                                                     <button type="submit" class="btn btn-primary">Update</button>

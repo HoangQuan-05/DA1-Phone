@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -275,21 +282,21 @@
                                                         <td>Ngày Sinh</td>
                                                         <td>Ngày Đăng Ký</td>
                                                         <td>Địa chỉ</td>
-                                                        
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                        <tr>
-                                                            <td><?= $data['tens'] ?></td>
-                                                            <td><?= $data['email'] ?></td>
-                                                            <td><?= $data['so_dien_thoai'] ?></td>
-                                                            <td><?= $data['ngay_sinh'] ?></td>
-                                                            <td><?= $data['ngay_dang_ky'] ?></td>
-                                                            <td><?= $data['dia_chi'] ?></td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td><?= $data['tens'] ?></td>
+                                                        <td><?= $data['email'] ?></td>
+                                                        <td><?= $data['so_dien_thoai'] ?></td>
+                                                        <td><?= $data['ngay_sinh'] ?></td>
+                                                        <td><?= $data['ngay_dang_ky'] ?></td>
+                                                        <td><?= $data['dia_chi'] ?></td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

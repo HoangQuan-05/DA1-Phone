@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
+    header("location: index.php?act=login");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -148,11 +155,11 @@
 
                                                     <!-- Description field -->
                                                     <div class="form-group">
-                                                    <select name="trang_thai" id="">
-                                                        <option value="<?= $banners['trang_thai'] ?>" hidden><?= $banners['trang_thai'] ?></option>
-                                                        <option value="Hiển thị">Hiển thị</option>
-                                                        <option value="Ẩn">Ẩn</option>
-                                                    </select>
+                                                        <select name="trang_thai" id="">
+                                                            <option value="<?= $banners['trang_thai'] ?>" hidden><?= $banners['trang_thai'] ?></option>
+                                                            <option value="Hiển thị">Hiển thị</option>
+                                                            <option value="Ẩn">Ẩn</option>
+                                                        </select>
                                                     </div>
 
                                                     <!-- Hidden field for ID -->
