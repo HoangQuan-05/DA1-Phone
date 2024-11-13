@@ -299,6 +299,15 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                     </div>
                     <br>
                     <h4>Cập nhật trạng đơn hàng</h4>
+                    <form action="" method="POST">
+                                                <select class="form-select" aria-label="Default select example" name="trang_thai">
+                                                    <?php foreach ($tr_thai as $value) : ?>
+                                                        <option hidden value=" <?php  echo($data_tt['id_trang_thai']); ?>"> <?php  echo($data_tt['trang_thai']); ?></option>
+                                                        <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+                                                    <?php endforeach ?>
+                                                </select> <br>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
 
                 </div>
                 <!-- container-fluid -->
