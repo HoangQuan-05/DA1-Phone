@@ -132,7 +132,6 @@ switch ($act) {
   case 'don_hang_chi_tiet':
     (new Don_hang())->don_hang_chi_tiet();
     break;
-
   case 'trang_thai':
     (new trang_thai_ctl())->trangthai();
     break;
@@ -154,4 +153,7 @@ switch ($act) {
   case 'login':
     (new loginController())->login();
     break;
+    case 'delete_don_hang':
+      (new Don_hang())->delete_don_hang();
+      break;
 };

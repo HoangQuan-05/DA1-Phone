@@ -24,7 +24,7 @@ class Don_hang
 
         view('quan_ly_don_hang/chi_tiet', ['chi_tiet_hoa_don' => $chi_tiet_hoa_don, 'tr_thai' => $tr_thai, 'data_tt' => $data_tt, 'hoa_don' => $hoa_don]);
 
-       
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tt = $_POST['trang_thai'];
             (new Md_Hoa_Don())->update_tt($id, $tt);
@@ -32,5 +32,12 @@ class Don_hang
                     window.location.href = 'index.php?act=don_hang';
                 </script>";
         }
+    }
+
+    public function delete_don_hang()
+    {
+        $id = $_GET['id_hoa_don'];
+        (new Md_Hoa_Don())->delete_don_hang($id);
+        header("location: index.php?act=don_hang");
     }
 }

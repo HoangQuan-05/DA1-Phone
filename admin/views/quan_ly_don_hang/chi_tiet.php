@@ -140,9 +140,9 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
         <!-- HEADER -->
         <?php
-        // require_once "views/layouts/header.php";
+        require_once "views/layouts/header.php";
 
-        // require_once "views/layouts/siderbar.php";
+        require_once "views/layouts/siderbar.php";
         ?>
 
         <!-- Left Sidebar End -->
@@ -285,7 +285,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     Voucher
                                 </span>
                                 <span class="text-danger">
-                                    -  <?= $hoa_don['voucher'] ?> %
+                                    - <?= $hoa_don['voucher'] ?> %
                                 </span>
                             </div>
 
@@ -294,23 +294,20 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     Tổng cộng
                                 </span>
                                 <span>
-                                <?= $tong -  $hoa_don['voucher']/100 * $tong ?> VND
+                                    <?= $tong -  $hoa_don['voucher'] / 100 * $tong ?> VND
                                 </span>
                             </div>
 
                         </div>
-                    </div> <?php
-                            echo "<pre>";
-                            print_r($hoa_don);
-                            echo "</pre>";
-
-                            ?>
+                    </div>
                     <br>
                     <h4>Cập nhật trạng đơn hàng</h4>
                     <form action="" method="POST">
                         <select class="form-select" aria-label="Default select example" name="trang_thai">
                             <?php foreach ($tr_thai as $value) : ?>
-                                <?php if ($value['id'] >= $data_tt['id']) : ?>
+                                <?php if ($value['id'] == 7) : ?>
+                                    <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+                                <?php elseif ($value['id'] >= $data_tt['id']) : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
                                 <?php else : ?>
@@ -328,7 +325,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
             </div>
             <!-- End Page-content -->
 
-            <!-- <footer class="footer">
+            <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
@@ -343,7 +340,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                         </div>
                     </div>
                 </div>
-            </footer> -->
+            </footer>
         </div>
         <!-- end main content-->
 

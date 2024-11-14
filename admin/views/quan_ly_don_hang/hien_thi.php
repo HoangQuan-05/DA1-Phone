@@ -76,8 +76,8 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                             <div class="container-fluid">
                                 <a class="navbar-brand">Đơn hàng</a>
                                 <form method="GET" action="index.php" class="d-flex">
-                                    <input type="hidden" name="act" value="danhmuc">
-                                    <input class="form-control me-2" type="search" placeholder="Search mã đơn hàng" aria-label="Search" name="ten_danh_muc">
+                                    <input type="hidden" name="act" value="don_hang">
+                                    <input class="form-control me-2" type="search" placeholder="Search mã đơn hàng" aria-label="Search" name="ma_don_hang">
                                     <button class="btn btn-outline-success" style="height: 33.5px;" type="submit">Search</button>
                                 </form>
 
@@ -100,32 +100,45 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
+                                        <?php foreach ($data_hoa_don as $value) : ?>
+                                            <?php if (isset($_GET['ma_don_hang']) && $_GET['ma_don_hang'] == $value['ma_don_hang']) : ?>
 
-                                        foreach ($data_hoa_don as $value) :
+                                                <tr>
+                                                    <td><?= $value['ma_don_hang'] ?></td>
+                                                    <td><?= $value['ngay_dat'] ?></td>
+                                                    <td><?= number_format($value['tong_tien'], 0, '', '.') ?>
+                                                        VND</td>
+                                                    <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
+                                                    <td><?= $value['trang_thai_thanh_toan'] ?></td>
 
-                                        ?>
-                                            <tr>
-                                                <td><?= $value['ma_don_hang'] ?></td>
-                                                <td><?= $value['ngay_dat'] ?></td>
-                                                <td><?= number_format($value['tong_tien'], 0, '', '.') ?>
-                                                    VND</td>
-                                                <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
-                                                <td><?= $value['trang_thai_thanh_toan'] ?></td>
+                                                    <td style="color:red"><?= $value['trang_thai'] ?></td>
+                                                    <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
+                                                        <button style="border:none;" disabled>Xoa</button>
+                                                    </td>
+                                                </tr>
+                                            <?php elseif (isset($_GET['ma_don_hang']) && $_GET['ma_don_hang'] != ""): ?>
 
-                                                <td style="color:red"><?= $value['trang_thai'] ?></td>
-                                                <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
-                                                    <button style="border:none;" disabled>Xoa</button>
-                                                </td>
-                                            </tr>
+
+                                            <?php else : ?>
+                                                <tr>
+                                                    <td><?= $value['ma_don_hang'] ?></td>
+                                                    <td><?= $value['ngay_dat'] ?></td>
+                                                    <td><?= number_format($value['tong_tien'], 0, '', '.') ?>
+                                                        VND</td>
+                                                    <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
+                                                    <td><?= $value['trang_thai_thanh_toan'] ?></td>
+
+                                                    <td style="color:red"><?= $value['trang_thai'] ?></td>
+                                                    <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
+                                                        <?php if ($value['trang_thai'] == 'Đã hủy') : ?>
+                                                            <a href="index.php?act=delete_don_hang&id_hoa_don=<?= $value['id_hoa_don'] ?>" onclick="return confirm('Chắc chắn xóa?')"><button style="border:none;">Xoa</button></a>
+                                                        <?php else : ?>
+                                                            <button style="border:none;" disabled>Xoa</button>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endforeach; ?>
-                                        <?php
-                                        echo "<pre>";
-                                        print_r($data_hoa_don);
-                                        echo "</pre>";
-
-                                        ?>
-
 
 
                                     </tbody>

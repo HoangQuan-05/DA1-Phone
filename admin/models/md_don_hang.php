@@ -45,6 +45,12 @@ class Md_Hoa_Don
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function delete_don_hang($id){
+        $sql = "DELETE FROM hoa_dons WHERE id = $id";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute();
+    }
+
 
 
 
