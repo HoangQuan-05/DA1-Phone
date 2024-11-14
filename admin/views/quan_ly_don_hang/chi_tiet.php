@@ -125,6 +125,10 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
     .order-summary .payment-method {
         margin-top: 10px;
     }
+
+    span {
+        font-size: 16px;
+    }
 </style>
 
 
@@ -136,9 +140,9 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
         <!-- HEADER -->
         <?php
-        require_once "views/layouts/header.php";
+        // require_once "views/layouts/header.php";
 
-        require_once "views/layouts/siderbar.php";
+        // require_once "views/layouts/siderbar.php";
         ?>
 
         <!-- Left Sidebar End -->
@@ -154,49 +158,47 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                 <div class="container-fluid" style="background-color: white; min-height:80vh; padding:35px; border-radius:10px;">
                     <h4>Chi tiết đơn hàng</h4>
                     <div class="container">
-                        <div class="product">
-                            <img alt="Product image of a rice cooker and a knife" height="80" src="image/Screenshot 2024-10-09 165426.png" width="80" />
-                            <div class="product-details">
-                                <h4>
-                                    <p>
-                                        Sam sung
-                                    </p>
-                                </h4>
+                        <?php $tong = 0; ?>
+                        <?php
+                        $processed_ids = []; // Mảng lưu trữ các id đã được xử lý
+                        foreach ($chi_tiet_hoa_don as $value) :
+                            if (!in_array($value['id_hoa_don_chi_tiet'], $processed_ids)) {
+                                // Xử lý lần đầu tiên của id_hoa_don_chi_tiet
+                                $thanh_tien = $value['so_luong_mua'] * $value['don_gia'];
+                                $tong = $thanh_tien + $tong;
 
-                                <div class="price mt-2">
-                                    Bộ nhớ: <span>16/128</span> -
-                                    Màu sắc: <span>Đỏ</span>
-                                </div>
-                                <div class="price mt-2">
-                                    1.099.000 ₫
-                                </div>
-                                <div class="quantity">
-                                    Số lượng: 1
-                                </div>
+                                // Thêm id vào mảng đã xử lý
+                                $processed_ids[] = $value['id_hoa_don_chi_tiet'];
+                        ?>
+                                <div class="product">
+                                    <img alt="Hình ảnh sản phẩm nồi cơm điện và dao" height="80" src="image/<?= $value['hinh_anh'] ?>" width="80" />
+                                    <div class="product-details">
+                                        <h4>
+                                            <p>
+                                                <?= $value['ten_san_pham'] ?>
+                                            </p>
+                                        </h4>
 
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img alt="Product image of a rice cooker and a knife" height="80" src="image/Screenshot 2024-10-09 165426.png" width="80" />
-                            <div class="product-details">
-                                <h4>
-                                    <p>
-                                        Sam sung
-                                    </p>
-                                </h4>
-                                <div class="price mt-2">
-                                    Bộ nhớ: <span>16/128</span> -
-                                    Màu sắc: <span>Đỏ</span>
-                                </div>
-                                <div class="price mt-2">
-                                    1.099.000 ₫
-                                </div>
-                                <div class="quantity">
-                                    Số lượng: 1
-                                </div>
+                                        <div class="price mt-2">
+                                            Bộ nhớ: <span> <?= $value['phien_ban'] ?></span> -
+                                            Màu sắc: <span> <?= $value['mau_sac'] ?></span>
+                                        </div>
+                                        <div class="price mt-2">
+                                            <?= $value['don_gia'] ?> ₫
+                                        </div>
+                                        <div class="quantity">
+                                            Số lượng: <?= $value['so_luong_mua'] ?>
+                                        </div>
 
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        endforeach;
+                        ?>
+
+
+
 
                         <div class="order-summary">
                             <h4>
@@ -207,7 +209,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     ID khách hàng
                                 </span>
                                 <span class="text-danger">
-                                    132
+                                    <?= $hoa_don['id_khach_hang'] ?>
                                 </span>
                             </div>
 
@@ -216,7 +218,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     Tên khách hàng
                                 </span>
                                 <span>
-                                    Quân
+                                    <?= $hoa_don['tens'] ?>
                                 </span>
                             </div>
 
@@ -230,7 +232,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     Tên người nhận
                                 </span>
                                 <span>
-                                    Quân
+                                    <?= $hoa_don['ten_nguoi_nhan'] ?>
                                 </span>
                             </div>
 
@@ -239,7 +241,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     Số điện thoại
                                 </span>
                                 <span class="text-danger">
-                                    0395648137
+                                    <?= $hoa_don['std_nhan_hang'] ?>
                                 </span>
                             </div>
 
@@ -247,16 +249,16 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                 <span>
                                     Địa chỉ nhận hàng
                                 </span>
-                                <span class="text-danger">
-                                    Hà Nội
+                                <span>
+                                    <?= $hoa_don['dia_chi_nhan_hang'] ?>
                                 </span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>
                                     Ghi chú
                                 </span>
-                                <span>
-                                    Nhanh
+                                <span style="background-color: yellow;">
+                                    <?= $hoa_don['ghi_chu'] ?>
                                 </span>
                             </div>
 
@@ -266,14 +268,15 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
                         <div class="order-summary">
                             <h4>
-                                Thông tin Đơn hàng
+                                Thanh toán
                             </h4>
                             <div class="d-flex justify-content-between">
                                 <span>
                                     Thành tiền
                                 </span>
                                 <span>
-                                    Số lượng * Đơn giá
+
+                                    <?= $tong ?> VND
                                 </span>
                             </div>
 
@@ -282,7 +285,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     Voucher
                                 </span>
                                 <span class="text-danger">
-                                    -186.830 ₫
+                                    -  <?= $hoa_don['voucher'] ?> %
                                 </span>
                             </div>
 
@@ -291,25 +294,36 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     Tổng cộng
                                 </span>
                                 <span>
-                                    725.340 ₫
+                                <?= $tong -  $hoa_don['voucher']/100 * $tong ?> VND
                                 </span>
                             </div>
 
                         </div>
-                    </div>
+                    </div> <?php
+                            echo "<pre>";
+                            print_r($hoa_don);
+                            echo "</pre>";
+
+                            ?>
                     <br>
                     <h4>Cập nhật trạng đơn hàng</h4>
                     <form action="" method="POST">
-                                                <select class="form-select" aria-label="Default select example" name="trang_thai">
-                                                    <?php foreach ($tr_thai as $value) : ?>
-                                                        <option hidden value=" <?php  echo($data_tt['id_trang_thai']); ?>"> <?php  echo($data_tt['trang_thai']); ?></option>
-                                                        <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
-                                                    <?php endforeach ?>
-                                                </select> <br>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </form>
+                        <select class="form-select" aria-label="Default select example" name="trang_thai">
+                            <?php foreach ($tr_thai as $value) : ?>
+                                <?php if ($value['id'] >= $data_tt['id']) : ?>
+                                    <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
+                                    <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+                                <?php else : ?>
+                                    <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+
+                                <?php endif; ?>
+                            <?php endforeach ?>
+                        </select> <br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
 
                 </div>
+
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->

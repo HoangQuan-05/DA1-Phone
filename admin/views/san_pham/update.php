@@ -297,6 +297,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     <div class="col-12">
                                         <label for="floatingTextarea2">Mô tả dài</label>
                                         <textarea class="form-control" placeholder="Nhập mô tả dài..." id="floatingTextarea2" name="mo_ta_dai" style="height: 150px"><?php echo $data['mo_ta_dai']; ?></textarea>
+                                        <!-- <div id="editor"></div> -->
                                     </div>
                                     <div class="col-md-12"">
                                        <!-- Ảnh -->
@@ -452,8 +453,34 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
     </div>
 
     <!-- JAVASCRIPT -->
+
     <script>
         // Khởi tạo Quill
+        const quill = new Quill('#editor', {
+        theme: 'snow'
+    });
+
+    // Đặt nội dung mặc định cho Quill
+    // quill.root.innerHTML = "<?php echo  $data['mo_ta_dai']; ?>";
+
+    // function submitForm(event) {
+    //     event.preventDefault(); // Ngăn chặn form gửi tự động
+
+    //     // Lấy nội dung từ Quill dưới dạng HTML
+    //     const content = quill.root.innerHTML;
+
+    //     // Tạo một trường ẩn và thêm vào form
+    //     const input = document.createElement('textarea');
+    //     input.setAttribute('name', 'mo_ta_dai'); // Tên này sẽ gửi đi với dữ liệu POST
+    //     input.style.display = 'none';
+    //     input.value = content; // Đặt nội dung từ Quill vào trường textarea
+
+    //     // Thêm trường ẩn vào form và gửi form
+    //     const form = document.getElementById('myForm');
+    //     form.appendChild(input);
+    //     form.submit();
+    // }
+
         var er_san_pham = document.getElementById('er_san_pham');
     </script>
 

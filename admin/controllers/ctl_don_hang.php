@@ -14,8 +14,17 @@ class Don_hang
         $tr_thai = (new Md_Hoa_Don())->trang_thai_dh();
         $id = $_GET['id'];
         $data_tt = (new Md_Hoa_Don())->find_tt($id);
-        $chi_tiet_hoa_don = (new Md_Hoa_Don())->find_hoa_don($id);
-        view('quan_ly_don_hang/chi_tiet', ['chi_tiet_hoa_don' => $chi_tiet_hoa_don, 'tr_thai' => $tr_thai, 'data_tt' => $data_tt]);
+        $hoa_don = (new Md_Hoa_Don())->find_hoa_don($id);
+        $chi_tiet_hoa_don = (new Md_Hoa_Don())->hoa_don_chi_tiet($id);
+
+
+
+
+
+
+        view('quan_ly_don_hang/chi_tiet', ['chi_tiet_hoa_don' => $chi_tiet_hoa_don, 'tr_thai' => $tr_thai, 'data_tt' => $data_tt, 'hoa_don' => $hoa_don]);
+
+       
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tt = $_POST['trang_thai'];
             (new Md_Hoa_Don())->update_tt($id, $tt);

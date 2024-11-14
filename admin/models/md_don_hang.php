@@ -8,35 +8,45 @@ class Md_Hoa_Don
         $this->conn = connectDB();
     }
 
-    public function all_hoa_don()
+    public function hoa_don_chi_tiet($id)
     {
-        $sql = "SELECT * ,hoa_dons.dia_chi AS dia_chi_nhan, hoa_dons.id AS id_hd  FROM hoa_dons 
-        JOIN gio_hang ON gio_hang.id = hoa_dons.id_gio_hang 
-        JOIN gio_hang_chi_tiet ON gio_hang_chi_tiet.id_gio_hang = gio_hang.id  
-        
-        JOIN trang_thai_hoa_don ON trang_thai_hoa_don.id = hoa_dons.trang_thai_don_hang 
-        JOIN khach_hang ON khach_hang.id_khach_hang  = gio_hang.id_khach_hang ";
+        $sql = "SELECT * FROM hoa_don_chi_tiet 
+                JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id = hoa_don_chi_tiet.id_chi_tiet_san_pham  
+                JOIN san_phams ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham
+                JOIN hinh_anhs ON hinh_anhs.id_san_pham  = san_phams.id_san_pham
+                JOIN mau_sacs ON mau_sacs.id_chi_tiet_san_pham = chi_tiet_san_pham.id
+                JOIN phien_bans ON phien_bans.id_chi_tiet_san_pham = chi_tiet_san_pham.id
+                WHERE hoa_don_chi_tiet.id_hoa_don = $id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function find_hoa_don($id)
     {
-        $sql = "SELECT * FROM hoa_don_chi_tiet 
-            JOIN hoa_dons ON hoa_dons.id = hoa_don_chi_tiet.id_hoa_don 
-            JOIN gio_hang ON gio_hang.id = hoa_dons.id_gio_hang 
+        $sql = "SELECT *, 
+                hoa_dons.so_dien_thoai AS std_nhan_hang, 
+                hoa_dons.dia_chi AS dia_chi_nhan_hang 
+                FROM hoa_dons 
+                JOIN khach_hang ON khach_hang.id_khach_hang = hoa_dons.id_khach_hang 
+                LEFT JOIN khuyen_mai ON khuyen_mai.id_voucher = hoa_dons.khuyen_mai 
+                WHERE hoa_dons.id = $id;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
-            JOIN chi_tiet_san_pham  ON chi_tiet_san_pham.id  = hoa_don_chi_tiet.chi_tiet_san_pham 
-            JOIN san_phams ON san_phams.id_san_pham  = chi_tiet_san_pham.id_san_pham
-
-            JOIN mau_sacs ON mau_sacs.id_chi_tiet_san_pham   = chi_tiet_san_pham.id 
-            JOIN phien_bans ON phien_bans.id_chi_tiet_san_pham   = chi_tiet_san_pham.id 
-            WHERE id_hoa_don  =$id ";
+    public function all_hoa_don()
+    {
+        $sql = "SELECT *, trang_thai_hoa_don.id AS id_trang_thai, hoa_dons.id AS id_hoa_don FROM hoa_dons JOIN trang_thai_hoa_don ON hoa_dons.trang_thai_don_hang = trang_thai_hoa_don.id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+
 
     //TRẠNG THÁI
 
@@ -57,7 +67,7 @@ class Md_Hoa_Don
 
     public function find_tt($id)
     {
-        $sql = "SELECT *, trang_thai_hoa_don.id AS id_trang_thai FROM hoa_dons 
+        $sql = "SELECT * FROM hoa_dons 
         JOIN trang_thai_hoa_don ON trang_thai_hoa_don.id = hoa_dons.trang_thai_don_hang 
          WHERE hoa_dons.id = $id ";
         $stmt = $this->conn->prepare($sql);
