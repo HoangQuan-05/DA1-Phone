@@ -66,8 +66,8 @@ class Md_san_pham
     }
     public function creat_chi_tiet_san_pham($data)
     {
-        $sql = "INSERT INTO chi_tiet_san_pham (gia_ban, so_luong, id_san_pham) 
-                VALUES(:gia_ban, :so_luong, :id_san_pham)";
+        $sql = "INSERT INTO chi_tiet_san_pham (gia_ban,gia_nhap, so_luong, id_san_pham) 
+                VALUES(:gia_ban,:gia_nhap, :so_luong, :id_san_pham)";
         $result = $this->conn->prepare($sql);
         $result->execute($data);
     }
@@ -156,14 +156,28 @@ class Md_san_pham
     }
 
 
-
-
-
-
-
-
-
-
-
-
+    public function get_binh_luan_by_san_pham_id($id)
+    {
+        $sql = "SELECT binh_luan.*, khach_hang.tens 
+                FROM binh_luan 
+                JOIN khach_hang ON binh_luan.id_khach_hang = khach_hang.id_khach_hang 
+                WHERE binh_luan.id_san_pham = :id_san_pham 
+                ORDER BY binh_luan.ngay_binh_luan DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_san_pham', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function get_danh_gia_by_san_pham_id($id)
+    {
+        $sql = "SELECT danh_gias.*, khach_hang.tens
+            FROM danh_gias 
+            JOIN khach_hang ON danh_gias.id_khach_hang = khach_hang.id_khach_hang 
+            WHERE danh_gias.id_san_pham = :id_san_pham 
+            ORDER BY danh_gias.noi_dung DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_san_pham', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

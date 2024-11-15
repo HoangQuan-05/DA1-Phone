@@ -180,11 +180,11 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                         </h4>
 
                                         <div class="price mt-2">
-                                            Bộ nhớ: <span> <?= $value['phien_ban'] ?></span> -
-                                            Màu sắc: <span> <?= $value['mau_sac'] ?></span>
+                                            Bộ nhớ: <span class="badge bg-secondary"> <?= $value['phien_ban'] ?></span>  
+                                            Màu sắc: <span class="badge bg-primary"> <?= $value['mau_sac'] ?></span>
                                         </div>
                                         <div class="price mt-2">
-                                            <?= $value['don_gia'] ?> ₫
+                                           Giá:  <?= $value['don_gia'] ?> ₫
                                         </div>
                                         <div class="quantity">
                                             Số lượng: <?= $value['so_luong_mua'] ?>

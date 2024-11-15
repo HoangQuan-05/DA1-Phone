@@ -16,6 +16,7 @@ require_once 'controllers/khuyenmaicontroller.php';
 require_once 'controllers/ctl_don_hang.php';
 require_once 'controllers/ctl_trang_thai.php';
 require_once 'controllers/ctl_login.php';
+require_once 'controllers/thongke_ctl.php';
 
 
 
@@ -29,6 +30,7 @@ require_once "models/md_khach_hang.php";
 require_once "models/khuyenmai.php";
 require_once "models/md_don_hang.php";
 require_once "models/ql_trang_thai.php";
+require_once "models/thongke_md.php";
 
 
 // Route
@@ -96,6 +98,9 @@ switch ($act) {
   case 'update_san_pham':
     (new Ctl_san_pham())->update_san_pham();
     break;
+  case 'chi_tiet_san_pham':
+    (new Ctl_san_pham())->chi_tiet_san_pham();
+    break;
   case 'delete_san_pham':
     (new Ctl_san_pham())->delete_san_pham();
     break;
@@ -153,7 +158,10 @@ switch ($act) {
   case 'login':
     (new loginController())->login();
     break;
-    case 'delete_don_hang':
-      (new Don_hang())->delete_don_hang();
-      break;
+  case 'delete_don_hang':
+    (new Don_hang())->delete_don_hang();
+    break;
+  case 'thongke':
+    (new ThongkeController())->showStatistics();
+    break;
 };

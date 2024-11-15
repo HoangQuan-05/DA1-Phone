@@ -35,6 +35,13 @@ class Ctl_san_pham
                     $stt_gia = true;
                 }
             }
+            foreach ($_POST['gia_nhap'] as $index => $value) {
+                $stt_gia = false;
+                $stt_gia_nhap = $index;
+                if (is_numeric($value)) {
+                    $stt_gia = true;
+                }
+            }
             foreach ($_POST['mau_sac'] as $index => $value) {
                 $stt_mau_sac = $index;
             }
@@ -98,40 +105,44 @@ class Ctl_san_pham
                                         $du_lieu_bien_the['id_san_pham'] = $id_sp;
 
                                         $gia_ban = $data['gia_ban'];
+                                        $gia_nhap = $data['gia_nhap'];
                                         $so_luong = $data['so_luong'];
 
                                         foreach ($gia_ban as $index => $value) { // GIÁ BÁN
-                                            foreach ($so_luong as $index2 => $value2) { //SỐ LƯỢNG
-                                                if ($index == $index2 && $value != "" && $value2 != "") {
+                                            foreach ($gia_ban as $index9 => $value9) {
+                                                foreach ($so_luong as $index2 => $value2) { //SỐ LƯỢNG
+                                                    if ($index == $index2 && $value != "" && $value2 != "" && $index == $index9 && $value != "" && $index9 != "" ) {
 
-                                                    $du_lieu_bien_the['so_luong'] = $value2;
-                                                    $du_lieu_bien_the['gia_ban'] = $value;
+                                                        $du_lieu_bien_the['so_luong'] = $value2;
+                                                        $du_lieu_bien_the['gia_ban'] = $value;
+                                                        $du_lieu_bien_the['gia_nhap'] = $value9;
 
-                                                    (new Md_san_pham())->creat_chi_tiet_san_pham($du_lieu_bien_the);
+                                                        (new Md_san_pham())->creat_chi_tiet_san_pham($du_lieu_bien_the);
 
-                                                    $if_sp_ct = (new Md_san_pham())->find_one_time_chi_tiet();
-                                                    $id_sp_ct = $if_sp_ct['id'];
-                                                    $du_lieu_phien_ban = $data['phien_ban'];
-                                                    $du_lieu_mau_sac = $data['mau_sac'];
+                                                        $if_sp_ct = (new Md_san_pham())->find_one_time_chi_tiet();
+                                                        $id_sp_ct = $if_sp_ct['id'];
+                                                        $du_lieu_phien_ban = $data['phien_ban'];
+                                                        $du_lieu_mau_sac = $data['mau_sac'];
 
 
-                                                    foreach ($du_lieu_phien_ban as $index3 => $value3) { //PHIÊN BẢN
-                                                        if ($index3 == $index && $index3 == $index2 && $value2 != "" && $value3 != "") {
+                                                        foreach ($du_lieu_phien_ban as $index3 => $value3) { //PHIÊN BẢN
+                                                            if ($index3 == $index && $index3 == $index2 && $value2 != "" && $value3 != "") {
 
-                                                            $dl_pb['id_chi_tiet_san_pham']  = $id_sp_ct;
-                                                            $dl_pb['phien_ban'] = $value3;
+                                                                $dl_pb['id_chi_tiet_san_pham']  = $id_sp_ct;
+                                                                $dl_pb['phien_ban'] = $value3;
 
-                                                            (new Md_san_pham())->creat_phien_ban($dl_pb);
+                                                                (new Md_san_pham())->creat_phien_ban($dl_pb);
 
-                                                            break;
+                                                                break;
+                                                            }
                                                         }
-                                                    }
-                                                    foreach ($du_lieu_mau_sac as  $index4 => $value4) { //MÀU SẮC
-                                                        if ($index4 == $index && $index4 == $index2 && $value2 != "" && $value4 != "" && $index3 == $index4) {
-                                                            $dl_ms['id_chi_tiet_san_pham']  = $id_sp_ct;
-                                                            $dl_ms['mau_sac'] = $value4;
-                                                            (new Md_san_pham())->creat_mau_sac($dl_ms);
-                                                            break;
+                                                        foreach ($du_lieu_mau_sac as  $index4 => $value4) { //MÀU SẮC
+                                                            if ($index4 == $index && $index4 == $index2 && $value2 != "" && $value4 != "" && $index3 == $index4) {
+                                                                $dl_ms['id_chi_tiet_san_pham']  = $id_sp_ct;
+                                                                $dl_ms['mau_sac'] = $value4;
+                                                                (new Md_san_pham())->creat_mau_sac($dl_ms);
+                                                                break;
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -357,11 +368,71 @@ class Ctl_san_pham
             $img[] = $value['hinh_anh'];
         }
         foreach ($img as $value1) {
-            unlink("image/".$value1);
+            unlink("image/" . $value1);
         }
-            (new Md_san_pham())->delete_san_pham($id);
-            echo "<script type='text/javascript'>
+        (new Md_san_pham())->delete_san_pham($id);
+        echo "<script type='text/javascript'>
             window.location.href = 'index.php?act=san_pham';
         </script>";
+    }
+
+
+    public function chi_tiet_san_pham()
+    {
+        $id = $_GET['id'];
+        $data = (new Md_san_pham())->find_one($id);
+
+        if (!$data) {
+            // Xử lý trường hợp không tìm thấy sản phẩm
+            echo "Không tìm thấy sản phẩm";
+            return;
+        }
+
+        $danh_muc = (new DanhMuc())->all();
+        $anhs = (new Md_san_pham())->show_anh_san_pham($id);
+        $sp_chi_tiet = (new Md_san_pham())->find_one_sp_chi_tiet($id);
+
+        $all_phien_ban = [];
+        $all_mau_sac = [];
+
+        $md_san_pham = new Md_san_pham();
+
+        foreach ($sp_chi_tiet as $value) {
+            $phien_ban = $md_san_pham->find_one_phien_ban($value['id']);
+            $mau_sac = $md_san_pham->find_one_mau_sac($value['id']);
+
+            $all_phien_ban = array_merge($all_phien_ban, $phien_ban);
+            $all_mau_sac = array_merge($all_mau_sac, $mau_sac);
+        }
+
+        // Lấy bình luận cho sản phẩm
+        $binh_luan = $md_san_pham->get_binh_luan_by_san_pham_id($id);
+
+        // Lấy đánh giá cho sản phẩm
+        $danh_gia = $md_san_pham->get_danh_gia_by_san_pham_id($id);
+
+        // Tính điểm đánh giá trung bình
+        $diem_trung_binh = 0;
+        $tong_diem = 0;
+        $so_luong_danh_gia = count($danh_gia);
+
+        if ($so_luong_danh_gia > 0) {
+            foreach ($danh_gia as $dg) {
+                $tong_diem += $dg['diem_danh_gia'];
+            }
+            $diem_trung_binh = round($tong_diem / $so_luong_danh_gia, 1);
+        }
+        view('san_pham/chi_tiet', [
+            'data' => $data,
+            'danh_muc' => $danh_muc,
+            'anhs' => $anhs,
+            'sp_chi_tiet' => $sp_chi_tiet,
+            'all_phien_ban' => $all_phien_ban,
+            'all_mau_sac' => $all_mau_sac,
+            'binh_luan' => $binh_luan,
+            'danh_gia' => $danh_gia,
+            'diem_trung_binh' => $diem_trung_binh,
+            'so_luong_danh_gia' => $so_luong_danh_gia
+        ]);
     }
 }

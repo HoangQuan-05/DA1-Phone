@@ -343,6 +343,22 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
                                         </div>
                                     </div>
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-flex-start">
+                                            <div class="col-7" id="gia_nhap">
+                                                <label for="inputPassword2" class="me-2">Giá nhập</label>
+                                               
+                                                <?php foreach ($sp_chi_tiet as $key => $value) : ?>
+                                                    <br>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <input type="number" class="form-control w-75 p-3" id="inputPassword2" readonly placeholder="Giá nhập..." name="gia_nhap[]" value="<?= $value['gia_nhap'] ?>">
+                                                    </div>
+                                                <?php endforeach ?>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
 
 
 

@@ -113,7 +113,12 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
                                                     <td style="color:red"><?= $value['trang_thai'] ?></td>
                                                     <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
-                                                        <button style="border:none;" disabled>Xoa</button>
+                                                        <?php if ($value['trang_thai'] == 'Đã hủy') : ?>
+
+                                                            <a href="index.php?act=delete_don_hang&id_hoa_don=<?= $value['id_hoa_don'] ?>" onclick="return confirm('Chắc chắn xóa?')"><button style="border:none;">Xoa</button></a>
+                                                        <?php else : ?>
+                                                            <button style="border:none;" disabled>Xoa</button>
+                                                        <?php endif; ?>
                                                     </td>
                                                 </tr>
                                             <?php elseif (isset($_GET['ma_don_hang']) && $_GET['ma_don_hang'] != ""): ?>
@@ -126,11 +131,21 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                     <td><?= number_format($value['tong_tien'], 0, '', '.') ?>
                                                         VND</td>
                                                     <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
-                                                    <td><?= $value['trang_thai_thanh_toan'] ?></td>
+                                                    <td>
+                                                        <span class="badge bg-info">
+                                                            <?= $value['trang_thai_thanh_toan'] ?>
+                                                        </span>
+                                                    </td>
 
-                                                    <td style="color:red"><?= $value['trang_thai'] ?></td>
+                                                    <td style="color:red">
+                                                        <span class="badge bg-secondary">
+                                                            <?= $value['trang_thai'] ?>
+                                                    </td>
+                                                    </span>
+
                                                     <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
                                                         <?php if ($value['trang_thai'] == 'Đã hủy') : ?>
+
                                                             <a href="index.php?act=delete_don_hang&id_hoa_don=<?= $value['id_hoa_don'] ?>" onclick="return confirm('Chắc chắn xóa?')"><button style="border:none;">Xoa</button></a>
                                                         <?php else : ?>
                                                             <button style="border:none;" disabled>Xoa</button>

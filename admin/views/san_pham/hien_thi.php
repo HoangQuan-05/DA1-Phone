@@ -8,7 +8,6 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Oct 2024 07:29:52 GMT -->
 
 <head>
@@ -22,6 +21,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -96,6 +96,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <th scope="col">Giá sản phẩm</th>
                                             <th scope="col">Mô tả </th>
                                             <th scope="col">Lượt xem </th>
+                                            <th scope="col">Chi tiết </th>
                                             <th scope="col">Hành động</th>
 
                                         </tr>
@@ -133,6 +134,10 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                         <p id="mo_ta"><?= $value['mo_ta_ngan'] ?></p>
                                                     </td>
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['luot_xem'] ?></td>
+
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham']?>"><i title="Chi tiết" style="font-size:20px; display: inline-block;" class="fa-solid fa-info "></i></a>    
+                                                    </td>
 
                                                     <td style="text-align: center; vertical-align: middle;">
                                                         <a style="display: inline-block;" href="index.php?act=update_san_pham&id=<?= $value['id_san_pham'] ?>" class="settings" title="Update" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>

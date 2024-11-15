@@ -112,7 +112,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                 <td style="text-align: center; vertical-align: middle;"><?= $value['ngay_sinh'] ?></td>
                                                 <td style="text-align: center; vertical-align: middle;"><?= $value['ngay_dang_ky'] ?></td>
                                                 <td style="text-align: center; vertical-align: middle;"><?= $value['dia_chi'] ?></td>
-                                                <td style="text-align: center; vertical-align: middle;"><?= $value['vai_tro'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span class="badge bg-primary"><?= $value['vai_tro'] ?></span></td>
                                                 <td style="text-align: center; vertical-align: middle;">
                                                     <a style="display: inline-block;" href="index.php?act=update_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                                                     <a style="display: inline-block;" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="index.php?act=dl_khachhang&id=<?= $value['id_khach_hang'] ?>" class="btn-action delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>

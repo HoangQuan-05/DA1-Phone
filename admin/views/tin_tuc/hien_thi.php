@@ -46,6 +46,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
         text-overflow: ellipsis;
         white-space: normal;
 
+
     }
 
     table td,
@@ -117,7 +118,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
                                             <tr>
                                                 <td style="text-align: center; vertical-align: middle;"><?= $values['id_tin_tuc'] ?></td>
-                                                <td style="text-align: center; vertical-align: middle;">
+                                                <td style="display: flex; justify-content: center; align-items: center;">
                                                     <p id="tieu_de"><?= $values['tieu_de'] ?></p>
                                                 </td>
                                                 <td style="text-align: center; vertical-align: middle;">

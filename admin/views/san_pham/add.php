@@ -333,6 +333,18 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     </div>
 
 
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-flex-start">
+                                            <div class="col-7" id="gia_nhap">
+                                                <label for="inputPassword2" class="me-2">Giá nhập</label>
+                                                <input type="text" class="form-control" id="inputPassword2" placeholder="Giá nhập..." name="gia_nhap[]">
+
+                                            </div>
+                                            <div class="col-auto ms-2" style="margin-top: 25px;">
+                                                <div id="add_gia_nhap" type="" class="btn btn-primary">Add</div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="col-6">
                                         <div class="d-flex align-items-flex-start">
@@ -460,11 +472,13 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
         var btn_mau_sac = document.getElementById("add_mau_sac");
         var btn_gia_ban = document.getElementById("add_gia_ban");
         var btn_so_luong = document.getElementById("add_so_luong");
+        var btn_gia_nhap = document.getElementById("add_gia_nhap");
 
         var ram_rom = document.getElementById("ram_rom");
         var mau_sac = document.getElementById("mau_sac");
         var gia_ban = document.getElementById("gia_ban");
         var so_luong = document.getElementById("so_luong");
+        var gia_nhap = document.getElementById("gia_nhap");
 
         function addInputField(container, placeholderText, inputName) {
             const lineBreak = document.createElement("br");
@@ -495,12 +509,14 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
         function onAnyButtonClick() {
             addInputField(ram_rom, "Ram/Rom", "phien_ban[]");
             addInputField(mau_sac, "Màu sắc...", "mau_sac[]");
+            addInputField(gia_nhap, "Giá nhập...", "gia_nhap[]");
             addInputField(gia_ban, "Giá bán...", "gia_ban[]");
             addInputField(so_luong, "Số lượng...", "so_luong[]");
         }
 
         btn_ram.addEventListener("click", onAnyButtonClick);
         btn_mau_sac.addEventListener("click", onAnyButtonClick);
+        btn_gia_nhap.addEventListener("click", onAnyButtonClick);
         btn_gia_ban.addEventListener("click", onAnyButtonClick);
         btn_so_luong.addEventListener("click", onAnyButtonClick);
     </script>

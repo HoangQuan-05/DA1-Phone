@@ -162,6 +162,12 @@
                         <span data-key="t-dashboards">Đơn hàng</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="index.php?act=thongke">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span data-key="t-dashboards">Thống Kê</span>
+                    </a>
+                </li>
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
 
