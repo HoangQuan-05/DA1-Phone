@@ -10,19 +10,12 @@ class ThongkeController
     }
     public function showStatistics()
     {
-        $statistics = $this->model->all();
+        $tong_don = (new Thongkes())->all();
         $tong_sp = (new Thongkes())->thong_ke_so_luong_san_pham();
         $doanh_thu = (new Thongkes())->thong_ke_doanh_thu();
 
-        if ($statistics) {
-         
-            $hoa_sons = $statistics['tong_hoa_dons'];
-            
-            require 'views/thongke.php';
-        } else {
-            echo "Không thể lấy thông tin thống kê.";
-        }
+        require 'views/dashboard.php';
+
+       
     }
 }
-?>
-

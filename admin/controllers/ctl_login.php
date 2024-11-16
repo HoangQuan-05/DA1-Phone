@@ -16,6 +16,8 @@ class loginController
                     if ($_POST['email'] == $user['email'] && $_POST['mat_khau'] == $user['mat_khau'] && $user['vai_tro'] == "nhan vien") {
                         $stt = true;
                         $_SESSION['id_khach_hang'] = $user['id_khach_hang'];
+                        $_SESSION['name_khach_hang'] = $user['tens'];
+                        $_SESSION['avt'] = $user['anh_dai_dien'];
                         header("Location: index.php?act=dashboard");
                     }
                 }
@@ -31,6 +33,7 @@ class loginController
                       </script>";
             }
         }
+        
     }
 
 

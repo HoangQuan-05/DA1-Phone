@@ -113,7 +113,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                 <div class="row">
                                     <div class="col-md-6 product-images">
                                         <?php foreach ($anhs as $value) : ?>
-                                            <img src="image/<?= $value['hinh_anh'] ?>" alt="<?= $data['ten_san_pham'] ?>" class="img-fluid mb-3" width="200px">
+                                            <img src="image/<?= $value['hinh_anh'] ?>" alt="<?= $data['ten_san_pham'] ?>" class="img-fluid mb-3" width="200px" style="height:200px;">
                                         <?php endforeach ?>
                                     </div>
 
@@ -128,7 +128,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                     <?php foreach ($all_mau_sac as $key2 => $mau_sac) : ?>
                                                         <?php if ($key == $key1 && $key == $key2): ?>
                                                             <span>Ram/Rom: <span class="badge bg-secondary"><?= $phien_ban['phien_ban'] ?></span></span>
-                                                            <span>Giá nhập: <strong class="text-danger"><?= number_format($chi_tiet['gia_nhap']) ?> VNĐ</strong> - Giá: <strong class="text-danger"><?= number_format($chi_tiet['gia_ban']) ?> VNĐ</strong> - Số lượng: <span class="badge bg-success"><?= $chi_tiet['so_luong'] ?></span></span>
+                                                            <span>Giá nhập: <strong class="text-danger"><?= number_format($chi_tiet['gia_nhap']) ?> VNĐ</strong> - Giá: <strong class="text-danger"><?= number_format($chi_tiet['gia_ban']) ?> VNĐ</strong>  Số lượng: <span class="badge bg-success"><?= $chi_tiet['so_luong'] ?></span></span>
                                                             <span> Màu sắc: </span><span class="badge bg-primary"> <?= $mau_sac['mau_sac'] ?></span>
 
                                                         <?php endif; ?>

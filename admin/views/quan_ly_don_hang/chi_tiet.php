@@ -180,11 +180,11 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                         </h4>
 
                                         <div class="price mt-2">
-                                            Bộ nhớ: <span class="badge bg-secondary"> <?= $value['phien_ban'] ?></span>  
+                                            Bộ nhớ: <span class="badge bg-secondary"> <?= $value['phien_ban'] ?></span>
                                             Màu sắc: <span class="badge bg-primary"> <?= $value['mau_sac'] ?></span>
                                         </div>
                                         <div class="price mt-2">
-                                           Giá:  <?= $value['don_gia'] ?> ₫
+                                            Giá: <?= $value['don_gia'] ?> ₫
                                         </div>
                                         <div class="quantity">
                                             Số lượng: <?= $value['so_luong_mua'] ?>
@@ -304,16 +304,25 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                     <h4>Cập nhật trạng đơn hàng</h4>
                     <form action="" method="POST">
                         <select class="form-select" aria-label="Default select example" name="trang_thai">
-                            <?php foreach ($tr_thai as $value) : ?>
-                                <?php if ($value['id'] == 7) : ?>
+                            <?php foreach ($tr_thai as $key => $value) : ?>
+                                <?php if ($value['trang_thai'] == "Đã hủy") : ?>
                                     <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+
+                                <?php elseif ($data_tt['trang_thai'] == "Đã hoàn thành") : ?>
+                                    <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
+                                    <option disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+
                                 <?php elseif ($value['id'] >= $data_tt['id']) : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+
+
+
                                 <?php else : ?>
                                     <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
                                 <?php endif; ?>
+
                             <?php endforeach ?>
                         </select> <br>
                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -82,6 +82,21 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     <!--end col-->
                                 </div>
                                 <!--end row-->
+                                <?php
+
+                                $tong_doanh_thu = 0;
+                                $tong_sp_con_lai = 0;
+                                foreach ($doanh_thu as $value) {
+                                    $tong_thu = ($value['gia_ban'] * $value['so_luong_mua']) - ($value['gia_nhap'] * $value['so_luong_mua']);
+                                    $tong_doanh_thu = $tong_doanh_thu + $tong_thu;
+                                }
+                                foreach ($tong_sp as $value1) {
+                                    $tong = $value1['so_luong'];
+                                    $tong_sp_con_lai = $tong_sp_con_lai + $tong;
+                                }
+                                ?>
+                               
+
 
                                 <div class="row">
                                     <div class="col-xl-3 col-md-6">
@@ -90,17 +105,15 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Earnings</p>
+                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tổng doanh thu</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
-                                                        <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
-                                                        </h5>
+
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span>k </h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target=" <?= $tong_doanh_thu;?> "></span> VND</h4>
                                                         <a href="#" class="text-decoration-underline">View net earnings</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -119,17 +132,15 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Orders</p>
+                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Tổng số hóa đơn</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
-                                                        <h5 class="text-danger fs-14 mb-0">
-                                                            <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                                        </h5>
+
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="36894">0</span></h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?=  $tong_don['COUNT(*)']; ?>">0</span> Đơn</h4>
                                                         <a href="#" class="text-decoration-underline">View all orders</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -148,17 +159,15 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Customers</p>
+                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Tổng số sản phẩm còn trong kho</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
-                                                        <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
-                                                        </h5>
+
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="183.35">0</span>M </h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?= $tong_sp_con_lai ?> ">0</span> Sản phẩm </h4>
                                                         <a href="#" class="text-decoration-underline">See details</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">

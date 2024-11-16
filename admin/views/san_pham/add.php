@@ -280,7 +280,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                         <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
                                         <input type="text" class="form-control" id="inputEmail4" placeholder="Nhập tên sản phẩm..." name="ten_san_pham">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="inputState" class="form-label">Danh mục</label>
                                         <select id="inputState" class="form-select" name="id_danh_muc">
                                             <option hidden value="0">Chọn danh mục</option>
@@ -305,73 +305,42 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                         <input type="file" class="form-control" id="imageUpload" name="hinh_anh[]" accept="image/*" multiple>
                                     </div>
 
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="ram_rom">
-                                                <label for="inputPassword2" class="me-2">Ram/Rom</label>
-                                                <input type="text" class="form-control" id="inputPassword2" placeholder="Ram/Rom" name="phien_ban[]">
 
-                                            </div>
-                                            <div class="col-auto ms-2" style="margin-top: 25px;">
-                                                <div id="add_ram" type="" class="btn btn-primary">Add</div>
 
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="mau_sac">
-                                                <label for="inputPassword2" class="me-2">Màu sắc</label>
-                                                <input type="text" class="form-control" id="inputPassword2" placeholder="Màu sắc..." name="mau_sac[]">
-
-                                            </div>
-                                            <div class="col-auto ms-2" style="margin-top: 25px;">
-                                                <div id="add_mau_sac" type="" class="btn btn-primary">Add</div>
-                                            </div>
-                                        </div>
+                                    <div class="container mt-4">
+                                        <h2 class="text-center">Quản lý biến thể</h2>
+                                        <button id="add_so_luong" type="button" class="btn btn-success mb-3">Thêm dòng mới</button>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align: center; width:unset;">Ram/Rom</th>
+                                                    <th style="text-align: center;">Màu sắc</th>
+                                                    <th style="text-align: center;">Giá nhập</th>
+                                                    <th style="text-align: center;">Giá bán</th>
+                                                    <th style="text-align: center;">Số lượng</th>
+                                                    <th style="text-align: center;">Hành động</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Các dòng sản phẩm sẽ được thêm vào đây -->
+                                            </tbody>
+                                        </table>
                                     </div>
 
-
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="gia_nhap">
-                                                <label for="inputPassword2" class="me-2">Giá nhập</label>
-                                                <input type="text" class="form-control" id="inputPassword2" placeholder="Giá nhập..." name="gia_nhap[]">
-
-                                            </div>
-                                            <div class="col-auto ms-2" style="margin-top: 25px;">
-                                                <div id="add_gia_nhap" type="" class="btn btn-primary">Add</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="gia_ban">
-                                                <label for="inputPassword2" class="me-2">Giá bán</label>
-                                                <input type="text" class="form-control" id="inputPassword2" placeholder="Giá bán..." name="gia_ban[]">
-
-                                            </div>
-                                            <div class="col-auto ms-2" style="margin-top: 25px;">
-                                                <div id="add_gia_ban" type="" class="btn btn-primary">Add</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="so_luong">
-                                                <label for="inputPassword2" class="me-2">Số lượng</label>
-                                                <input type="text" class="form-control" id="inputPassword2" placeholder="Số lượng..." name="so_luong[]">
-
-                                            </div>
-                                            <div class="col-auto ms-2" style="margin-top: 25px;">
-                                                <div id="add_so_luong" type="" class="btn btn-primary">Add</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- Template row -->
+                                    <template id="template-row">
+                                        <tr>
+                                            <td><input type="text" class="form-control" placeholder="Ram/Rom" name="phien_ban[]"></td>
+                                            <td><input type="text" class="form-control" placeholder="Màu sắc" name="mau_sac[]"></td>
+                                            <td><input type="number" class="form-control" placeholder="Giá nhập" name="gia_nhap[]" min="0"></td>
+                                            <td><input type="number" class="form-control" placeholder="Giá bán" name="gia_ban[]" min="0"></td>
+                                            <td><input type="number" class="form-control" placeholder="Số lượng" name="so_luong[]" min="0"></td>
+                                            <td style="text-align: center;">
+                                                <button type="button" class="btn btn-danger btn-delete-row">Xóa</button>
+                                            </td>
+                                        </tr>
+                                    </template>
 
 
                                     <div class="col-12">
@@ -465,60 +434,27 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
             form.submit();
         }
 
-        var er_san_pham = document.getElementById('er_san_pham');
+    
 
+        document.addEventListener("DOMContentLoaded", () => {
+            const btnAddRow = document.getElementById("add_so_luong");
+            const tableBody = document.querySelector("tbody");
+            const template = document.getElementById("template-row");
 
-        var btn_ram = document.getElementById("add_ram");
-        var btn_mau_sac = document.getElementById("add_mau_sac");
-        var btn_gia_ban = document.getElementById("add_gia_ban");
-        var btn_so_luong = document.getElementById("add_so_luong");
-        var btn_gia_nhap = document.getElementById("add_gia_nhap");
-
-        var ram_rom = document.getElementById("ram_rom");
-        var mau_sac = document.getElementById("mau_sac");
-        var gia_ban = document.getElementById("gia_ban");
-        var so_luong = document.getElementById("so_luong");
-        var gia_nhap = document.getElementById("gia_nhap");
-
-        function addInputField(container, placeholderText, inputName) {
-            const lineBreak = document.createElement("br");
-            var div_field = document.createElement("div");
-            div_field.classList.add("d-flex", "justify-content-between", "align-items-center");
-
-            const btn_xoa = document.createElement("div");
-            btn_xoa.classList.add("btn", "btn-primary");
-            btn_xoa.innerHTML = "Xóa";
-
-            var input_field = document.createElement("input");
-            input_field.type = "text";
-            input_field.name = inputName;
-            input_field.placeholder = placeholderText;
-            input_field.classList.add("form-control", "w-75", "p-3");
-
-            div_field.append(input_field);
-            div_field.append(btn_xoa);
-            container.append(lineBreak);
-            container.append(div_field);
-
-            btn_xoa.addEventListener("click", () => {
-                lineBreak.remove();
-                div_field.remove();
+            // Thêm dòng mới
+            btnAddRow.addEventListener("click", () => {
+                const newRow = template.content.cloneNode(true); // Sao chép nội dung từ template
+                tableBody.appendChild(newRow); // Thêm dòng mới vào tbody
             });
-        }
 
-        function onAnyButtonClick() {
-            addInputField(ram_rom, "Ram/Rom", "phien_ban[]");
-            addInputField(mau_sac, "Màu sắc...", "mau_sac[]");
-            addInputField(gia_nhap, "Giá nhập...", "gia_nhap[]");
-            addInputField(gia_ban, "Giá bán...", "gia_ban[]");
-            addInputField(so_luong, "Số lượng...", "so_luong[]");
-        }
-
-        btn_ram.addEventListener("click", onAnyButtonClick);
-        btn_mau_sac.addEventListener("click", onAnyButtonClick);
-        btn_gia_nhap.addEventListener("click", onAnyButtonClick);
-        btn_gia_ban.addEventListener("click", onAnyButtonClick);
-        btn_so_luong.addEventListener("click", onAnyButtonClick);
+            // Xóa dòng
+            tableBody.addEventListener("click", (e) => {
+                if (e.target.classList.contains("btn-delete-row")) {
+                    const row = e.target.closest("tr");
+                    row.remove(); // Xóa dòng chứa nút "Xóa"
+                }
+            });
+        });
     </script>
 
     <?php

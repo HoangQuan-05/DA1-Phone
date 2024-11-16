@@ -13,7 +13,8 @@ class Md_san_pham
     {
         $sql = "SELECT * FROM san_phams
             JOIN danh_muc ON san_phams.id_danh_muc = danh_muc.id_danh_muc 
-            JOIN chi_tiet_san_pham ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham";
+            JOIN chi_tiet_san_pham ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham 
+            ORDER BY san_phams.id_san_pham DESC";
         $result = $this->conn->prepare($sql);
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
@@ -96,7 +97,20 @@ class Md_san_pham
     }
     public function update_san_pham_chi_tiet($id, $data)
     {
-        $sql = "UPDATE chi_tiet_san_pham SET so_luong = :so_luong, gia_ban= :gia_ban WHERE  id = $id";
+        $sql = "UPDATE chi_tiet_san_pham SET so_luong = :so_luong, gia_ban= :gia_ban, gia_nhap= :gia_nhap WHERE  id = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute($data);
+    }
+    public function update_phien_ban($id, $data)
+    {
+        $sql = "UPDATE phien_bans SET phien_ban = :phien_ban WHERE id_chi_tiet_san_pham  = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute($data);
+    }
+
+    public function update_mau_sac($id, $data)
+    {
+        $sql = "UPDATE mau_sacs SET mau_sac = :mau_sac WHERE id_chi_tiet_san_pham  = $id";
         $result = $this->conn->prepare($sql);
         $result->execute($data);
     }

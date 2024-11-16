@@ -302,7 +302,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     <div class="col-md-12"">
                                        <!-- Ảnh -->
                                         <?php foreach ($anhs as $value) : ?>
-                                            <img width=" 200px" src="image/<?= $value['hinh_anh'] ?>" alt="">
+                                            <img style="width:200px; height:200px;" src="image/<?= $value['hinh_anh'] ?>" alt="">
 
                                     <?php endforeach ?>
                                     </div>
@@ -312,97 +312,47 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                         <input type="file" class="form-control" id="imageUpload" name="hinh_anh[]" accept="image/*" multiple>
                                     </div>
 
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
 
-                                            <div class="col-7" id="ram_rom">
-                                                <label for="inputPassword2" class="me-2">Ram/Rom</label>
-                                                <?php foreach ($all_phien_ban as $key => $value) : ?>
-                                                    <br>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <input type="text" class="form-control w-75 p-3" id="inputPassword2" readonly placeholder="Ram/Rom" name="phien_ban[]" value="<?= $value['phien_ban'] ?>">
-                                                    </div>
-                                                <?php endforeach ?>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="mau_sac">
-                                                <label for="inputPassword2" class="me-2">Màu sắc</label>
-                                                <?php foreach ($all_mau_sac as $key => $value) : ?>
-                                                    <br>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <input type="text" class="form-control w-75 p-3" id="inputPassword2" readonly placeholder="Màu sắc..." name="mau_sac[]" value="<?= $value['mau_sac'] ?>">
-                                                    </div>
-                                                <?php endforeach ?>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="gia_nhap">
-                                                <label for="inputPassword2" class="me-2">Giá nhập</label>
-                                               
+                                    <div class="container mt-4">
+                                        <h2 class="text-center">Quản lý biến thể</h2>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align: center; width:unset;">Ram/Rom</th>
+                                                    <th style="text-align: center;">Màu sắc</th>
+                                                    <th style="text-align: center;">Giá nhập</th>
+                                                    <th style="text-align: center;">Giá bán</th>
+                                                    <th style="text-align: center; width:unset;">Số lượng</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                                 <?php foreach ($sp_chi_tiet as $key => $value) : ?>
-                                                    <br>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <input type="number" class="form-control w-75 p-3" id="inputPassword2" readonly placeholder="Giá nhập..." name="gia_nhap[]" value="<?= $value['gia_nhap'] ?>">
-                                                    </div>
-                                                <?php endforeach ?>
+                                                    <?php foreach ($all_phien_ban as $key1 => $value1) : ?>
+                                                        <?php foreach ($all_mau_sac as $key2 => $value2) : ?>
+                                                            <?php if ($key == $key1 && $key == $key2) : ?>
+                                                                <tr>
+                                                                    <td><input type="text" class="form-control" placeholder="Ram/Rom" name="phien_ban[]" value="<?= $value1['phien_ban'] ?>"></td>
+                                                                    <td><input type="text" class="form-control" placeholder="Màu sắc" name="mau_sac[]" value="<?= $value2['mau_sac'] ?>"></td>
+                                                                    <td><input type="number" class="form-control" placeholder="Giá nhập VND" name="gia_nhap[]" min="0" value="<?= $value['gia_nhap'] ?>"></td>
+                                                                    <td><input type="number" class="form-control" placeholder="Giá bán VND" name="gia_ban[]" min="0" value="<?= $value['gia_ban'] ?>"></td>
+                                                                    <td><input type="number" class="form-control" placeholder="Số lượng" name="so_luong[]" min="0" value="<?= $value['so_luong'] ?>"></td>
 
-                                            </div>
-                                            
-                                        </div>
+                                                                </tr>
+                                                            <?php endif ?>
+                                                        <?php endforeach ?>
+                                                    <?php endforeach ?>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
                                     </div>
 
-
-
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="gia_ban">
-                                                <label for="inputPassword2" class="me-2">Giá bán</label>
-
-                                                <?php foreach ($sp_chi_tiet as $key => $value) : ?>
-                                                    <br>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <input type="number" class="form-control w-75 p-3" id="inputPassword2" placeholder="Giá bán..." name="gia_ban[]" value="<?= $value['gia_ban'] ?>">
-                                                    </div>
-                                                <?php endforeach ?>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-flex-start">
-                                            <div class="col-7" id="so_luong">
-                                                <label for="inputPassword2" class="me-2">Số lượng</label>
-                                                <?php foreach ($sp_chi_tiet as $value) : ?>
-                                                    <br>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <input type="number" class="form-control w-75 p-3" id="inputPassword2" placeholder="Số lượng..." name="so_luong[]" value="<?= $value['so_luong'] ?>">
-                                                    </div>
-                                                <?php endforeach ?>
-                                            </div>
-
-                                        </div>
-                                    </div>
 
                                     <script>
                                         function removeField(button) {
                                             button.closest('.d-flex').remove();
                                         }
                                     </script>
-                                    <div class="col-md-12">
-                                        <label for="inputEmail4" class="form-label">Giảm giá sản phẩm (%)</label>
-                                        <input type="number" class="form-control" id="inputEmail4" placeholder="Theo %..." name="gia_giam">
-                                    </div>
+
                                     <div class="col-12">
                                         <h5 style="color:red;" id="er_san_pham"></h5>
                                     </div>
@@ -473,29 +423,29 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
     <script>
         // Khởi tạo Quill
         const quill = new Quill('#editor', {
-        theme: 'snow'
-    });
+            theme: 'snow'
+        });
 
-    // Đặt nội dung mặc định cho Quill
-    // quill.root.innerHTML = "<?php echo  $data['mo_ta_dai']; ?>";
+        // Đặt nội dung mặc định cho Quill
+        // quill.root.innerHTML = "<?php echo  $data['mo_ta_dai']; ?>";
 
-    // function submitForm(event) {
-    //     event.preventDefault(); // Ngăn chặn form gửi tự động
+        // function submitForm(event) {
+        //     event.preventDefault(); // Ngăn chặn form gửi tự động
 
-    //     // Lấy nội dung từ Quill dưới dạng HTML
-    //     const content = quill.root.innerHTML;
+        //     // Lấy nội dung từ Quill dưới dạng HTML
+        //     const content = quill.root.innerHTML;
 
-    //     // Tạo một trường ẩn và thêm vào form
-    //     const input = document.createElement('textarea');
-    //     input.setAttribute('name', 'mo_ta_dai'); // Tên này sẽ gửi đi với dữ liệu POST
-    //     input.style.display = 'none';
-    //     input.value = content; // Đặt nội dung từ Quill vào trường textarea
+        //     // Tạo một trường ẩn và thêm vào form
+        //     const input = document.createElement('textarea');
+        //     input.setAttribute('name', 'mo_ta_dai'); // Tên này sẽ gửi đi với dữ liệu POST
+        //     input.style.display = 'none';
+        //     input.value = content; // Đặt nội dung từ Quill vào trường textarea
 
-    //     // Thêm trường ẩn vào form và gửi form
-    //     const form = document.getElementById('myForm');
-    //     form.appendChild(input);
-    //     form.submit();
-    // }
+        //     // Thêm trường ẩn vào form và gửi form
+        //     const form = document.getElementById('myForm');
+        //     form.appendChild(input);
+        //     form.submit();
+        // }
 
         var er_san_pham = document.getElementById('er_san_pham');
     </script>

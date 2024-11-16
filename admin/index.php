@@ -41,7 +41,7 @@ session_start();
 switch ($act) {
   case 'dashboard':
   case '':
-    (new DashboardController())->index();
+    (new ThongkeController())->showStatistics();
     break;
 
   case 'lienhe':
@@ -160,8 +160,5 @@ switch ($act) {
     break;
   case 'delete_don_hang':
     (new Don_hang())->delete_don_hang();
-    break;
-  case 'thongke':
-    (new ThongkeController())->showStatistics();
     break;
 };

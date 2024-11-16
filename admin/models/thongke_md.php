@@ -12,14 +12,11 @@ class Thongkes
 
     public function all()
     {
-        $sql = " SELECT (SELECT COUNT(*) FROM san_phams) AS tong_san_phams,
-            (SELECT COUNT(*) FROM hoa_dons) AS tong_hoa_dons ";
-        $stmt = $this->conn->query($sql);
-        if ($stmt) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        }
+        $sql = " SELECT COUNT(*) FROM hoa_dons WHERE trang_thai_don_hang NOT IN (5, 6, 7)";
 
-        return null;
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function thong_ke_doanh_thu()
