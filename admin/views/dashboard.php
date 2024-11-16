@@ -95,7 +95,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     $tong_sp_con_lai = $tong_sp_con_lai + $tong;
                                 }
                                 ?>
-                               
+
 
 
                                 <div class="row">
@@ -113,7 +113,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target=" <?= $tong_doanh_thu;?> "></span> VND</h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target=" <?= $tong_doanh_thu; ?> "></span> VND</h4>
                                                         <a href="#" class="text-decoration-underline">View net earnings</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -140,12 +140,12 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?=  $tong_don['COUNT(*)']; ?>">0</span> Đơn</h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?= $tong_don['COUNT(*)']; ?>">0</span> Đơn</h4>
                                                         <a href="#" class="text-decoration-underline">View all orders</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                            <i class="bx bx-shopping-bag text-info"></i>
+                                                        <i class="fa-brands fa-cc-apple-pay" style="color: #299dcb;"></i>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -171,8 +171,8 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                         <a href="#" class="text-decoration-underline">See details</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-warning-subtle rounded fs-3">
-                                                            <i class="bx bx-user-circle text-warning"></i>
+                                                        <span class="avatar-title bg-primary-subtle rounded fs-3">
+                                                            <i class="fa-solid fa-mobile-screen-button" style="color: #74C0FC;"></i>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -186,13 +186,9 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> My Balance</p>
+                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Hóa đơn đã hoàn thành</p>
                                                     </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-muted fs-14 mb-0">
-                                                            +0.00 %
-                                                        </h5>
-                                                    </div>
+                                                    
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
@@ -200,9 +196,10 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                         <a href="#" class="text-decoration-underline">Withdraw money</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-primary-subtle rounded fs-3">
-                                                            <i class="bx bx-wallet text-primary"></i>
+                                                        <span class="avatar-title bg-warning-subtle rounded fs-3">
+                                                            <i class="bx bx-user-circle text-warning"></i>
                                                         </span>
+
                                                     </div>
                                                 </div>
                                             </div><!-- end card body -->
