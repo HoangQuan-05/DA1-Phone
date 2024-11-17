@@ -159,7 +159,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Hóa đơn đang xử lí</p>
+                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Đơn hàng đang xử lí</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
 
@@ -185,7 +185,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Hóa đơn đã hoàn thành</p>
+                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Đơn hàng đã hoàn thành</p>
                                                     </div>
 
                                                 </div>
