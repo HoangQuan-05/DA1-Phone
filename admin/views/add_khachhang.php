@@ -103,7 +103,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                         <input type="text" class="form-control" name="dia_chi" placeholder="Nhập địa chỉ">
                                                     </div>
                                                     <p id="er_khach_hang"></p>
-                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                                                    <button type="submit" class="btn btn-primary">Thêm</button>
                                                 </form>
                                                 <p id="error"></p>
                                             </div>

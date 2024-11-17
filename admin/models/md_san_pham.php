@@ -194,4 +194,47 @@ class Md_san_pham
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+    public function count_sp($id)
+    {
+        $sql = " SELECT COUNT(*) FROM chi_tiet_san_pham WHERE id_san_pham = $id";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // public function count_mau_sac($id)
+    // {
+    //     $sql = " SELECT COUNT(*) FROM san_phams WHERE id_chi_tiet_san_pham = $id";
+
+    //     $stmt = $this->conn->prepare($sql);
+    //     $stmt->execute();
+    //     return $stmt->fetch(PDO::FETCH_ASSOC);
+    // }
+    // public function count_phien_ban($id)
+    // {
+    //     $sql = " SELECT COUNT(*) FROM phien_bans WHERE id_chi_tiet_san_pham = $id";
+
+    //     $stmt = $this->conn->prepare($sql);
+    //     $stmt->execute();
+    //     return $stmt->fetch(PDO::FETCH_ASSOC);
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

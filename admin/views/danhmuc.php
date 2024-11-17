@@ -81,28 +81,28 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                 <table style="background-color: white;" class="table table-hover table-nowrap">
                                     <thead class="table-light">
                                         <tr>
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Trạng thái</th>
-                                            <th scope="col">Action</th>
+                                            <th style="text-align: center; vertical-align: middle;">Id</th>
+                                            <th style="text-align: center; vertical-align: middle;">Name</th>
+                                            <th style="text-align: center; vertical-align: middle;">Trạng thái</th>
+                                            <th style="text-align: center; vertical-align: middle;">Action</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($data as $value) : ?>
                                             <tr>
-                                                <td><?= $value['id_danh_muc'] ?></td>
-                                                <td><?= $value['ten_danh_muc'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['id_danh_muc'] ?></td>
+                                                <td style="text-align: center; vertical-align: middle;"><?= $value['ten_danh_muc'] ?></td>
                                                 <?php if ($value['trang_thai'] == 'Hiển thị') : ?>
-                                                    <td><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
+                                                    <td style="text-align: center; vertical-align: middle;"><i class="fa-solid fa-toggle-on fa-2xl"></i></td>
 
 
 
                                                 <?php else : ?>
-                                                    <td> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
+                                                    <td style="text-align: center; vertical-align: middle;"> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
 
                                                 <?php endif ?>
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <a style="display: inline-block;" href="index.php?act=update_danh_muc&id=<?= $value['id_danh_muc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                                                     <a style="display: inline-block;" onclick="return confirm('chac chan')" href="index.php?act=delete_dm&id=<?= $value['id_danh_muc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                                 </td>

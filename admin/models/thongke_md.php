@@ -29,6 +29,17 @@ class Thongkes
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
+    public function thong_ke_doanh_thu_ngay($data)
+    {
+        $sql = "SELECT * FROM hoa_don_chi_tiet 
+        JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id  = hoa_don_chi_tiet.id_chi_tiet_san_pham 
+        JOIN  hoa_dons ON hoa_dons.id = hoa_don_chi_tiet.id_hoa_don WHERE hoa_dons.trang_thai_don_hang = 5 AND hoa_dons.ngay_dat = '$data'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function thong_ke_so_luong_san_pham()
     {
         $sql = "SELECT * FROM chi_tiet_san_pham ";

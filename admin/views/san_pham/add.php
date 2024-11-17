@@ -337,7 +337,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <td><input type="number" class="form-control" placeholder="Giá bán" name="gia_ban[]" min="0"></td>
                                             <td><input type="number" class="form-control" placeholder="Số lượng" name="so_luong[]" min="0"></td>
                                             <td style="text-align: center;">
-                                                <button type="button" class="btn btn-danger btn-delete-row">Xóa</button>
+                                                <button type="button" class="btn btn-danger btn-delete-row" style="background-color:red">Xóa</button>
                                             </td>
                                         </tr>
                                     </template>

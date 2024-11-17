@@ -248,6 +248,7 @@ class Ctl_san_pham
               </script>";
             }
         }
+
     }
 
 
@@ -260,7 +261,7 @@ class Ctl_san_pham
 
     public function update_san_pham()
     {
-        $id = $_GET['id'];
+        $id = $_GET['id']; // ID SẢN PHẨM
         $data = (new Md_san_pham())->find_one($id);
         $danh_muc = (new DanhMuc())->all();
         $anhs = (new Md_san_pham())->show_anh_san_pham($id);
@@ -405,6 +406,7 @@ class Ctl_san_pham
                                             $update_bien_the['so_luong'] = $value;
                                             $update_bien_the['gia_ban'] = $value1;
                                             $update_bien_the['gia_nhap'] = $value2;
+
                                             (new Md_san_pham())->update_san_pham_chi_tiet($id_chi_tiet['id'], $update_bien_the);
                                             $stt = true;
                                             break;
@@ -412,17 +414,110 @@ class Ctl_san_pham
                                     }
                                 }
                             }
+
+                            //THOÁT LẶP ĐỂ LẤY ID SẢN PHẨM CHI TIẾT
                             if ($stt) {
                                 break;
                             }
                         }
                     }
+
+                    $count_sp = (new Md_san_pham())->count_sp($id);
+                    // $count_ms = (new Md_san_pham())->count_mau_sac();
+                    // $count_pb = (new Md_san_pham())->count_phien_ban();
+                    foreach ($du_lieu_bien_the['so_luong'] as $index => $value) {
+                        $count_bt = $index + 1;
+                    }
+
+
+
+                    //THÊM SẢN PHẨM THỪA
+                    $add_bt = $count_sp['COUNT(*)'];
+                    $them_bien_the = [];
+                    $processedIndexes = [];
+                    $processed = [];
+
+                    if ($add_bt < $count_bt) {
+                        // Duyệt qua tất cả các dữ liệu biến thể
+                        foreach ($du_lieu_bien_the['so_luong'] as $index => $value) {
+                            if ($add_bt - 1 >= $index) continue; // Bỏ qua nếu không cần thêm biến thể
+
+                            foreach ($du_lieu_bien_the['gia_ban'] as $index1 => $value1) {
+                                if ($index != $index1) continue; // Kiểm tra chỉ số phù hợp
+
+                                foreach ($du_lieu_bien_the['gia_nhap'] as $index2 => $value2) {
+                                    if ($index != $index2) continue; // Kiểm tra chỉ số phù hợp
+
+                                    // Chuẩn bị dữ liệu để thêm chi tiết sản phẩm
+                                    $them_bien_the = [
+                                        'so_luong' => $value,
+                                        'gia_ban' => $value1,
+                                        'gia_nhap' => $value2,
+                                        'id_san_pham' => $id,
+                                    ];
+
+                                    // Thêm chi tiết sản phẩm
+                                    (new Md_san_pham())->creat_chi_tiet_san_pham($them_bien_the);
+
+                                    // Tìm chi tiết sản phẩm vừa tạo
+                                    $if_sp_ct = (new Md_san_pham())->find_one_time_chi_tiet();
+
+                                    // Xử lý các phiên bản từ POST
+                                    foreach ($_POST['phien_ban'] as $index3 => $value3) {
+                                        if (in_array($index3, $processedIndexes)) {
+                                            continue; // Bỏ qua nếu đã xử lý
+                                        }
+
+                                        if ($index3 == $index1 && $index == $index2 && $index == $index3) {
+                                            $phien_ban_add = [
+                                                'id_chi_tiet_san_pham' => $if_sp_ct['id'],
+                                                'phien_ban' => $value3,
+                                            ];
+
+                                            (new Md_san_pham())->creat_phien_ban($phien_ban_add);
+
+                                            // Đánh dấu $index3 đã xử lý
+                                            $processedIndexes[] = $index3;
+
+                                            break; // Thoát vòng lặp
+                                        }
+                                    }
+
+                                    foreach ($_POST['mau_sac'] as $index4 => $value4) {
+                                        if (in_array($index4, $processed)) {
+                                            continue; // Bỏ qua nếu đã xử lý
+                                        }
+
+                                        if ($index4 == $index1 && $index == $index2 && $index == $index4) {
+                                            $mau_sac_add = [
+                                                'id_chi_tiet_san_pham' => $if_sp_ct['id'],
+                                                'mau_sac' => $value4,
+                                            ];
+
+                                            (new Md_san_pham())->creat_mau_sac($mau_sac_add);
+
+                                            // Đánh dấu $index3 đã xử lý
+                                            $processed[] = $index4;
+                                            break; // Thoát vòng lặp
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+
+
+
                     //UPDATE BIẾN THỂ
                     $du_lieu_phien_ban['phien_ban'] = $_POST['phien_ban'];
                     $du_lieu_mau_sac['mau_sac'] = $_POST['mau_sac'];
                     // CHECK ĐỊNH DẠNG BIẾN THỂ
                     $char = true;
-                    $bt = false;
+                    // $bt = false;
                     foreach ($_POST['phien_ban'] as $index1 => $value1) {
                         if (strpos($value1, '/') === false) {
                             $char = false;
@@ -477,9 +572,9 @@ class Ctl_san_pham
                         }
                     }
 
-                    echo "<script type='text/javascript'>
-                            window.location.href = 'index.php?act=san_pham';
-                        </script>";
+                    // echo "<script type='text/javascript'>
+                    //         window.location.href = 'index.php?act=san_pham';
+                    //     </script>";
                 } else {
                     echo "<script type='text/javascript'>
                             er_san_pham.innerText = 'Không được để trống biến thể';
@@ -491,7 +586,24 @@ class Ctl_san_pham
               </script>";
             }
         }
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function delete_san_pham()
     {

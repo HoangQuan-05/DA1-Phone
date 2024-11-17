@@ -274,7 +274,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                         <div class="col">
 
                             <div class="h-100">
-                                <h2>Thêm sản phẩm</h2> <br>
+                                <h2>Cập nhật sản phẩm</h2> <br>
                                 <form class="row g-3" method="POST" enctype="multipart/form-data">
                                     <div class="col-md-6">
                                         <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
@@ -302,7 +302,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     <div class="col-md-12"">
                                        <!-- Ảnh -->
                                         <?php foreach ($anhs as $value) : ?>
-                                            <img style="width:200px; height:200px;" src="image/<?= $value['hinh_anh'] ?>" alt="">
+                                            <img style=" width:200px; height:200px;" src="image/<?= $value['hinh_anh'] ?>" alt="">
 
                                     <?php endforeach ?>
                                     </div>
@@ -315,6 +315,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 
                                     <div class="container mt-4">
                                         <h2 class="text-center">Quản lý biến thể</h2>
+                                        <button id="add_so_luong" type="button" class="btn btn-success mb-3">Thêm dòng mới</button>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
@@ -323,6 +324,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                     <th style="text-align: center;">Giá nhập</th>
                                                     <th style="text-align: center;">Giá bán</th>
                                                     <th style="text-align: center; width:unset;">Số lượng</th>
+                                                    <!-- <th style="text-align: center;">Hành động</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -336,7 +338,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                                     <td><input type="number" class="form-control" placeholder="Giá nhập VND" name="gia_nhap[]" min="0" value="<?= $value['gia_nhap'] ?>"></td>
                                                                     <td><input type="number" class="form-control" placeholder="Giá bán VND" name="gia_ban[]" min="0" value="<?= $value['gia_ban'] ?>"></td>
                                                                     <td><input type="number" class="form-control" placeholder="Số lượng" name="so_luong[]" min="0" value="<?= $value['so_luong'] ?>"></td>
-
+                                                                     
                                                                 </tr>
                                                             <?php endif ?>
                                                         <?php endforeach ?>
@@ -344,6 +346,16 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                 <?php endforeach ?>
                                             </tbody>
                                         </table>
+                                        <template id="template-row">
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="Ram/Rom" name="phien_ban[]"></td>
+                                                <td><input type="text" class="form-control" placeholder="Màu sắc" name="mau_sac[]"></td>
+                                                <td><input type="number" class="form-control" placeholder="Giá nhập" name="gia_nhap[]" min="0"></td>
+                                                <td><input type="number" class="form-control" placeholder="Giá bán" name="gia_ban[]" min="0"></td>
+                                                <td><input type="number" class="form-control" placeholder="Số lượng" name="so_luong[]" min="0"></td>
+                                                
+                                            </tr>
+                                        </template>
                                     </div>
 
 
@@ -448,6 +460,26 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
         // }
 
         var er_san_pham = document.getElementById('er_san_pham');
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const btnAddRow = document.getElementById("add_so_luong");
+            const tableBody = document.querySelector("tbody");
+            const template = document.getElementById("template-row");
+
+            // Thêm dòng mới
+            btnAddRow.addEventListener("click", () => {
+                const newRow = template.content.cloneNode(true); // Sao chép nội dung từ template
+                tableBody.appendChild(newRow); // Thêm dòng mới vào tbody
+            });
+
+            // Xóa dòng
+            tableBody.addEventListener("click", (e) => {
+                if (e.target.classList.contains("btn-delete-row")) {
+                    const row = e.target.closest("tr");
+                    row.remove(); // Xóa dòng chứa nút "Xóa"
+                }
+            });
+        });
     </script>
 
     <?php

@@ -35,3 +35,9 @@ function views($view, $data = [], $subfolder = 'admin/views') {
     extract($data);
     include_once PATH_ROOT . "{$subfolder}/$view.php";
 }
+
+function view_client ($view,$data=[],$id=null){
+    extract($data);
+    require_once "templates/glowing-bootstrap-5/$view.php";
+
+}

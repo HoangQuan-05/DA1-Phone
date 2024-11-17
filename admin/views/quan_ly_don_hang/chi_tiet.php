@@ -235,7 +235,14 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                     <?= $hoa_don['ten_nguoi_nhan'] ?>
                                 </span>
                             </div>
-
+                            <div class="d-flex justify-content-between">
+                                <span>
+                                    Email người nhận
+                                </span>
+                                <span>
+                                    <?= $hoa_don['email_nguoi_nhan'] ?>
+                                </span>
+                            </div>
                             <div class="d-flex justify-content-between">
                                 <span>
                                     Số điện thoại
