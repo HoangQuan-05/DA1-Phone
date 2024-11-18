@@ -467,7 +467,7 @@
 						</div>
 						<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
 							<div class="px-xl-5 d-inline-block">
-								<a class="lh-1 color-inherit text-decoration-none" href=""
+								<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
 									data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
 									<svg class="icon icon-magnifying-glass-light">
 										<use xlink:href="#icon-magnifying-glass-light"></use>
