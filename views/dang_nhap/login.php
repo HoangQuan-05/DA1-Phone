@@ -44,7 +44,7 @@
                             <div class="form-check">
                                 <a href="index.php?ctl=quenmk">Quên mật khẩu</a>
                             </div>
-                            <a href="index.php?ctl=register">Đăng ký</a>
+                            <a href="index.php?act=register">Đăng ký</a>
                         </div>
                         <p id="er_reg"></p>
                         <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" style="width:100%;">Đăng nhập</button>

@@ -1,6 +1,6 @@
 <?php
 if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
-    header("location: index.php?act=login");
+    header("location: ../index.php?act=login");
     exit();
 }
 ?>

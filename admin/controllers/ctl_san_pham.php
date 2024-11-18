@@ -572,9 +572,9 @@ class Ctl_san_pham
                         }
                     }
 
-                    // echo "<script type='text/javascript'>
-                    //         window.location.href = 'index.php?act=san_pham';
-                    //     </script>";
+                    echo "<script type='text/javascript'>
+                            window.location.href = 'index.php?act=san_pham';
+                        </script>";
                 } else {
                     echo "<script type='text/javascript'>
                             er_san_pham.innerText = 'Không được để trống biến thể';

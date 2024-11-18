@@ -152,12 +152,6 @@ switch ($act) {
   case 'update_trang_thai':
     (new trang_thai_ctl())->update_tt();
     break;
-  case 'logout':
-    (new loginController())->log_out();
-    break;
-  case 'login':
-    (new loginController())->login();
-    break;
   case 'delete_don_hang':
     (new Don_hang())->delete_don_hang();
     break;
