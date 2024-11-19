@@ -41,7 +41,7 @@
             $data['hinh_anhs'] = $hinh_anhs;
             print_r($data);
             (new banners())->insert($data);
-            // header("Location: index.php?act=banner");
+            header("Location: index.php?act=banner");
         }
         public function update()
         {

@@ -8,6 +8,7 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/HomeController.php';
 require_once "controllers/ctl_san_pham.php";
 require_once "admin/controllers/ctl_login.php";
+require_once "controllers/ctl_TinTuc.php";
 
 // Require toàn bộ file Models
 require_once "models/md_sanpham.php";
@@ -37,5 +38,11 @@ switch ($act) {
         break;
     case 'register':
         (new loginController())->register();
+        break;
+    case 'tin_tuc':
+        (new TinTuc())->tin_tuc();
+        break;
+    case 'chi_tiet_tin_tuc':
+        (new TinTuc())->chi_tiettin_tuc();
         break;
 }
