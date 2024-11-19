@@ -9,6 +9,7 @@ require_once './controllers/HomeController.php';
 require_once "controllers/ctl_san_pham.php";
 require_once "admin/controllers/ctl_login.php";
 require_once "controllers/ctl_TinTuc.php";
+require_once "controllers/TaiKhoan.php";
 
 // Require toàn bộ file Models
 require_once "models/md_sanpham.php";
@@ -30,6 +31,9 @@ switch ($act) {
     case 'san_pham':
         (new SanPham())->san_pham();
         break;
+    case 'chi_tiet_san_pham':
+        (new SanPham())->chi_tiet_san_pham();
+        break;
     case 'logout':
         (new loginController())->log_out();
         break;
@@ -44,5 +48,8 @@ switch ($act) {
         break;
     case 'chi_tiet_tin_tuc':
         (new TinTuc())->chi_tiettin_tuc();
+        break;
+    case 'thong_tin_ca_nhan':
+        (new TaiKhoan())->thong_tin_ca_nhan();
         break;
 }

@@ -34,4 +34,18 @@ class SanPham
         view('SanPham/SanPham', ['san_pham' => $san_pham, 'danh_muc' => $danh_muc, 'count' => $count,'min_max'=>$min_max,'sp_danh_muc'=>$sp_danh_muc]);
         echo $count['COUNT(id_san_pham)'];
     }
+
+    public function chi_tiet_san_pham(){
+        view("SanPham/ChiTietSanPham");
+    }
+
+
+
+
+
+
+
+
+
+
 }

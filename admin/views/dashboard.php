@@ -5,46 +5,46 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
 }
 
 
-    $tong_doanh_thu = 0;
-    $tong_sp_con_lai = 0;
-    foreach ($doanh_thu as $value) {
-        $tong_thu = ($value['don_gia'] * $value['so_luong_mua']) - ($value['gia_nhap'] * $value['so_luong_mua']);
-        $tong_doanh_thu = $tong_doanh_thu + $tong_thu;
-    }
-    foreach ($tong_sp as $value1) {
-        $tong = $value1['so_luong'];
-        $tong_sp_con_lai = $tong_sp_con_lai + $tong;
-    }
+$tong_doanh_thu = 0;
+$tong_sp_con_lai = 0;
+foreach ($doanh_thu as $value) {
+    $tong_thu = ($value['don_gia'] * $value['so_luong_mua']) - ($value['gia_nhap'] * $value['so_luong_mua']);
+    $tong_doanh_thu = $tong_doanh_thu + $tong_thu;
+}
+foreach ($tong_sp as $value1) {
+    $tong = $value1['so_luong'];
+    $tong_sp_con_lai = $tong_sp_con_lai + $tong;
+}
 
-    $date = [];
+$date = [];
 
-    $data_dt = [];
-
-
-    foreach ($doanh_thu as $value) {
-
-        if (!in_array($value['ngay_dat'], $date)) {
-
-            $data_doanh_thu = (new Thongkes())->thong_ke_doanh_thu_ngay($value['ngay_dat']);
+$data_dt = [];
 
 
-            $date[] = $value['ngay_dat'];
+foreach ($doanh_thu as $value) {
+
+    if (!in_array($value['ngay_dat'], $date)) {
+
+        $data_doanh_thu = (new Thongkes())->thong_ke_doanh_thu_ngay($value['ngay_dat']);
 
 
-            $tong_doanh_thu_ngay = 0;
+        $date[] = $value['ngay_dat'];
 
 
-            foreach ($data_doanh_thu as $value1) {
+        $tong_doanh_thu_ngay = 0;
 
-                $tong_thu = ($value1['don_gia'] * $value1['so_luong_mua']) - ($value1['gia_nhap'] * $value1['so_luong_mua']);
 
-                $tong_doanh_thu_ngay += $tong_thu;
-            }
+        foreach ($data_doanh_thu as $value1) {
 
-            // Lưu tổng doanh thu vào mảng
-            $data_dt[] = $tong_doanh_thu_ngay;
+            $tong_thu = ($value1['don_gia'] * $value1['so_luong_mua']) - ($value1['gia_nhap'] * $value1['so_luong_mua']);
+
+            $tong_doanh_thu_ngay += $tong_thu;
         }
+
+        // Lưu tổng doanh thu vào mảng
+        $data_dt[] = $tong_doanh_thu_ngay;
     }
+}
 
 ?>
 <!doctype html>
@@ -196,7 +196,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-warning-subtle rounded fs-3">
-                                                        <i class="fa-solid fa-list" style="color: #3700db;"></i>
+                                                            <i class="fa-solid fa-list" style="color: #3700db;"></i>
                                                         </span>
 
                                                     </div>
@@ -231,7 +231,7 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                         </div><!-- end card -->
                                     </div><!-- end col -->
 
-                                   
+
                                 </div> <!-- end row-->
 
                                 <div class="row">
@@ -258,19 +258,19 @@ if (empty($_SESSION['id_khach_hang']) || empty($_SESSION)) {
                                             <div class="card-header p-0 border-0 bg-light-subtle">
                                                 <div class="row g-0 text-center">
                                                     <div class="col-6 col-sm-3">
-                                                       
+
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-6 col-sm-3">
-                                                       
+
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-6 col-sm-3">
-                                                     
+
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-6 col-sm-3">
-                                                       
+
                                                     </div>
                                                     <!--end col-->
                                                 </div>
