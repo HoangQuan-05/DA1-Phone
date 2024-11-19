@@ -86,33 +86,14 @@
 
 								<li
 									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="#" data-bs-toggle="dropdown" id="menu-item-pages" aria-haspopup="true"
-										aria-expanded="false">Tin tức</a>
-									<ul class="dropdown-menu py-6" aria-labelledby="menu-item-pages">
+									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px"
+										href="index.php?act=tin_tuc">Tintức</a>
 
-										<li>
-											<a class="dropdown-item pe-6 border-hover" href="index.php?act=tin_tuc">
-												<span class="border-hover-target">
-													Tin tức
-												</span>
-											</a>
-										</li>
-										<li>
-											<a class="dropdown-item pe-6 border-hover" href="find-a-store.html">
-												<span class="border-hover-target">
-													Khuyến mãi
-												</span>
-											</a>
-										</li>
-										<li>
-											<a class="dropdown-item pe-6 border-hover" href="404.html">
-												<span class="border-hover-target">
-													404
-												</span>
-											</a>
-										</li>
-									</ul>
+								</li>
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px"
+										href="index.php?act=tin_tuc">Voucher</a>
 								</li>
 							</ul>
 						</div>
