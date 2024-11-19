@@ -63,9 +63,9 @@
 
 								<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
 									dropdown-fullwidth position-static">
-									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase fw-semibold ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
 										href="store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true"
-										aria-expanded="false">Danh muc</a>
+										aria-expanded="false">Danh mục</a>
 									<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
 										<div class="megamenu-shop container-wide py-8 px-12 ">
 											<div class="row justify-content-center align-items-center text-center">
@@ -85,7 +85,7 @@
 								</li>
 								<li
 									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
-									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase "
+									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase dropdown-toggle"
 										href="#">Tin tức</a>
 								</li>
 							</ul>
