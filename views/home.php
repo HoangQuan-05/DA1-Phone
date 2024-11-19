@@ -86,14 +86,25 @@
 
 								<li
 									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px"
-										href="index.php?act=tin_tuc">Tintức</a>
+									<a id="no-arrow-link" class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=tin_tuc">Tin tức</a>
+
 
 								</li>
+
+								<style>
+									#no-arrow-link::after,
+									#no-arrow-link_1::after {
+										display: none;
+									}
+								</style>
+
+
+								</style>
 								<li
 									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px"
-										href="index.php?act=tin_tuc">Voucher</a>
+									<a id="no-arrow-link_1" class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=tin_tuc">Khuyến mãi</a>
 								</li>
 							</ul>
 						</div>
