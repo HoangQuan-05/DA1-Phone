@@ -1,72 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Nhắn Tin</title>
+    <!-- Link Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Màu nền sáng */
+        }
+        .chat-box {
+            height: 500px;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+        .message.sent {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+        .message.received {
+            background-color: #e9ecef;
+            color: #212529;
+        }
+        .input-box {
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<style>
-	div.stars {
-		width: 270px;
-		display: inline-block;
-	}
-
-	input.star {
-		display: none;
-	}
-
-	label.star {
-		float: right;
-		padding: 10px;
-		font-size: 36px;
-		color: #444;
-		transition: all .2s;
-	}
-
-	input.star:checked~label.star:before {
-		content: '\f005';
-		color: #FD4;
-		transition: all .25s;
-	}
-
-	input.star-5:checked~label.star:before {
-		color: #FE7;
-		text-shadow: 0 0 20px #952;
-	}
-
-	input.star-1:checked~label.star:before {
-		color: #F62;
-	}
-
-	label.star:hover {
-		transform: rotate(-15deg) scale(1.3);
-	}
-
-	label.star:before {
-		content: '\f006';
-		font-family: FontAwesome;
-	}
-</style>
-
 <body>
-	<div class="stars">
-		<form action="">
-			<input class="star star-5" id="star-5" type="radio" name="star" />
-			<label class="star star-5" for="star-5"></label>
-			<input class="star star-4" id="star-4" type="radio" name="star" />
-			<label class="star star-4" for="star-4"></label>
-			<input class="star star-3" id="star-3" type="radio" name="star" />
-			<label class="star star-3" for="star-3"></label>
-			<input class="star star-2" id="star-2" type="radio" name="star" />
-			<label class="star star-2" for="star-2"></label>
-			<input class="star star-1" id="star-1" type="radio" name="star" />
-			<label class="star star-1" for="star-1"></label>
-		</form>
-	</div>
+    <div class="container py-5">
+        <!-- Khung chat -->
+        <div class="chat-box p-3 mb-4">
+            <!-- Tin nhắn từ bạn -->
+            <div class="message sent">Xin chào! Đây là tin nhắn từ bạn.</div>
+            <!-- Tin nhắn nhận được -->
+            <div class="message received">Chào bạn! Đây là tin nhắn trả lời.</div>
+            <div class="message sent">Cần giúp gì không?</div>
+            <div class="message received">Tôi đang tìm hiểu Bootstrap!</div>
+        </div>
 
+        <!-- Ô nhập liệu -->
+        <div class="input-box bg-white p-3 rounded shadow-sm d-flex">
+            <input type="text" class="form-control me-2" placeholder="Nhập tin nhắn..." style="border-radius: 25px;">
+            <button type="submit" class="btn btn-primary px-4" style="border-radius: 25px;">Gửi</button>
+        </div>
+    </div>
+
+    <!-- Script Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

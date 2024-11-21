@@ -60,62 +60,62 @@
 					</div>
 
 					<div class="d-none d-xl-flex w-xl-50">
-							<ul class="navbar-nav">
+						<ul class="navbar-nav">
 
-								<li
-									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
+							<li
+								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
 
 
-									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="index.php">Trang chủ</a>
-								</li>
+								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="index.php">Trang chủ</a>
+							</li>
 
-								<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
+							<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
 									dropdown-fullwidth position-static">
-									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true"
-										aria-expanded="false">Danh mục</a>
-									<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
-										<div class="megamenu-shop container-wide py-8 px-12 ">
-											<div class="row justify-content-center align-items-center text-center">
-												<div class="row justify-content-start align-items-center text-center">
-													<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
-													<?php foreach ($danh_muc as $dm) : ?>
-														<div class="col-3">
-															<a href="index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
-																<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
-															</a>
-														</div>
-													<?php endforeach ?>
-												</div>
+								<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true"
+									aria-expanded="false">Danh mục</a>
+								<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
+									<div class="megamenu-shop container-wide py-8 px-12 ">
+										<div class="row justify-content-center align-items-center text-center">
+											<div class="row justify-content-start align-items-center text-center">
+												<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
+												<?php foreach ($danh_muc as $dm) : ?>
+													<div class="col-3">
+														<a href="index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
+															<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
+														</a>
+													</div>
+												<?php endforeach ?>
 											</div>
 										</div>
 									</div>
-								</li>
+								</div>
+							</li>
 
-								<li
-									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="index.php?act=tin_tuc">Tin tức</a>
-
-
-								</li>
-
-								<style>
-									.no-arrow-link::after {
-										display: none;
-									}
-								</style>
+							<li
+								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="index.php?act=tin_tuc">Tin tức</a>
 
 
-								</style>
-								<li
-									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="index.php?act=tin_tuc">Khuyến mãi</a>
-								</li>
-							</ul>
-						</div>
+							</li>
+
+							<style>
+								.no-arrow-link::after {
+									display: none;
+								}
+							</style>
+
+
+							</style>
+							<li
+								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="index.php?act=tin_tuc">Khuyến mãi</a>
+							</li>
+						</ul>
+					</div>
 
 					<a href="index.php?act=trang_chu" class="navbar-brand px-8 py-4 mx-auto">
 						<!-- <img class="light-mode-img" src="../img/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
@@ -123,118 +123,118 @@
 						<h3>PhonePlus</h3>
 
 						<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
-					<div class="px-xl-5 d-inline-block">
-						<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-							data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
-							<svg class="icon icon-magnifying-glass-light">
-								<use xlink:href="#icon-magnifying-glass-light"></use>
-							</svg>
-						</a>
-					</div>
+							<div class="px-xl-5 d-inline-block">
+								<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
+									data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
+									<svg class="icon icon-magnifying-glass-light">
+										<use xlink:href="#icon-magnifying-glass-light"></use>
+									</svg>
+								</a>
+							</div>
 
 
-					<div class="dropdown-center">
-						<?php if (isset($_SESSION['id_khach_hang'])) : ?>
-							<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
-							</p>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Thông tin</a></li>
-								<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
-							</ul>
+							<div class="dropdown-center">
+								<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+									<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
+									</p>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Thông tin</a></li>
+										<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
+									</ul>
 
-						<?php else : ?>
-							<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
-								<svg class="icon icon-user-light">
-									<use xlink:href="#icon-user-light"></use>
-								</svg>
-							</a>
-						<?php endif; ?>
-
-
-					</div>
+								<?php else : ?>
+									<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
+										<svg class="icon icon-user-light">
+											<use xlink:href="#icon-user-light"></use>
+										</svg>
+									</a>
+								<?php endif; ?>
 
 
+							</div>
 
-					<div class="px-xl-5 d-inline-block">
-						<a class="lh-1 color-inherit text-decoration-none" href="#">
-							<svg class="icon icon-magnifying-glass-light">
-								<use xlink:href="#icon-box-05"></use>
-							</svg>
-						</a>
-					</div>
-					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none"
-							href="shop/wishlist.html">
-							<svg class="icon icon-star-light">
-								<use xlink:href="#icon-star-light"></use>
-							</svg>
-							<span
-								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
-						</a>
-					</div>
-					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
-							data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
-							aria-expanded="false">
-							<svg class="icon icon-star-light">
-								<use xlink:href="#icon-shopping-bag-open-light"></use>
-							</svg>
-							<span
-								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
-						</a>
-					</div>
 
-					<div class="color-modes position-relative ps-5">
-						<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
-							href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
-							aria-label="Toggle theme (light)">
-							<svg class="bi my-1 theme-icon-active">
-								<use href="#sun-fill"></use>
-							</svg>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
-							<li>
-								<button type="button" class="dropdown-item d-flex align-items-center active"
-									data-bs-theme-value="light" aria-pressed="true">
-									<svg class="bi me-4 opacity-50 theme-icon">
+
+							<div class="px-xl-5 d-inline-block">
+								<a class="lh-1 color-inherit text-decoration-none" href="#">
+									<svg class="icon icon-magnifying-glass-light">
+										<use xlink:href="#icon-box-05"></use>
+									</svg>
+								</a>
+							</div>
+							<div class="px-5 d-none d-xl-inline-block">
+								<a class="position-relative lh-1 color-inherit text-decoration-none"
+									href="shop/wishlist.html">
+									<svg class="icon icon-star-light">
+										<use xlink:href="#icon-star-light"></use>
+									</svg>
+									<span
+										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+										style="--square-size: 18px">3</span>
+								</a>
+							</div>
+							<div class="px-5 d-none d-xl-inline-block">
+								<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
+									data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
+									aria-expanded="false">
+									<svg class="icon icon-star-light">
+										<use xlink:href="#icon-shopping-bag-open-light"></use>
+									</svg>
+									<span
+										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+										style="--square-size: 18px">3</span>
+								</a>
+							</div>
+
+							<div class="color-modes position-relative ps-5">
+								<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
+									href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
+									aria-label="Toggle theme (light)">
+									<svg class="bi my-1 theme-icon-active">
 										<use href="#sun-fill"></use>
 									</svg>
-									Light
-									<svg class="bi ms-auto d-none">
-										<use href="#check2"></use>
-									</svg>
-								</button>
-							</li>
-							<li>
-								<button type="button" class="dropdown-item d-flex align-items-center"
-									data-bs-theme-value="dark" aria-pressed="false">
-									<svg class="bi me-4 opacity-50 theme-icon">
-										<use href="#moon-stars-fill"></use>
-									</svg>
-									Dark
-									<svg class="bi ms-auto d-none">
-										<use href="#check2"></use>
-									</svg>
-								</button>
-							</li>
-							<li>
-								<button type="button" class="dropdown-item d-flex align-items-center"
-									data-bs-theme-value="auto" aria-pressed="false">
-									<svg class="bi me-4 opacity-50 theme-icon">
-										<use href="#circle-half"></use>
-									</svg>
-									Auto
-									<svg class="bi ms-auto d-none">
-										<use href="#check2"></use>
-									</svg>
-								</button>
-							</li>
-						</ul>
-					</div>
-				</div>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
+									<li>
+										<button type="button" class="dropdown-item d-flex align-items-center active"
+											data-bs-theme-value="light" aria-pressed="true">
+											<svg class="bi me-4 opacity-50 theme-icon">
+												<use href="#sun-fill"></use>
+											</svg>
+											Light
+											<svg class="bi ms-auto d-none">
+												<use href="#check2"></use>
+											</svg>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="dropdown-item d-flex align-items-center"
+											data-bs-theme-value="dark" aria-pressed="false">
+											<svg class="bi me-4 opacity-50 theme-icon">
+												<use href="#moon-stars-fill"></use>
+											</svg>
+											Dark
+											<svg class="bi ms-auto d-none">
+												<use href="#check2"></use>
+											</svg>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="dropdown-item d-flex align-items-center"
+											data-bs-theme-value="auto" aria-pressed="false">
+											<svg class="bi me-4 opacity-50 theme-icon">
+												<use href="#circle-half"></use>
+											</svg>
+											Auto
+											<svg class="bi ms-auto d-none">
+												<use href="#check2"></use>
+											</svg>
+										</button>
+									</li>
+								</ul>
+							</div>
+						</div>
 				</div>
 			</div>
 		</div>
@@ -390,7 +390,9 @@
 
 			</div>
 		</div>
-
+		<?php
+		$stt = true;
+		?>
 
 		<div class="container container-xxl pb-16 pb-lg-18 mb-lg-3">
 			<div class="row gy-50px">
@@ -399,6 +401,7 @@
 
 				<?php
 				if (empty($_GET['min']) && empty($_GET['max']) && empty($_GET['gia']) && empty($_GET['danh_muc'])) : ?>
+					<?php $stt = false ?>
 					<?php foreach ($san_pham as $value) : ?>
 						<div class="col-lg-3 col-sm-6 col-12">
 							<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
@@ -628,6 +631,7 @@
 					$min = $_GET['min'];
 					$max = $_GET['max'];
 
+
 					foreach ($san_pham as $value) :
 						if ($min <= $value['gia_ban'] && $value['gia_ban'] <= $max) : ?>
 
@@ -738,16 +742,16 @@
 				?>
 
 
-				<!-- SẢN PHẨM MIN, MAX -->
+				<!-- SẢN PHẨM MIN, MAX 2.0 -->
 
 
-				<?php if ((isset($_GET['min']) && empty($_GET['max']) && $_GET['max'] == "") || (isset($_GET['max']) && empty($_GET['min']) && $_GET['min'] == "")) : ?>
+				<?php if ( ((isset($_GET['min']) && empty($_GET['max']) && $_GET['max'] == "") || (isset($_GET['max']) && empty($_GET['min']) && $_GET['min'] == "")) && $stt) : ?>
 					<?php
 					$min = isset($_GET['min']) ? $_GET['min'] : "";
 					$max = isset($_GET['max']) ? $_GET['max'] : "";  ?>
 
 					<?php foreach ($san_pham as $value) :
-						if (($min != "" && $min <= $value['gia_ban'] ) || ($max != "" && $max >= $value['gia_ban'] )                ) : ?>
+						if (($min != "" && $min <= $value['gia_ban']) || ($max != "" && $max >= $value['gia_ban'])) : ?>
 
 
 
@@ -822,13 +826,14 @@
 									</svg>
 								</a>
 							</li>
+
 							<?php
+
 							if (isset($page)) {
 								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
-
 
 
 							for ($i = 1; $i <= $page; $i++) : ?>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="light">
 
-<!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/contact-us-01.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:40 GMT -->
+<!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/shop/shop-layout-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:31 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
@@ -11,20 +11,24 @@
 	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Contact Us 01 - Glowing - Bootstrap 5 HTML Templates</title>
-	<link rel="icon" href="assets/images/others/favicon.ico">
+	<title>Sản phẩm</title>
+	<link rel="icon" href="../templates/glowing-bootstrap-5/assets/images/others/favicon.ico">
 
 
-	<link rel="stylesheet" href="assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
-	<link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css">
-	<link rel="stylesheet" href="assets/vendors/animate/animate.min.css">
-	<link rel="stylesheet" href="assets/vendors/slick/slick.css">
-	<link rel="stylesheet" href="assets/vendors/mapbox-gl/mapbox-gl.min.css">
-	<link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.9.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/animate/animate.min.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/slick/slick.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/mapbox-gl/mapbox-gl.min.css">
+	<link rel="stylesheet" href="../templates/assets/vendors/mapbox-gl/mapbox-gl.min.css">
+	<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fonts/a-antara-distance/stylesheet.min.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fontawesome/css/all.min.css">
+
 	<link
 		href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
 		rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/theme.css">
+	<!-- <link rel="stylesheet" href="assets/css/theme-violet.css"> -->
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/css/theme-violet.css">
 
 
 </head>
@@ -33,9 +37,7 @@
 
 	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
 		<div class="topbar bg-primary">
-			<div class="container-wide container">
-				<p class="mb-0 text-white text-center p-4 fs-6 fw-semibold">Free shipping on all U.S. orders $50+</p>
-			</div>
+
 		</div>
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
@@ -830,7 +832,7 @@
 	</header>
 
 	<main id="content" class="wrapper layout-page">
-		<section>
+		<!-- <section>
 
 			<div class="bg-body-secondary py-5">
 				<nav aria-label="breadcrumb">
@@ -919,43 +921,47 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 
-		<section class="pt-9 pt-md-16 pt-lg-18">
+
+
+		<section class="pt-5 pb-6 pt-lg-7 pb-lg-8 mx-auto">
 			<div class="container">
-				<div id="map" class="mapbox-gl map-point-animate map-box-has-effect " style="height:530px"
-					data-mapbox-access-token="pk.eyJ1IjoiZzVvbmxpbmUiLCJhIjoiY2t1bWY4NzBiMWNycDMzbzZwMnI5ZThpaiJ9.ZifefVtp4anluFUbAMxAXg"
-					data-mapbox-options='{&#34;center&#34;:[-106.53671888774004,35.12362056187368],&#34;setLngLat&#34;:[-106.53671888774004,35.12362056187368],&#34;style&#34;:&#34;mapbox://styles/mapbox/light-v10&#34;,&#34;zoom&#34;:5}'
-					data-mapbox-marker='[{&#34;backgroundImage&#34;:&#34;/assets/images/others/marker.png&#34;,&#34;backgroundRepeat&#34;:&#34;no-repeat&#34;,&#34;className&#34;:&#34;marker&#34;,&#34;height&#34;:&#34;70px&#34;,&#34;position&#34;:[-102.53671888774004,38.12362056187368],&#34;width&#34;:&#34;70px&#34;},{&#34;backgroundImage&#34;:&#34;/assets/images/others/marker.png&#34;,&#34;backgroundRepeat&#34;:&#34;no-repeat&#34;,&#34;className&#34;:&#34;marker&#34;,&#34;height&#34;:&#34;70px&#34;,&#34;position&#34;:[-109.03671888774004,33.02362056187368],&#34;width&#34;:&#34;70px&#34;}]'>
+				<!-- Tiêu đề -->
+				<h5 class="text-center mb-4 fw-bold">Liên hệ hỗ trợ</h5>
+				<br>
+
+				<!-- Khu vực hiển thị tin nhắn -->
+				<div class="border rounded p-3 mb-3 bg-white shadow-sm" style="height: 400px; overflow-y: auto;">
+					<!-- Tin nhắn từ khách -->
+					<div class="d-flex mb-2">
+						<div class="me-auto bg-primary text-white p-3 rounded-3">
+							Xin chào! Đây là tin nhắn từ bạn.
+						</div>
+					</div>
+					<!-- Tin nhắn từ shop -->
+					<div class="d-flex justify-content-end mb-2">
+						<div class="bg-secondary text-white p-3 rounded-3">
+							Chào bạn! Đây là tin nhắn trả lời.
+						</div>
+					</div>
+					<!-- Tin nhắn khác -->
+					<div class="d-flex mb-2">
+						<div class="me-auto bg-primary text-white p-3 rounded-3">
+							Cần giúp gì không?
+						</div>
+					</div>
 				</div>
-			</div>
-		</section>
 
-		<section class="pt-15 pb-16 pt-lg-17 pb-lg-18 mx-auto" style="max-width: 750px">
-			<div class="container text-center">
-				<h2 class="mb-10 fs-3">Sent A Message</h2>
-				<form class="contact-form" method="post" action="#">
-					<div class="row mb-8 mb-md-10">
-						<div class="col-md-6 col-12 mb-8 mb-md-0">
-							<input type="text" class="form-control input-focus" placeholder="Name">
-						</div>
-						<div class="col-md-6 col-12">
-							<input type="email" class="form-control input-focus" placeholder="Email">
-						</div>
-					</div>
-					<textarea class="form-control mb-6 input-focus" placeholder="Messenger" rows="7"></textarea>
-					<div class="form-check mb-9 text-start">
-						<input class="form-check-input rounded-0" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							Save my name, email in this browse for the next time I comment
-						</label>
-					</div>
-					<button type="submit"
-						class=" btn btn-dark btn-hover-bg-primary btn-hover-border-primary px-11">Submit</button>
+				<!-- Ô nhập liệu và nút gửi -->
+				<form class="d-flex shadow-sm bg-white p-3 rounded" method="POST">
+					<input type="text" class="form-control me-2 rounded-pill" placeholder="Nhập tin nhắn...">
+					<button type="submit" class="btn btn-primary rounded-pill px-4">Gửi</button>
 				</form>
-
 			</div>
 		</section>
+
+
 
 	</main>
 	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">
@@ -1083,26 +1089,26 @@
 
 
 
-	<script src="../../cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="../jquery.min.js"></script>
 
 
 
-	<script src="assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
-	<script src="assets/vendors/clipboard/clipboard.min.js"></script>
-	<script src="assets/vendors/vanilla-lazyload/lazyload.min.js"></script>
-	<script src="assets/vendors/waypoints/jquery.waypoints.min.js"></script>
-	<script src="assets/vendors/lightgallery/lightgallery.min.js"></script>
-	<script src="assets/vendors/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
-	<script src="assets/vendors/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
-	<script src="assets/vendors/lightgallery/plugins/video/lg-video.min.js"></script>
-	<script src="assets/vendors/lightgallery/plugins/vimeoThumbnail/lg-vimeo-thumbnail.min.js"></script>
-	<script src="assets/vendors/isotope/isotope.pkgd.min.js"></script>
-	<script src="assets/vendors/slick/slick.min.js"></script>
-	<script src="assets/vendors/gsap/gsap.min.js"></script>
-	<script src="assets/vendors/gsap/ScrollToPlugin.min.js"></script>
-	<script src="assets/vendors/gsap/ScrollTrigger.min.js"></script>
-	<script src="assets/vendors/mapbox-gl/mapbox-gl.js"></script>
-	<script src="assets/js/theme.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/clipboard/clipboard.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/vanilla-lazyload/lazyload.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/waypoints/jquery.waypoints.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/lightgallery.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/plugins/video/lg-video.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/plugins/vimeoThumbnail/lg-vimeo-thumbnail.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/isotope/isotope.pkgd.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/slick/slick.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/gsap/gsap.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/gsap/ScrollToPlugin.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/gsap/ScrollTrigger.min.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/vendors/mapbox-gl/mapbox-gl.js"></script>
+	<script src="../templates/glowing-bootstrap-5/assets/js/theme.min.js"></script>
 
 
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="../templates/assets/vendors/mapbox-gl/mapbox-gl.min.css">
 	<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fonts/a-antara-distance/stylesheet.min.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fontawesome/css/all.min.css">
 
 	<link
 		href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
@@ -88,7 +89,7 @@
 
 								<li
 									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
 										href="index.php?act=tin_tuc">Tin tức</a>
 
 
@@ -104,7 +105,7 @@
 								</style>
 								<li
 									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
 										href="index.php?act=khuyen_mai">Khuyến mãi</a>
 								</li>
 							</ul>
@@ -148,13 +149,20 @@
 
 
 
-					<div class="px-xl-5 d-inline-block">
-						<a class="lh-1 color-inherit text-decoration-none" href="#">
+					<div class="px-5 d-none d-xl-inline-block">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
+							data-bs-toggle="offcanvas" data-bs-target="#lien_he" aria-controls="lien_he"
+							aria-expanded="false">
 							<svg class="icon icon-magnifying-glass-light">
 								<use xlink:href="#icon-box-05"></use>
 							</svg>
 						</a>
 					</div>
+
+					<!--  -->
+
+
+					<!--  -->
 					<div class="px-5 d-none d-xl-inline-block">
 						<a class="position-relative lh-1 color-inherit text-decoration-none"
 							href="shop/wishlist.html">
@@ -166,6 +174,7 @@
 								style="--square-size: 18px">3</span>
 						</a>
 					</div>
+					<!-- lien he -->
 					<div class="px-5 d-none d-xl-inline-block">
 						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
 							data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
@@ -178,7 +187,7 @@
 								style="--square-size: 18px">3</span>
 						</a>
 					</div>
-
+					<!-- lien he -->
 					<div class="color-modes position-relative ps-5">
 						<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
 							href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
@@ -1656,6 +1665,20 @@
 	</div>
 
 
+	<!-- LIÊN HỆ -->
+	<div id="lien_he" data-bs-scroll="false" class="offcanvas offcanvas-end">
+		<div class="offcanvas-header fs-4">
+			<h4 class="offcanvas-titles">Liên hệ Admin</h4>
+			<button type="button" class="btn-close btn-close-bg-none" data-bs-dismiss="offcanvas" aria-label="Close">
+				<i class="far fa-times"></i>
+			</button>
+		</div>
+
+	</div>
+	
+	<!-- LIÊN HỆ -->
+
+
 
 	<div class="modal" id="signUpModal" tabindex="-1" aria-labelledby="signUpModal" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -2631,11 +2654,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="position-fixed z-index-10 bottom-0 end-0 p-10">
-		<a href="#"
-			class="gtf-back-to-top text-decoration-none bg-body text-primary bg-primary-hover text-light-hover shadow square p-0 rounded-circle d-flex align-items-center justify-content-center"
-			title="Back To Top" style="--square-size: 48px"><i class="fa-solid fa-arrow-up"></i></a>
-	</div>
+	
 </body>
 
 <!-- Mirrored from templates/glowing-bootstrap-5/home-16.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:23:53 GMT -->

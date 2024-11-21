@@ -2,12 +2,16 @@
 
 class DashboardController
 {
+
     public function index()
     {
         require_once "./views/dashboard.php";
     }
     public function lien_he()
     {
+        if (isset($_SESSION['id_admin'])) {
+            $id_nhan = $_SESSION['id_admin'];
+        }
         $data = null;
         $id_nguoi_nt = (new lien_he())->inbox();
         $array = [];
@@ -28,7 +32,6 @@ class DashboardController
         }
         $du_lieu =  (new lien_he())->tin_nhan_khach_hang(4); //sau doi sang session
         view('lienhe', ['du_lieu' => $du_lieu, 'data' => $data, 'nguoi_nt' => $array]);
-        
     }
 
 

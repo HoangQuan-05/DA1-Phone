@@ -20,7 +20,9 @@ class loginController
                         $_SESSION['vai_tro'] = $user['vai_tro'];
 
                         if ($user['vai_tro'] == "nhan vien") {
+                            $_SESSION['id_admin'] = $user['id_khach_hang'];
                             header("Location: admin/index.php?act=dashboard");
+
                         } else {
                             header("Location: ../index.php");
                         }
