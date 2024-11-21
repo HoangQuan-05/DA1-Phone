@@ -843,121 +843,86 @@
 				<div class="container">
 					<nav class="py-4 lh-30px" aria-label="breadcrumb">
 						<ol class="breadcrumb justify-content-center py-1">
-							<li class="breadcrumb-item"><a href="../index-2.html">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Blog Update</li>
+							<li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Khuyến Mãi</li>
 						</ol>
 					</nav>
 				</div>
 			</div>
 			<div class="text-center py-13">
 				<div class="container">
-					<h2 class="mb-0">Voucher</h2>
+					<h2 class="mb-0">Khuyến mãi</h2>
 				</div>
 			</div>
 		</section>
-		<div class="container mb-lg-18 mb-16 pb-3">
-    <div class="row">
-        <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-                <li class="mb-4">
-                    <div class="card border-0 flex-row">
-                        <figure class="flex-shrink-0 mb-0 me-3">
-                            <a href="#" class="d-block" title="Why You Should Try an Overnight Balm">
-                                <img data-src="../assets/images/blog/post-12-60x80.jpg"
-                                    class="img-fluid lazy-image"
-                                    alt="Why You Should Try an Overnight Balm" width="60"
-                                    height="80" src="#">
-                            </a>
-                        </figure>
-                        <div class="card-body p-0">
-                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
-                            </h5>
-                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="details-01.html" title="Why You Should Try an Overnight Balm">
-                                    Why You Should Try an Overnight Balm
-                                </a>
-                            </h4>
-							
-                        </div>
-                    </div>
-					
-                </li>
-                <li class="mb-4">
-                    <div class="card border-0 flex-row">
-                        <figure class="flex-shrink-0 mb-0 me-3">
-                            <a href="#" class="d-block" title="How to Plop Hair for Bouncy, Beautiful Curls">
-                                <img data-src="../assets/images/blog/post-14-60x80.jpg"
-                                    class="img-fluid lazy-image"
-                                    alt="How to Plop Hair for Bouncy, Beautiful Curls" width="60"
-                                    height="80" src="#">
-                            </a>
-                        </figure>
-                        <div class="card-body p-0">
-                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
-                            </h5>
-                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="details-01.html" title="How to Plop Hair for Bouncy, Beautiful Curls">
-                                    How to Plop Hair for Bouncy, Beautiful Curls
-                                </a>
-                            </h4>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+		<div class="container mb-lg-18 mb-16 pb-3" style=" display:flex; justify-content: center;">
 
-        <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-                <li class="mb-4">
-                    <div class="card border-0 flex-row">
-                        <figure class="flex-shrink-0 mb-0 me-3">
-                            <a href="#" class="d-block" title="Which foundation formula is right for your skin?">
-                                <img data-src="../assets/images/blog/post-11-60x80.jpg"
-                                    class="img-fluid lazy-image"
-                                    alt="Which foundation formula is right for your skin?"
-                                    width="60" height="80" src="#">
-                            </a>
-                        </figure>
-                        <div class="card-body p-0">
-                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
-                            </h5>
-                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="details-01.html" title="Which foundation formula is right for your skin?">
-                                    Which foundation formula is right for your skin?
-                                </a>
-                            </h4>
-                        </div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="card border-0 flex-row">
-                        <figure class="flex-shrink-0 mb-0 me-3">
-                            <a href="#" class="d-block" title="A User-Friendly Guide to Natural Cleansers">
-                                <img data-src="../assets/images/blog/post-15-60x80.jpg"
-                                    class="img-fluid lazy-image"
-                                    alt="A User-Friendly Guide to Natural Cleansers" width="60"
-                                    height="80" src="#">
-                            </a>
-                        </figure>
-                        <div class="card-body p-0">
-                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
-                            </h5>
-                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
-                                <a class="text-decoration-none text-reset" href="details-01.html" title="A User-Friendly Guide to Natural Cleansers">
-                                    A User-Friendly Guide to Natural Cleansers
-                                </a>
-                            </h4>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+			<div class="col-lg-12">
+				<ul class="list-unstyled mb-0 " style="display:flex; justify-content: space-between; flex-wrap:wrap;">
+
+					<li class="mb-4" style="width: 500px; height: 130px; overflow: hidden;">
+						<div class="card border-0 flex-row">
+							<figure class="flex-shrink-0 mb-0 me-3">
+								<p href="#" class="d-block" title="Why You Should Try an Overnight Balm">
+									<img data-src="../assets/images/blog/post-12-60x80.jpg"
+										class="img-fluid lazy-image"
+										alt="Why You Should Try an Overnight Balm" width="130px"
+										height="130px" src="#">
+								</p>
+							</figure>
+							<div class="card-body p-0">
+								<h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
+									<span class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</span>
+								</h5>
+								<h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
+									<p class="text-decoration-none text-reset" href="details-01.html" title="Why You Should Try an Overnight Balm">
+										Why You Should Try an Overnight Balm
+									</p>
+								</h4>
+							</div>
+							<figure class="flex-shrink-0 mb-0 me-3">
+								<p href="#" class="d-block">
+									<button class="btn" style="padding: unset; width: 80px;">Sao chép</button>
+								</p>
+							</figure>
+						</div>
+
+					</li>
+					<li class="mb-4" style="width: 500px; height: 130px; overflow: hidden;">
+						<div class="card border-0 flex-row">
+							<figure class="flex-shrink-0 mb-0 me-3">
+								<p href="#" class="d-block" title="Why You Should Try an Overnight Balm">
+									<img data-src="../assets/images/blog/post-12-60x80.jpg"
+										class="img-fluid lazy-image"
+										alt="Why You Should Try an Overnight Balm" width="130px"
+										height="130px" src="#">
+								</p>
+							</figure>
+							<div class="card-body p-0">
+								<h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
+									<span class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</span>
+								</h5>
+								<h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
+									<p class="text-decoration-none text-reset" href="details-01.html" title="Why You Should Try an Overnight Balm">
+										Why You Should Try an Overnight Balm
+									</p>
+								</h4>
+							</div>
+							<figure class="flex-shrink-0 mb-0 me-3">
+								<p href="#" class="d-block">
+									<button class="btn" style="padding: unset; width: 80px;">Sao chép</button>
+								</p>
+							</figure>
+						</div>
+
+					</li>
+
+				</ul>
+			</div>
+
+
+
+		</div>
 
 
 	</main>
@@ -987,7 +952,7 @@
 						</li>
 
 						<li class="pt-3 mb-4">
-							<a href="#" title="Best Sellers" class="text-body">Best Sellers</a>
+							<a href="#" title="Best Seldivs" class="text-body">Best Sellers</a>
 						</li>
 
 						<li class="pt-3 mb-4">

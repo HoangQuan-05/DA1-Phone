@@ -105,7 +105,7 @@
 								<li
 									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
 									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="index.php?act=tin_tuc">Khuyến mãi</a>
+										href="index.php?act=khuyen_mai">Khuyến mãi</a>
 								</li>
 							</ul>
 						</div>
