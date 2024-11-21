@@ -30,7 +30,7 @@ class DashboardController
                 $array[] = $data;
             }
         }
-        $du_lieu =  (new lien_he())->tin_nhan_khach_hang(4); //sau doi sang session
+        $du_lieu =  (new lien_he())->tin_nhan_khach_hang($id_nhan); //sau doi sang session
         view('lienhe', ['du_lieu' => $du_lieu, 'data' => $data, 'nguoi_nt' => $array]);
     }
 
@@ -41,14 +41,24 @@ class DashboardController
 
     public function ho_tro_khach_hang()
     {
+        if (isset($_SESSION['id_admin'])) {
+            $id_nhan = $_SESSION['id_admin'];
+        }
         $id = $_GET['id'];
         $data =  (new lien_he())->hien_thi_tin_nhan($id, 4);
         view('hotrokhachhang', ['du_lieu' => $data], $id);
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $_POST['id_nguoi_gui'] = 4;
+            if (isset($_POST['trang_thai'])) {
+                $data__ = $_POST;
+                (new lien_he())->update_tn($data__, $id, $id_nhan);
+                exit();
+                
+            }
+            $_POST['id_nguoi_gui'] = $id_nhan;
             $_POST['id_nguoi_nhan'] = $id;
             $du_lieu = $_POST;
-            if ($du_lieu['noi_dung'] != "") {
+            if ($_POST['noi_dung'] != "") {
                 (new lien_he())->insert_tin_tin($du_lieu);
                 echo "<script type='text/javascript'>
                         window.location.href = 'index.php?act=ho_tro_khach_hang&id=$id';

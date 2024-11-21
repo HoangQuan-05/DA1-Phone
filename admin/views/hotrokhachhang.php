@@ -74,9 +74,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
         margin-left: 15px;
     }
 
-    .noi_dung div p {
-        width: 865px;
-    }
+ 
 
     .admin div h5 {
         display: flex;
@@ -123,20 +121,11 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
 
     .form form button {
-        border: none;
-        background-color: red;
-        color: white;
+
         transition: .5s ease;
         position: absolute;
-        top: 5px;
-        right: 5px;
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        font-size: 18px;
-
-
-
+        top: 10px;
+        right: 100px;
     }
 
     .form form button:active {
@@ -162,6 +151,12 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
         border-color: #aaa;
         /* Màu viền khi focus */
     }
+
+    .kt_chat {
+        position: absolute;
+        right: 10px;
+        top: -56px;
+    }
 </style>
 
 <body>
@@ -170,9 +165,9 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
     <div id="layout-wrapper">
 
         <!-- HEADER -->
+
         <?php
         require_once "layouts/header.php";
-
         require_once "layouts/siderbar.php";
         ?>
 
@@ -251,14 +246,19 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     <div class="form">
                                         <form action="" method="POST">
                                             <textarea name="noi_dung" id="tin_nhan" rows="2" placeholder="Nhập tin nhắn"></textarea>
-
-                                            <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
+                                            <button type="submit" class="btn btn-primary">Gửi</button>
                                         </form>
+
+
 
                                     </div>
 
 
+                                    <form action="" method="POST" style=" width: 80%; position:relative;">
+                                        <input type="text" name="trang_thai" value="Đã hỗ trợ" style="display:none">
 
+                                        <button type="submit" class="btn btn-warning kt_chat">Kết thúc</button>
+                                    </form>
 
                                 </div>
 

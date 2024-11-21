@@ -18,6 +18,7 @@ require_once "models/md_sanpham.php";
 require_once "models/md_danh_muc.php";
 require_once "models/md_sanpham.php";
 require_once "admin/models/md_khach_hang.php";
+require_once "models/Md_LienHe.php";
 // Route
 $act = $_GET['act'] ?? '/';
 session_start();

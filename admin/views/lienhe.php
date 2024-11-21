@@ -163,13 +163,24 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                                         $value['id_nguoi_gui'] == $data['id_nguoi_gui'] && $value['id_nguoi_nhan'] == $data['id_nguoi_nhan'] ||
                                                                         $value['id_nguoi_gui'] == $data['id_nguoi_nhan'] && $value['id_nguoi_nhan'] == $data['id_nguoi_gui']
                                                                     ) : ?>
-                                                                        <p><?= $value['noi_dung'] ?></p>
+                                                                        <p><span><?= $value['noi_dung'] ?></span> </p>
+
                                                                     <?php endif ?>
                                                                 <?php endforeach; ?>
 
 
                                                             </div>
-                                                            <span><?= $data['thoi_gian'] ?></span>
+
+                                                            
+
+                                                            <?php foreach ($nguoi_nt as $value) : ?>
+                                                                <?php if ($value['trang_thai'] != "") : ?>
+                                                                    <span style="color: red;"> <h5><?= $value['trang_thai'] ?></h5></span>
+                                                                <?php else : ?>
+                                                                    <span> <?= $data['thoi_gian'] ?></span>
+                                                                <?php endif ?>
+                                                            <?php endforeach; ?>
+
                                                         </div>
                                                     </div>
                                                 </a>
@@ -178,7 +189,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                             endif;
                                             ?>
                                         <?php endforeach; ?>
-
+                                    
                                     </div>
 
                                 </div>

@@ -1,6 +1,6 @@
 <?php
 
-class lien_he
+class lien_he_client
 {
     public $conn = null;
     public function __construct()

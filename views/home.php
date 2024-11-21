@@ -147,12 +147,8 @@
 
 					</div>
 
-
-
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
-							data-bs-toggle="offcanvas" data-bs-target="#lien_he" aria-controls="lien_he"
-							aria-expanded="false">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he">
 							<svg class="icon icon-magnifying-glass-light">
 								<use xlink:href="#icon-box-05"></use>
 							</svg>
@@ -1665,18 +1661,7 @@
 	</div>
 
 
-	<!-- LIÊN HỆ -->
-	<div id="lien_he" data-bs-scroll="false" class="offcanvas offcanvas-end">
-		<div class="offcanvas-header fs-4">
-			<h4 class="offcanvas-titles">Liên hệ Admin</h4>
-			<button type="button" class="btn-close btn-close-bg-none" data-bs-dismiss="offcanvas" aria-label="Close">
-				<i class="far fa-times"></i>
-			</button>
-		</div>
 
-	</div>
-	
-	<!-- LIÊN HỆ -->
 
 
 
@@ -2654,7 +2639,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 
 <!-- Mirrored from templates/glowing-bootstrap-5/home-16.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:23:53 GMT -->
