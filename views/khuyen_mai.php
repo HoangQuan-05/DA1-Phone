@@ -15,13 +15,15 @@
 	<link rel="icon" href="../templates/glowing-bootstrap-5/assets/images/others/favicon.ico">
 
 
-	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
+	<link rel="stylesheet"
+		href="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/animate/animate.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/slick/slick.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/mapbox-gl/mapbox-gl.min.css">
 	<link rel="stylesheet" href="../templates/assets/vendors/mapbox-gl/mapbox-gl.min.css">
 	<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fonts/a-antara-distance/stylesheet.min.css">
+	<link rel="stylesheet"
+		href="../templates/glowing-bootstrap-5/assets/vendors/fonts/a-antara-distance/stylesheet.min.css">
 
 	<link
 		href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
@@ -35,9 +37,19 @@
 <body>
 
 	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
+		<div class="topbar bg-primary">
+			<div class="container-wide container">
+				<p class="mb-0 text-white text-center p-4 fs-6 fw-semibold">Free shipping on all U.S. orders $50+</p>
+			</div>
+		</div>
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
-				<div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
+				<div class="container-wide container flex-nowrap">
+
+
+
+
+
 
 
 					<div class="w-72px d-flex d-xl-none">
@@ -48,431 +60,921 @@
 						</button>
 					</div>
 
-
-					<a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
-						<h3>PhonePlus</h3>
-
-						<div class="d-none d-xl-flex w-xl-50">
-							<ul class="navbar-nav">
-
-								<li
-									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
+					<div class="d-none d-xl-flex w-xl-50">
+						<ul class="navbar-nav">
 
 
-									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="index.php">Trang chủ</a>
-								</li>
 
-								<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
-									dropdown-fullwidth position-static">
-									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true"
-										aria-expanded="false">Danh mục</a>
-									<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
-										<div class="megamenu-shop container-wide py-8 px-12 ">
-											<div class="row justify-content-center align-items-center text-center">
-												<div class="row justify-content-start align-items-center text-center">
-													<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
-													<?php foreach ($danh_muc as $dm) : ?>
-														<div class="col-3">
-															<a href="/index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
-																<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
-															</a>
+							<li
+								class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
+								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
+									href="../index-2.html" data-bs-toggle="dropdown" id="menu-item-home"
+									aria-haspopup="true" aria-expanded="false">Home</a>
+								<div class="dropdown-menu mega-menu start-0 py-6 " aria-labelledby="menu-item-home"
+									style="width:320px">
+									<div class="megamenu-home container py-8 px-12">
+										<div class="row">
+											<div class="col">
+												<h6 class="fs-18px">Group 1</h6>
+												<ul class="list-unstyled">
+													<li>
+														<a href="../home-01.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 01</span></a>
+													</li>
+													<li>
+														<a href="../home-02.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 02</span></a>
+													</li>
+													<li>
+														<a href="../home-03.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 03</span></a>
+													</li>
+													<li>
+														<a href="../home-04.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 04</span></a>
+													</li>
+													<li>
+														<a href="../home-05.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 05</span></a>
+													</li>
+													<li>
+														<a href="../home-06.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 06</span></a>
+													</li>
+													<li>
+														<a href="../home-07.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 07</span></a>
+													</li>
+													<li>
+														<a href="../home-08.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 08</span></a>
+													</li>
+													<li>
+														<a href="../home-09.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 09</span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col">
+												<h6 class="fs-18px">Group 2</h6>
+												<ul class="list-unstyled">
+													<li>
+														<a href="../home-10.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 10</span></a>
+													</li>
+													<li>
+														<a href="../home-11.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 11</span></a>
+													</li>
+													<li>
+														<a href="../home-12.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 12</span></a>
+													</li>
+													<li>
+														<a href="../home-13.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 13</span></a>
+													</li>
+													<li>
+														<a href="../home-14.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 14</span></a>
+													</li>
+													<li>
+														<a href="../home-15.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 15</span></a>
+													</li>
+													<li>
+														<a href="../home-16.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 16</span></a>
+													</li>
+													<li>
+														<a href="../home-17.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 17</span></a>
+													</li>
+													<li>
+														<a href="../home-18.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Home 18</span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</li>
+							<li
+								class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth position-static">
+								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
+									href="../store.html" data-bs-toggle="dropdown" id="menu-item-shop"
+									aria-haspopup="true" aria-expanded="false">Shop</a>
+								<div class="dropdown-menu mega-menu start-0 py-6  w-100"
+									aria-labelledby="menu-item-shop">
+									<div class="megamenu-shop container-wide py-8 px-12">
+										<div class="row">
+											<div class="col">
+												<h6 class="fs-18px">Shop Pages</h6>
+												<ul class="list-unstyled mb-0">
+													<li>
+														<a href="../shop/shop-layout-v1.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Shop Layout
+																<sup>v1</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/shop-layout-v2.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Shop Layout
+																<sup>v2</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/shop-layout-v3.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Shop Layout
+																<sup>v3</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/shop-layout-v4.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Shop Layout
+																<sup>v4</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/shop-layout-v5.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Shop Layout
+																<sup>v5</sup></span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col">
+												<h6 class="fs-18px">Product Pages</h6>
+												<ul class="list-unstyled mb-0">
+													<li>
+														<a href="../shop/product-details-v1.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v1</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/product-details-v2.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v2</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/product-details-v3.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v3</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/product-details-v4.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v4</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/product-details-v5.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v5</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/product-details-v6.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v6</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/product-details-v7.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v7</sup></span></a>
+													</li>
+													<li>
+														<a href="../shop/product-details-v8.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Detail
+																<sup>v8</sup></span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col">
+												<h6 class="fs-18px">Product Types</h6>
+												<ul class="list-unstyled mb-0">
+													<li>
+														<a href="../shop/product-simple.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Simple</span></a>
+													</li>
+													<li>
+														<a href="../shop/product-variable.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Variable</span></a>
+													</li>
+													<li>
+														<a href="../shop/product-time-limit.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Time
+																Limit</span></a>
+													</li>
+													<li>
+														<a href="../shop/product-grouped.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Grouped</span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col">
+												<h6 class="fs-18px">Other Pages</h6>
+												<ul class="list-unstyled mb-0">
+													<li>
+														<a href="../shop/shopping-cart.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Shopping Cart</span></a>
+													</li>
+													<li>
+														<a href="../shop/compare.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Compare</span></a>
+													</li>
+													<li>
+														<a href="../shop/wishlist.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Wishlist</span></a>
+													</li>
+													<li>
+														<a href="../shop/checkout.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Checkout</span></a>
+													</li>
+													<li>
+														<a href="../user-registration.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Register</span></a>
+													</li>
+													<li>
+														<a href="../user-login.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Login</span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col d-xxl-block d-none megamenu-shop-banner"
+												data-bs-theme="light">
+												<div class="card border-0 mt-4">
+													<img src="../assets/images/background/bg-mega-menu-shop.jpg"
+														alt="bg mega menu" class="card-img">
+													<div class="card-img-overlay d-flex flex-column mx-2 px-9 py-6">
+														<p
+															class="text-body-emphasis ls-1 fw-semibold mb-4 mt-6 text-uppercase">
+															new collection
+														</p>
+														<h3 class="fs-3">
+															Special <br>
+															Offer
+														</h3>
+														<div class="mt-auto">
+															<a href="#" class="btn btn-white">Shop Sale</a>
 														</div>
-													<?php endforeach ?>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</li>
 
-								<li
-									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="index.php?act=tin_tuc">Tin tức</a>
+								</div>
+							</li>
+							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
+									href="#" data-bs-toggle="dropdown" id="menu-item-pages" aria-haspopup="true"
+									aria-expanded="false">Pages</a>
+								<ul class="dropdown-menu py-6" aria-labelledby="menu-item-pages">
+									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
+										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
+											href="#" data-bs-toggle="dropdown" id="menu-item-blog">
+											<span class="border-hover-target">
+												Blog
+											</span>
+										</a>
+										<ul class="dropdown-menu py-6" aria-labelledby="menu-item-blog"
+											data-bs-popper="none">
+											<li>
+												<a class="dropdown-item border-hover" href="grid.html">
+													<span class="border-hover-target">Blog Grid</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="grid-sidebar.html">
+													<span class="border-hover-target">Blog Grid Sidebar</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="masonry.html">
+													<span class="border-hover-target">Blog Masonry</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="list.html">
+													<span class="border-hover-target">Blog List</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="classic.html">
+													<span class="border-hover-target">Blog Classic</span>
+												</a>
+											</li>
+											<li class="dropdown-divider"></li>
+
+											<li>
+												<a class="dropdown-item border-hover" href="details-01.html">
+													<span class="border-hover-target">Blog Details 01</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="details-02.html">
+													<span class="border-hover-target">Blog Details 02</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown-divider"></li>
+									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
+										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
+											href="#" data-bs-toggle="dropdown" id="menu-item-about-us">
+											<span class="border-hover-target">
+												About Us
+											</span>
+										</a>
+										<ul class="dropdown-menu py-6" aria-labelledby="menu-item-about-us"
+											data-bs-popper="none">
+											<li>
+												<a class="dropdown-item border-hover" href="../about-us-01.html">
+													<span class="border-hover-target">About Us 01</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="../about-us-02.html">
+													<span class="border-hover-target">About Us 02</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
+										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
+											href="#" data-bs-toggle="dropdown" id="menu-item-contact-us">
+											<span class="border-hover-target">
+												Contact us
+											</span>
+										</a>
+										<ul class="dropdown-menu py-6" aria-labelledby="menu-item-contact-us"
+											data-bs-popper="none">
+											<li>
+												<a class="dropdown-item border-hover" href="../contact-us-01.html">
+													<span class="border-hover-target">Contact Us 01</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="../contact-us-02.html">
+													<span class="border-hover-target">Contact Us 02</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
+										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
+											href="../dashboard/dashboard.html" data-bs-toggle="dropdown"
+											id="menu-item-dashboard">
+											<span class="border-hover-target">
+												Dashboard
+											</span>
+										</a>
+										<ul class="dropdown-menu py-6" aria-labelledby="menu-item-dashboard"
+											data-bs-popper="none">
+											<li>
+												<a class="dropdown-item border-hover"
+													href="../dashboard/dashboard.html">
+													<span class="border-hover-target">Dashboard</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover"
+													href="../dashboard/product-grid.html">
+													<span class="border-hover-target">Products</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover"
+													href="../dashboard/order-list.html">
+													<span class="border-hover-target">Orders</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover"
+													href="../dashboard/sellers-cards.html">
+													<span class="border-hover-target">Sellers</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover"
+													href="../dashboard/add-product-1.html">
+													<span class="border-hover-target">Add Product</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover"
+													href="../dashboard/transactions-1.html">
+													<span class="border-hover-target">Transaction</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="../dashboard/reviews.html">
+													<span class="border-hover-target">Reviews</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover" href="../dashboard/brands.html">
+													<span class="border-hover-target">Brands</span>
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item border-hover"
+													href="../dashboard/profile-settings.html">
+													<span class="border-hover-target">Settings</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a class="dropdown-item pe-6 border-hover" href="../faqs.html">
+											<span class="border-hover-target">
+												FAQs
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item pe-6 border-hover" href="../find-a-store.html">
+											<span class="border-hover-target">
+												Store
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item pe-6 border-hover" href="../404.html">
+											<span class="border-hover-target">
+												404
+											</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li
+								class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
+								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
+									href="#" data-bs-toggle="dropdown" id="menu-item-blocks" aria-haspopup="true"
+									aria-expanded="false">Blocks</a>
+								<div class="dropdown-menu mega-menu start-0 py-6 " aria-labelledby="menu-item-blocks"
+									style="width:800px">
+									<div class="megamenu-home container py-8 px-12">
+										<div class="row">
+											<div class="col">
+												<h6 class="fs-18px">Group 1</h6>
+												<ul class="list-unstyled">
+													<li>
+														<a href="../blocks/blog.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Blog</span></a>
+													</li>
+													<li>
+														<a href="../blocks/banner.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Banner</span></a>
+													</li>
+													<li>
+														<a href="../blocks/call-to-action.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Call To Action</span></a>
+													</li>
+													<li>
+														<a href="../blocks/hero.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Hero</span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col">
+												<h6 class="fs-18px">Group 2</h6>
+												<ul class="list-unstyled">
+													<li>
+														<a href="../blocks/products.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Products</span></a>
+													</li>
+													<li>
+														<a href="../blocks/products-slide.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Products Slide</span></a>
+													</li>
+													<li>
+														<a href="../blocks/product-tabs.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Product Tabs</span></a>
+													</li>
+													<li>
+														<a href="../blocks/news-letter.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">News Letter</span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col">
+												<h6 class="fs-18px">Group 3</h6>
+												<ul class="list-unstyled">
+													<li>
+														<a href="../blocks/features.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Features</span></a>
+													</li>
+													<li>
+														<a href="../blocks/info.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Info</span></a>
+													</li>
+													<li>
+														<a href="../blocks/instagram.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Instagram</span></a>
+													</li>
+													<li>
+														<a href="../blocks/video.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Video</span></a>
+													</li>
+												</ul>
+											</div>
+											<div class="col">
+												<h6 class="fs-18px">Group 4</h6>
+												<ul class="list-unstyled">
+													<li>
+														<a href="../blocks/team.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Team</span></a>
+													</li>
+													<li>
+														<a href="../blocks/testimonials.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Testimonials</span></a>
+													</li>
+													<li>
+														<a href="../blocks/header.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Header</span></a>
+													</li>
+													<li>
+														<a href="../blocks/footer.html"
+															class="border-hover text-decoration-none py-3 d-block"><span
+																class="border-hover-target">Footer</span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</li>
+							<li
+								class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
+								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
+									href="#" data-bs-toggle="dropdown" id="menu-item-docs" aria-haspopup="true"
+									aria-expanded="false">Docs</a>
+								<div class="dropdown-menu mega-menu start-0 py-6 " aria-labelledby="menu-item-docs">
+									<div class="menumega-docs px-8" style="min-width: 250px">
 
 
-								</li>
-
-								<style>
-									.no-arrow-link::after {
-										display: none;
-									}
-								</style>
-
-
-								</style>
-								<li
-									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="index.php?act=tin_tuc">Khuyến mãi</a>
-								</li>
-							</ul>
-						</div>
+										<a href="../docs/usage/getting-started.html"
+											class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
+											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
+												<svg class="icon">
+													<use xlink:href="#book"></use>
+												</svg>
+											</div>
+											<div class="flex-grow-1 ps-6">
+												<h6 class="mb-2">Documentation</h6>
+												<small>Kick-start customization</small>
+											</div>
+										</a>
 
 
+										<hr class="dropdown-divider mx-n8" />
+
+										<a href="../docs/components/accordion.html"
+											class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
+											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
+												<svg class="icon">
+													<use xlink:href="#layer-group"></use>
+												</svg>
+											</div>
+											<div class="flex-grow-1 ps-6">
+												<h6 class="mb-2">UI Kit</h6>
+												<small>Flexible components</small>
+											</div>
+										</a>
 
 
-				</div>
-				<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
-					<div class="px-xl-5 d-inline-block">
-						<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-							data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
-							<svg class="icon icon-magnifying-glass-light">
-								<use xlink:href="#icon-magnifying-glass-light"></use>
-							</svg>
-						</a>
+										<hr class="dropdown-divider mx-n8" />
+
+										<a href="../docs/usage/changelog.html"
+											class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
+											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
+												<svg class="icon">
+													<use xlink:href="#pen-to-square"></use>
+												</svg>
+											</div>
+											<div class="flex-grow-1 ps-6">
+												<h6 class="mb-2">Changelog</h6>
+												<small>Regular updates</small>
+											</div>
+										</a>
+
+
+										<hr class="dropdown-divider mx-n8" />
+
+										<a href="https://sp.g5plus.net/"
+											class="d-flex text-decoration-none mb-4 mb-lg-0" title="Support"
+											target="_blank">
+											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
+												<svg class="icon">
+													<use xlink:href="#headset"></use>
+												</svg>
+											</div>
+											<div class="flex-grow-1 ps-6">
+												<h6 class="mb-2">Support</h6>
+												<small>https://sp.g5plus.net/</small>
+											</div>
+										</a>
+
+									</div>
+								</div>
+							</li>
+						</ul>
 					</div>
 
+					<a href="../index.html" class="navbar-brand px-8 py-4 mx-auto">
+						<img class="light-mode-img" src="../assets/images/others/logo.png" width="179" height="26"
+							alt="Glowing - Bootstrap 5 HTML Templates">
+						<img class="dark-mode-img" src="../assets/images/others/logo-white.png" width="179" height="26"
+							alt="Glowing - Bootstrap 5 HTML Templates"></a>
 
-					<div class="dropdown-center">
-						<?php if (isset($_SESSION['id_khach_hang'])) : ?>
-							<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
-							</p>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Thông tin</a></li>
-								<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
-							</ul>
-
-						<?php else : ?>
-							<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
+					<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
+						<div class="px-xl-5 d-inline-block">
+							<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
+								data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
+								<svg class="icon icon-magnifying-glass-light">
+									<use xlink:href="#icon-magnifying-glass-light"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="px-5 d-none d-xl-inline-block">
+							<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal"
+								data-bs-target="#signInModal">
 								<svg class="icon icon-user-light">
 									<use xlink:href="#icon-user-light"></use>
 								</svg>
 							</a>
-						<?php endif; ?>
+						</div>
+						<div class="px-5 d-none d-xl-inline-block">
+							<a class="position-relative lh-1 color-inherit text-decoration-none"
+								href="../shop/wishlist.html">
+								<svg class="icon icon-star-light">
+									<use xlink:href="#icon-star-light"></use>
+								</svg>
+								<span
+									class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+									style="--square-size: 18px">3</span>
+							</a>
+						</div>
+						<div class="px-5 d-none d-xl-inline-block">
+							<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
+								data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
+								aria-expanded="false">
+								<svg class="icon icon-star-light">
+									<use xlink:href="#icon-shopping-bag-open-light"></use>
+								</svg>
+								<span
+									class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+									style="--square-size: 18px">3</span>
+							</a>
+						</div>
 
-
-					</div>
-
-
-
-					<div class="px-xl-5 d-inline-block">
-						<a class="lh-1 color-inherit text-decoration-none" href="#">
-							<svg class="icon icon-magnifying-glass-light">
-								<use xlink:href="#icon-box-05"></use>
-							</svg>
-						</a>
-					</div>
-					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none"
-							href="shop/wishlist.html">
-							<svg class="icon icon-star-light">
-								<use xlink:href="#icon-star-light"></use>
-							</svg>
-							<span
-								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
-						</a>
-					</div>
-					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
-							data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
-							aria-expanded="false">
-							<svg class="icon icon-star-light">
-								<use xlink:href="#icon-shopping-bag-open-light"></use>
-							</svg>
-							<span
-								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
-						</a>
-					</div>
-
-					<div class="color-modes position-relative ps-5">
-						<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
-							href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
-							aria-label="Toggle theme (light)">
-							<svg class="bi my-1 theme-icon-active">
-								<use href="#sun-fill"></use>
-							</svg>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
-							<li>
-								<button type="button" class="dropdown-item d-flex align-items-center active"
-									data-bs-theme-value="light" aria-pressed="true">
-									<svg class="bi me-4 opacity-50 theme-icon">
-										<use href="#sun-fill"></use>
-									</svg>
-									Light
-									<svg class="bi ms-auto d-none">
-										<use href="#check2"></use>
-									</svg>
-								</button>
-							</li>
-							<li>
-								<button type="button" class="dropdown-item d-flex align-items-center"
-									data-bs-theme-value="dark" aria-pressed="false">
-									<svg class="bi me-4 opacity-50 theme-icon">
-										<use href="#moon-stars-fill"></use>
-									</svg>
-									Dark
-									<svg class="bi ms-auto d-none">
-										<use href="#check2"></use>
-									</svg>
-								</button>
-							</li>
-							<li>
-								<button type="button" class="dropdown-item d-flex align-items-center"
-									data-bs-theme-value="auto" aria-pressed="false">
-									<svg class="bi me-4 opacity-50 theme-icon">
-										<use href="#circle-half"></use>
-									</svg>
-									Auto
-									<svg class="bi ms-auto d-none">
-										<use href="#check2"></use>
-									</svg>
-								</button>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-	</header>
-	<main id="content" class="wrapper layout-page">
-
-		<section>
-			<div class="hero container">
-				<div class="row g-8">
-					<div class="col-12 mb-md-0" data-animate="fadeInUp">
-						<div class="border-0 text-center hero-hover-shine hero-hover hero-power-1">
-							<div data-bg-src="../admin/<?php echo $banner['hinh_anhs']; ?>"
-								class="lazy-bg card-img bg-image h-100 hero-hover-item"></div>
-							<div class="position-absolute start-0 top-0 p-10 p-md-14 justify-content-start text-start">
-
-								<div class="hero-content text-start">
-									<div data-animate="fadeInDown">
-										<h1 class="mb-7 text-white fs-2">Empower Yourself</h1>
-										<p class="hero-desc text-white">Get the skin you want to feel</p>
-									</div>
-									<a href="#" data-animate="fadeInUp"
-										class="pb-2 bg-transparent fw-semibold text-decoration-none hero-link p-0 text-white">
-										Shop Now
-										<svg class="icon">
-											<use xlink:href="#icon-arrow-right"></use>
+						<div class="color-modes position-relative ps-5">
+							<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
+								href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
+								aria-label="Toggle theme (light)">
+								<svg class="bi my-1 theme-icon-active">
+									<use href="#sun-fill"></use>
+								</svg>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
+								<li>
+									<button type="button" class="dropdown-item d-flex align-items-center active"
+										data-bs-theme-value="light" aria-pressed="true">
+										<svg class="bi me-4 opacity-50 theme-icon">
+											<use href="#sun-fill"></use>
 										</svg>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</section>
-		<section>
-			<div class="container pt-12 pb-lg-16 pb-16">
-				<div class="text-center position-relative pt-12 pt-lg-17 pb-11 pb-lg-14 mx-auto" style="max-width:700px"
-					data-animate="fadeInUp">
-					<p
-						class="fs-80px fw-normal fs-sm-90px fs-md-142px text-custom-1 font-primary lh-1 top-0 position-absolute w-100 z-index-1">
-						Phone Plus</p>
-					<p class="position-relative z-index-2 fs-15px mb-6 ls-1 text-body-emphasis fw-semibold">Smartphone
-					</p>
-					<h2 class="mb-4 position-relative z-index-2">Công nghệ mới, giá cực chất!
-					</h2>
-				</div>
-				<div class="row gy-8">
-
-
-					<?php foreach ($san_pham as $value) : ?>
-						<div class="col-lg-3 col-sm-6 col-12">
-							<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
-								<figure class="card-img-top position-relative mb-7 overflow-hidden">
-									<a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>" class="hover-zoom-in d-block"
-										title="Shield Conditioner">
-										<img src="../admin/image/<?= $value['hinh_anh'] ?>"
-											class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
-											height="360">
-									</a>
-
-									<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a
-											class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Quick View">
-											<span data-bs-toggle="modal" data-bs-target="#quickViewModal"
-												class="d-flex align-items-center justify-content-center">
-												<svg class="icon icon-eye-light">
-													<use xlink:href="#icon-eye-light"></use>
-												</svg>
-											</span>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Add To Wishlist">
-											<svg class="icon icon-star-light">
-												<use xlink:href="#icon-star-light"></use>
-											</svg>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm"
-											href="shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Compare">
-											<svg class="icon icon-arrows-left-right-light">
-												<use xlink:href="#icon-arrows-left-right-light"></use>
-											</svg>
-										</a>
-									</div><a href="#"
-										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
-										To Cart</a>
-								</figure>
-								<div class="card-body text-center p-0">
-
-
-									<span
-										class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">
-
-										<ins class="text-decoration-none"><?= number_format($value['gia_ban'],) ?> VND</ins></span>
-									<h4
-										class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
-										<a class="text-decoration-none text-reset"
-											href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>"><?= $value['ten_san_pham'] ?></a>
-									</h4>
-
-
-								</div>
-							</div>
-						</div>
-
-
-					<?php
-
-					endforeach; ?>
-
-
-
-
-
-				</div>
-
-
-				<div class="text-center mt-12">
-					<a href="index.php?act=san_pham&page=1" target="_blank" class="btn btn-outline-dark" data-animate="fadeInUp">
-						Shop All Product
-					</a>
-				</div>
-
-			</div>
-		</section>
-
-
-		<section>
-
-			<div class="container">
-
-				<div class="row mt-0 gy-30px gx-30px" data-animate="fadeInUp">
-					<div class="col-12 col-lg-7">
-						<div class="card border-0 rounded-0 banner-06 hover-zoom-in hover-shine">
-
-							<img src="../img/Blog_Njord_iPhone15_Banner.png"
-								data-src="./assets/images/banner/banner-47.jpg" width="690" height="450" alt="">
-							<div class="card-img-overlay">
-								<div class="position-absolute top-50 end-0 translate-middle-y px-md-0 px-12">
-									<div class="mt-7"></div>
-								</div>
-
-							</div>
-						</div>
-
-					</div>
-					<div class="col-12 col-lg-5" data-animate="fadeInUp" style="background-color:#F6EFF7;">
-						<div class="card border-0 rounded-0 banner-09" data-bs-theme="light">
-							<div class="card-img-overlay d-inline-flex flex-column ps-md-13 pt-md-15 px-10 py-15">
-								<h3 class="card-title lh-52px fw-semibold mb-7 fs-42px">Get The Skin You Want To Feel
-								</h3>
-								<p class="card-text fs-18px w-md-70 text-body">Makeup with extended range in colors for
-									every human.</p>
-								<div class="mt-7"><a href="#"
-										class="btn btn btn-dark btn-hover-bg-primary border-0 fs-6 text-white">Mua ngay</a></div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="pt-lg-17 pb-lg-18 pt-15 pb-16">
-
-			<div class="container text-center mt-lg-3">
-				<div class="row">
-					<div class="col-lg-6 border-0 border-lg-end" data-animate="fadeInUp">
-						<h3 class="mx-auto fs-4 mb-6">Follow Us on</h3>
-						<p class="mx-auto mb-10 newletter-follow-desc"> Shapes and proportions are for your intellect.
-							I’ve treated the waistcoat as if it were a corset.</p>
-						<div class="socical-icon social-icon-style-1 ">
-							<ul class="list-inline fs-5 mb-0">
-								<li class="list-inline-item me-7 me-lg-12"><a href="#"><i
-											class="fab fa-pinterest-p"></i></a></li>
-								<li class="list-inline-item me-7 me-lg-12"><a href="#"><i
-											class="fab fa-facebook-f"></i></a></li>
-								<li class="list-inline-item me-7 me-lg-12"><a href="#"><i
-											class="fab fa-instagram"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+										Light
+										<svg class="bi ms-auto d-none">
+											<use href="#check2"></use>
+										</svg>
+									</button>
+								</li>
+								<li>
+									<button type="button" class="dropdown-item d-flex align-items-center"
+										data-bs-theme-value="dark" aria-pressed="false">
+										<svg class="bi me-4 opacity-50 theme-icon">
+											<use href="#moon-stars-fill"></use>
+										</svg>
+										Dark
+										<svg class="bi ms-auto d-none">
+											<use href="#check2"></use>
+										</svg>
+									</button>
+								</li>
+								<li>
+									<button type="button" class="dropdown-item d-flex align-items-center"
+										data-bs-theme-value="auto" aria-pressed="false">
+										<svg class="bi me-4 opacity-50 theme-icon">
+											<use href="#circle-half"></use>
+										</svg>
+										Auto
+										<svg class="bi ms-auto d-none">
+											<use href="#check2"></use>
+										</svg>
+									</button>
+								</li>
 							</ul>
 						</div>
-
-					</div>
-					<div class="col-lg-6 mt-11 mt-lg-0" data-animate="fadeInUp">
-						<h3 class="mx-auto fs-4 mb-6">Let’s Stay in Touch</h3>
-						<p class="mx-auto mb-10">We’ll shout you $10 off your first order.</p>
-						<form class=" mx-auto newletter-follow-form">
-							<div class="input-group position-relative">
-								<input type="email" class="form-control bg-body rounded-left"
-									placeholder="Enter your email address">
-								<button type="submit"
-									class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary ms-0">
-									Subscribe
-								</button>
-							</div>
-						</form>
 					</div>
 				</div>
 			</div>
+		</div>
+	</header>
+
+	<main id="content" class="wrapper layout-page">
+		<section class="page-title z-index-2 position-relative">
+
+			<div class="bg-body-secondary">
+				<div class="container">
+					<nav class="py-4 lh-30px" aria-label="breadcrumb">
+						<ol class="breadcrumb justify-content-center py-1">
+							<li class="breadcrumb-item"><a href="../index-2.html">Home</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Blog Update</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+			<div class="text-center py-13">
+				<div class="container">
+					<h2 class="mb-0">Voucher</h2>
+				</div>
+			</div>
 		</section>
+		<div class="container mb-lg-18 mb-16 pb-3">
+    <div class="row">
+        <div class="col-lg-6">
+            <ul class="list-unstyled mb-0">
+                <li class="mb-4">
+                    <div class="card border-0 flex-row">
+                        <figure class="flex-shrink-0 mb-0 me-3">
+                            <a href="#" class="d-block" title="Why You Should Try an Overnight Balm">
+                                <img data-src="../assets/images/blog/post-12-60x80.jpg"
+                                    class="img-fluid lazy-image"
+                                    alt="Why You Should Try an Overnight Balm" width="60"
+                                    height="80" src="#">
+                            </a>
+                        </figure>
+                        <div class="card-body p-0">
+                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
+                            </h5>
+                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="details-01.html" title="Why You Should Try an Overnight Balm">
+                                    Why You Should Try an Overnight Balm
+                                </a>
+                            </h4>
+							
+                        </div>
+                    </div>
+					
+                </li>
+                <li class="mb-4">
+                    <div class="card border-0 flex-row">
+                        <figure class="flex-shrink-0 mb-0 me-3">
+                            <a href="#" class="d-block" title="How to Plop Hair for Bouncy, Beautiful Curls">
+                                <img data-src="../assets/images/blog/post-14-60x80.jpg"
+                                    class="img-fluid lazy-image"
+                                    alt="How to Plop Hair for Bouncy, Beautiful Curls" width="60"
+                                    height="80" src="#">
+                            </a>
+                        </figure>
+                        <div class="card-body p-0">
+                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
+                            </h5>
+                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="details-01.html" title="How to Plop Hair for Bouncy, Beautiful Curls">
+                                    How to Plop Hair for Bouncy, Beautiful Curls
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-6">
+            <ul class="list-unstyled mb-0">
+                <li class="mb-4">
+                    <div class="card border-0 flex-row">
+                        <figure class="flex-shrink-0 mb-0 me-3">
+                            <a href="#" class="d-block" title="Which foundation formula is right for your skin?">
+                                <img data-src="../assets/images/blog/post-11-60x80.jpg"
+                                    class="img-fluid lazy-image"
+                                    alt="Which foundation formula is right for your skin?"
+                                    width="60" height="80" src="#">
+                            </a>
+                        </figure>
+                        <div class="card-body p-0">
+                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
+                            </h5>
+                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="details-01.html" title="Which foundation formula is right for your skin?">
+                                    Which foundation formula is right for your skin?
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </li>
+                <li class="mb-4">
+                    <div class="card border-0 flex-row">
+                        <figure class="flex-shrink-0 mb-0 me-3">
+                            <a href="#" class="d-block" title="A User-Friendly Guide to Natural Cleansers">
+                                <img data-src="../assets/images/blog/post-15-60x80.jpg"
+                                    class="img-fluid lazy-image"
+                                    alt="A User-Friendly Guide to Natural Cleansers" width="60"
+                                    height="80" src="#">
+                            </a>
+                        </figure>
+                        <div class="card-body p-0">
+                            <h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="#" title="Skin care">Skin care</a>
+                            </h5>
+                            <h4 class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
+                                <a class="text-decoration-none text-reset" href="details-01.html" title="A User-Friendly Guide to Natural Cleansers">
+                                    A User-Friendly Guide to Natural Cleansers
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 	</main>
-	<footer class="pt-14 pt-lg-20 pb-16 footer bg-body-tertiary">
-		<div class="container pt-4">
+	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">
+		<div class="container container-xxl pt-4">
 			<div class="row">
-				<div class="col-lg-5 col-12 mb-12 mb-lg-0">
-
-					<h3 class="mb-6 ">PhonePlus</h3>
-					<p class="pe-xl-23 mb-lg-11">Smartphone chính hãng – Dẫn đầu xu hướng.</p>
-					<a class="fw-semibold fs-6 text-decoration-none"
-						href="https://templates/find-a-store.html">
-						Find a store <svg class="icon ms-5">
-							<use xlink:href="#icon-arrow-right"></use>
-						</svg>
-					</a>
-
-				</div>
-				<div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
+				<div class="col-lg col-md-4 col-12 mb-11 mb-lg-0 fs-14px">
 					<h3 class="fs-5 mb-6 ">Company</h3>
 
-					<ul class="list-unstyled mb-0 fw-medium ">
 
-						<li class="pt-3 mb-4">
-							<a href="#" title="About us" class="text-body">About us</a>
-						</li>
-
-						<li class="pt-3 mb-4">
-							<a href="#" title="Careers" class="text-body">Careers</a>
-						</li>
-
-						<li class="pt-3 mb-4">
-							<a href="#" title="Store Locations" class="text-body">Store Locations</a>
-						</li>
-
-						<li class="pt-3 mb-4">
-							<a href="#" title="Our Blog" class="text-body">Our Blog</a>
-						</li>
-
-						<li class="pt-3 mb-4">
-							<a href="#" title="Reviews" class="text-body">Reviews</a>
-						</li>
-
-					</ul>
+					<p class="pe-xl-18 lh-2">
+						Find a location nearest you. See <a class="" href="#"><u class="fw-medium">Our Stores</u></a>
+					</p>
+					<p class="mb-0 lh-2"><strong class="text-body-emphasis">+391 (0)35 2568 4593</strong>
+						<br>
+						hello@domain.com
+					</p>
 
 				</div>
 				<div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
@@ -499,7 +1001,7 @@
 					</ul>
 
 				</div>
-				<div class="col-lg col-md-4 col-12 mb-12 mb-lg-0">
+				<div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
 					<h3 class="fs-5 mb-6 ">Information</h3>
 
 					<ul class="list-unstyled mb-0 fw-medium ">
@@ -527,8 +1029,57 @@
 					</ul>
 
 				</div>
+				<div class="col-lg-5 col-12 mb-11 mb-lg-0">
+					<h3 class="mb-4 ">Good emails.</h3>
+					<p class="lh-2 ">Enter your email below to be the first to know about new collections and product
+						launches.</p>
+					<form class=" pt-8">
+						<div class="input-group position-relative">
+							<input type="email" class="form-control bg-body rounded-left"
+								placeholder="Enter your email address">
+							<button type="submit"
+								class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary ms-0">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
+			<div class="row align-items-center mt-0 mt-lg-20 pt-lg-4">
+				<div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-center order-2 order-lg-1 fs-6 mt-8 mt-lg-0">
+					<p class="mb-0">© Glowing 2023</p>
+					<ul class="list-inline fs-18px ms-6 mb-0">
+						<li class="list-inline-item me-8">
+							<a href="#"><i class="fab fa-twitter"></i></a>
+						</li>
+						<li class="list-inline-item me-8">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+						</li>
+						<li class="list-inline-item me-8">
+							<a href="#"><i class="fab fa-instagram"></i></a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#"><i class="fab fa-youtube"></i></a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-12 col-lg-4 text-md-center order-1 order-lg-2 ">
+					<a class="d-inline-block" href="../index.html">
 
+
+						<img class="lazy-image img-fluid light-mode-img" src="#"
+							data-src="../assets/images/others/logo.png" width="179" height="26"
+							alt="Glowing - Bootstrap 5 HTML Templates">
+						<img class="lazy-image dark-mode-img img-fluid" src="#"
+							data-src="../assets/images/others/logo-white.png" width="179" height="26"
+							alt="Glowing - Bootstrap 5 HTML Templates">
+					</a>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-4 order-3 text-sm-start text-lg-end mt-8 mt-lg-0">
+					<img src="#" data-src="../assets/images/footer/img_1.png" width="313" height="28" alt="Paypal"
+						class="img-fluid lazy-image">
+				</div>
+			</div>
 
 		</div>
 	</footer>
@@ -1459,8 +2010,9 @@
 		<div class="container-wide container-xxl">
 			<nav class="navbar navbar-expand-xl px-0 py-6 py-xl-12 row align-items-start">
 				<div class="col-xl-3 d-flex justify-content-center justify-content-xl-start">
-					<a href="index.html" class="navbar-brand py-4 d-lg-inline-block">
-						<img src="../img/logo.png" height="26" alt="">
+					<a href="../index.html" class="navbar-brand py-4 d-lg-inline-block">
+						<img src="../assets/images/others/logo.png" height="26"
+							alt="Glowing - Bootstrap 5 HTML Templates">
 					</a>
 				</div>
 				<div class="col-xl-6 d-flex justify-content-center">
@@ -1487,14 +2039,16 @@
 				</div>
 				<div class="icons-actions col-xl-3 d-flex justify-content-end fs-28px text-body-emphasis">
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="lh-1 color-inherit text-decoration-none" href="#">
+						<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal"
+							data-bs-target="#signInModal">
 							<svg class="icon icon-user-light">
 								<use xlink:href="#icon-user-light"></use>
 							</svg>
 						</a>
 					</div>
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="shop/wishlist.html">
+						<a class="position-relative lh-1 color-inherit text-decoration-none"
+							href="../shop/wishlist.html">
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-star-light"></use>
 							</svg>
@@ -1546,8 +2100,8 @@
 							<td class="shop-product">
 								<div class="d-flex align-items-center">
 									<div class="me-6">
-										<img src="assets/images/products/product-03-75x100.jpg" width="60" height="80"
-											alt="natural coconut cleansing oil">
+										<img src="../assets/images/products/product-03-75x100.jpg" width="60"
+											height="80" alt="natural coconut cleansing oil">
 									</div>
 									<div class="">
 										<p class="card-text mb-1">
@@ -1580,8 +2134,8 @@
 							<td class="shop-product">
 								<div class="d-flex align-items-center">
 									<div class="me-6">
-										<img src="assets/images/products/product-06-75x100.jpg" width="60" height="80"
-											alt="natural coconut cleansing oil">
+										<img src="../assets/images/products/product-06-75x100.jpg" width="60"
+											height="80" alt="natural coconut cleansing oil">
 									</div>
 									<div class="">
 										<p class="card-text mb-1">
@@ -1614,8 +2168,8 @@
 							<td class="shop-product">
 								<div class="d-flex align-items-center">
 									<div class="me-6">
-										<img src="assets/images/products/product-09-75x100.jpg" width="60" height="80"
-											alt="natural coconut cleansing oil">
+										<img src="../assets/images/products/product-09-75x100.jpg" width="60"
+											height="80" alt="natural coconut cleansing oil">
 									</div>
 									<div class="">
 										<p class="card-text mb-1">
@@ -1648,14 +2202,55 @@
 				<span class="text-body-emphasis">Total price:</span>
 				<span class="cart-total fw-bold text-body-emphasis">$106.00</span>
 			</div>
-			<a href="https://templates/shop/checkout.html" class="btn btn-dark w-100 mb-7"
-				title="Check Out">Check Out</a>
-			<a href="https://templates/shop/shopping-cart.html" class="btn btn-outline-dark w-100"
-				title="View shopping cart">View shopping cart</a>
+			<a href="../shop/checkout.html" class="btn btn-dark w-100 mb-7" title="Check Out">Check Out</a>
+			<a href="../shop/shopping-cart.html" class="btn btn-outline-dark w-100" title="View shopping cart">View
+				shopping cart</a>
 		</div>
 	</div>
 
-
+	<div class="modal" id="signInModal" tabindex="-1" aria-labelledby="signInModal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header text-center border-0 pb-0">
+					<button type="button" class="btn-close position-absolute end-5 top-5" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+					<h3 class="modal-title w-100" id="signInModalLabel">Sign In</h3>
+				</div>
+				<div class="modal-body px-sm-13 px-8">
+					<p class="text-center fs-16 mb-10">Don’t have an account yet? <a href="#" data-bs-toggle="modal"
+							data-bs-target="#signUpModal" class="text-black">Sign up</a> for free</p>
+					<form action="#">
+						<input name="email" type="email" class="form-control mb-5" placeholder="Your email" required>
+						<input name="password" type="password" class="form-control" placeholder="Password" required>
+						<div class="d-flex align-items-center justify-content-between mt-8 mb-7">
+							<div class="custom-control d-flex form-check">
+								<input name="stay-signed-in" type="checkbox" class="form-check-input rounded-0 me-3"
+									id="staySignedIn">
+								<label class="custom-control-label text-body" for="staySignedIn">Stay signed in</label>
+							</div>
+							<a href="#" class="text-secondary">Forgot your password?</a>
+						</div>
+						<button type="submit" value="Login"
+							class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary w-100">Log In</button>
+					</form>
+				</div>
+				<div class="modal-footer px-13 pt-0 pb-12 border-0">
+					<div class="border-bottom w-100"></div>
+					<div class="text-center lh-1 mb-8 w-100 mt-n5">
+						<span class="fs-14 bg-body lh-1 px-4">or Log-in with</span>
+					</div>
+					<div class="d-flex w-100">
+						<a href="#"
+							class="btn btn-outline-secondary w-100 border-2x me-5 btn-hover-bg-primary btn-hover-border-primary"><i
+								class="fab fa-facebook-f me-4" style="color: #2E58B2"></i>Facebook</a>
+						<a href="#"
+							class="btn btn-outline-secondary w-100 border-2x mt-0 btn-hover-bg-primary btn-hover-border-primary"><i
+								class="fab fa-google me-4" style="color: #DD4B39"></i>Google</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="modal" id="signUpModal" tabindex="-1" aria-labelledby="signUpModal" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -1728,7 +2323,7 @@
 												<use xlink:href="#icon-star-light"></use>
 											</svg>
 										</a>
-										<a href="shop/compare.html"
+										<a href="../shop/compare.html"
 											class="d-flex align-items-center justify-content-center mt-5 product-gallery-action rounded-circle"
 											data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
 											<svg class="icon fs-4">
@@ -1740,37 +2335,37 @@
 								<div id="slider"
 									class="slick-slider slick-slider-arrow-inside slick-slider-dots-inside slick-slider-dots-light g-0"
 									data-slick-options='{&#34;arrows&#34;:false,&#34;asNavFor&#34;:&#34;#slider-thumb&#34;,&#34;dots&#34;:false,&#34;slidesToShow&#34;:1}'>
-									<a href="assets/images/shop/product-gallery-05.jpg" data-gallery="gallery1"
-										data-thumb-src="assets/images/shop/product-gallery-05.jpg"><img src="#"
-											data-src="./assets/images/shop/product-gallery-05.jpg"
+									<a href="../assets/images/shop/product-gallery-05.jpg" data-gallery="gallery1"
+										data-thumb-src="../assets/images/shop/product-gallery-05.jpg"><img src="#"
+											data-src="../assets/images/shop/product-gallery-05.jpg"
 											class="h-auto lazy-image" width="540" height="720" alt=""></a>
-									<a href="assets/images/shop/product-gallery-06.jpg" data-gallery="gallery1"
-										data-thumb-src="assets/images/shop/product-gallery-06.jpg"><img src="#"
-											data-src="./assets/images/shop/product-gallery-06.jpg"
+									<a href="../assets/images/shop/product-gallery-06.jpg" data-gallery="gallery1"
+										data-thumb-src="../assets/images/shop/product-gallery-06.jpg"><img src="#"
+											data-src="../assets/images/shop/product-gallery-06.jpg"
 											class="h-auto lazy-image" width="540" height="720" alt=""></a>
-									<a href="assets/images/shop/product-gallery-07.jpg" data-gallery="gallery1"
-										data-thumb-src="assets/images/shop/product-gallery-07.jpg"><img src="#"
-											data-src="./assets/images/shop/product-gallery-07.jpg"
+									<a href="../assets/images/shop/product-gallery-07.jpg" data-gallery="gallery1"
+										data-thumb-src="../assets/images/shop/product-gallery-07.jpg"><img src="#"
+											data-src="../assets/images/shop/product-gallery-07.jpg"
 											class="h-auto lazy-image" width="540" height="720" alt=""></a>
-									<a href="assets/images/shop/product-gallery-08.jpg" data-gallery="gallery1"
-										data-thumb-src="assets/images/shop/product-gallery-08.jpg"><img src="#"
-											data-src="./assets/images/shop/product-gallery-08.jpg"
+									<a href="../assets/images/shop/product-gallery-08.jpg" data-gallery="gallery1"
+										data-thumb-src="../assets/images/shop/product-gallery-08.jpg"><img src="#"
+											data-src="../assets/images/shop/product-gallery-08.jpg"
 											class="h-auto lazy-image" width="540" height="720" alt=""></a>
 								</div>
 							</div>
 							<div class="mt-6">
 								<div id="slider-thumb" class="slick-slider slick-slider-thumb ps-1 ms-n3 me-n4"
 									data-slick-options='{&#34;arrows&#34;:false,&#34;asNavFor&#34;:&#34;#slider&#34;,&#34;dots&#34;:false,&#34;focusOnSelect&#34;:true,&#34;slidesToShow&#34;:5,&#34;vertical&#34;:false}'>
-									<img src="#" data-src="./assets/images/shop/product-gallery-05-154x205.jpg"
+									<img src="#" data-src="../assets/images/shop/product-gallery-05-154x205.jpg"
 										class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100"
 										alt="">
-									<img src="#" data-src="./assets/images/shop/product-gallery-06-154x205.jpg"
+									<img src="#" data-src="../assets/images/shop/product-gallery-06-154x205.jpg"
 										class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100"
 										alt="">
-									<img src="#" data-src="./assets/images/shop/product-gallery-07-154x205.jpg"
+									<img src="#" data-src="../assets/images/shop/product-gallery-07-154x205.jpg"
 										class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100"
 										alt="">
-									<img src="#" data-src="./assets/images/shop/product-gallery-08-154x205.jpg"
+									<img src="#" data-src="../assets/images/shop/product-gallery-08-154x205.jpg"
 										class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100"
 										alt="">
 								</div>
@@ -1783,7 +2378,7 @@
 								<span class="badge text-bg-primary fs-6 fw-semibold ms-7 px-6 py-3">20%</span>
 							</p>
 							<h1 class="mb-4 pb-2 fs-4">
-								<a href="shop/product-details-v1.html" title="Natural Coconut Cleansing Oil">
+								<a href="../shop/product-details-v1.html" title="Natural Coconut Cleansing Oil">
 									Natural Coconut Cleansing Oil
 								</a>
 							</h1>
@@ -1916,7 +2511,7 @@
 							</p>
 							<div class="card border-0 bg-body-tertiary rounded text-center mt-7">
 								<div class="pt-8 px-5">
-									<img class="img-fluid" src="assets/images/shop/product-info-2.png" alt="pay"
+									<img class="img-fluid" src="../assets/images/shop/product-info-2.png" alt="pay"
 										width="357" height="28">
 								</div>
 								<div class="card-body pt-6 pb-7">
@@ -1976,8 +2571,8 @@
 
 					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth">
 						<a class="nav-link d-flex justify-content-between position-relative text-uppercase fw-semibold ls-1 fs-15px dropdown-toggle"
-							href="index-2.html" data-bs-toggle="dropdown" id="menu-item-home-canvas"
-							aria-haspopup="true" aria-expanded="false">TRang chủ</a>
+							href="../index-2.html" data-bs-toggle="dropdown" id="menu-item-home-canvas"
+							aria-haspopup="true" aria-expanded="false">Home</a>
 						<div class="dropdown-menu mega-menu start-0 py-6 " aria-labelledby="menu-item-home-canvas"
 							style="width:320px">
 							<div class="megamenu-home container py-8 px-12">
@@ -1986,47 +2581,47 @@
 										<h6 class="fs-18px">Group 1</h6>
 										<ul class="list-unstyled">
 											<li>
-												<a href="home-01.html"
+												<a href="../home-01.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 01</span></a>
 											</li>
 											<li>
-												<a href="home-02.html"
+												<a href="../home-02.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 02</span></a>
 											</li>
 											<li>
-												<a href="home-03.html"
+												<a href="../home-03.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 03</span></a>
 											</li>
 											<li>
-												<a href="home-04.html"
+												<a href="../home-04.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 04</span></a>
 											</li>
 											<li>
-												<a href="home-05.html"
+												<a href="../home-05.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 05</span></a>
 											</li>
 											<li>
-												<a href="home-06.html"
+												<a href="../home-06.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 06</span></a>
 											</li>
 											<li>
-												<a href="home-07.html"
+												<a href="../home-07.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 07</span></a>
 											</li>
 											<li>
-												<a href="home-08.html"
+												<a href="../home-08.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 08</span></a>
 											</li>
 											<li>
-												<a href="home-09.html"
+												<a href="../home-09.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 09</span></a>
 											</li>
@@ -2036,47 +2631,47 @@
 										<h6 class="fs-18px">Group 2</h6>
 										<ul class="list-unstyled">
 											<li>
-												<a href="home-10.html"
+												<a href="../home-10.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 10</span></a>
 											</li>
 											<li>
-												<a href="home-11.html"
+												<a href="../home-11.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 11</span></a>
 											</li>
 											<li>
-												<a href="home-12.html"
+												<a href="../home-12.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 12</span></a>
 											</li>
 											<li>
-												<a href="home-13.html"
+												<a href="../home-13.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 13</span></a>
 											</li>
 											<li>
-												<a href="home-14.html"
+												<a href="../home-14.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 14</span></a>
 											</li>
 											<li>
-												<a href="home-15.html"
+												<a href="../home-15.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 15</span></a>
 											</li>
 											<li>
-												<a href="home-16.html"
+												<a href="../home-16.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 16</span></a>
 											</li>
 											<li>
-												<a href="home-17.html"
+												<a href="../home-17.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 17</span></a>
 											</li>
 											<li>
-												<a href="home-18.html"
+												<a href="../home-18.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Home 18</span></a>
 											</li>
@@ -2089,8 +2684,8 @@
 					</li>
 					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth position-static">
 						<a class="nav-link d-flex justify-content-between position-relative text-uppercase fw-semibold ls-1 fs-15px dropdown-toggle"
-							href="store.html" data-bs-toggle="dropdown" id="menu-item-shop-canvas" aria-haspopup="true"
-							aria-expanded="false">Shop</a>
+							href="../store.html" data-bs-toggle="dropdown" id="menu-item-shop-canvas"
+							aria-haspopup="true" aria-expanded="false">Shop</a>
 						<div class="dropdown-menu mega-menu start-0 py-6  w-100"
 							aria-labelledby="menu-item-shop-canvas">
 							<div class="megamenu-shop container-wide py-8 px-12">
@@ -2099,27 +2694,27 @@
 										<h6 class="fs-18px">Shop Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="shop/shop-layout-v1.html"
+												<a href="../shop/shop-layout-v1.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Shop Layout <sup>v1</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/shop-layout-v2.html"
+												<a href="../shop/shop-layout-v2.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Shop Layout <sup>v2</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/shop-layout-v3.html"
+												<a href="../shop/shop-layout-v3.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Shop Layout <sup>v3</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/shop-layout-v4.html"
+												<a href="../shop/shop-layout-v4.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Shop Layout <sup>v4</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/shop-layout-v5.html"
+												<a href="../shop/shop-layout-v5.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Shop Layout <sup>v5</sup></span></a>
 											</li>
@@ -2129,49 +2724,49 @@
 										<h6 class="fs-18px">Product Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="shop/product-details-v1.html"
+												<a href="../shop/product-details-v1.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v1</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/product-details-v2.html"
+												<a href="../shop/product-details-v2.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v2</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/product-details-v3.html"
+												<a href="../shop/product-details-v3.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v3</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/product-details-v4.html"
+												<a href="../shop/product-details-v4.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v4</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/product-details-v5.html"
+												<a href="../shop/product-details-v5.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v5</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/product-details-v6.html"
+												<a href="../shop/product-details-v6.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v6</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/product-details-v7.html"
+												<a href="../shop/product-details-v7.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v7</sup></span></a>
 											</li>
 											<li>
-												<a href="shop/product-details-v8.html"
+												<a href="../shop/product-details-v8.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Detail
 														<sup>v8</sup></span></a>
@@ -2182,22 +2777,22 @@
 										<h6 class="fs-18px">Product Types</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="shop/product-simple.html"
+												<a href="../shop/product-simple.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Simple</span></a>
 											</li>
 											<li>
-												<a href="shop/product-variable.html"
+												<a href="../shop/product-variable.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Variable</span></a>
 											</li>
 											<li>
-												<a href="shop/product-time-limit.html"
+												<a href="../shop/product-time-limit.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Time Limit</span></a>
 											</li>
 											<li>
-												<a href="shop/product-grouped.html"
+												<a href="../shop/product-grouped.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Grouped</span></a>
 											</li>
@@ -2207,32 +2802,32 @@
 										<h6 class="fs-18px">Other Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="shop/shopping-cart.html"
+												<a href="../shop/shopping-cart.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Shopping Cart</span></a>
 											</li>
 											<li>
-												<a href="shop/compare.html"
+												<a href="../shop/compare.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Compare</span></a>
 											</li>
 											<li>
-												<a href="shop/wishlist.html"
+												<a href="../shop/wishlist.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Wishlist</span></a>
 											</li>
 											<li>
-												<a href="shop/checkout.html"
+												<a href="../shop/checkout.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Checkout</span></a>
 											</li>
 											<li>
-												<a href="user-registration.html"
+												<a href="../user-registration.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Register</span></a>
 											</li>
 											<li>
-												<a href="user-login.html"
+												<a href="../user-login.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Login</span></a>
 											</li>
@@ -2240,8 +2835,8 @@
 									</div>
 									<div class="col d-xxl-block d-none megamenu-shop-banner" data-bs-theme="light">
 										<div class="card border-0 mt-4">
-											<img src="assets/images/background/bg-mega-menu-shop.jpg" alt="bg mega menu"
-												class="card-img">
+											<img src="../assets/images/background/bg-mega-menu-shop.jpg"
+												alt="bg mega menu" class="card-img">
 											<div class="card-img-overlay d-flex flex-column mx-2 px-9 py-6">
 												<p class="text-body-emphasis ls-1 fw-semibold mb-4 mt-6 text-uppercase">
 													new collection
@@ -2276,39 +2871,39 @@
 								<ul class="dropdown-menu py-6" aria-labelledby="menu-item-blog-canvas"
 									data-bs-popper="none">
 									<li>
-										<a class="dropdown-item border-hover" href="blog/grid.html">
+										<a class="dropdown-item border-hover" href="grid.html">
 											<span class="border-hover-target">Blog Grid</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="blog/grid-sidebar.html">
+										<a class="dropdown-item border-hover" href="grid-sidebar.html">
 											<span class="border-hover-target">Blog Grid Sidebar</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="blog/masonry.html">
+										<a class="dropdown-item border-hover" href="masonry.html">
 											<span class="border-hover-target">Blog Masonry</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="blog/list.html">
+										<a class="dropdown-item border-hover" href="list.html">
 											<span class="border-hover-target">Blog List</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="blog/classic.html">
+										<a class="dropdown-item border-hover" href="classic.html">
 											<span class="border-hover-target">Blog Classic</span>
 										</a>
 									</li>
 									<li class="dropdown-divider"></li>
 
 									<li>
-										<a class="dropdown-item border-hover" href="blog/details-01.html">
+										<a class="dropdown-item border-hover" href="details-01.html">
 											<span class="border-hover-target">Blog Details 01</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="blog/details-02.html">
+										<a class="dropdown-item border-hover" href="details-02.html">
 											<span class="border-hover-target">Blog Details 02</span>
 										</a>
 									</li>
@@ -2325,12 +2920,12 @@
 								<ul class="dropdown-menu py-6" aria-labelledby="menu-item-about-us-canvas"
 									data-bs-popper="none">
 									<li>
-										<a class="dropdown-item border-hover" href="about-us-01.html">
+										<a class="dropdown-item border-hover" href="../about-us-01.html">
 											<span class="border-hover-target">About Us 01</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="about-us-02.html">
+										<a class="dropdown-item border-hover" href="../about-us-02.html">
 											<span class="border-hover-target">About Us 02</span>
 										</a>
 									</li>
@@ -2346,12 +2941,12 @@
 								<ul class="dropdown-menu py-6" aria-labelledby="menu-item-contact-us-canvas"
 									data-bs-popper="none">
 									<li>
-										<a class="dropdown-item border-hover" href="contact-us-01.html">
+										<a class="dropdown-item border-hover" href="../contact-us-01.html">
 											<span class="border-hover-target">Contact Us 01</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="contact-us-02.html">
+										<a class="dropdown-item border-hover" href="../contact-us-02.html">
 											<span class="border-hover-target">Contact Us 02</span>
 										</a>
 									</li>
@@ -2359,7 +2954,7 @@
 							</li>
 							<li class="dropend" aria-haspopup="true" aria-expanded="false">
 								<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-									href="dashboard/dashboard.html" data-bs-toggle="dropdown"
+									href="../dashboard/dashboard.html" data-bs-toggle="dropdown"
 									id="menu-item-dashboard-canvas">
 									<span class="border-hover-target">
 										Dashboard
@@ -2368,68 +2963,68 @@
 								<ul class="dropdown-menu py-6" aria-labelledby="menu-item-dashboard-canvas"
 									data-bs-popper="none">
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/dashboard.html">
+										<a class="dropdown-item border-hover" href="../dashboard/dashboard.html">
 											<span class="border-hover-target">Dashboard</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/product-grid.html">
+										<a class="dropdown-item border-hover" href="../dashboard/product-grid.html">
 											<span class="border-hover-target">Products</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/order-list.html">
+										<a class="dropdown-item border-hover" href="../dashboard/order-list.html">
 											<span class="border-hover-target">Orders</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/sellers-cards.html">
+										<a class="dropdown-item border-hover" href="../dashboard/sellers-cards.html">
 											<span class="border-hover-target">Sellers</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/add-product-1.html">
+										<a class="dropdown-item border-hover" href="../dashboard/add-product-1.html">
 											<span class="border-hover-target">Add Product</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/transactions-1.html">
+										<a class="dropdown-item border-hover" href="../dashboard/transactions-1.html">
 											<span class="border-hover-target">Transaction</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/reviews.html">
+										<a class="dropdown-item border-hover" href="../dashboard/reviews.html">
 											<span class="border-hover-target">Reviews</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/brands.html">
+										<a class="dropdown-item border-hover" href="../dashboard/brands.html">
 											<span class="border-hover-target">Brands</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="dashboard/profile-settings.html">
+										<a class="dropdown-item border-hover" href="../dashboard/profile-settings.html">
 											<span class="border-hover-target">Settings</span>
 										</a>
 									</li>
 								</ul>
 							</li>
 							<li>
-								<a class="dropdown-item pe-6 border-hover" href="faqs.html">
+								<a class="dropdown-item pe-6 border-hover" href="../faqs.html">
 									<span class="border-hover-target">
 										FAQs
 									</span>
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-item pe-6 border-hover" href="find-a-store.html">
+								<a class="dropdown-item pe-6 border-hover" href="../find-a-store.html">
 									<span class="border-hover-target">
 										Store
 									</span>
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-item pe-6 border-hover" href="404.html">
+								<a class="dropdown-item pe-6 border-hover" href="../404.html">
 									<span class="border-hover-target">
 										404
 									</span>
@@ -2449,22 +3044,22 @@
 										<h6 class="fs-18px">Group 1</h6>
 										<ul class="list-unstyled">
 											<li>
-												<a href="blocks/blog.html"
+												<a href="../blocks/blog.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Blog</span></a>
 											</li>
 											<li>
-												<a href="blocks/banner.html"
+												<a href="../blocks/banner.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Banner</span></a>
 											</li>
 											<li>
-												<a href="blocks/call-to-action.html"
+												<a href="../blocks/call-to-action.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Call To Action</span></a>
 											</li>
 											<li>
-												<a href="blocks/hero.html"
+												<a href="../blocks/hero.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Hero</span></a>
 											</li>
@@ -2474,22 +3069,22 @@
 										<h6 class="fs-18px">Group 2</h6>
 										<ul class="list-unstyled">
 											<li>
-												<a href="blocks/products.html"
+												<a href="../blocks/products.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Products</span></a>
 											</li>
 											<li>
-												<a href="blocks/products-slide.html"
+												<a href="../blocks/products-slide.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Products Slide</span></a>
 											</li>
 											<li>
-												<a href="blocks/product-tabs.html"
+												<a href="../blocks/product-tabs.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Product Tabs</span></a>
 											</li>
 											<li>
-												<a href="blocks/news-letter.html"
+												<a href="../blocks/news-letter.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">News Letter</span></a>
 											</li>
@@ -2499,22 +3094,22 @@
 										<h6 class="fs-18px">Group 3</h6>
 										<ul class="list-unstyled">
 											<li>
-												<a href="blocks/features.html"
+												<a href="../blocks/features.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Features</span></a>
 											</li>
 											<li>
-												<a href="blocks/info.html"
+												<a href="../blocks/info.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Info</span></a>
 											</li>
 											<li>
-												<a href="blocks/instagram.html"
+												<a href="../blocks/instagram.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Instagram</span></a>
 											</li>
 											<li>
-												<a href="blocks/video.html"
+												<a href="../blocks/video.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Video</span></a>
 											</li>
@@ -2524,22 +3119,22 @@
 										<h6 class="fs-18px">Group 4</h6>
 										<ul class="list-unstyled">
 											<li>
-												<a href="blocks/team.html"
+												<a href="../blocks/team.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Team</span></a>
 											</li>
 											<li>
-												<a href="blocks/testimonials.html"
+												<a href="../blocks/testimonials.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Testimonials</span></a>
 											</li>
 											<li>
-												<a href="blocks/header.html"
+												<a href="../blocks/header.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Header</span></a>
 											</li>
 											<li>
-												<a href="blocks/footer.html"
+												<a href="../blocks/footer.html"
 													class="border-hover text-decoration-none py-3 d-block"><span
 														class="border-hover-target">Footer</span></a>
 											</li>
@@ -2558,7 +3153,7 @@
 							<div class="menumega-docs px-8" style="min-width: 250px">
 
 
-								<a href="docs/usage/getting-started.html"
+								<a href="../docs/usage/getting-started.html"
 									class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
 									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
 										<svg class="icon">
@@ -2574,7 +3169,7 @@
 
 								<hr class="dropdown-divider mx-n8" />
 
-								<a href="docs/components/accordion.html"
+								<a href="../docs/components/accordion.html"
 									class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
 									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
 										<svg class="icon">
@@ -2590,7 +3185,7 @@
 
 								<hr class="dropdown-divider mx-n8" />
 
-								<a href="docs/usage/changelog.html" class="d-flex text-decoration-none mb-4 mb-lg-0"
+								<a href="../docs/usage/changelog.html" class="d-flex text-decoration-none mb-4 mb-lg-0"
 									title="Changelog">
 									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
 										<svg class="icon">
@@ -2606,7 +3201,7 @@
 
 								<hr class="dropdown-divider mx-n8" />
 
-								<a href="https://sp/" class="d-flex text-decoration-none mb-4 mb-lg-0"
+								<a href="https://sp.g5plus.net/" class="d-flex text-decoration-none mb-4 mb-lg-0"
 									title="Support" target="_blank">
 									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
 										<svg class="icon">
@@ -2615,7 +3210,7 @@
 									</div>
 									<div class="flex-grow-1 ps-6">
 										<h6 class="mb-2">Support</h6>
-										<small>https://sp/</small>
+										<small>https://sp.g5plus.net/</small>
 									</div>
 								</a>
 
@@ -2638,6 +3233,6 @@
 	</div>
 </body>
 
-<!-- Mirrored from templates/glowing-bootstrap-5/home-16.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:23:53 GMT -->
+<!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/blog/classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:38 GMT -->
 
 </html>

@@ -236,6 +236,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="row gy-50px">
+
+						<!--  -->
 						<div class="col-sm-4">
 							<article class="card card-post-grid-2 bg-transparent border-0" data-animate="fadeInUp">
 								<figure class="card-img-top mb-7 position-relative"><a href="#" class="hover-shine hover-zoom-in d-block" title="How to Plop Hair for Bouncy, Beautiful Curls">
@@ -249,21 +251,10 @@
 								</div>
 							</article>
 						</div>
-						<div class="col-sm-4">
-							<article class="card card-post-grid-2 bg-transparent border-0" data-animate="fadeInUp">
-								<figure class="card-img-top mb-7 position-relative"><a href="#" class="hover-shine hover-zoom-in d-block" title="Which foundation formula is right for your skin?">
-										<img data-src="../assets/images/blog/post-02-370x240.jpg" class="img-fluid lazy-image w-100" alt="Which foundation formula is right for your skin?" width="370" height="240" src="#">
-									</a></figure>
-								<div class="card-body p-0">
-
-									<h4 class="card-title fs-5 lh-base mt-5 pt-2 mb-0">
-										<a class="text-decoration-none" href="details-01.html" title="Which foundation formula is right for your skin?">Which foundation formula is right for your skin?</a>
-									</h4>
-								</div>
-							</article>
-						</div>
+						<!--  -->
 
 					</div>
+					
 					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
 						<ul class="pagination m-0">
 							<li class="page-item">

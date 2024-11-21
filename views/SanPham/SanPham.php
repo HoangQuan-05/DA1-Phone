@@ -36,7 +36,7 @@
 
 	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
 		<div class="topbar bg-primary">
-			
+
 		</div>
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
@@ -60,463 +60,181 @@
 					</div>
 
 					<div class="d-none d-xl-flex w-xl-50">
-						<ul class="navbar-nav">
+							<ul class="navbar-nav">
+
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
 
 
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php">Trang chủ</a>
+								</li>
 
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px "
-									href="index.php?act=trang_chu">Home</a>
-
-							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth position-static">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="../store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true" aria-expanded="false">Shop</a>
-								<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
-									<div class="megamenu-shop container-wide py-8 px-12 ">
-										<div class="row justify-content-center align-items-center text-center">
-											<div class="row justify-content-start align-items-center text-center">
-												<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
-
-												<?php foreach ($danh_muc as $dm) : ?>
-
-
-													<div class="col-3">
-														<a href="<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
-															<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
-														</a>
-													</div>
-
-												<?php endforeach ?>
-
-											</div>
-
-
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="#" data-bs-toggle="dropdown" id="menu-item-pages" aria-haspopup="true" aria-expanded="false">Pages</a>
-								<ul class="dropdown-menu py-6" aria-labelledby="menu-item-pages">
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="#" data-bs-toggle="dropdown" id="menu-item-blog">
-											<span class="border-hover-target">
-												Blog
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-blog" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="../blog/grid.html">
-													<span class="border-hover-target">Blog Grid</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../blog/grid-sidebar.html">
-													<span class="border-hover-target">Blog Grid Sidebar</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../blog/masonry.html">
-													<span class="border-hover-target">Blog Masonry</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../blog/list.html">
-													<span class="border-hover-target">Blog List</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../blog/classic.html">
-													<span class="border-hover-target">Blog Classic</span>
-												</a>
-											</li>
-											<li class="dropdown-divider"></li>
-
-											<li>
-												<a class="dropdown-item border-hover" href="../blog/details-01.html">
-													<span class="border-hover-target">Blog Details 01</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../blog/details-02.html">
-													<span class="border-hover-target">Blog Details 02</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown-divider"></li>
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="#" data-bs-toggle="dropdown" id="menu-item-about-us">
-											<span class="border-hover-target">
-												About Us
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-about-us" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="../about-us-01.html">
-													<span class="border-hover-target">About Us 01</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../about-us-02.html">
-													<span class="border-hover-target">About Us 02</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="#" data-bs-toggle="dropdown" id="menu-item-contact-us">
-											<span class="border-hover-target">
-												Contact us
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-contact-us" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="../contact-us-01.html">
-													<span class="border-hover-target">Contact Us 01</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../contact-us-02.html">
-													<span class="border-hover-target">Contact Us 02</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="../dashboard/dashboard.html" data-bs-toggle="dropdown" id="menu-item-dashboard">
-											<span class="border-hover-target">
-												Dashboard
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-dashboard" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/dashboard.html">
-													<span class="border-hover-target">Dashboard</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/product-grid.html">
-													<span class="border-hover-target">Products</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/order-list.html">
-													<span class="border-hover-target">Orders</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/sellers-cards.html">
-													<span class="border-hover-target">Sellers</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/add-product-1.html">
-													<span class="border-hover-target">Add Product</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/transactions-1.html">
-													<span class="border-hover-target">Transaction</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/reviews.html">
-													<span class="border-hover-target">Reviews</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/brands.html">
-													<span class="border-hover-target">Brands</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/profile-settings.html">
-													<span class="border-hover-target">Settings</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a class="dropdown-item pe-6 border-hover"
-											href="../faqs.html">
-											<span class="border-hover-target">
-												FAQs
-											</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item pe-6 border-hover"
-											href="../find-a-store.html">
-											<span class="border-hover-target">
-												Store
-											</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item pe-6 border-hover"
-											href="../404.html">
-											<span class="border-hover-target">
-												404
-											</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="#" data-bs-toggle="dropdown" id="menu-item-blocks" aria-haspopup="true" aria-expanded="false">Blocks</a>
-								<div class="dropdown-menu mega-menu start-0 py-6 "
-									aria-labelledby="menu-item-blocks"
-									style="width:800px">
-									<div class="megamenu-home container py-8 px-12">
-										<div class="row">
-											<div class="col">
-												<h6 class="fs-18px">Group 1</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/blog.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Blog</span></a>
-													</li>
-													<li>
-														<a href="../blocks/banner.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Banner</span></a>
-													</li>
-													<li>
-														<a href="../blocks/call-to-action.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Call To Action</span></a>
-													</li>
-													<li>
-														<a href="../blocks/hero.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Hero</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Group 2</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/products.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Products</span></a>
-													</li>
-													<li>
-														<a href="../blocks/products-slide.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Products Slide</span></a>
-													</li>
-													<li>
-														<a href="../blocks/product-tabs.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Tabs</span></a>
-													</li>
-													<li>
-														<a href="../blocks/news-letter.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">News Letter</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Group 3</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/features.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Features</span></a>
-													</li>
-													<li>
-														<a href="../blocks/info.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Info</span></a>
-													</li>
-													<li>
-														<a href="../blocks/instagram.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Instagram</span></a>
-													</li>
-													<li>
-														<a href="../blocks/video.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Video</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Group 4</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/team.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Team</span></a>
-													</li>
-													<li>
-														<a href="../blocks/testimonials.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Testimonials</span></a>
-													</li>
-													<li>
-														<a href="../blocks/header.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Header</span></a>
-													</li>
-													<li>
-														<a href="../blocks/footer.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Footer</span></a>
-													</li>
-												</ul>
+								<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
+									dropdown-fullwidth position-static">
+									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true"
+										aria-expanded="false">Danh mục</a>
+									<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
+										<div class="megamenu-shop container-wide py-8 px-12 ">
+											<div class="row justify-content-center align-items-center text-center">
+												<div class="row justify-content-start align-items-center text-center">
+													<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
+													<?php foreach ($danh_muc as $dm) : ?>
+														<div class="col-3">
+															<a href="index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
+																<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
+															</a>
+														</div>
+													<?php endforeach ?>
+												</div>
 											</div>
 										</div>
 									</div>
+								</li>
 
-								</div>
-							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="#" data-bs-toggle="dropdown" id="menu-item-docs" aria-haspopup="true" aria-expanded="false">Docs</a>
-								<div class="dropdown-menu mega-menu start-0 py-6 "
-									aria-labelledby="menu-item-docs">
-									<div class="menumega-docs px-8" style="min-width: 250px">
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=tin_tuc">Tin tức</a>
 
 
-										<a href="../docs/usage/getting-started.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#book"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">Documentation</h6>
-												<small>Kick-start customization</small>
-											</div>
-										</a>
+								</li>
+
+								<style>
+									.no-arrow-link::after {
+										display: none;
+									}
+								</style>
 
 
-										<hr class="dropdown-divider mx-n8" />
-
-										<a href="../docs/components/accordion.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#layer-group"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">UI Kit</h6>
-												<small>Flexible components</small>
-											</div>
-										</a>
-
-
-										<hr class="dropdown-divider mx-n8" />
-
-										<a href="../docs/usage/changelog.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#pen-to-square"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">Changelog</h6>
-												<small>Regular updates</small>
-											</div>
-										</a>
-
-
-										<hr class="dropdown-divider mx-n8" />
-
-										<a href="https://sp.g5plus.net/" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Support" target="_blank">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#headset"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">Support</h6>
-												<small>https://sp.g5plus.net/</small>
-											</div>
-										</a>
-
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
+								</style>
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+									<a  class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=tin_tuc">Khuyến mãi</a>
+								</li>
+							</ul>
+						</div>
 
 					<a href="index.php?act=trang_chu" class="navbar-brand px-8 py-4 mx-auto">
 						<!-- <img class="light-mode-img" src="../img/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
 						<img class="dark-mode-img" src="../assets/images/others/logo-white.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates"></a> -->
 						<h3>PhonePlus</h3>
 
-					<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
-						<div class="px-xl-5 d-inline-block">
-							<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-								data-bs-target="#searchModal"
-								aria-controls="searchModal"
-								aria-expanded="false">
-								<svg class="icon icon-magnifying-glass-light">
-									<use xlink:href="#icon-magnifying-glass-light"></use>
-								</svg>
-							</a>
-						</div>
-						<div class="px-5 d-none d-xl-inline-block">
-							<?php if (isset($_SESSION['id_khach_hang'])) : ?>
-								<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=logout">
-									<img style="width: 40px; height: 40px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>" alt="">
-								</a>
-							<?php else : ?>
-								<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
-									<svg class="icon icon-user-light">
-										<use xlink:href="#icon-user-light"></use>
-									</svg>
-								</a>
-							<?php endif; ?>
-						</div>
-						<div class="px-5 d-none d-xl-inline-block">
-							<a class="position-relative lh-1 color-inherit text-decoration-none" href="wishlist.html">
-								<svg class="icon icon-star-light">
-									<use xlink:href="#icon-star-light"></use>
-								</svg>
-								<span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-							</a>
-						</div>
-						<div class="px-5 d-none d-xl-inline-block">
-							<a class="position-relative lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-								data-bs-target="#shoppingCart"
-								aria-controls="shoppingCart"
-								aria-expanded="false">
-								<svg class="icon icon-star-light">
-									<use xlink:href="#icon-shopping-bag-open-light"></use>
-								</svg>
-								<span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-							</a>
-						</div>
-
-						<div class="color-modes position-relative ps-5">
-							<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle" href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
-								<svg class="bi my-1 theme-icon-active">
-									<use href="#sun-fill"></use>
-								</svg>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
-								<li>
-									<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
-										<svg class="bi me-4 opacity-50 theme-icon">
-											<use href="#sun-fill"></use>
-										</svg>
-										Light
-										<svg class="bi ms-auto d-none">
-											<use href="#check2"></use>
-										</svg>
-									</button>
-								</li>
-								<li>
-									<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-										<svg class="bi me-4 opacity-50 theme-icon">
-											<use href="#moon-stars-fill"></use>
-										</svg>
-										Dark
-										<svg class="bi ms-auto d-none">
-											<use href="#check2"></use>
-										</svg>
-									</button>
-								</li>
-								<li>
-									<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-										<svg class="bi me-4 opacity-50 theme-icon">
-											<use href="#circle-half"></use>
-										</svg>
-										Auto
-										<svg class="bi ms-auto d-none">
-											<use href="#check2"></use>
-										</svg>
-									</button>
-								</li>
-							</ul>
-						</div>
+						<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
+					<div class="px-xl-5 d-inline-block">
+						<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
+							data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
+							<svg class="icon icon-magnifying-glass-light">
+								<use xlink:href="#icon-magnifying-glass-light"></use>
+							</svg>
+						</a>
 					</div>
+
+
+					<div class="dropdown-center">
+						<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+							<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
+							</p>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Thông tin</a></li>
+								<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
+							</ul>
+
+						<?php else : ?>
+							<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
+								<svg class="icon icon-user-light">
+									<use xlink:href="#icon-user-light"></use>
+								</svg>
+							</a>
+						<?php endif; ?>
+
+
+					</div>
+
+
+
+					<div class="px-xl-5 d-inline-block">
+						<a class="lh-1 color-inherit text-decoration-none" href="#">
+							<svg class="icon icon-magnifying-glass-light">
+								<use xlink:href="#icon-box-05"></use>
+							</svg>
+						</a>
+					</div>
+					<div class="px-5 d-none d-xl-inline-block">
+						<a class="position-relative lh-1 color-inherit text-decoration-none"
+							href="shop/wishlist.html">
+							<svg class="icon icon-star-light">
+								<use xlink:href="#icon-star-light"></use>
+							</svg>
+							<span
+								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+								style="--square-size: 18px">3</span>
+						</a>
+					</div>
+					<div class="px-5 d-none d-xl-inline-block">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
+							data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
+							aria-expanded="false">
+							<svg class="icon icon-star-light">
+								<use xlink:href="#icon-shopping-bag-open-light"></use>
+							</svg>
+							<span
+								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+								style="--square-size: 18px">3</span>
+						</a>
+					</div>
+
+					<div class="color-modes position-relative ps-5">
+						<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
+							href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
+							aria-label="Toggle theme (light)">
+							<svg class="bi my-1 theme-icon-active">
+								<use href="#sun-fill"></use>
+							</svg>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center active"
+									data-bs-theme-value="light" aria-pressed="true">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#sun-fill"></use>
+									</svg>
+									Light
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center"
+									data-bs-theme-value="dark" aria-pressed="false">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#moon-stars-fill"></use>
+									</svg>
+									Dark
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center"
+									data-bs-theme-value="auto" aria-pressed="false">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#circle-half"></use>
+									</svg>
+									Auto
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -677,13 +395,15 @@
 		<div class="container container-xxl pb-16 pb-lg-18 mb-lg-3">
 			<div class="row gy-50px">
 
+				<!-- TẤT CẢ SẢN PHẨM -->
+
 				<?php
 				if (empty($_GET['min']) && empty($_GET['max']) && empty($_GET['gia']) && empty($_GET['danh_muc'])) : ?>
 					<?php foreach ($san_pham as $value) : ?>
 						<div class="col-lg-3 col-sm-6 col-12">
 							<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
 								<figure class="card-img-top position-relative mb-7 overflow-hidden">
-									<a href="shop/product-details-v1.html" class="hover-zoom-in d-block"
+									<a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>" class="hover-zoom-in d-block"
 										title="Shield Conditioner">
 										<img src="../admin/image/<?= $value['hinh_anh'] ?>"
 											class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
@@ -729,7 +449,7 @@
 									<h4
 										class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
 										<a class="text-decoration-none text-reset"
-											href="shop/product-details-v1.html"><?= $value['ten_san_pham'] ?></a>
+											href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>"><?= $value['ten_san_pham'] ?></a>
 									</h4>
 
 
@@ -742,6 +462,7 @@
 					<?php
 					endforeach; ?>
 
+
 					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
 						<ul class="pagination m-0">
 							<li class="page-item">
@@ -753,7 +474,7 @@
 							</li>
 							<?php
 							if (isset($page)) {
-								$page = ceil($count['COUNT(id_san_pham)'] / 32);
+								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
@@ -790,7 +511,7 @@
 						<div class="col-lg-3 col-sm-6 col-12">
 							<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
 								<figure class="card-img-top position-relative mb-7 overflow-hidden">
-									<a href="shop/product-details-v1.html" class="hover-zoom-in d-block"
+									<a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>" class="hover-zoom-in d-block"
 										title="Shield Conditioner">
 										<img src="../admin/image/<?= $value['hinh_anh'] ?>"
 											class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
@@ -836,7 +557,7 @@
 									<h4
 										class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
 										<a class="text-decoration-none text-reset"
-											href="shop/product-details-v1.html"><?= $value['ten_san_pham'] ?></a>
+											href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>"><?= $value['ten_san_pham'] ?></a>
 									</h4>
 
 
@@ -868,7 +589,7 @@
 							</li>
 							<?php
 							if (isset($page)) {
-								$page = ceil($count['COUNT(id_san_pham)'] / 32);
+								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
@@ -901,10 +622,9 @@
 
 
 
+				<!-- SẢN PHẨM TRONG MIN < X < MAX -->
 
-
-				<?php
-				if (isset($_GET['min'], $_GET['max']) && $_GET['min'] !== "" && $_GET['max'] !== "") :
+				<?php if (isset($_GET['min'], $_GET['max']) && $_GET['min'] !== "" && $_GET['max'] !== "") :
 					$min = $_GET['min'];
 					$max = $_GET['max'];
 
@@ -913,12 +633,10 @@
 
 
 
-
-
 							<div class="col-lg-3 col-sm-6 col-12">
 								<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
 									<figure class="card-img-top position-relative mb-7 overflow-hidden">
-										<a href="shop/product-details-v1.html" class="hover-zoom-in d-block"
+										<a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>" class="hover-zoom-in d-block"
 											title="Shield Conditioner">
 											<img src="../admin/image/<?= $value['hinh_anh'] ?>"
 												class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
@@ -964,7 +682,7 @@
 										<h4
 											class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
 											<a class="text-decoration-none text-reset"
-												href="shop/product-details-v1.html"><?= $value['ten_san_pham'] ?></a>
+												href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>"><?= $value['ten_san_pham'] ?></a>
 										</h4>
 
 
@@ -990,7 +708,7 @@
 							</li>
 							<?php
 							if (isset($page)) {
-								$page = ceil($count['COUNT(id_san_pham)'] / 32);
+								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
@@ -1019,24 +737,24 @@
 				endif;
 				?>
 
-				<?php
-				if ((isset($_GET['min']) && $_GET['min'] !== "") || (isset($_GET['max']) && $_GET['max'] !== "")) :
-					$min = isset($_GET['min']) && $_GET['min'] !== "" ? $_GET['min'] : null;
-					$max = isset($_GET['max']) && $_GET['max'] !== "" ? $_GET['max'] : null;
 
-					foreach ($san_pham as $value) :
-						$price = $value['gia_ban'];
+				<!-- SẢN PHẨM MIN, MAX -->
 
-						
-						if (($min === null || $price >= $min) && ($max === null || $price <= $max)) : ?>
 
+				<?php if ((isset($_GET['min']) && empty($_GET['max']) && $_GET['max'] == "") || (isset($_GET['max']) && empty($_GET['min']) && $_GET['min'] == "")) : ?>
+					<?php
+					$min = isset($_GET['min']) ? $_GET['min'] : "";
+					$max = isset($_GET['max']) ? $_GET['max'] : "";  ?>
+
+					<?php foreach ($san_pham as $value) :
+						if (($min != "" && $min <= $value['gia_ban'] ) || ($max != "" && $max >= $value['gia_ban'] )                ) : ?>
 
 
 
 							<div class="col-lg-3 col-sm-6 col-12">
 								<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
 									<figure class="card-img-top position-relative mb-7 overflow-hidden">
-										<a href="shop/product-details-v1.html" class="hover-zoom-in d-block"
+										<a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>" class="hover-zoom-in d-block"
 											title="Shield Conditioner">
 											<img src="../admin/image/<?= $value['hinh_anh'] ?>"
 												class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
@@ -1082,7 +800,7 @@
 										<h4
 											class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
 											<a class="text-decoration-none text-reset"
-												href="shop/product-details-v1.html"><?= $value['ten_san_pham'] ?></a>
+												href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>"><?= $value['ten_san_pham'] ?></a>
 										</h4>
 
 
@@ -1091,16 +809,14 @@
 							</div>
 
 
-					<?php
-
-						endif;
+					<?php endif;
 					endforeach; ?>
 
 
 					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
 						<ul class="pagination m-0">
 							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&min=<?= $_GET['min']?>&max=<?= $_GET['max']?>&page=1" aria-label="Previous">
+								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&min=<?= $_GET['min'] ?>&max=<?= $_GET['max'] ?>&page=1" aria-label="Previous">
 									<svg class="icon">
 										<use xlink:href="#icon-angle-double-left"></use>
 									</svg>
@@ -1108,7 +824,7 @@
 							</li>
 							<?php
 							if (isset($page)) {
-								$page = ceil($count['COUNT(id_san_pham)'] / 32);
+								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
@@ -1121,11 +837,11 @@
 										<p class="page-link" style="background-color:#DD4B39"><?= $i ?></p>
 									</li>
 								<?php else : ?>
-									<li class="page-item"><a class="page-link" href="index.php?act=san_pham&min=<?= $_GET['min']?>&max=<?= $_GET['max']?>&page=<?= $i ?>"><?= $i ?></a></li>
+									<li class="page-item"><a class="page-link" href="index.php?act=san_pham&min=<?= $_GET['min'] ?>&max=<?= $_GET['max'] ?>&page=<?= $i ?>"><?= $i ?></a></li>
 								<?php endif; ?>
 							<?php endfor ?>
 							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&min=<?= $_GET['min']?>&max=<?= $_GET['max']?>&page=<?= $page ?>" aria-label="Next">
+								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&min=<?= $_GET['min'] ?>&max=<?= $_GET['max'] ?>&page=<?= $page ?>" aria-label="Next">
 									<svg class="icon">
 										<use xlink:href="#icon-angle-double-right"></use>
 									</svg>
@@ -1145,9 +861,9 @@
 
 
 
+				<!-- SẢN PHẨM MIN, MAX -->
 
-				<?php
-				if (isset($_GET['gia'])  && isset($_GET['by'])) : ?>
+				<?php if (isset($_GET['gia'])  && isset($_GET['by'])) : ?>
 					<?php foreach ($min_max as $value) : ?>
 
 
@@ -1155,7 +871,7 @@
 						<div class="col-lg-3 col-sm-6 col-12">
 							<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
 								<figure class="card-img-top position-relative mb-7 overflow-hidden">
-									<a href="shop/product-details-v1.html" class="hover-zoom-in d-block"
+									<a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>" class="hover-zoom-in d-block"
 										title="Shield Conditioner">
 										<img src="../admin/image/<?= $value['hinh_anh'] ?>"
 											class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
@@ -1201,7 +917,7 @@
 									<h4
 										class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
 										<a class="text-decoration-none text-reset"
-											href="shop/product-details-v1.html"><?= $value['ten_san_pham'] ?></a>
+											href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>"><?= $value['ten_san_pham'] ?></a>
 									</h4>
 
 
@@ -1225,7 +941,7 @@
 							</li>
 							<?php
 							if (isset($page)) {
-								$page = ceil($count['COUNT(id_san_pham)'] / 32);
+								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}

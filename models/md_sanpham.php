@@ -51,7 +51,7 @@ class Md_san_pham
                 ) AS hinh_anh_cu ON san_phams.id_san_pham = hinh_anh_cu.id_san_pham
                 JOIN hinh_anhs ON san_phams.id_san_pham = hinh_anhs.id_san_pham
                     AND hinh_anhs.id = hinh_anh_cu.id_cu_nhat
-                ORDER BY san_phams.id_san_pham DESC LIMIT 32 OFFSET $offset  ";
+                ORDER BY san_phams.id_san_pham DESC LIMIT 16 OFFSET $offset  ";
         $result = $this->conn->prepare($sql);
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
@@ -77,13 +77,13 @@ class Md_san_pham
                 JOIN chi_tiet_san_pham ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham 
                     AND chi_tiet_san_pham.gia_ban = max_gia.gia_cao_nhat
                 JOIN (
-                    SELECT id_san_pham, MIN(id) AS id_cu_nhat
+                    SELECT id_san_pham, MIN(id) AS id_cu_nhat  
                     FROM hinh_anhs
                     GROUP BY id_san_pham
                 ) AS hinh_anh_cu ON san_phams.id_san_pham = hinh_anh_cu.id_san_pham
                 JOIN hinh_anhs ON san_phams.id_san_pham = hinh_anhs.id_san_pham
                     AND hinh_anhs.id = hinh_anh_cu.id_cu_nhat
-                ORDER BY gia_ban $by LIMIT 32 OFFSET $offset  ";
+                ORDER BY gia_ban $by LIMIT 16 OFFSET $offset  ";
         $result = $this->conn->prepare($sql);
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
@@ -110,29 +110,38 @@ class Md_san_pham
                 ) AS hinh_anh_cu ON san_phams.id_san_pham = hinh_anh_cu.id_san_pham
                 JOIN hinh_anhs ON san_phams.id_san_pham = hinh_anhs.id_san_pham
                     AND hinh_anhs.id = hinh_anh_cu.id_cu_nhat
-                WHERE ten_danh_muc = '$by' LIMIT 32 OFFSET $offset  ";
+                WHERE ten_danh_muc = '$by' LIMIT 16 OFFSET $offset  ";
         $result = $this->conn->prepare($sql);
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
+    public function san_pham_chi_tiet($id)
+    {
+        $sql = "SELECT * FROM san_phams
+            JOIN danh_muc ON san_phams.id_danh_muc = danh_muc.id_danh_muc 
+            WHERE id_san_pham = $id AND danh_muc.trang_thai = 'Hiển thị' ";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
 
-
-
-
-
-
-
-
-
-
-    // public function show_anh()
-    // {
-    //     $sql = "SELECT * FROM hinh_anhs
-    //         JOIN san_phams ON san_phams.id_san_pham  = hinh_anhs.id_san_pham  ";
-    //     $result = $this->conn->prepare($sql);
-    //     $result->execute();
-    //     return $result->fetchAll(PDO::FETCH_ASSOC);
-    // }
+    public function bien_the_san_pham($id)
+    {
+        $sql = "SELECT * FROM chi_tiet_san_pham
+        JOIN mau_sacs ON mau_sacs.id_chi_tiet_san_pham  = chi_tiet_san_pham.id  
+        JOIN phien_bans ON phien_bans.id_chi_tiet_san_pham  = chi_tiet_san_pham.id  
+        WHERE id_san_pham = $id ";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function hinh_anh($id)
+    {
+        $sql = "SELECT * FROM hinh_anhs WHERE id_san_pham  = $id ";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

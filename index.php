@@ -10,6 +10,7 @@ require_once "controllers/ctl_san_pham.php";
 require_once "admin/controllers/ctl_login.php";
 require_once "controllers/ctl_TinTuc.php";
 require_once "controllers/TaiKhoan.php";
+require_once "controllers/CTL_KhuyenMai.php";
 
 // Require toàn bộ file Models
 require_once "models/md_sanpham.php";
@@ -51,5 +52,8 @@ switch ($act) {
         break;
     case 'thong_tin_ca_nhan':
         (new TaiKhoan())->thong_tin_ca_nhan();
+        break;
+    case 'khuyen_mai':
+        (new KhuyenMai())->khuyen_mai();
         break;
 }
