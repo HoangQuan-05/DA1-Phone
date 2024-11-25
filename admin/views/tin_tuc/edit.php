@@ -275,7 +275,12 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                         <div class="col">
 
                             <div class="h-100">
-                                <form id="myForm" action="" onsubmit="submitForm(event)" method="POST">
+                                <form id="myForm" action="" onsubmit="submitForm(event)" method="POST" enctype="multipart/form-data">
+                                    <img src="<?php echo $data['anh']; ?>" alt="" width="200px"> <br><br>
+                                    <div class="mb-3">
+                                        <label for="formFileMultiple" class="form-label">Chọn ảnh</label>
+                                        <input class="form-control" type="file" id="formFileMultiple" name="anh" multiple>
+                                    </div> <br>
                                     <label for="title">Tiêu đề:</label>
                                     <textarea name="tieu_de" id="title"><?php echo $data['tieu_de']; ?></textarea> <br>
                                     <label>Trạng thái:</label>

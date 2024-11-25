@@ -31,6 +31,7 @@
         rel="stylesheet">
     <!-- <link rel="stylesheet" href="assets/css/theme-violet.css"> -->
     <link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/css/theme-violet.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
 
 </head>
@@ -98,6 +99,9 @@
 
 
 
+
+
+
                     <div class="w-72px d-flex d-xl-none">
                         <button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4" type="button"
                             data-bs-toggle="offcanvas"
@@ -121,10 +125,9 @@
                             </li>
 
                             <li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
-    dropdown-fullwidth position-static">
+									dropdown-fullwidth position-static">
                                 <a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-                                    href="store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true"
-                                    aria-expanded="false">Danh mục</a>
+                                    href="index.php?act=san_pham&page=1">Danh mục</a>
                                 <div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
                                     <div class="megamenu-shop container-wide py-8 px-12 ">
                                         <div class="row justify-content-center align-items-center text-center">
@@ -132,7 +135,7 @@
                                                 <!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
                                                 <?php foreach ($danh_muc as $dm) : ?>
                                                     <div class="col-3">
-                                                        <a href="<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
+                                                        <a href="index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
                                                             <span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
                                                         </a>
                                                     </div>
@@ -162,96 +165,131 @@
                             <li
                                 class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
                                 <a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-                                    href="index.php?act=tin_tuc">Khuyến mãi</a>
+                                    href="index.php?act=khuyen_mai">Khuyến mãi</a>
                             </li>
                         </ul>
                     </div>
 
-                    <a href="../index.html" class="navbar-brand px-8 py-4 mx-auto">
+                    <a href="index.php?act=trang_chu" class="navbar-brand px-8 py-4 mx-auto">
+                        <!-- <img class="light-mode-img" src="../img/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
+						<img class="dark-mode-img" src="../assets/images/others/logo-white.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates"></a> -->
                         <h3>PhonePlus</h3>
-                    </a>
 
-                    <div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
-                        <div class="px-xl-5 d-inline-block">
-                            <a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-                                data-bs-target="#searchModal"
-                                aria-controls="searchModal"
-                                aria-expanded="false">
-                                <svg class="icon icon-magnifying-glass-light">
-                                    <use xlink:href="#icon-magnifying-glass-light"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="px-5 d-none d-xl-inline-block">
-                            <a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
-                                <svg class="icon icon-user-light">
-                                    <use xlink:href="#icon-user-light"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="px-5 d-none d-xl-inline-block">
-                            <a class="position-relative lh-1 color-inherit text-decoration-none" href="wishlist.html">
-                                <svg class="icon icon-star-light">
-                                    <use xlink:href="#icon-star-light"></use>
-                                </svg>
-                                <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-                            </a>
-                        </div>
-                        <div class="px-5 d-none d-xl-inline-block">
-                            <a class="position-relative lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-                                data-bs-target="#shoppingCart"
-                                aria-controls="shoppingCart"
-                                aria-expanded="false">
-                                <svg class="icon icon-star-light">
-                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                </svg>
-                                <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-                            </a>
-                        </div>
+                        <div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
+                            <div class="px-xl-5 d-inline-block">
+                                <a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
+                                    data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
+                                    <svg class="icon icon-magnifying-glass-light">
+                                        <use xlink:href="#icon-magnifying-glass-light"></use>
+                                    </svg>
+                                </a>
+                            </div>
 
-                        <div class="color-modes position-relative ps-5">
-                            <a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle" href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
-                                <svg class="bi my-1 theme-icon-active">
-                                    <use href="#sun-fill"></use>
-                                </svg>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
-                                <li>
-                                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
-                                        <svg class="bi me-4 opacity-50 theme-icon">
-                                            <use href="#sun-fill"></use>
+
+                            <div class="dropdown-center">
+                                <?php if (isset($_SESSION['id_khach_hang'])) : ?>
+                                    <p type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
+                                    </p>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="index.php?act=thong_tin_ca_nhan">Thông tin</a></li>
+                                        <li><a class="dropdown-item" href="index.php?act=doi_mat_khau">Đổi mật khẩu</a></li>
+                                        <li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
+                                    </ul>
+
+                                <?php else : ?>
+                                    <a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
+                                        <svg class="icon icon-user-light">
+                                            <use xlink:href="#icon-user-light"></use>
                                         </svg>
-                                        Light
-                                        <svg class="bi ms-auto d-none">
-                                            <use href="#check2"></use>
+                                    </a>
+                                <?php endif; ?>
+
+
+                            </div>
+
+
+
+                            <?php if (isset($_SESSION['id_khach_hang'])) : ?>
+                                <div class="px-5 d-none d-xl-inline-block">
+                                    <a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he&id_khach_hang=<?= $_SESSION['id_khach_hang'] ?>">
+                                        <svg class="icon icon-magnifying-glass-light">
+                                            <use xlink:href="#icon-box-05"></use>
                                         </svg>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-                                        <svg class="bi me-4 opacity-50 theme-icon">
-                                            <use href="#moon-stars-fill"></use>
-                                        </svg>
-                                        Dark
-                                        <svg class="bi ms-auto d-none">
-                                            <use href="#check2"></use>
-                                        </svg>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-                                        <svg class="bi me-4 opacity-50 theme-icon">
-                                            <use href="#circle-half"></use>
-                                        </svg>
-                                        Auto
-                                        <svg class="bi ms-auto d-none">
-                                            <use href="#check2"></use>
-                                        </svg>
-                                    </button>
-                                </li>
-                            </ul>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="px-5 d-none d-xl-inline-block">
+                                <a class="position-relative lh-1 color-inherit text-decoration-none"
+                                    href="shop/wishlist.html">
+                                    <svg class="icon icon-star-light">
+                                        <use xlink:href="#icon-star-light"></use>
+                                    </svg>
+                                    <span
+                                        class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+                                        style="--square-size: 18px">3</span>
+                                </a>
+                            </div>
+                            <div class="px-5 d-none d-xl-inline-block">
+                                <a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=gio_hang">
+                                    <svg class="icon icon-star-light">
+                                        <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                    </svg>
+                                    <span
+                                        class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+                                        style="--square-size: 18px">3</span>
+                                </a>
+                            </div>
+
+                            <div class="color-modes position-relative ps-5">
+                                <a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
+                                    href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
+                                    aria-label="Toggle theme (light)">
+                                    <svg class="bi my-1 theme-icon-active">
+                                        <use href="#sun-fill"></use>
+                                    </svg>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
+                                    <li>
+                                        <button type="button" class="dropdown-item d-flex align-items-center active"
+                                            data-bs-theme-value="light" aria-pressed="true">
+                                            <svg class="bi me-4 opacity-50 theme-icon">
+                                                <use href="#sun-fill"></use>
+                                            </svg>
+                                            Light
+                                            <svg class="bi ms-auto d-none">
+                                                <use href="#check2"></use>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item d-flex align-items-center"
+                                            data-bs-theme-value="dark" aria-pressed="false">
+                                            <svg class="bi me-4 opacity-50 theme-icon">
+                                                <use href="#moon-stars-fill"></use>
+                                            </svg>
+                                            Dark
+                                            <svg class="bi ms-auto d-none">
+                                                <use href="#check2"></use>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item d-flex align-items-center"
+                                            data-bs-theme-value="auto" aria-pressed="false">
+                                            <svg class="bi me-4 opacity-50 theme-icon">
+                                                <use href="#circle-half"></use>
+                                            </svg>
+                                            Auto
+                                            <svg class="bi ms-auto d-none">
+                                                <use href="#check2"></use>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -301,7 +339,8 @@
                     <h1 class="mb-4 pb-2 fs-4"><?php echo $san_pham['ten_san_pham']; ?></h1>
 
                     <br>
-                    <form class="pb-8" method="POST" action="index.php">
+                    <form class="pb-8" method="POST">
+
                         <div class="form-group shop-swatch mb-7 d-flex align-items-center">
                             <span class="fw-semibold text-body-emphasis me-7">Ram/Rom: </span>
                             <ul class="list-inline d-flex justify-content-start mb-0">
@@ -344,6 +383,7 @@
                                 <?php foreach ($bien_the as $value): ?>
                                     <?php if (!in_array($value['mau_sac'], $seen_mau_sac)): ?>
                                         <li class="list-inline-item me-4 fw-semibold">
+
                                             <input onchange="data_bien_the('<?= $value['mau_sac'] ?>')" type="radio" id="radio_<?= $value['mau_sac'] ?>" name="id_mau_sac" class="product-info-size d-none" value="<?= $value['mau_sac'] ?>" disabled>
                                             <label for="radio_<?= $value['mau_sac'] ?>" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="full size"> <?= $value['mau_sac'] ?> </label>
                                         </li>
@@ -366,20 +406,21 @@
                             <div class="form-group col-sm-4">
                                 <label class=" text-body-emphasis fw-semibold fs-15px pb-6" for="so_luong_mua">Số lượng: </label>
                                 <div class="input-group position-relative w-100 input-group-lg">
-                                    <a href="#" class="shop-down position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus"><i class="far fa-minus"></i></a>
-                                    <input name="number" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
-                                    <a href="#" class="shop-up position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus"><i class="far fa-plus"></i>
-                                    </a>
+                                    <span style="cursor: pointer;" onclick="down()" class="position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus "><i class="far fa-minus"></i></span>
+                                    <input readonly name="so_luong_mua" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
+                                    <span style="cursor: pointer;" onclick="up()" class="position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus "><i class="far fa-plus"></i>
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-sm-8 pt-9 mt-2 mt-sm-0 pt-sm-0">
-                                <button type="submit" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Thêm vào giỏ hàng
+                                <button name="add__product" id="add" value="0" type="submit" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Thêm vào giỏ hàng
                                 </button>
                             </div>
                         </div>
+
                         <br>
                         <div class="col-sm-12 pt-9 mt-2 mt-sm-0 pt-sm-0">
-                            <button style="background-color: red; color :white" type="submit" class="btn btn-lg w-100 mua_hang" name="ok">Mua hàng
+                            <button name="buy__product" value="1" id="mua" style="background-color: red; color :white" type="submit" class="btn btn-lg w-100 mua_hang" name="ok">Mua hàng
                             </button>
 
                         </div>
@@ -410,6 +451,11 @@
                         var gia_ban = document.querySelector('.pre')
                         var bien_the_ms = document.querySelector('.bt_ms')
                         var so_luong = document.querySelector('.so_luong_con')
+                        var so_luong_mua = document.getElementById('number')
+                        var mua = document.getElementById('mua')
+                        var add = document.getElementById('add')
+
+
 
                         function data_bien_the(btn) {
                             // Xóa tất cả các mục cũ trong ul_ms trước khi thêm mới
@@ -420,7 +466,6 @@
                             bienThe.forEach(value => {
                                 if (value.phien_ban == btn) {
 
-                                    console.log(value)
                                     gia_ban.innerHTML = new Intl.NumberFormat('en-US').format(value.gia_ban) + ' VND'
 
                                     var li = document.createElement('li');
@@ -432,9 +477,8 @@
                                     input.type = 'radio';
                                     input.id = `mau_sac_${value.id_mau_sac}`;
                                     input.name = 'mau_sac';
-                                    input.onchange = () => data_mau_sac(value.mau_sac, value.gia_ban, value.so_luong);
+                                    input.onchange = () => data_mau_sac(value.mau_sac, value.gia_ban, value.so_luong, value.id);
                                     input.value = value.mau_sac;
-
 
                                     var label = document.createElement('label');
                                     label.classList.add('fs-14px', 'p-4', 'd-block', 'rounded', 'text-decoration-none', 'border');
@@ -451,13 +495,49 @@
 
 
                         }
+                        var soLuong = 0
 
-                        function data_mau_sac(mau_sac, gia_ban_, so_luong_) {
+                        function data_mau_sac(mau_sac, gia_ban_, so_luong_, id) {
                             gia_ban.innerHTML = ""
                             so_luong.innerHTML = ""
                             gia_ban.innerHTML = new Intl.NumberFormat('en-US').format(gia_ban_) + ' VND'
                             so_luong.innerHTML = so_luong_ + " sản phẩm"
+                            soLuong = Number(so_luong_)
+                            if (soLuong == 0) {
+                                mua.disabled = true
+                                add.disabled = true
+                            }
+                            else {
+                                 mua.disabled = false
+                                add.disabled = false
+                            }
 
+
+
+
+
+                            var id__chi__tiet = document.createElement('input');
+                            id__chi__tiet.name = "id_san_pham_chi_tiet"
+                            id__chi__tiet.value = id
+                            id__chi__tiet.type = "hidden"
+                            gia_ban.append(id__chi__tiet)
+
+
+                        }
+
+                        function down() {
+                            if (so_luong_mua.value > 0) {
+                                so_luong_mua.value = Number(so_luong_mua.value) - 1
+                            }
+
+                        }
+
+
+                        function up() {
+
+                            if (so_luong_mua.value > 0 && so_luong_mua.value < soLuong) {
+                                so_luong_mua.value = Number(so_luong_mua.value) + 1
+                            }
 
                         }
                     </script>
@@ -540,166 +620,60 @@
             </div>
         </section>
         <div class="border-top w-100 h-1px"></div>
+
         <section class="container container-xxl pt-15 pb-15 pt-lg-17 pb-lg-20">
             <div class="text-center">
                 <h2 class="mb-16 fs-3">Bình luận</h2>
             </div>
-            <form class="product-review-form" method="POST">
 
-                <div class="form-group mb-10">
-                    <label class="mb-4 fs-6 fw-semibold text-body-emphasis" for="reviewMessage">Nội dung:</label>
-                    <textarea id="reviewMessage" class="form-control" name="message" rows="5" placeholder="Nội dung bình luận"></textarea>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <textarea class="form-control" name="noi_dung" rows="3" placeholder="Nhập bình luận của bạn" required></textarea>
                 </div>
-                <div class="col-sm-2 pt-9 mt-2 mt-sm-0 pt-sm-0">
-                    <button type="submit" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Gửi
-                    </button>
-                </div>
-
+                <br>
+                <button type="submit" name="binh_luan" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark">Gửi bình luận</button>
             </form>
             <br>
-
-
             <div class="row">
-                <div class=" col-xl-3 col-md-5">
+                <div class="col-xl-3 col-md-5 mx-auto">
                     <div class="position-sticky top-0 mb-md-0 mb-12">
-                        <div class="card text-center border border-2 rounded product-review-info">
+                        <div class="card text-center border border-2 rounded product-review-info shadow-sm">
                             <div class="card-body px-4 py-10">
-                                <h5 class="card-title fs-1 mb-6">4.86</h5>
+                                <h5 class="card-title fs-1 mb-6"><?= number_format($diem_trung_binh, 1) ?>/5.0</h5>
                                 <div class="d-flex align-items-center fs-15px ls-0 justify-content-center mb-4">
                                     <div class="rating">
                                         <div class="empty-stars">
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="filled-stars"
-                                            style="width: 90%">
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
+                                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                <?php if ($i <= round($diem_trung_binh)): ?>
+                                                    <i class="ri-star-fill text-warning"></i>
+                                                <?php else: ?>
+                                                    <i class="ri-star-line text-muted"></i>
+                                                <?php endif; ?>
+                                            <?php endfor; ?>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="card-text mb-5 mt-4">2947 Đánh giá</p>
-                                <div class="mb-8">
-
-                                    <div class="d-flex align-items-center justify-content-center mb-5">
-                                        <p class="text-start m-0 review-star">5 stars</p>
-                                        <div class="mx-5 d-block mw-160px mw-lg-120px mw-sm-60 w-100">
-                                            <div class="progress" style="height: 6px;">
-                                                <div class="progress-bar" role="progressbar" aria-label="Example 1px high" style="width: 78%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-end m-0 review-percent">78%</p>
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center mb-5">
-                                        <p class="text-start m-0 review-star">4 stars</p>
-                                        <div class="mx-5 d-block mw-160px mw-lg-120px mw-sm-60 w-100">
-                                            <div class="progress" style="height: 6px;">
-                                                <div class="progress-bar" role="progressbar" aria-label="Example 1px high" style="width: 17%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-end m-0 review-percent">17%</p>
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center mb-5">
-                                        <p class="text-start m-0 review-star">3 stars</p>
-                                        <div class="mx-5 d-block mw-160px mw-lg-120px mw-sm-60 w-100">
-                                            <div class="progress" style="height: 6px;">
-                                                <div class="progress-bar" role="progressbar" aria-label="Example 1px high" style="width: 3%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-end m-0 review-percent">3%</p>
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center mb-5">
-                                        <p class="text-start m-0 review-star">2 stars</p>
-                                        <div class="mx-5 d-block mw-160px mw-lg-120px mw-sm-60 w-100">
-                                            <div class="progress" style="height: 6px;">
-                                                <div class="progress-bar" role="progressbar" aria-label="Example 1px high" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-end m-0 review-percent">2%</p>
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center mb-5">
-                                        <p class="text-start m-0 review-star">1 stars</p>
-                                        <div class="mx-5 d-block mw-160px mw-lg-120px mw-sm-60 w-100">
-                                            <div class="progress" style="height: 6px;">
-                                                <div class="progress-bar" role="progressbar" aria-label="Example 1px high" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-end m-0 review-percent">0%</p>
-                                    </div>
-
-                                </div>
-                                <a href="#customer-review" class="btn btn-outline-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="customer-review"><svg class="icon">
+                                <p class="card-text mb-5 mt-4"><span><?= $so_luong_danh_gia ?></span> Đánh giá</p>
+                                <a href="#customer-review" class="btn btn-outline-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="customer-review">
+                                    <svg class="icon">
                                         <use xlink:href="#icon-Pencil"></use>
                                     </svg>
-                                    Viết đánh giá</a>
+                                    Viết đánh giá
+                                </a>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
+
                 <div class="ps-lg-12 ps-auto col-xl-9 col-md-7">
                     <div class="collapse mb-14" id="customer-review">
                         <form class="product-review-form" method="POST">
-
-
+                            <!-- Điểm đánh giá -->
                             <div class="form-group mb-7">
                                 <label class="mb-4 fs-6 fw-semibold text-body-emphasis" for="reviewTitle">Điểm</label> <br>
                                 <span class="star">
                                     <div class="stars">
-
-                                        <input class="star star-5" id="star-5" type="radio" name="diem_danh_gia" value="5" />
+                                        <input class="star star-5" id="star-5" type="radio" name="diem_danh_gia" value="5" required />
                                         <label class="star star-5" for="star-5"></label>
                                         <input class="star star-4" id="star-4" type="radio" name="diem_danh_gia" value="4" />
                                         <label class="star star-4" for="star-4"></label>
@@ -709,52 +683,62 @@
                                         <label class="star star-2" for="star-2"></label>
                                         <input class="star star-1" id="star-1" type="radio" name="diem_danh_gia" value="1" />
                                         <label class="star star-1" for="star-1"></label>
-
                                     </div>
                                 </span>
-
                             </div>
+
+                            <!-- Nội dung đánh giá -->
                             <div class="form-group mb-10">
                                 <label class="mb-4 fs-6 fw-semibold text-body-emphasis" for="reviewMessage">Nội dung đánh giá</label>
                                 <textarea id="reviewMessage" class="form-control" name="noi_dung" rows="5" placeholder="Nội dung đánh giá"></textarea>
                             </div>
 
+                            <!-- Nút gửi -->
                             <div class="col-sm-2 pt-9 mt-2 mt-sm-0 pt-sm-0">
-                                <button type="submit" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Gửi
+                                <button type="submit" name="danh_gias" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">
+                                    Gửi
                                 </button>
                             </div>
                         </form>
                     </div>
 
+                    <div class="mt-12">
+                        <h3 class="fs-5"><?= $total_binh_luan ?> Bình luận</h3>
+                        <?php if (!empty($binh_luan)): ?>
+                            <?php foreach ($binh_luan as $bl): ?>
 
+                                <div class="border-bottom pb-7 pt-10">
+                                    <div class="d-flex justify-content-start align-items-center mb-5">
+                                        <img style="width:60px; height:60px; border-radius:50%; object-fit:cover;"
+                                            src="admin/<?= htmlspecialchars($bl['anh_dai_dien']); ?>" alt="">
+                                        <div style="margin-left: 20px;"> <!-- Tùy chỉnh margin-left theo ý muốn -->
+                                            <h5 class="mt-0 mb-4 fs-14px text-uppercase ls-1">
+                                                <strong class="text-primary">
+                                                    <?php echo htmlspecialchars($bl['tens']); ?>
+                                                </strong>
+                                            </h5>
+                                        </div>
+                                    </div>
 
-
-
-                    <div class=" mt-12">
-                        <h3 class="fs-5">2947 Bình luận</h3>
-
-                        <div class="border-bottom pb-7 pt-10">
-
-                            <div class="d-flex justify-content-start align-items-center mb-5">
-                                <img src="#" data-src="../assets/images/others/product-review-avatar-01.jpg" class="me-6 lazy-image rounded-circle" width="60" height="60" alt="Avatar">
-                                <div class="">
-                                    <h5 class="mt-0 mb-4 fs-14px text-uppercase ls-1">JENNIFER C.</h5>
-
+                                    <!-- Nội dung bình luận -->
+                                    <p class="mb-10 fs-6">
+                                        <?php echo htmlspecialchars($bl['noi_dung']); ?>
+                                    </p>
+                                    <!-- Thông tin ngày bình luận -->
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <span class="fs-3px mx-5"><i class="fas fa-circle"></i></span>
+                                        <span class="fs-14">
+                                            <?php echo date('d/m/Y H:i', strtotime($bl['ngay_binh_luan'])); ?>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <p class="mb-10 fs-6">The foundation feels light on my face, and the color matches great. Also the customer service is phenomenal. I would purchase again.</p>
-                            <div class="mb-10"><img src="#" data-src="../assets/images/others/single-product-03.jpg" class="mx-3 w-auto lazy-image" alt="">
-                                <img src="#" data-src="../assets/images/others/single-product-02.jpg" class="mx-3 w-auto lazy-image" alt="">
-
-                            </div>
-
-                            <div class="d-flex justify-content-end align-items-center">
-                                <span class="fs-3px mx-5"><i class="fas fa-circle"></i></span>
-                                <span class="fs-14">3 day ago</span>
-                            </div>
-                        </div>
-
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <!-- Hiển thị nếu không có bình luận -->
+                            <p class="text-muted">Chưa có bình luận nào.</p>
+                        <?php endif; ?>
                     </div>
+
 
 
                     <nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination">
@@ -780,89 +764,41 @@
                             </li>
                         </ul>
                     </nav>
-                    <div class=" mt-12">
-                        <h3 class="fs-5">2947 Đánh giá</h3>
+                    <div class="mt-12">
+                        <h3 class="fs-5"><?php echo $so_luong_danh_gia; ?> Đánh giá </h3>
 
-                        <div class="border-bottom pb-7 pt-10">
-                            <div class="d-flex align-items-center mb-6">
-                                <div class="d-flex align-items-center fs-15px ls-0">
-                                    <div class="rating">
-                                        <div class="empty-stars">
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="filled-stars" style="width: 100%">
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
+                        <?php if (!empty($danh_gia)): ?>
+                            <?php foreach ($danh_gia as $dg): ?>
+                                <div class="border-bottom pb-7 pt-10">
+                                    <div class="d-flex justify-content-start align-items-center mb-5">
+                                        <img style="width:60px; height:60px; border-radius:50%; object-fit:cover;"
+                                            src="admin/<?= htmlspecialchars($dg['anh_dai_dien']); ?>" alt="">
+                                        <div style="margin-left: 20px;"> <!-- Tùy chỉnh margin-left theo ý muốn -->
+                                            <h5 class="mt-0 mb-4 fs-14px text-uppercase ls-1">
+                                                <strong class="text-primary">
+                                                    <?php echo htmlspecialchars($dg['tens']); ?>
+                                                </strong>
+                                            </h5>
                                         </div>
                                     </div>
+                                    <div class="stars">
+                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                            <?php if ($i <= $dg['diem_danh_gia']): ?>
+                                                <i class="ri-star-fill text-warning"></i>
+                                            <?php else: ?>
+                                                <i class="ri-star-line text-muted"></i>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+
+                                    </div>
+                                    <p class="mb-10 fs-6"><?= htmlspecialchars($dg['noi_dung']); ?></p>
                                 </div>
-                                <span class="fs-3px mx-5"><i class="fas fa-circle"></i></span>
-                                <span class="fs-14">5 day ago</span>
-                            </div>
-                            <div class="d-flex justify-content-start align-items-center mb-5">
-                                <img src="#" data-src="../assets/images/others/product-review-avatar-01.jpg" class="me-6 lazy-image rounded-circle" width="60" height="60" alt="Avatar">
-                                <div class="">
-                                    <h5 class="mt-0 mb-4 fs-14px text-uppercase ls-1">JENNIFER C.</h5>
-
-                                </div>
-                            </div>
-                            <p class="mb-10 fs-6">The foundation feels light on my face, and the color matches great. Also the customer service is phenomenal. I would purchase again.</p>
-                            <div class="mb-10"><img src="#" data-src="../assets/images/others/single-product-03.jpg" class="mx-3 w-auto lazy-image" alt="">
-                                <img src="#" data-src="../assets/images/others/single-product-02.jpg" class="mx-3 w-auto lazy-image" alt="">
-
-                            </div>
-
-
-                        </div>
-
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="text-muted">Chưa có đánh giá nào.</p>
+                        <?php endif; ?>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -1781,125 +1717,7 @@
             </nav>
         </div>
     </div>
-    <div id="shoppingCart" data-bs-scroll="false" class="offcanvas offcanvas-end">
-        <div class="offcanvas-header fs-4">
-            <h4 class="offcanvas-title fw-semibold">Shopping Bag</h4>
-            <button type="button" class="btn-close btn-close-bg-none" data-bs-dismiss="offcanvas" aria-label="Close">
-                <i class="far fa-times"></i>
-            </button>
-        </div>
-        <div class="offcanvas-body me-xl-auto pt-0 mb-2 mb-xl-0">
-            <form class="table-responsive-md shopping-cart pb-8 pb-lg-10">
-                <table class="table table-borderless">
-                    <thead>
-                        <tr class="fw-500">
-                            <td colspan="3" class="border-bottom pb-6"><i class="far fa-check fs-12px border me-4 px-2 py-1 text-body-emphasis border-dark rounded-circle"></i> Your cart is saved for the next <span class="text-body-emphasis">4m34s</span></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="position-relative">
-                            <td class="align-middle text-center">
-                                <a href="#" class="d-block clear-product">
-                                    <i class="far fa-times"></i>
-                                </a>
-                            </td>
-                            <td class="shop-product">
-                                <div class="d-flex align-items-center">
-                                    <div class="me-6">
-                                        <img src="../assets/images/products/product-03-75x100.jpg" width="60" height="80" alt="natural coconut cleansing oil">
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text mb-1">
-                                            <span class="fs-13px fw-500 text-decoration-line-through pe-3">$39.00</span>
-                                            <span class="fs-15px fw-bold text-body-emphasis">$29.00</span>
 
-                                        </p>
-                                        <p class="fw-500 text-body-emphasis">Natural Coconut Cleansing Oil</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle p-0">
-                                <div class="input-group position-relative shop-quantity">
-                                    <a href="#" class="shop-down position-absolute z-index-2"><i class="far fa-minus"></i></a>
-                                    <input name="number[]" type="number" class="form-control form-control-sm px-6 py-4 fs-6 text-center border-0" value="1" required="">
-                                    <a href="#" class="shop-up position-absolute z-index-2"><i class="far fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="position-relative">
-                            <td class="align-middle text-center">
-                                <a href="#" class="d-block clear-product">
-                                    <i class="far fa-times"></i>
-                                </a>
-                            </td>
-                            <td class="shop-product">
-                                <div class="d-flex align-items-center">
-                                    <div class="me-6">
-                                        <img src="../assets/images/products/product-06-75x100.jpg" width="60" height="80" alt="natural coconut cleansing oil">
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text mb-1">
-                                            <span class="fs-13px fw-500 text-decoration-line-through pe-3">$39.00</span>
-                                            <span class="fs-15px fw-bold text-body-emphasis">$29.00</span>
-
-                                        </p>
-                                        <p class="fw-500 text-body-emphasis">Super Pure</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle p-0">
-                                <div class="input-group position-relative shop-quantity">
-                                    <a href="#" class="shop-down position-absolute z-index-2"><i class="far fa-minus"></i></a>
-                                    <input name="number[]" type="number" class="form-control form-control-sm px-6 py-4 fs-6 text-center border-0" value="1" required="">
-                                    <a href="#" class="shop-up position-absolute z-index-2"><i class="far fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="position-relative">
-                            <td class="align-middle text-center">
-                                <a href="#" class="d-block clear-product">
-                                    <i class="far fa-times"></i>
-                                </a>
-                            </td>
-                            <td class="shop-product">
-                                <div class="d-flex align-items-center">
-                                    <div class="me-6">
-                                        <img src="../assets/images/products/product-09-75x100.jpg" width="60" height="80" alt="natural coconut cleansing oil">
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text mb-1">
-                                            <span class="fs-13px fw-500 text-decoration-line-through pe-3">$39.00</span>
-                                            <span class="fs-15px fw-bold text-body-emphasis">$29.00</span>
-
-                                        </p>
-                                        <p class="fw-500 text-body-emphasis">Cleansing Balm</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle p-0">
-                                <div class="input-group position-relative shop-quantity">
-                                    <a href="#" class="shop-down position-absolute z-index-2"><i class="far fa-minus"></i></a>
-                                    <input name="number[]" type="number" class="form-control form-control-sm px-6 py-4 fs-6 text-center border-0" value="1" required="">
-                                    <a href="#" class="shop-up position-absolute z-index-2"><i class="far fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </div>
-        <div class="offcanvas-footer flex-wrap">
-            <div class="d-flex align-items-center justify-content-between w-100 mb-5">
-                <span class="text-body-emphasis">Total price:</span>
-                <span class="cart-total fw-bold text-body-emphasis">$106.00</span>
-            </div>
-            <a href="checkout.html" class="btn btn-dark w-100 mb-7" title="Check Out">Check Out</a>
-            <a href="shopping-cart.html" class="btn btn-outline-dark w-100" title="View shopping cart">View shopping cart</a>
-        </div>
-    </div>
 
     <div class="modal" id="signInModal" tabindex="-1" aria-labelledby="signInModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">

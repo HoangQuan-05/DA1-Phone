@@ -34,7 +34,7 @@
                 move_uploaded_file($file_anh['tmp_name'], $hinh_anh);
             }
             $data['hinh_anh'] = $hinh_anh;
-            print_r($data);
+           
             (new khuyenmais())->insert($data);
             header("Location: index.php?act=khuyen_mai");
         }

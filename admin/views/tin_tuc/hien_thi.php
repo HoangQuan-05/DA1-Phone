@@ -118,6 +118,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
                                             <tr>
                                                 <td style="text-align: center; vertical-align: middle;"><?= $values['id_tin_tuc'] ?></td>
+                                                
                                                 <td style="display: flex; justify-content: center; align-items: center;">
                                                     <p id="tieu_de"><?= $values['tieu_de'] ?></p>
                                                 </td>
@@ -133,7 +134,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                     <td style="text-align: center; vertical-align: middle;"> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
 
                                                 <?php endif ?>
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <a style="display: inline-block;" href="index.php?act=edit_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                                                     <a style="display: inline-block;" onclick="return confirm('chac chan')" href="index.php?act=delete_tin_tuc&id=<?= $values['id_tin_tuc'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                                 </td>

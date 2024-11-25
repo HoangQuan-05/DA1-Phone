@@ -1,5 +1,5 @@
 <?php
-class Md_danh_muc
+class tin_tuc
 {
     public $conn = null;
 
@@ -8,23 +8,19 @@ class Md_danh_muc
         $this->conn = connectDB();
     }
 
-    public function all()
+    public function list_news()
     {
-        $sql = "SELECT * FROM danh_muc WHERE trang_thai = 'Hiển thị'";
+        $sql = "SELECT * FROM tin_tuc ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
-
-    public function banner(){
-        $sql = "SELECT * FROM banner ORDER BY id_banner  DESC LIMIT 1";
+    public function get_news_by_id($id)
+    {
+        $sql = "SELECT * FROM tin_tuc WHERE id_tin_tuc = :id AND trang_thai = 'Hiển thị'";
         $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-
-
 }

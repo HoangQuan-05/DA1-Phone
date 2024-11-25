@@ -49,6 +49,7 @@ class lien_he
                 VALUES(:id_nguoi_gui,:id_nguoi_nhan,:noi_dung) ";
         $result = $this->conn->prepare($sql);
         $result->execute($data);
+     
     }
 
     public function noi_dung_hien_thi($id_nguoi_gui, $id_nguoi_nhan) //hien thi tin nhan

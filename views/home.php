@@ -67,8 +67,7 @@
 								<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
 									dropdown-fullwidth position-static">
 									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-										href="store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true"
-										aria-expanded="false">Danh mục</a>
+										href="index.php?act=san_pham&page=1">Danh mục</a>
 									<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
 										<div class="megamenu-shop container-wide py-8 px-12 ">
 											<div class="row justify-content-center align-items-center text-center">
@@ -132,7 +131,8 @@
 								<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
 							</p>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Thông tin</a></li>
+								<li><a class="dropdown-item" href="index.php?act=thong_tin_ca_nhan">Thông tin</a></li>
+								<li><a class="dropdown-item" href="index.php?act=doi_mat_khau">Đổi mật khẩu</a></li>
 								<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
 							</ul>
 
@@ -146,19 +146,19 @@
 
 
 					</div>
-
-					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he">
-							<svg class="icon icon-magnifying-glass-light">
-								<use xlink:href="#icon-box-05"></use>
-							</svg>
-						</a>
-					</div>
-
-					<!--  -->
-
+					<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+						<div class="px-5 d-none d-xl-inline-block">
+							<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he&id_khach_hang=<?= $_SESSION['id_khach_hang'] ?>">
+								<svg class="icon icon-magnifying-glass-light">
+									<use xlink:href="#icon-box-05"></use>
+								</svg>
+							</a>
+						</div>
+					<?php endif; ?>
 
 					<!--  -->
+
+
 					<div class="px-5 d-none d-xl-inline-block">
 						<a class="position-relative lh-1 color-inherit text-decoration-none"
 							href="shop/wishlist.html">
@@ -170,20 +170,17 @@
 								style="--square-size: 18px">3</span>
 						</a>
 					</div>
-					<!-- lien he -->
+
+					<!--  -->
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
-							data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
-							aria-expanded="false">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=gio_hang">
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-shopping-bag-open-light"></use>
 							</svg>
-							<span
-								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
+							
 						</a>
 					</div>
-					<!-- lien he -->
+
 					<div class="color-modes position-relative ps-5">
 						<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
 							href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
@@ -540,8 +537,6 @@
 
 
 	<script src="../jquery.min.js"></script>
-
-
 
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/clipboard/clipboard.min.js"></script>

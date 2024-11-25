@@ -79,6 +79,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
         <div class="main-content">
 
             <div class="page-content">
+            <div class="container-fluid" style="background-color: white;  padding:35px; border-radius:10px; min-height:78vh;">
                 <div class="container-fluid">
 
                     <div class="row">
@@ -120,7 +121,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
                             </div> <!-- end col -->
                         </div>
-
+                    </div>
                     </div>
                     <!-- container-fluid -->
                 </div>

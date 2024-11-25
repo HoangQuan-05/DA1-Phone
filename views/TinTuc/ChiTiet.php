@@ -37,9 +37,7 @@
 
 	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
 		<div class="topbar bg-primary">
-			<div class="container-wide container">
-				<p class="mb-0 text-white text-center p-4 fs-6 fw-semibold">Free shipping on all U.S. orders $50+</p>
-			</div>
+
 		</div>
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
@@ -65,617 +63,182 @@
 					<div class="d-none d-xl-flex w-xl-50">
 						<ul class="navbar-nav">
 
+							<li
+								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
 
 
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="../index-2.html" data-bs-toggle="dropdown" id="menu-item-home" aria-haspopup="true" aria-expanded="false">Home</a>
-								<div class="dropdown-menu mega-menu start-0 py-6 "
-									aria-labelledby="menu-item-home"
-									style="width:320px">
-									<div class="megamenu-home container py-8 px-12">
-										<div class="row">
-											<div class="col">
-												<h6 class="fs-18px">Group 1</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../home-01.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 01</span></a>
-													</li>
-													<li>
-														<a href="../home-02.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 02</span></a>
-													</li>
-													<li>
-														<a href="../home-03.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 03</span></a>
-													</li>
-													<li>
-														<a href="../home-04.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 04</span></a>
-													</li>
-													<li>
-														<a href="../home-05.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 05</span></a>
-													</li>
-													<li>
-														<a href="../home-06.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 06</span></a>
-													</li>
-													<li>
-														<a href="../home-07.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 07</span></a>
-													</li>
-													<li>
-														<a href="../home-08.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 08</span></a>
-													</li>
-													<li>
-														<a href="../home-09.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 09</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Group 2</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../home-10.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 10</span></a>
-													</li>
-													<li>
-														<a href="../home-11.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 11</span></a>
-													</li>
-													<li>
-														<a href="../home-12.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 12</span></a>
-													</li>
-													<li>
-														<a href="../home-13.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 13</span></a>
-													</li>
-													<li>
-														<a href="../home-14.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 14</span></a>
-													</li>
-													<li>
-														<a href="../home-15.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 15</span></a>
-													</li>
-													<li>
-														<a href="../home-16.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 16</span></a>
-													</li>
-													<li>
-														<a href="../home-17.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 17</span></a>
-													</li>
-													<li>
-														<a href="../home-18.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 18</span></a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-
-								</div>
+								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="index.php">Trang chủ</a>
 							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth position-static">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="../store.html" data-bs-toggle="dropdown" id="menu-item-shop" aria-haspopup="true" aria-expanded="false">Shop</a>
-								<div class="dropdown-menu mega-menu start-0 py-6  w-100"
-									aria-labelledby="menu-item-shop">
-									<div class="megamenu-shop container-wide py-8 px-12">
-										<div class="row">
-											<div class="col">
-												<h6 class="fs-18px">Shop Pages</h6>
-												<ul class="list-unstyled mb-0">
-													<li>
-														<a href="../shop/shop-layout-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v1</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/shop-layout-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v2</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/shop-layout-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v3</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/shop-layout-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v4</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/shop-layout-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v5</sup></span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Product Pages</h6>
-												<ul class="list-unstyled mb-0">
-													<li>
-														<a href="../shop/product-details-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v1</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/product-details-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v2</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/product-details-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v3</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/product-details-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v4</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/product-details-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v5</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/product-details-v6.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v6</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/product-details-v7.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v7</sup></span></a>
-													</li>
-													<li>
-														<a href="../shop/product-details-v8.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v8</sup></span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Product Types</h6>
-												<ul class="list-unstyled mb-0">
-													<li>
-														<a href="../shop/product-simple.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Simple</span></a>
-													</li>
-													<li>
-														<a href="../shop/product-variable.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Variable</span></a>
-													</li>
-													<li>
-														<a href="../shop/product-time-limit.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Time Limit</span></a>
-													</li>
-													<li>
-														<a href="../shop/product-grouped.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Grouped</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Other Pages</h6>
-												<ul class="list-unstyled mb-0">
-													<li>
-														<a href="../shop/shopping-cart.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shopping Cart</span></a>
-													</li>
-													<li>
-														<a href="../shop/compare.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Compare</span></a>
-													</li>
-													<li>
-														<a href="../shop/wishlist.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Wishlist</span></a>
-													</li>
-													<li>
-														<a href="../shop/checkout.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Checkout</span></a>
-													</li>
-													<li>
-														<a href="../user-registration.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Register</span></a>
-													</li>
-													<li>
-														<a href="../user-login.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Login</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col d-xxl-block d-none megamenu-shop-banner" data-bs-theme="light">
-												<div class="card border-0 mt-4">
-													<img src="../assets/images/background/bg-mega-menu-shop.jpg" alt="bg mega menu" class="card-img">
-													<div class="card-img-overlay d-flex flex-column mx-2 px-9 py-6">
-														<p class="text-body-emphasis ls-1 fw-semibold mb-4 mt-6 text-uppercase">
-															new collection
-														</p>
-														<h3 class="fs-3">
-															Special <br>
-															Offer
-														</h3>
-														<div class="mt-auto">
-															<a href="#" class="btn btn-white">Shop Sale</a>
-														</div>
+
+							<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
+									dropdown-fullwidth position-static">
+								<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="index.php?act=san_pham&page=1">Danh mục</a>
+								<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
+									<div class="megamenu-shop container-wide py-8 px-12 ">
+										<div class="row justify-content-center align-items-center text-center">
+											<div class="row justify-content-start align-items-center text-center">
+												<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
+												<?php foreach ($danh_muc as $dm) : ?>
+													<div class="col-3">
+														<a href="index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
+															<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
+														</a>
 													</div>
-												</div>
+												<?php endforeach ?>
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="#" data-bs-toggle="dropdown" id="menu-item-pages" aria-haspopup="true" aria-expanded="false">Pages</a>
-								<ul class="dropdown-menu py-6" aria-labelledby="menu-item-pages">
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="#" data-bs-toggle="dropdown" id="menu-item-blog">
-											<span class="border-hover-target">
-												Blog
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-blog" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="grid.html">
-													<span class="border-hover-target">Blog Grid</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="grid-sidebar.html">
-													<span class="border-hover-target">Blog Grid Sidebar</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="masonry.html">
-													<span class="border-hover-target">Blog Masonry</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="list.html">
-													<span class="border-hover-target">Blog List</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="classic.html">
-													<span class="border-hover-target">Blog Classic</span>
-												</a>
-											</li>
-											<li class="dropdown-divider"></li>
 
-											<li>
-												<a class="dropdown-item border-hover" href="details-01.html">
-													<span class="border-hover-target">Blog Details 01</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="details-02.html">
-													<span class="border-hover-target">Blog Details 02</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown-divider"></li>
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="#" data-bs-toggle="dropdown" id="menu-item-about-us">
-											<span class="border-hover-target">
-												About Us
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-about-us" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="../about-us-01.html">
-													<span class="border-hover-target">About Us 01</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../about-us-02.html">
-													<span class="border-hover-target">About Us 02</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="#" data-bs-toggle="dropdown" id="menu-item-contact-us">
-											<span class="border-hover-target">
-												Contact us
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-contact-us" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="../contact-us-01.html">
-													<span class="border-hover-target">Contact Us 01</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../contact-us-02.html">
-													<span class="border-hover-target">Contact Us 02</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-										<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-											href="../dashboard/dashboard.html" data-bs-toggle="dropdown" id="menu-item-dashboard">
-											<span class="border-hover-target">
-												Dashboard
-											</span>
-										</a>
-										<ul class="dropdown-menu py-6"
-											aria-labelledby="menu-item-dashboard" data-bs-popper="none">
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/dashboard.html">
-													<span class="border-hover-target">Dashboard</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/product-grid.html">
-													<span class="border-hover-target">Products</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/order-list.html">
-													<span class="border-hover-target">Orders</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/sellers-cards.html">
-													<span class="border-hover-target">Sellers</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/add-product-1.html">
-													<span class="border-hover-target">Add Product</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/transactions-1.html">
-													<span class="border-hover-target">Transaction</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/reviews.html">
-													<span class="border-hover-target">Reviews</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/brands.html">
-													<span class="border-hover-target">Brands</span>
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-item border-hover" href="../dashboard/profile-settings.html">
-													<span class="border-hover-target">Settings</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a class="dropdown-item pe-6 border-hover"
-											href="../faqs.html">
-											<span class="border-hover-target">
-												FAQs
-											</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item pe-6 border-hover"
-											href="../find-a-store.html">
-											<span class="border-hover-target">
-												Store
-											</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item pe-6 border-hover"
-											href="../404.html">
-											<span class="border-hover-target">
-												404
-											</span>
-										</a>
-									</li>
-								</ul>
+							<li
+								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="index.php?act=tin_tuc">Tin tức</a>
+
+
 							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="#" data-bs-toggle="dropdown" id="menu-item-blocks" aria-haspopup="true" aria-expanded="false">Blocks</a>
-								<div class="dropdown-menu mega-menu start-0 py-6 "
-									aria-labelledby="menu-item-blocks"
-									style="width:800px">
-									<div class="megamenu-home container py-8 px-12">
-										<div class="row">
-											<div class="col">
-												<h6 class="fs-18px">Group 1</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/blog.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Blog</span></a>
-													</li>
-													<li>
-														<a href="../blocks/banner.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Banner</span></a>
-													</li>
-													<li>
-														<a href="../blocks/call-to-action.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Call To Action</span></a>
-													</li>
-													<li>
-														<a href="../blocks/hero.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Hero</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Group 2</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/products.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Products</span></a>
-													</li>
-													<li>
-														<a href="../blocks/products-slide.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Products Slide</span></a>
-													</li>
-													<li>
-														<a href="../blocks/product-tabs.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Tabs</span></a>
-													</li>
-													<li>
-														<a href="../blocks/news-letter.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">News Letter</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Group 3</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/features.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Features</span></a>
-													</li>
-													<li>
-														<a href="../blocks/info.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Info</span></a>
-													</li>
-													<li>
-														<a href="../blocks/instagram.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Instagram</span></a>
-													</li>
-													<li>
-														<a href="../blocks/video.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Video</span></a>
-													</li>
-												</ul>
-											</div>
-											<div class="col">
-												<h6 class="fs-18px">Group 4</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a href="../blocks/team.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Team</span></a>
-													</li>
-													<li>
-														<a href="../blocks/testimonials.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Testimonials</span></a>
-													</li>
-													<li>
-														<a href="../blocks/header.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Header</span></a>
-													</li>
-													<li>
-														<a href="../blocks/footer.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Footer</span></a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
 
-								</div>
-							</li>
-							<li class="nav-item transition-all-xl-1 py-11 me-xxl-12 me-xl-10 dropdown dropdown-hover dropdown-fullwidth">
-								<a class="nav-link d-flex justify-content-between position-relative py-0 px-0 text-uppercase fw-semibold ls-1 fs-14px dropdown-toggle"
-									href="#" data-bs-toggle="dropdown" id="menu-item-docs" aria-haspopup="true" aria-expanded="false">Docs</a>
-								<div class="dropdown-menu mega-menu start-0 py-6 "
-									aria-labelledby="menu-item-docs">
-									<div class="menumega-docs px-8" style="min-width: 250px">
+							<style>
+								.no-arrow-link::after {
+									display: none;
+								}
+							</style>
 
 
-										<a href="../docs/usage/getting-started.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#book"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">Documentation</h6>
-												<small>Kick-start customization</small>
-											</div>
-										</a>
-
-
-										<hr class="dropdown-divider mx-n8" />
-
-										<a href="../docs/components/accordion.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#layer-group"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">UI Kit</h6>
-												<small>Flexible components</small>
-											</div>
-										</a>
-
-
-										<hr class="dropdown-divider mx-n8" />
-
-										<a href="../docs/usage/changelog.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#pen-to-square"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">Changelog</h6>
-												<small>Regular updates</small>
-											</div>
-										</a>
-
-
-										<hr class="dropdown-divider mx-n8" />
-
-										<a href="https://sp.g5plus.net/" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Support" target="_blank">
-											<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-												<svg class="icon">
-													<use xlink:href="#headset"></use>
-												</svg>
-											</div>
-											<div class="flex-grow-1 ps-6">
-												<h6 class="mb-2">Support</h6>
-												<small>https://sp.g5plus.net/</small>
-											</div>
-										</a>
-
-									</div>
-								</div>
+							</style>
+							<li
+								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+									href="index.php?act=khuyen_mai">Khuyến mãi</a>
 							</li>
 						</ul>
 					</div>
 
-					<a href="../index.html" class="navbar-brand px-8 py-4 mx-auto">
-						<img class="light-mode-img" src="../assets/images/others/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
-						<img class="dark-mode-img" src="../assets/images/others/logo-white.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates"></a>
+					<a href="index.php?act=trang_chu" class="navbar-brand px-8 py-4 mx-auto">
+						<!-- <img class="light-mode-img" src="../img/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
+						<img class="dark-mode-img" src="../assets/images/others/logo-white.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates"></a> -->
+						<h3>PhonePlus</h3>
 
-					<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
-						<div class="px-xl-5 d-inline-block">
-							<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-								data-bs-target="#searchModal"
-								aria-controls="searchModal"
-								aria-expanded="false">
-								<svg class="icon icon-magnifying-glass-light">
-									<use xlink:href="#icon-magnifying-glass-light"></use>
-								</svg>
-							</a>
-						</div>
-						<div class="px-5 d-none d-xl-inline-block">
-							<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
-								<svg class="icon icon-user-light">
-									<use xlink:href="#icon-user-light"></use>
-								</svg>
-							</a>
-						</div>
-						<div class="px-5 d-none d-xl-inline-block">
-							<a class="position-relative lh-1 color-inherit text-decoration-none" href="../shop/wishlist.html">
-								<svg class="icon icon-star-light">
-									<use xlink:href="#icon-star-light"></use>
-								</svg>
-								<span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-							</a>
-						</div>
-						<div class="px-5 d-none d-xl-inline-block">
-							<a class="position-relative lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-								data-bs-target="#shoppingCart"
-								aria-controls="shoppingCart"
-								aria-expanded="false">
-								<svg class="icon icon-star-light">
-									<use xlink:href="#icon-shopping-bag-open-light"></use>
-								</svg>
-								<span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-							</a>
-						</div>
+						<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
+							<div class="px-xl-5 d-inline-block">
+								<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
+									data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
+									<svg class="icon icon-magnifying-glass-light">
+										<use xlink:href="#icon-magnifying-glass-light"></use>
+									</svg>
+								</a>
+							</div>
 
-						<div class="color-modes position-relative ps-5">
-							<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle" href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
-								<svg class="bi my-1 theme-icon-active">
-									<use href="#sun-fill"></use>
-								</svg>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
-								<li>
-									<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
-										<svg class="bi me-4 opacity-50 theme-icon">
-											<use href="#sun-fill"></use>
+
+							<div class="dropdown-center">
+								<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+									<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
+									</p>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="index.php?act=thong_tin_ca_nhan">Thông tin</a></li>
+										<li><a class="dropdown-item" href="index.php?act=doi_mat_khau">Đổi mật khẩu</a></li>
+										<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
+									</ul>
+
+								<?php else : ?>
+									<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
+										<svg class="icon icon-user-light">
+											<use xlink:href="#icon-user-light"></use>
 										</svg>
-										Light
-										<svg class="bi ms-auto d-none">
-											<use href="#check2"></use>
+									</a>
+								<?php endif; ?>
+
+
+							</div>
+
+
+
+							<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+								<div class="px-5 d-none d-xl-inline-block">
+									<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he&id_khach_hang=<?= $_SESSION['id_khach_hang'] ?>">
+										<svg class="icon icon-magnifying-glass-light">
+											<use xlink:href="#icon-box-05"></use>
 										</svg>
-									</button>
-								</li>
-								<li>
-									<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-										<svg class="bi me-4 opacity-50 theme-icon">
-											<use href="#moon-stars-fill"></use>
-										</svg>
-										Dark
-										<svg class="bi ms-auto d-none">
-											<use href="#check2"></use>
-										</svg>
-									</button>
-								</li>
-								<li>
-									<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-										<svg class="bi me-4 opacity-50 theme-icon">
-											<use href="#circle-half"></use>
-										</svg>
-										Auto
-										<svg class="bi ms-auto d-none">
-											<use href="#check2"></use>
-										</svg>
-									</button>
-								</li>
-							</ul>
+									</a>
+								</div>
+							<?php endif; ?>
+
+							<div class="px-5 d-none d-xl-inline-block">
+								<a class="position-relative lh-1 color-inherit text-decoration-none"
+									href="shop/wishlist.html">
+									<svg class="icon icon-star-light">
+										<use xlink:href="#icon-star-light"></use>
+									</svg>
+									<span
+										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+										style="--square-size: 18px">3</span>
+								</a>
+							</div>
+							<div class="px-5 d-none d-xl-inline-block">
+								<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
+									data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
+									aria-expanded="false">
+									<svg class="icon icon-star-light">
+										<use xlink:href="#icon-shopping-bag-open-light"></use>
+									</svg>
+									<span
+										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+										style="--square-size: 18px">3</span>
+								</a>
+							</div>
+
+							<div class="color-modes position-relative ps-5">
+								<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
+									href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
+									aria-label="Toggle theme (light)">
+									<svg class="bi my-1 theme-icon-active">
+										<use href="#sun-fill"></use>
+									</svg>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
+									<li>
+										<button type="button" class="dropdown-item d-flex align-items-center active"
+											data-bs-theme-value="light" aria-pressed="true">
+											<svg class="bi me-4 opacity-50 theme-icon">
+												<use href="#sun-fill"></use>
+											</svg>
+											Light
+											<svg class="bi ms-auto d-none">
+												<use href="#check2"></use>
+											</svg>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="dropdown-item d-flex align-items-center"
+											data-bs-theme-value="dark" aria-pressed="false">
+											<svg class="bi me-4 opacity-50 theme-icon">
+												<use href="#moon-stars-fill"></use>
+											</svg>
+											Dark
+											<svg class="bi ms-auto d-none">
+												<use href="#check2"></use>
+											</svg>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="dropdown-item d-flex align-items-center"
+											data-bs-theme-value="auto" aria-pressed="false">
+											<svg class="bi me-4 opacity-50 theme-icon">
+												<use href="#circle-half"></use>
+											</svg>
+											Auto
+											<svg class="bi ms-auto d-none">
+												<use href="#check2"></use>
+											</svg>
+										</button>
+									</li>
+								</ul>
+							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -698,694 +261,32 @@
 
 
 		<section class="pt-10 pb-16 pb-lg-18 container">
-			<div class="px-lg-25 px-0">
-				<div class=" text-center mb-13">
-					<a href="#" class="btn btn-light btn-hover-bg-dark btn-hover-border-dark btn-hover-text-light shadow-none py-0 px-6 mb-6">
-						Life Style
-					</a>
-					<h2 class=" px-6 text-body-emphasis border-0 fw-500 mb-4 fs-3 ">
-						Are You Washing Your Face Properly?
-					</h2>
-					<ul class="list-inline fs-15px fw-semibold letter-spacing-01 d-flex justify-content-center align-items-center">
-						<li><img data-src="../assets/images/blog/post-detail-header-img.png" alt="Grace" class="lazy-image img-fluid" src="#"></li>
-						<li class="border-end px-6 text-body-emphasis border-0 text-body">
-							By
-							<a href="#">Admin</a>
-						</li>
-						<li class="list-inline-item px-6">Jan 19, 2021</li>
-						<li class="ms-5 list-style-disc">134 views</li>
-					</ul>
-				</div>
-			</div>
-			<div class="">
+			<?php if (isset($chitiet)): ?>
 				<div class="px-lg-25 px-0">
-					<p class=" fs-18px text-body-emphasis mt-4 mb-6">We do good to the planet while delivering smiles to your loved ones. We believe even the smallest choices we make can have a significant impact over time. That’s why it’s our goal to make eco-friendly alternatives more accessible than ever.</p>
-					<p class=" mb-6">Awkwardness gives me great comfort. I’ve never been cool, but I’ve felt cool. I’ve been in the cool place, but I wasn’t really cool – I was trying to pass for hip or cool. It’s the awkwardness that’s nice. We look our best in subdued colors, sophisticated cuts, and a general air of sleek understatement. I like the body. I like to design everything to do with the body.</p>
-				</div>
-				<img data-src="../assets/images/blog/detail-content-2.jpg" width="1170" height="700" alt="" class="lazy-image mb-13 img-fluid mt-10" src="#">
-				<div class="px-lg-25 px-0">
-					<p class=" mb-6">If I fell in love with a woman for an artistic reason, or from the point of view of my work, I think it would rob her of something. We live in an era of globalization and the era of the woman. Never in the history of the world have women <span class="text-body-emphasis">been more in control of their destiny.</span></p>
-					<p class=" fs-18px text-body-emphasis mt-4 mb-6">Your imagination, our creation</p>
-					<p class=" mb-6">Complexion-perfecting natural foundation enriched with antioxidant-packed superfruits, vitamins, and other skin-nourishing nutrients. Creamy liquid formula sets with a pristine matte finish for soft, velvety smooth skin. Made using clean, non-toxic ingredients, our products are designed for everyone...}</p>
-				</div>
-				<h3 class="text-center my-12">Shop the story</h3>
-				<div class="slick-slider" data-slick-options="{&#34;arrows&#34;:false,&#34;dots&#34;:false,&#34;responsive&#34;:[{&#34;breakpoint&#34;:992,&#34;settings&#34;:{&#34;arrows&#34;:true,&#34;slidesToShow&#34;:3}},{&#34;breakpoint&#34;:768,&#34;settings&#34;:{&#34;arrows&#34;:true,&#34;slidesToShow&#34;:2}},{&#34;breakpoint&#34;:576,&#34;settings&#34;:{&#34;arrows&#34;:true,&#34;slidesToShow&#34;:1}}],&#34;slidesToShow&#34;:4}">
-					<div class="mb-6">
-						<div class="card card-product grid-2 bg-transparent border-0">
-							<figure class="card-img-top position-relative mb-7 overflow-hidden">
-								<a href="../shop/product-details-v1.html" class="hover-zoom-in d-block" title="Coffee Bean Caffeine Eye Cream">
-									<img src="#" data-src="../assets/images/products/product-03-270x360.jpg" class="img-fluid lazy-image w-100" alt="Coffee Bean Caffeine Eye Cream" width="270" height="360">
-								</a>
+					<div class=" text-center mb-13">
 
-								<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-										href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Quick View">
-										<span data-bs-toggle="modal" data-bs-target="#quickViewModal" class="d-flex align-items-center justify-content-center">
-											<svg class="icon icon-eye-light">
-												<use xlink:href="#icon-eye-light"></use>
-											</svg>
-										</span>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm" href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Add To Wishlist">
-										<svg class="icon icon-star-light">
-											<use xlink:href="#icon-star-light"></use>
-										</svg>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm" href="../shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
-										<svg class="icon icon-arrows-left-right-light">
-											<use xlink:href="#icon-arrows-left-right-light"></use>
-										</svg>
-									</a>
-								</div><a href="#" class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add To Cart</a>
-							</figure>
-							<div class="card-body text-center p-0">
+						<h4 class=" px-6 text-body-emphasis border-0 fw-500 mb-4 fs-5 ">
+							<?= htmlspecialchars($chitiet['tieu_de']) ?>
+						</h4>
+						<ul class="list-inline fs-15px fw-semibold letter-spacing-01 d-flex justify-content-center align-items-center">
 
 
+							<li class="list-inline-item px-6"> <?= date('d-m-Y', strtotime($chitiet['ngay_xuat_ban'])) ?></li>
 
-
-
-
-								<span class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">$29.00</span>
-
-								<h4 class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3"><a class="text-decoration-none text-reset" href="../shop/product-details-v1.html">Coffee Bean Caffeine Eye Cream</a></h4>
-								<div class="d-flex align-items-center fs-12px justify-content-center">
-									<div class="rating">
-										<div class="empty-stars">
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-										</div>
-										<div class="filled-stars"
-											style="width: 100%">
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-										</div>
-									</div><span class="reviews ms-4 pt-3 fs-14px">2947 reviews</span>
-								</div>
-							</div>
-						</div>
-
-					</div>
-					<div class="mb-6">
-						<div class="card card-product grid-2 bg-transparent border-0">
-							<figure class="card-img-top position-relative mb-7 overflow-hidden">
-								<a href="../shop/product-details-v1.html" class="hover-zoom-in d-block" title="Coffee Bean Caffeine Eye Cream">
-									<img src="#" data-src="../assets/images/products/product-04-270x360.jpg" class="img-fluid lazy-image w-100" alt="Coffee Bean Caffeine Eye Cream" width="270" height="360">
-								</a>
-
-								<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-										href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Quick View">
-										<span data-bs-toggle="modal" data-bs-target="#quickViewModal" class="d-flex align-items-center justify-content-center">
-											<svg class="icon icon-eye-light">
-												<use xlink:href="#icon-eye-light"></use>
-											</svg>
-										</span>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm" href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Add To Wishlist">
-										<svg class="icon icon-star-light">
-											<use xlink:href="#icon-star-light"></use>
-										</svg>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm" href="../shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
-										<svg class="icon icon-arrows-left-right-light">
-											<use xlink:href="#icon-arrows-left-right-light"></use>
-										</svg>
-									</a>
-								</div><a href="#" class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add To Cart</a>
-							</figure>
-							<div class="card-body text-center p-0">
-
-
-
-
-
-
-								<span class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">$29.00</span>
-
-								<h4 class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3"><a class="text-decoration-none text-reset" href="../shop/product-details-v1.html">Coffee Bean Caffeine Eye Cream</a></h4>
-								<div class="d-flex align-items-center fs-12px justify-content-center">
-									<div class="rating">
-										<div class="empty-stars">
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-										</div>
-										<div class="filled-stars"
-											style="width: 100%">
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-										</div>
-									</div><span class="reviews ms-4 pt-3 fs-14px">2947 reviews</span>
-								</div>
-							</div>
-						</div>
-
-					</div>
-					<div class="mb-6">
-						<div class="card card-product grid-2 bg-transparent border-0">
-							<figure class="card-img-top position-relative mb-7 overflow-hidden">
-								<a href="../shop/product-details-v1.html" class="hover-zoom-in d-block" title="Facial cleanser">
-									<img src="#" data-src="../assets/images/products/product-07-270x360.jpg" class="img-fluid lazy-image w-100" alt="Facial cleanser" width="270" height="360">
-								</a>
-
-								<div class="position-absolute product-flash z-index-2 "><span class="badge badge-product-flash on-sale bg-primary">-26%</span><span class="badge badge-product-flash on-new">New</span></div>
-								<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-										href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Quick View">
-										<span data-bs-toggle="modal" data-bs-target="#quickViewModal" class="d-flex align-items-center justify-content-center">
-											<svg class="icon icon-eye-light">
-												<use xlink:href="#icon-eye-light"></use>
-											</svg>
-										</span>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm" href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Add To Wishlist">
-										<svg class="icon icon-star-light">
-											<use xlink:href="#icon-star-light"></use>
-										</svg>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm" href="../shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
-										<svg class="icon icon-arrows-left-right-light">
-											<use xlink:href="#icon-arrows-left-right-light"></use>
-										</svg>
-									</a>
-								</div><a href="#" class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add To Cart</a>
-							</figure>
-							<div class="card-body text-center p-0">
-
-
-
-
-
-
-								<span class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">
-									<del class=" text-body fw-500 me-4 fs-13px">$39.00</del>
-									<ins class="text-decoration-none">$29.00</ins></span>
-
-								<h4 class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3"><a class="text-decoration-none text-reset" href="../shop/product-details-v1.html">Facial cleanser</a></h4>
-								<div class="d-flex align-items-center fs-12px justify-content-center">
-									<div class="rating">
-										<div class="empty-stars">
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-										</div>
-										<div class="filled-stars"
-											style="width: 100%">
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-										</div>
-									</div><span class="reviews ms-4 pt-3 fs-14px">2947 reviews</span>
-								</div>
-							</div>
-						</div>
-
-					</div>
-					<div class="mb-6">
-						<div class="card card-product grid-2 bg-transparent border-0">
-							<figure class="card-img-top position-relative mb-7 overflow-hidden">
-								<a href="../shop/product-details-v1.html" class="hover-zoom-in d-block" title="Coffee Bean Caffeine Eye Cream">
-									<img src="#" data-src="../assets/images/products/product-06-270x360.jpg" class="img-fluid lazy-image w-100" alt="Coffee Bean Caffeine Eye Cream" width="270" height="360">
-								</a>
-
-								<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-										href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Quick View">
-										<span data-bs-toggle="modal" data-bs-target="#quickViewModal" class="d-flex align-items-center justify-content-center">
-											<svg class="icon icon-eye-light">
-												<use xlink:href="#icon-eye-light"></use>
-											</svg>
-										</span>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm" href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Add To Wishlist">
-										<svg class="icon icon-star-light">
-											<use xlink:href="#icon-star-light"></use>
-										</svg>
-									</a>
-									<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm" href="../shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
-										<svg class="icon icon-arrows-left-right-light">
-											<use xlink:href="#icon-arrows-left-right-light"></use>
-										</svg>
-									</a>
-								</div><a href="#" class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add To Cart</a>
-							</figure>
-							<div class="card-body text-center p-0">
-
-
-
-
-
-
-								<span class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">$29.00</span>
-
-								<h4 class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3"><a class="text-decoration-none text-reset" href="../shop/product-details-v1.html">Coffee Bean Caffeine Eye Cream</a></h4>
-								<div class="d-flex align-items-center fs-12px justify-content-center">
-									<div class="rating">
-										<div class="empty-stars">
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-										</div>
-										<div class="filled-stars"
-											style="width: 100%">
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-										</div>
-									</div><span class="reviews ms-4 pt-3 fs-14px">2947 reviews</span>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="text-center px-lg-25 px-0">
-					<a href="#" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary btn-hover-text-light shadow-none mt-12">Shop all products</a>
-					<p class="mt-13 text-start">Awkwardness gives me great comfort. I’ve never been cool, but I’ve felt cool. I’ve been in the cool place, but I wasn’t really cool – I was trying to pass for hip or cool. It’s the awkwardness that’s nice. We look our best in subdued colors, sophisticated cuts, and a general air of sleek understatement. I like the body. I like to design everything to do with the body.</p>
-					<div class="row mt-11 text-start">
-						<div class="col-md-6 col-12">
-							<img data-src="../assets/images/blog/quote2.png" width="42" height="31" alt="" class="lazy-image img-fluid mt-8" src="#">
-							<h2 class="mt-11 me-md-13 me-lg-10 me-xl-13">Because You Need Time for Yourself.</h2>
-							<p class="fw-semibold text-uppercase mt-11 text-body-emphasis ls-1">maggie.e</p>
-						</div>
-						<div class="col-md-6 col-12">
-							<p class="pe-md-10">Complexio n-perfecting natural foundation enriched with antioxidant-packed superfruits, vitamins, and other skin-nourishing nutrients. Creamy liquid formula sets with a pristine matte finish for soft, velvety smooth skin. Made using clean, non-toxic ingredients, our products are designed for everyone...</p>
-							<p class="">Looking for love in all the wrong places? Start with something pure, something good for you, and something that makes you feel pampered like a princess. We’re talking about clean beauty gift sets, of course – and we’ve got a bouquet of beauties for yourself or someone you love. Remember those grand travel plans we had for 2020? This body care duo makes you feel like you’re lying in a spa tent on a warm sandy beach.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="px-lg-25 px-0">
-
-
-				<div class="row no-gutters pt-11 justify-content-sm-between">
-					<div class="col-sm-6 mb-4 mb-sm-0">
-						<ul class="list-inline fw-semibold">
-							<li class="list-inline-item me-3">
-								<a href="#" class="text-body text-body-emphasis-hover text-decoration-none">#happy</a>
-							</li>
-							<li class="list-inline-item me-3">
-								<a href="#" class="text-body text-body-emphasis-hover text-decoration-none">#lifestyle</a>
-							</li>
-							<li class="list-inline-item me-3">
-								<a href="#" class="text-body text-body-emphasis-hover text-decoration-none">#gifts</a>
-							</li>
-							<li class="list-inline-item me-3">
-								<a href="#" class="text-body text-body-emphasis-hover text-decoration-none">#watercolor</a>
-							</li>
 						</ul>
 					</div>
-					<div class="col-sm-6 d-flex justify-content-sm-end">
-						<label class="text-secondary fw-semibold me-7 mb-0">Share:</label>
-						<ul class="list-inline mb-0 lh-1">
-							<li class="list-inline-item me-7">
-								<a href="#" class="fs-18px lh-14 fw-normal">
-									<i class="fa-brands fa-twitter"></i>
-								</a>
-							</li>
-							<li class="list-inline-item me-7">
-								<a href="#" class="fs-18px lh-14 fw-normal">
-									<i class="fa-brands fa-facebook-f"></i>
-								</a>
-							</li>
-							<li class="list-inline-item me-7">
-								<a href="#" class="fs-18px lh-14 fw-normal">
-									<i class="fa-brands fa-instagram"></i>
-								</a>
-							</li>
-							<li class="list-inline-item me-7">
-								<a href="#" class="fs-18px lh-14 fw-normal">
-									<i class="fa-brands fa-youtube"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-12 mt-5 mb-7">
-						<div class="border-bottom"></div>
-					</div>
-					<div class="col-sm-6">
-						<div class="ml-8">
-							<p class="fs-13px ls-1 text-uppercase mb-5 fw-semibold px-8">
-								Videos
-							</p>
-							<a href="#" class="fs-15px fw-semibold position-relative px-8">
-								<i class="far fa-chevron-left mt-2 position-absolute start-0 top-0"></i>How to Plop Hair for Bouncy, Beautiful Curls
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 d-flex justify-content-sm-end">
-						<div class="mr-8 text-right">
-							<p class="fs-13px text-start text-sm-end ls-1 text-uppercase mb-5 fw-semibold px-8">
-								Life style
-							</p>
-							<a href="#" class="fs-15px text-start text-sm-end fw-semibold position-relative px-8">
-								<i class="far fa-chevron-right mt-2 position-absolute end-0 top-0"></i>Our Favorite Multitasking Products
-							</a>
-						</div>
-					</div>
 				</div>
-			</div>
-			<div class="px-lg-25 px-0">
+				<div class="">
 
-				<div class="pt-14 pb-13 pb-lg-15 pt-lg-18 mx-n5" id="post_related">
-					<div class="container">
-						<div class="text-center">
-							<h2 class="mb-6 fs-3">Related Posts</h2>
-						</div>
+					<img data-src="admin/<?= htmlspecialchars($chitiet['anh']) ?>" width="1170" height="700" alt="" class="lazy-image mb-13 img-fluid mt-10" src="#">
+					<div class="px-lg-25 px-0">
+						<?= $chitiet['noi_dung'] ?>
+					</div>
+				</div>
+			<?php else: ?>
+				<p>Không tìm thấy tin tức.</p>
+			<?php endif; ?>
 
-					</div>
-					<div class="container container-xxl mt-10 pt-3">
-						<div class="slick-slider" data-slick-options='{&#34;arrows&#34;:false,&#34;dots&#34;:false,&#34;responsive&#34;:[{&#34;breakpoint&#34;:1200,&#34;settings&#34;:{&#34;slidesToShow&#34;:3}},{&#34;breakpoint&#34;:992,&#34;settings&#34;:{&#34;dots&#34;:true,&#34;slidesToShow&#34;:2}},{&#34;breakpoint&#34;:768,&#34;settings&#34;:{&#34;dots&#34;:true,&#34;slidesToShow&#34;:1}}],&#34;slidesToShow&#34;:3}'>
-							<div>
-								<article class="card card-post-grid-3 bg-transparent border-0" data-animate="fadeInUp">
-									<figure class="card-img-top mb-8 position-relative"><a href="#" class="hover-shine hover-zoom-in d-block" title="Our Favorite Multitasking Products">
-											<img data-src="../assets/images/blog/post-12-237x288.jpg" class="img-fluid lazy-image w-100" alt="Our Favorite Multitasking Products" width="237" height="288" src="#">
-										</a></figure>
-									<div class="card-body p-0">
-										<ul class="post-meta list-inline lh-1 d-flex flex-wrap fs-13px text-uppercase ls-1 fw-semibold m-0">
-											<li class="list-inline-item"><a
-													class="text-reset text-decoration-none text-primary-hover" href="#"
-													title="Videos">Videos</a></li>
-										</ul>
-										<h4 class="card-title fs-6 lh-base mt-5 pt-2 mb-0">
-											<a class="text-decoration-none" href="details-01.html" title="Our Favorite Multitasking Products">Our Favorite Multitasking Products</a>
-										</h4>
-									</div>
-								</article>
-							</div>
-							<div>
-								<article class="card card-post-grid-3 bg-transparent border-0" data-animate="fadeInUp">
-									<figure class="card-img-top mb-8 position-relative"><a href="#" class="hover-shine hover-zoom-in d-block" title="How to Plop Hair for Bouncy, Beautiful Curls">
-											<img data-src="../assets/images/blog/post-05-237x288.jpg" class="img-fluid lazy-image w-100" alt="How to Plop Hair for Bouncy, Beautiful Curls" width="237" height="288" src="#">
-										</a></figure>
-									<div class="card-body p-0">
-										<ul class="post-meta list-inline lh-1 d-flex flex-wrap fs-13px text-uppercase ls-1 fw-semibold m-0">
-											<li class="list-inline-item"><a
-													class="text-reset text-decoration-none text-primary-hover" href="#"
-													title="Videos">Videos</a></li>
-										</ul>
-										<h4 class="card-title fs-6 lh-base mt-5 pt-2 mb-0">
-											<a class="text-decoration-none" href="details-01.html" title="How to Plop Hair for Bouncy, Beautiful Curls">How to Plop Hair for Bouncy, Beautiful Curls</a>
-										</h4>
-									</div>
-								</article>
-							</div>
-							<div>
-								<article class="card card-post-grid-3 bg-transparent border-0" data-animate="fadeInUp">
-									<figure class="card-img-top mb-8 position-relative"><a href="#" class="hover-shine hover-zoom-in d-block" title="Are You Washing Your Face Properly?">
-											<img data-src="../assets/images/blog/post-03-237x288.jpg" class="img-fluid lazy-image w-100" alt="Are You Washing Your Face Properly?" width="237" height="288" src="#">
-										</a></figure>
-									<div class="card-body p-0">
-										<ul class="post-meta list-inline lh-1 d-flex flex-wrap fs-13px text-uppercase ls-1 fw-semibold m-0">
-											<li class="list-inline-item"><a
-													class="text-reset text-decoration-none text-primary-hover" href="#"
-													title="Videos">Videos</a></li>
-										</ul>
-										<h4 class="card-title fs-6 lh-base mt-5 pt-2 mb-0">
-											<a class="text-decoration-none" href="details-01.html" title="Are You Washing Your Face Properly?">Are You Washing Your Face Properly?</a>
-										</h4>
-									</div>
-								</article>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 mt-5 mb-7">
-					<div class="border-bottom"></div>
-				</div>
-
-				<div class="pt-lg-12 pt-10">
-					<h2 class=" fw-semibold fs-3 text-center mb-10">5 Comments</h2>
-					<div class="pb-9 mb-9 border-bottom">
-						<div class="d-flex">
-							<div class="avatar-cmt me-9 bg-image" data-bg-src="../assets/images/blog/post-comment-list-avatar.png">
-							</div>
-							<div class="Cmt-content">
-								<h2 class=" fw-semibold text-uppercase fs-14px mb-3">elizabeth</h2>
-								<p class=" body-color fs-15px mb-6">This skin care gift set is made with potent vitamins, stimulating caffeine, and natural acids. It’s designed to rejuvenate your complexion without the use of harsh chemicals or bleaching agents.</p>
-								<div class="d-flex">
-									<p class="mb-0 text-muted fs-15px pe-4 border-end">02 Dec, 2020 at 2:29 PM</p>
-									<a href="#" title="reply" class="ps-4 fw-semibold text-body-emphasis">Reply</a>
-								</div>
-							</div>
-						</div>
-						<div class="d-flex mt-10 ms-17 ps-7 border-start reply-comment">
-							<div class="avatar-cmt me-9 bg-image" data-bg-src="../assets/images/blog/post-comment-avatar-02.png">
-							</div>
-							<div class="cmt-content">
-								<h2 class=" fw-semibold text-uppercase fs-14px mb-3">admin</h2>
-								<p class=" body-color fs-15px mb-6">Vitamin C promotes healthy collagen levels, while 3 types of caffeine awaken and rejuvenate the skin and eyes.</p>
-								<div class="d-flex">
-									<p class="mb-0 text-muted fs-15px pe-4 border-end">02 Dec, 2020 at 2:29 PM</p>
-									<a href="#" title="reply" class="ps-4 fw-semibold text-body-emphasis">Reply</a>
-								</div>
-							</div>
-						</div>
-						<div class="d-flex mt-10 ms-17 ps-7 border-start reply-comment">
-							<div class="avatar-cmt me-9 bg-image" data-bg-src="../assets/images/blog/post-comment-avatar-03.png">
-							</div>
-							<div class="cmt-content">
-								<h2 class=" fw-semibold text-uppercase fs-14px mb-3">Jennifer. c</h2>
-								<p class=" body-color fs-15px mb-6">Vitamin C promotes healthy collagen levels, while 3 types of caffeine awaken and rejuvenate the skin and eyes.</p>
-								<div class="d-flex">
-									<p class="mb-0 text-muted fs-15px pe-4 border-end">02 Dec, 2020 at 2:29 PM</p>
-									<a href="#" title="reply" class="ps-4 fw-semibold text-body-emphasis">Reply</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="pb-9 mb-9 border-bottom">
-						<div class="d-flex">
-							<div class="avatar-cmt me-9 bg-image" data-bg-src="../assets/images/blog/post-comment-avatar-04.png">
-							</div>
-							<div class="Cmt-content">
-								<h2 class=" fw-semibold text-uppercase fs-14px mb-3">Lucille D</h2>
-								<p class=" body-color fs-15px mb-6">We may not be doing the whole ‘get up and go’ thing like we used to, especially if the only place we’re going is our couch. But to get up and glow? </p>
-								<div class="d-flex">
-									<p class="mb-0 text-muted fs-15px pe-4 border-end">02 Dec, 2020 at 2:29 PM</p>
-									<a href="#" title="reply" class="ps-4 fw-semibold text-body-emphasis">Reply</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="pb-9 mb-9 border-bottom">
-						<div class="d-flex">
-							<div class="avatar-cmt me-9 bg-image" data-bg-src="../assets/images/blog/post-comment-avatar-05.png">
-							</div>
-							<div class="Cmt-content">
-								<h2 class=" fw-semibold text-uppercase fs-14px mb-3">Jennifer. c</h2>
-								<p class=" body-color fs-15px mb-6">This skin care gift set is made with potent vitamins, stimulating caffeine, and natural acids. It’s designed to rejuvenate your complexion without the use of harsh chemicals or bleaching agents. </p>
-								<div class="d-flex">
-									<p class="mb-0 text-muted fs-15px pe-4 border-end">02 Dec, 2020 at 2:29 PM</p>
-									<a href="#" title="reply" class="ps-4 fw-semibold text-body-emphasis">Reply</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="pt-lg-12 pt-10">
-					<h3 class="text-center mb-11">Leave a Comment</h3>
-					<form class="row gy-30px">
-						<div class="col-sm-6">
-							<label for="input_comment_name" class="visually-hidden">Name</label>
-							<input type="text" class="form-control" id="input_comment_name" name="input_comment_name" placeholder="Name" />
-						</div>
-						<div class="col-sm-6">
-							<label for="input_comment_email" class="visually-hidden">Email</label>
-							<input type="email" class="form-control" id="input_comment_email" name="input_comment_email" placeholder="Email">
-						</div>
-						<div class="col-12">
-							<label for="input_comment_message" class="visually-hidden">Email</label>
-							<textarea class="form-control" name="input_comment_message" id="input_comment_message" placeholder="Message" rows="6"></textarea>
-						</div>
-						<div class="col-12 mt-8">
-							<div class="form-check">
-								<input type="checkbox" class="form-check-input" id="input_comment_remember">
-								<label class="form-check-label" for="input_comment_remember">Save my name, email in this browse for the next time I comment</label>
-							</div>
-						</div>
-						<div class="col-12 text-center">
-							<button type="submit" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary">Submit</button>
-						</div>
-					</form>
-				</div>
-			</div>
 		</section>
 	</main>
 	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">

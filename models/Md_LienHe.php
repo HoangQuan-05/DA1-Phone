@@ -29,6 +29,14 @@ class lien_he_client
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function id_admin() //lay id  nguoi gui,  id nguoi nhan de in ra 
+    {
+        $sql  = "SELECT * FROM khach_hang  WHERE vai_tro = 'nhan vien'";
+
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function tin_nhan_khach_hang($id_nguoi_nhan) //lay danh sach cac khach hang ib ho tro hien thi ra man chinh
     {

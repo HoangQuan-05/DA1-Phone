@@ -52,6 +52,9 @@ class DashboardController
             if (isset($_POST['trang_thai'])) {
                 $data__ = $_POST;
                 (new lien_he())->update_tn($data__, $id, $id_nhan);
+                echo "<script type='text/javascript'>
+                        window.location.href = 'index.php?act=lienhe';
+                    </script>";
                 exit();
                 
             }

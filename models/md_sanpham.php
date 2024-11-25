@@ -144,4 +144,74 @@ class Md_san_pham
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function get_binh_luan_by_san_pham_id($id)
+    {
+        $sql = "SELECT binh_luan.*, 
+                   khach_hang.tens, 
+                   khach_hang.anh_dai_dien
+            FROM binh_luan 
+            JOIN khach_hang ON binh_luan.id_khach_hang = khach_hang.id_khach_hang 
+            WHERE binh_luan.id_san_pham = :id_san_pham 
+            ORDER BY binh_luan.ngay_binh_luan DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_san_pham', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function get_danh_gia_by_san_pham_id($id)
+    {
+        $sql = "SELECT danh_gias.*, khach_hang.tens,khach_hang.anh_dai_dien
+            FROM danh_gias 
+            JOIN khach_hang ON danh_gias.id_khach_hang = khach_hang.id_khach_hang 
+            WHERE danh_gias.id_san_pham = :id_san_pham 
+            ORDER BY danh_gias.noi_dung DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_san_pham', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function find_one($id)
+    {
+        $sql = "SELECT * FROM san_phams
+        JOIN danh_muc ON san_phams.id_danh_muc = danh_muc.id_danh_muc 
+        WHERE id_san_pham = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
+    public function count_binh_luan_by_san_pham_id($id)
+    {
+        $sql = "SELECT COUNT(*) as total_binh_luan 
+            FROM binh_luan 
+            WHERE id_san_pham = :id_san_pham";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_san_pham', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total_binh_luan'];
+    }
+    public function add_danh_gia($id_san_pham, $id_khach_hang, $diem_danh_gia, $noi_dung)
+    {
+        $sql = "INSERT INTO danh_gias (id_san_pham, id_khach_hang, diem_danh_gia, noi_dung) VALUES (:id_san_pham, :id_khach_hang, :diem_danh_gia, :noi_dung)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_san_pham', $id_san_pham);
+        $stmt->bindParam(':id_khach_hang', $id_khach_hang);
+        $stmt->bindParam(':diem_danh_gia', $diem_danh_gia);
+        $stmt->bindParam(':noi_dung', $noi_dung);
+        return $stmt->execute();
+    }
+    public function update_sl_sp($id,$so_luong)
+    {
+        $sql = "UPDATE chi_tiet_san_pham SET so_luong = $so_luong WHERE id  = $id ";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function find_onespct($id)
+    {
+        $sql = "SELECT * FROM chi_tiet_san_pham
+        WHERE id = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
 }

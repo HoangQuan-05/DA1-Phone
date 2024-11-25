@@ -23,10 +23,20 @@ class Tin_tuc_ctl
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($_POST['tieu_de'] != null) {
-                (new tin_tuc())->create_news($_POST);
+
+                $data = $_POST;
+                $hinh_anhs = "";
+                $file_anh = $_FILES['anh'];
+                if ($file_anh['size'] > 0) {
+                    $hinh_anhs = "image/" . $file_anh['name'];
+                    move_uploaded_file($file_anh['tmp_name'], $hinh_anhs);
+                }
+                $data['anh'] = $hinh_anhs;
+
+                (new tin_tuc())->create_news($data);
                 echo "<script type='text/javascript'>
-            window.location.href = 'index.php?act=tin_tuc';
-        </script>";
+                        window.location.href = 'index.php?act=tin_tuc';
+                        </script>";
             } else {
                 echo "<script type='text/javascript'>
                 
@@ -43,7 +53,17 @@ class Tin_tuc_ctl
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_POST['tieu_de'] && $_POST['noi_dung'] != "") {
                 $du_lieu = $_POST;
-                print_r($du_lieu);
+
+
+                $hinh_anhs = "";
+                $file_anh = $_FILES['anh'];
+                if ($file_anh['size'] > 0) {
+                    $hinh_anhs = "image/" . $file_anh['name'];
+                    move_uploaded_file($file_anh['tmp_name'], $hinh_anhs);
+                }
+                $du_lieu['anh'] = $hinh_anhs;
+
+                
                 (new tin_tuc())->update_tin_tuc($id, $du_lieu);
                 echo "<script type='text/javascript'>
             window.location.href = 'index.php?act=tin_tuc';

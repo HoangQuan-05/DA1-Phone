@@ -30,7 +30,6 @@ class Md_Hoa_Don
                 hoa_dons.dia_chi AS dia_chi_nhan_hang 
                 FROM hoa_dons 
                 JOIN khach_hang ON khach_hang.id_khach_hang = hoa_dons.id_khach_hang 
-                LEFT JOIN khuyen_mai ON khuyen_mai.id_voucher = hoa_dons.khuyen_mai 
                 WHERE hoa_dons.id = $id;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();

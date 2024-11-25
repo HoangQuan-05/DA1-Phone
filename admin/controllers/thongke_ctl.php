@@ -12,7 +12,7 @@ class ThongkeController
     {
         $tong_don = (new Thongkes())->all();
         $tong_sp = (new Thongkes())->thong_ke_so_luong_san_pham();
-        $doanh_thu = (new Thongkes())->thong_ke_doanh_thu();
+        $dh_da_hoan_thanh = (new Thongkes())->dh_da_hoan_thanh();
 
         require 'views/dashboard.php';
 

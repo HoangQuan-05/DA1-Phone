@@ -1,3 +1,15 @@
+<?php
+if (isset($_SESSION['buy__product'])) {
+
+	echo $_SESSION['id_san_pham_chi_tiet'];
+	unset($_SESSION['buy__product']);
+	unset($_SESSION['id_san_pham_chi_tiet']);
+
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="light">
 
@@ -11,17 +23,18 @@
 	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Tin tức</title>
-	<link rel="icon" href="../../templates/glowing-bootstrap-5/assets/images/others/favicon.ico">
+	<title>Sản phẩm</title>
+	<link rel="icon" href="../templates/glowing-bootstrap-5/assets/images/others/favicon.ico">
 
 
-	<link rel="stylesheet" href="../../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/animate/animate.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/slick/slick.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/mapbox-gl/mapbox-gl.min.css">
 	<link rel="stylesheet" href="../templates/assets/vendors/mapbox-gl/mapbox-gl.min.css">
 	<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fonts/a-antara-distance/stylesheet.min.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fontawesome/css/all.min.css">
 
 	<link
 		href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
@@ -33,296 +46,359 @@
 </head>
 
 <body>
-
 	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
-		<div class="topbar bg-primary">
-
-		</div>
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
-				<div class="container-wide container flex-nowrap">
-
-
-
-
-
+				<div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
 
 
 					<div class="w-72px d-flex d-xl-none">
-						<button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4" type="button"
-							data-bs-toggle="offcanvas"
-							data-bs-target="#offCanvasNavBar"
-							aria-controls="offCanvasNavBar"
-							aria-expanded="false"
-							aria-label="Toggle Navigation">
+						<button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4"
+							type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasNavBar"
+							aria-controls="offCanvasNavBar" aria-expanded="false" aria-label="Toggle Navigation">
 							<span class="fs-24 toggle-icon"></span>
 						</button>
 					</div>
 
-					<div class="d-none d-xl-flex w-xl-50">
-						<ul class="navbar-nav">
 
-							<li
-								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
+					<a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
+						<h3>PhonePlus</h3>
+
+						<div class="d-none d-xl-flex w-xl-50">
+							<ul class="navbar-nav">
+
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
 
 
-								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-									href="index.php">Trang chủ</a>
-							</li>
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php">Trang chủ</a>
+								</li>
 
-							<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
+								<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
 									dropdown-fullwidth position-static">
-								<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-									href="index.php?act=san_pham&page=1">Danh mục</a>
-								<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
-									<div class="megamenu-shop container-wide py-8 px-12 ">
-										<div class="row justify-content-center align-items-center text-center">
-											<div class="row justify-content-start align-items-center text-center">
-												<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
-												<?php foreach ($danh_muc as $dm) : ?>
-													<div class="col-3">
-														<a href="index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
-															<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
-														</a>
-													</div>
-												<?php endforeach ?>
+									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=san_pham&page=1">Danh mục</a>
+									<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
+										<div class="megamenu-shop container-wide py-8 px-12 ">
+											<div class="row justify-content-center align-items-center text-center">
+												<div class="row justify-content-start align-items-center text-center">
+													<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
+													<?php foreach ($danh_muc as $dm) : ?>
+														<div class="col-3">
+															<a href="/index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
+																<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
+															</a>
+														</div>
+													<?php endforeach ?>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								</li>
+
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=tin_tuc">Tin tức</a>
+
+
+								</li>
+
+								<style>
+									.no-arrow-link::after {
+										display: none;
+									}
+								</style>
+
+
+								</style>
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=khuyen_mai">Khuyến mãi</a>
+								</li>
+							</ul>
+						</div>
+
+
+
+
+				</div>
+				<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
+					<div class="px-xl-5 d-inline-block">
+						<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
+							data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
+							<svg class="icon icon-magnifying-glass-light">
+								<use xlink:href="#icon-magnifying-glass-light"></use>
+							</svg>
+						</a>
+					</div>
+
+
+					<div class="dropdown-center">
+						<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+							<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
+							</p>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="index.php?act=thong_tin_ca_nhan">Thông tin</a></li>
+								<li><a class="dropdown-item" href="index.php?act=doi_mat_khau">Đổi mật khẩu</a></li>
+								<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
+							</ul>
+
+						<?php else : ?>
+							<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
+								<svg class="icon icon-user-light">
+									<use xlink:href="#icon-user-light"></use>
+								</svg>
+							</a>
+						<?php endif; ?>
+
+
+					</div>
+					<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+						<div class="px-5 d-none d-xl-inline-block">
+							<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he&id_khach_hang=<?= $_SESSION['id_khach_hang'] ?>">
+								<svg class="icon icon-magnifying-glass-light">
+									<use xlink:href="#icon-box-05"></use>
+								</svg>
+							</a>
+						</div>
+					<?php endif; ?>
+
+					<!--  -->
+
+
+					<div class="px-5 d-none d-xl-inline-block">
+						<a class="position-relative lh-1 color-inherit text-decoration-none"
+							href="shop/wishlist.html">
+							<svg class="icon icon-star-light">
+								<use xlink:href="#icon-star-light"></use>
+							</svg>
+							<span
+								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+								style="--square-size: 18px">3</span>
+						</a>
+					</div>
+
+					<!--  -->
+					<div class="px-5 d-none d-xl-inline-block">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
+							data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
+							aria-expanded="false">
+							<svg class="icon icon-star-light">
+								<use xlink:href="#icon-shopping-bag-open-light"></use>
+							</svg>
+							<span
+								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+								style="--square-size: 18px">3</span>
+						</a>
+					</div>
+
+					<div class="color-modes position-relative ps-5">
+						<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
+							href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
+							aria-label="Toggle theme (light)">
+							<svg class="bi my-1 theme-icon-active">
+								<use href="#sun-fill"></use>
+							</svg>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center active"
+									data-bs-theme-value="light" aria-pressed="true">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#sun-fill"></use>
+									</svg>
+									Light
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
 							</li>
-
-							<li
-								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-									href="index.php?act=tin_tuc">Tin tức</a>
-
-
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center"
+									data-bs-theme-value="dark" aria-pressed="false">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#moon-stars-fill"></use>
+									</svg>
+									Dark
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
 							</li>
-
-							<style>
-								.no-arrow-link::after {
-									display: none;
-								}
-							</style>
-
-
-							</style>
-							<li
-								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-									href="index.php?act=khuyen_mai">Khuyến mãi</a>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center"
+									data-bs-theme-value="auto" aria-pressed="false">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#circle-half"></use>
+									</svg>
+									Auto
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
 							</li>
 						</ul>
 					</div>
-
-					<a href="index.php?act=trang_chu" class="navbar-brand px-8 py-4 mx-auto">
-						<!-- <img class="light-mode-img" src="../img/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
-						<img class="dark-mode-img" src="../assets/images/others/logo-white.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates"></a> -->
-						<h3>PhonePlus</h3>
-
-						<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
-							<div class="px-xl-5 d-inline-block">
-								<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-									data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
-									<svg class="icon icon-magnifying-glass-light">
-										<use xlink:href="#icon-magnifying-glass-light"></use>
-									</svg>
-								</a>
-							</div>
-
-
-							<div class="dropdown-center">
-								<?php if (isset($_SESSION['id_khach_hang'])) : ?>
-									<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
-										<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
-									</p>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="index.php?act=thong_tin_ca_nhan">Thông tin</a></li>
-										<li><a class="dropdown-item" href="index.php?act=doi_mat_khau">Đổi mật khẩu</a></li>
-										<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
-									</ul>
-
-								<?php else : ?>
-									<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
-										<svg class="icon icon-user-light">
-											<use xlink:href="#icon-user-light"></use>
-										</svg>
-									</a>
-								<?php endif; ?>
-
-
-							</div>
-
-
-
-							<?php if (isset($_SESSION['id_khach_hang'])) : ?>
-								<div class="px-5 d-none d-xl-inline-block">
-									<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he&id_khach_hang=<?= $_SESSION['id_khach_hang'] ?>">
-										<svg class="icon icon-magnifying-glass-light">
-											<use xlink:href="#icon-box-05"></use>
-										</svg>
-									</a>
-								</div>
-							<?php endif; ?>
-
-							<div class="px-5 d-none d-xl-inline-block">
-								<a class="position-relative lh-1 color-inherit text-decoration-none"
-									href="shop/wishlist.html">
-									<svg class="icon icon-star-light">
-										<use xlink:href="#icon-star-light"></use>
-									</svg>
-									<span
-										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-										style="--square-size: 18px">3</span>
-								</a>
-							</div>
-							<div class="px-5 d-none d-xl-inline-block">
-								<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
-									data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
-									aria-expanded="false">
-									<svg class="icon icon-star-light">
-										<use xlink:href="#icon-shopping-bag-open-light"></use>
-									</svg>
-									<span
-										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-										style="--square-size: 18px">3</span>
-								</a>
-							</div>
-
-							<div class="color-modes position-relative ps-5">
-								<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
-									href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
-									aria-label="Toggle theme (light)">
-									<svg class="bi my-1 theme-icon-active">
-										<use href="#sun-fill"></use>
-									</svg>
-								</a>
-								<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
-									<li>
-										<button type="button" class="dropdown-item d-flex align-items-center active"
-											data-bs-theme-value="light" aria-pressed="true">
-											<svg class="bi me-4 opacity-50 theme-icon">
-												<use href="#sun-fill"></use>
-											</svg>
-											Light
-											<svg class="bi ms-auto d-none">
-												<use href="#check2"></use>
-											</svg>
-										</button>
-									</li>
-									<li>
-										<button type="button" class="dropdown-item d-flex align-items-center"
-											data-bs-theme-value="dark" aria-pressed="false">
-											<svg class="bi me-4 opacity-50 theme-icon">
-												<use href="#moon-stars-fill"></use>
-											</svg>
-											Dark
-											<svg class="bi ms-auto d-none">
-												<use href="#check2"></use>
-											</svg>
-										</button>
-									</li>
-									<li>
-										<button type="button" class="dropdown-item d-flex align-items-center"
-											data-bs-theme-value="auto" aria-pressed="false">
-											<svg class="bi me-4 opacity-50 theme-icon">
-												<use href="#circle-half"></use>
-											</svg>
-											Auto
-											<svg class="bi ms-auto d-none">
-												<use href="#check2"></use>
-											</svg>
-										</button>
-									</li>
-								</ul>
-							</div>
-						</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</header>
 
 	<main id="content" class="wrapper layout-page">
-		<section class="page-title z-index-2 position-relative">
+		<section class="z-index-2 position-relative pb-2 mb-12">
 
-			<div class="bg-body-secondary">
+			<div class="bg-body-secondary mb-3">
 				<div class="container">
 					<nav class="py-4 lh-30px" aria-label="breadcrumb">
-						<ol class="breadcrumb justify-content-center py-1">
-							<li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Tin tức</li>
+						<ol class="breadcrumb justify-content-center py-1 mb-0">
+							<li class="breadcrumb-item"><a title="Home" href="index.php">Trang chủ</a></li>
+							<li class="breadcrumb-item"><a title="Shop" href="shop-layout-v2.html">Sản phẩm</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
 						</ol>
 					</nav>
 				</div>
 			</div>
-			<div class="text-center py-13">
-				<div class="container">
-					<h2 class="mb-0">Tin tức mới</h2>
-				</div>
-			</div>
 		</section>
-		<div class="container mb-lg-18 mb-16 pb-3">
 
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="row gy-50px">
-						<?php foreach ($data as $values) : ?>
-							<?php if ($values['trang_thai'] === 'Hiển thị') : ?>
-								<div class="col-sm-4">
-									<article class="card card-post-grid-2 bg-transparent border-0" data-animate="fadeInUp">
-										<figure class="card-img-top mb-3 position-relative">
-											<a href="index.php?act=ChiTiet&id=<?= $values['id_tin_tuc'] ?>" class="hover-shine hover-zoom-in d-block" title="<?= htmlspecialchars($values['tieu_de']) ?>">
-												<img src="admin/<?= htmlspecialchars($values['anh']) ?>"
-													class="img-fluid lazy-image w-100"
-													alt="<?= htmlspecialchars($values['tieu_de']) ?>"
-													style="object-fit: cover; width: 370px; height: 240px;">
-											</a>
-										</figure>
-										<div class="card-body p-0">
-											<h4 class="card-title fs-4 lh-base mt-3 pt-2 mb-0 text-clamp-2 text-primary">
-												<a href="index.php?act=ChiTiet&id=<?= $values['id_tin_tuc'] ?>"
-													class="text-decoration-none fw-bold hover-text-decoration"><?= htmlspecialchars($values['tieu_de']) ?></a>
-											</h4>
+
+
+		<section class="container">
+			<div class="shopping-cart">
+				<h2 class="text-center fs-2 mt-12 mb-13">Giỏ hàng</h2>
+				<form class="table-responsive-md pb-8 pb-lg-10" method="POST">
+					<table class="table border">
+						<thead class="bg-body-secondary">
+							<tr class="fs-15px letter-spacing-01 text-uppercase text-body-emphasis">
+								<th scope="col" class=border-1 ps-11">Sản phẩm</th>
+								<th scope="col" class=border-1">Số lượng</th>
+								<th colspan="2" class=border-1">Giá</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<?php foreach ($sanpham_giohang as $values) : ?>
+								<tr class="position-relative">
+									<th scope="row" class="pe-5 ps-8 py-7 shop-product">
+										<div class="d-flex align-items-center">
+											<div class="form-check">
+
+												<input class="form-check-input rounded-0 " type="checkbox" name="san_pham[]" id="mua_hang_<?= $values['id_chi_tiet_san_pham'] ?>"
+													value="<?= $values['id_san_pham_chi_tiet'] . '|' . $values['so_luong_mua'] ?>">
+
+											</div>
+											<div class="ms-6 me-7">
+												<img src="../admin/image/<?= $values['hinh_anh'] ?>" class="lazy-image" width="75" height="100"
+													alt="Natural Coconut Cleansing Oil">
+											</div>
+											<div class="">
+												<p class="fw-500 mb-1 text-body-emphasis"><?= $values['ten_san_pham'] ?></p>
+												<p class="card-text">
+													<span class="fs-13px fw-500 pe-3"><?= $values['phien_ban'] ?> - <?= $values['mau_sac'] ?></span>
+
+												</p>
+											</div>
 										</div>
-									</article>
+
+									</th>
+									<td class="align-middle">
+										<div class="input-group position-relative shop-quantity">
+											<span onclick="down(<?= $values['id_chi_tiet_san_pham'] ?>)" style="cursor: pointer;" class="position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus "><i class="far fa-minus"></i></span>
+
+											<input name="so_luong_mua" type="number" id="number_<?= $values['id_chi_tiet_san_pham'] ?>"
+												class="form-control form-control-sm px-10 py-4 fs-6 text-center border-0" value="<?= $values['so_luong_mua'] ?>"
+												required="" disabled>
+
+											<span onclick="up(<?= $values['id_chi_tiet_san_pham'] ?>)" style="cursor: pointer;" class="position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus"><i class="far fa-plus"></i>
+											</span>
+										</div>
+
+									</td>
+									<td class="align-middle">
+										<p class="mb-0 text-body-emphasis fw-bold mr-xl-11" id="thanh_tien_<?= $values['id_chi_tiet_san_pham'] ?>"><?= number_format($values['so_luong_mua'] * $values['gia_ban'],) ?> VND</p>
+									</td>
+									<td class="align-middle text-end pe-8">
+										<a onclick="return confirm('Chắc chắn xóa?')" href="index.php?act=delete_gio_hang&idsp=<?= $values['id_chi_tiet_san_pham'] ?>&idkh=<?= $_SESSION['id_khach_hang'] ?>" class="d-block text-secondary">
+											<i class="fa fa-times"></i>
+										</a>
+									</td>
+								</tr>
+							<?php endforeach ?>
+
+
+						</tbody>
+					</table>
+
+
+					<div class="row pt-8 pt-lg-11 pb-16 pb-lg-18 d-flex justify-content-between">
+						<div class="col-lg-4 pt-2">
+
+						</div>
+
+						<div class="col-4 pt-lg-0 pt-11">
+							<div class="card border-0" style="box-shadow: 0 0 10px 0 rgba(0,0,0,0.1)">
+
+								<div class="card-footer bg-transparent px-0 pt-5 d-flex justify-content-around ">
+
+									<button type="submit" name="update" value="0" class="btn active">Cập nhật</button> <br><br>
+									<button type="submit" name="buy" value="1" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary">Mua hàng</button>
 								</div>
-							<?php endif; ?>
-						<?php endforeach; ?>
-
-
+							</div>
+						</div>
 					</div>
-
-
-					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
-						<ul class="pagination m-0">
-							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="#" aria-label="Previous">
-									<svg class="icon">
-										<use xlink:href="#icon-angle-double-left"></use>
-									</svg>
-								</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item active"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">...</a></li>
-							<li class="page-item"><a class="page-link" href="#">6</a></li>
-							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="#" aria-label="Next">
-									<svg class="icon">
-										<use xlink:href="#icon-angle-double-right"></use>
-									</svg>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-
+				</form>
 			</div>
-		</div>
+			</seformn>
+
+			<script>
+				var sanpham_giohang = <?= json_encode($sanpham_giohang) ?>;
+				var san_pham_gio_hang = document.querySelectorAll('.san_pham')
+				var okok = <?= json_encode($_SESSION['id_san_pham_chi_tiet']) ?>;
+				
+				console.log(okok)
 
 
+
+
+				function up(id) {
+					sanpham_giohang.forEach((obj) => {
+						if (obj.id_chi_tiet_san_pham == id) {
+							var so_luong_mua = document.getElementById(`number_${obj.id_chi_tiet_san_pham}`)
+							var thanh_tien_ = document.getElementById(`thanh_tien_${obj.id_chi_tiet_san_pham}`)
+							var mua_hang_ = document.getElementById(`mua_hang_${obj.id_chi_tiet_san_pham}`)
+							mua_hang_.checked = true
+							if (Number(so_luong_mua.value) < obj.so_luong) {
+								thanh_tien_.innerHTML = ""
+								so_luong_mua.value = Number(so_luong_mua.value) + 1
+								thanh_tien_.innerHTML = (so_luong_mua.value * obj.gia_ban).toLocaleString("en-US") + ' VND'
+								mua_hang_.value = `${obj.id_chi_tiet_san_pham} | ${so_luong_mua.value}`;
+							}
+						}
+					})
+				}
+
+
+				function down(id) {
+					sanpham_giohang.forEach((obj) => {
+						if (obj.id_chi_tiet_san_pham == id) {
+							var so_luong_mua = document.getElementById(`number_${obj.id_chi_tiet_san_pham}`)
+							var thanh_tien_ = document.getElementById(`thanh_tien_${obj.id_chi_tiet_san_pham}`)
+							var mua_hang_ = document.getElementById(`mua_hang_${obj.id_chi_tiet_san_pham}`)
+							mua_hang_.checked = true
+							if (Number(so_luong_mua.value) > 1) {
+								thanh_tien_.innerHTML = ""
+								so_luong_mua.value = Number(so_luong_mua.value) - 1
+								thanh_tien_.innerHTML = (so_luong_mua.value * obj.gia_ban).toLocaleString("en-US") + ' VND'
+								mua_hang_.value = `${obj.id_chi_tiet_san_pham} | ${so_luong_mua.value}`;
+							}
+						}
+					})
+				}
+			</script>
 	</main>
 	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">
 		<div class="container container-xxl pt-4">
@@ -441,7 +517,11 @@
 
 
 
+
 	<script src="../jquery.min.js"></script>
+
+
+
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/clipboard/clipboard.min.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/vanilla-lazyload/lazyload.min.js"></script>
@@ -458,6 +538,7 @@
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/gsap/ScrollTrigger.min.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/mapbox-gl/mapbox-gl.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/js/theme.min.js"></script>
+
 
 
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -1214,7 +1295,7 @@
 						</a>
 					</div>
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="../shop/wishlist.html">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="wishlist.html">
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-star-light"></use>
 							</svg>
@@ -1351,8 +1432,8 @@
 				<span class="text-body-emphasis">Total price:</span>
 				<span class="cart-total fw-bold text-body-emphasis">$106.00</span>
 			</div>
-			<a href="../shop/checkout.html" class="btn btn-dark w-100 mb-7" title="Check Out">Check Out</a>
-			<a href="../shop/shopping-cart.html" class="btn btn-outline-dark w-100" title="View shopping cart">View shopping cart</a>
+			<a href="checkout.html" class="btn btn-dark w-100 mb-7" title="Check Out">Check Out</a>
+			<a href="shopping-cart.html" class="btn btn-outline-dark w-100" title="View shopping cart">View shopping cart</a>
 		</div>
 	</div>
 
@@ -1446,7 +1527,7 @@
 												<use xlink:href="#icon-star-light"></use>
 											</svg>
 										</a>
-										<a href="../shop/compare.html" class="d-flex align-items-center justify-content-center mt-5 product-gallery-action rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
+										<a href="compare.html" class="d-flex align-items-center justify-content-center mt-5 product-gallery-action rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
 											<svg class="icon fs-4">
 												<use xlink:href="#icon-arrows-left-right-light"></use>
 											</svg>
@@ -1476,7 +1557,7 @@
 								<span class="badge text-bg-primary fs-6 fw-semibold ms-7 px-6 py-3">20%</span>
 							</p>
 							<h1 class="mb-4 pb-2 fs-4">
-								<a href="../shop/product-details-v1.html" title="Natural Coconut Cleansing Oil">
+								<a href="product-details-v1.html" title="Natural Coconut Cleansing Oil">
 									Natural Coconut Cleansing Oil
 								</a>
 							</h1>
@@ -1740,19 +1821,19 @@
 										<h6 class="fs-18px">Shop Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/shop-layout-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v1</sup></span></a>
+												<a href="shop-layout-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v1</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v2</sup></span></a>
+												<a href="shop-layout-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v2</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v3</sup></span></a>
+												<a href="shop-layout-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v3</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v4</sup></span></a>
+												<a href="shop-layout-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v4</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v5</sup></span></a>
+												<a href="shop-layout-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v5</sup></span></a>
 											</li>
 										</ul>
 									</div>
@@ -1760,28 +1841,28 @@
 										<h6 class="fs-18px">Product Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/product-details-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v1</sup></span></a>
+												<a href="product-details-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v1</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v2</sup></span></a>
+												<a href="product-details-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v2</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v3</sup></span></a>
+												<a href="product-details-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v3</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v4</sup></span></a>
+												<a href="product-details-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v4</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v5</sup></span></a>
+												<a href="product-details-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v5</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v6.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v6</sup></span></a>
+												<a href="product-details-v6.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v6</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v7.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v7</sup></span></a>
+												<a href="product-details-v7.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v7</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v8.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v8</sup></span></a>
+												<a href="product-details-v8.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v8</sup></span></a>
 											</li>
 										</ul>
 									</div>
@@ -1789,16 +1870,16 @@
 										<h6 class="fs-18px">Product Types</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/product-simple.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Simple</span></a>
+												<a href="product-simple.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Simple</span></a>
 											</li>
 											<li>
-												<a href="../shop/product-variable.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Variable</span></a>
+												<a href="product-variable.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Variable</span></a>
 											</li>
 											<li>
-												<a href="../shop/product-time-limit.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Time Limit</span></a>
+												<a href="product-time-limit.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Time Limit</span></a>
 											</li>
 											<li>
-												<a href="../shop/product-grouped.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Grouped</span></a>
+												<a href="product-grouped.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Grouped</span></a>
 											</li>
 										</ul>
 									</div>
@@ -1806,16 +1887,16 @@
 										<h6 class="fs-18px">Other Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/shopping-cart.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shopping Cart</span></a>
+												<a href="shopping-cart.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shopping Cart</span></a>
 											</li>
 											<li>
-												<a href="../shop/compare.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Compare</span></a>
+												<a href="compare.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Compare</span></a>
 											</li>
 											<li>
-												<a href="../shop/wishlist.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Wishlist</span></a>
+												<a href="wishlist.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Wishlist</span></a>
 											</li>
 											<li>
-												<a href="../shop/checkout.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Checkout</span></a>
+												<a href="checkout.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Checkout</span></a>
 											</li>
 											<li>
 												<a href="../user-registration.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Register</span></a>
@@ -1861,39 +1942,39 @@
 								<ul class="dropdown-menu py-6"
 									aria-labelledby="menu-item-blog-canvas" data-bs-popper="none">
 									<li>
-										<a class="dropdown-item border-hover" href="grid.html">
+										<a class="dropdown-item border-hover" href="../blog/grid.html">
 											<span class="border-hover-target">Blog Grid</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="grid-sidebar.html">
+										<a class="dropdown-item border-hover" href="../blog/grid-sidebar.html">
 											<span class="border-hover-target">Blog Grid Sidebar</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="masonry.html">
+										<a class="dropdown-item border-hover" href="../blog/masonry.html">
 											<span class="border-hover-target">Blog Masonry</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="list.html">
+										<a class="dropdown-item border-hover" href="../blog/list.html">
 											<span class="border-hover-target">Blog List</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="classic.html">
+										<a class="dropdown-item border-hover" href="../blog/classic.html">
 											<span class="border-hover-target">Blog Classic</span>
 										</a>
 									</li>
 									<li class="dropdown-divider"></li>
 
 									<li>
-										<a class="dropdown-item border-hover" href="details-01.html">
+										<a class="dropdown-item border-hover" href="../blog/details-01.html">
 											<span class="border-hover-target">Blog Details 01</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="details-02.html">
+										<a class="dropdown-item border-hover" href="../blog/details-02.html">
 											<span class="border-hover-target">Blog Details 02</span>
 										</a>
 									</li>
@@ -2189,20 +2270,6 @@
 	</div>
 </body>
 
-<!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/blog/grid-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:38 GMT -->
+<!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/shop/shopping-cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:37 GMT -->
 
 </html>
-<style>
-	.text-clamp-2 {
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		/* Giới hạn số dòng */
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-		/* Ẩn nội dung vượt quá */
-		text-overflow: ellipsis;
-		/* Hiển thị dấu "..." nếu cắt bớt nội dung */
-		white-space: normal;
-		/* Đảm bảo ngắt dòng khi cần thiết */
-	}
-</style>

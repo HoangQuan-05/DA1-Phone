@@ -18,6 +18,14 @@ class Thongkes
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function dh_da_hoan_thanh()
+    {
+        $sql = " SELECT COUNT(*) FROM hoa_dons WHERE trang_thai_don_hang = 5";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function thong_ke_doanh_thu()
     {

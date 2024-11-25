@@ -1,50 +1,25 @@
 <?php
-if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
+if (empty($_SESSION['id_admin'])) {
     header("location: ../index.php?act=login");
     exit();
 }
 
 
-$tong_doanh_thu = 0;
 $tong_sp_con_lai = 0;
-foreach ($doanh_thu as $value) {
-    $tong_thu = ($value['don_gia'] * $value['so_luong_mua']) - ($value['gia_nhap'] * $value['so_luong_mua']);
-    $tong_doanh_thu = $tong_doanh_thu + $tong_thu;
-}
+
+
 foreach ($tong_sp as $value1) {
     $tong = $value1['so_luong'];
     $tong_sp_con_lai = $tong_sp_con_lai + $tong;
 }
 
-$date = [];
+// $date = [];
 
-$data_dt = [];
-
-
-foreach ($doanh_thu as $value) {
-
-    if (!in_array($value['ngay_dat'], $date)) {
-
-        $data_doanh_thu = (new Thongkes())->thong_ke_doanh_thu_ngay($value['ngay_dat']);
+// $data_dt = [];
 
 
-        $date[] = $value['ngay_dat'];
 
 
-        $tong_doanh_thu_ngay = 0;
-
-
-        foreach ($data_doanh_thu as $value1) {
-
-            $tong_thu = ($value1['don_gia'] * $value1['so_luong_mua']) - ($value1['gia_nhap'] * $value1['so_luong_mua']);
-
-            $tong_doanh_thu_ngay += $tong_thu;
-        }
-
-        // Lưu tổng doanh thu vào mảng
-        $data_dt[] = $tong_doanh_thu_ngay;
-    }
-}
 
 ?>
 <!doctype html>
@@ -140,7 +115,7 @@ foreach ($doanh_thu as $value) {
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target=" <?= $tong_doanh_thu; ?> "></span> VND</h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target="100000000"></span> VND</h4>
                                                         <a href="#" class="text-decoration-underline">View net earnings</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -191,7 +166,7 @@ foreach ($doanh_thu as $value) {
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="2">0</span> Đơn</h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?= $dh_da_hoan_thanh['COUNT(*)']; ?>">0</span> Đơn</h4>
                                                         <a href="#" class="text-decoration-underline">Withdraw money</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">

@@ -1,5 +1,5 @@
 <?php
-if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
+if (empty($_SESSION['id_admin']) ) {
     header("location: ../index.php?act=login");
     exit();
 }

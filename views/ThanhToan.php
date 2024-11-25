@@ -1,3 +1,10 @@
+<?php
+if (empty($_SESSION['san_pham'])) {
+	echo "<script type='text/javascript'>
+	window.location.href = 'index.php?act=gio_hang';
+</script>";
+}
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="light">
 
@@ -11,11 +18,11 @@
 	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Tin tức</title>
-	<link rel="icon" href="../../templates/glowing-bootstrap-5/assets/images/others/favicon.ico">
+	<title>Sản phẩm</title>
+	<link rel="icon" href="../templates/glowing-bootstrap-5/assets/images/others/favicon.ico">
 
 
-	<link rel="stylesheet" href="../../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
+	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/animate/animate.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/slick/slick.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/mapbox-gl/mapbox-gl.min.css">
@@ -41,11 +48,6 @@
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
 				<div class="container-wide container flex-nowrap">
-
-
-
-
-
 
 
 					<div class="w-72px d-flex d-xl-none">
@@ -244,86 +246,220 @@
 	</header>
 
 	<main id="content" class="wrapper layout-page">
-		<section class="page-title z-index-2 position-relative">
+		<section class="z-index-2 position-relative pb-2 mb-12">
 
-			<div class="bg-body-secondary">
+			<div class="bg-body-secondary mb-3">
 				<div class="container">
 					<nav class="py-4 lh-30px" aria-label="breadcrumb">
-						<ol class="breadcrumb justify-content-center py-1">
-							<li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Tin tức</li>
+						<ol class="breadcrumb justify-content-center py-1 mb-0">
+							<li class="breadcrumb-item"><a title="Home" href="index.php">Trang chủ</a></li>
+							<li class="breadcrumb-item"><a title="Shop" href="index.php?act=san_pham&page=1">Sản phẩm</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Thanh toán</li>
 						</ol>
 					</nav>
 				</div>
 			</div>
-			<div class="text-center py-13">
-				<div class="container">
-					<h2 class="mb-0">Tin tức mới</h2>
-				</div>
-			</div>
 		</section>
-		<div class="container mb-lg-18 mb-16 pb-3">
+		<section class="container pb-14 pb-lg-19">
+			<div class="text-center">
+				<h2 class="mb-6">Thanh toán</h2>
+			</div>
+			<?php
 
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="row gy-50px">
-						<?php foreach ($data as $values) : ?>
-							<?php if ($values['trang_thai'] === 'Hiển thị') : ?>
-								<div class="col-sm-4">
-									<article class="card card-post-grid-2 bg-transparent border-0" data-animate="fadeInUp">
-										<figure class="card-img-top mb-3 position-relative">
-											<a href="index.php?act=ChiTiet&id=<?= $values['id_tin_tuc'] ?>" class="hover-shine hover-zoom-in d-block" title="<?= htmlspecialchars($values['tieu_de']) ?>">
-												<img src="admin/<?= htmlspecialchars($values['anh']) ?>"
-													class="img-fluid lazy-image w-100"
-													alt="<?= htmlspecialchars($values['tieu_de']) ?>"
-													style="object-fit: cover; width: 370px; height: 240px;">
-											</a>
-										</figure>
-										<div class="card-body p-0">
-											<h4 class="card-title fs-4 lh-base mt-3 pt-2 mb-0 text-clamp-2 text-primary">
-												<a href="index.php?act=ChiTiet&id=<?= $values['id_tin_tuc'] ?>"
-													class="text-decoration-none fw-bold hover-text-decoration"><?= htmlspecialchars($values['tieu_de']) ?></a>
-											</h4>
+			$tong_tien = 0;
+			?>
+			<form class="pt-12" method="POST">
+				<div class="row">
+					<div class="col-5 pb-lg-0 pb-14 order-lg-last">
+						<div class="card border-0 rounded-0 shadow">
+							<div class="card-header px-0 mx-10 bg-transparent py-8">
+								<h4 class="fs-4 mb-8">Sản phẩm</h4>
+
+								<?php foreach ($array_san_pham as $san_pham) : ?>
+									<?php $tong_tien += $san_pham['so_luong_mua'] * $san_pham['gia_ban'];	 ?>
+									<div class="d-flex w-100 mb-7">
+										<div class="me-6">
+											<img src="../admin/image/<?= $san_pham['hinh_anh'] ?>" width="60" height="80" alt="">
 										</div>
-									</article>
+										<div class="d-flex flex-grow-1">
+											<div class="pe-6">
+												<a href="#" class=""><span class="text-body"><?= $san_pham['ten_san_pham'] ?> </span></a>
+												<p class="fs-14px text-body-emphasis mb-0 mt-1">
+													<?= $san_pham['phien_ban'] ?> - <?= $san_pham['mau_sac'] ?>
+												</p>
+												<p class="fs-14px text-body-emphasis mb-0 mt-1">
+													Số lượng:
+													<span class="text-body"><?= $san_pham['so_luong_mua'] ?> </span>
+												</p>
+
+											</div>
+											<div class="ms-auto">
+												<p class="fs-14px text-body-emphasis mb-0 "><?= number_format($san_pham['gia_ban'],) ?> VND</p>
+											</div>
+										</div>
+									</div>
+								<?php endforeach ?>
+
+							</div>
+							<div class="card-body px-10 py-8">
+								<div class="d-flex align-items-center mb-2">
+									<span>Tổng cộng:</span>
+									<span class="d-block ms-auto text-body-emphasis" id="tong_cong"><?= number_format($tong_tien,) ?> VND</span>
+
 								</div>
-							<?php endif; ?>
-						<?php endforeach; ?>
 
+								<div class="d-flex align-items-center">
+									<span>Voucher:</span>
+									<span class="d-block ms-auto text-body-emphasis " id="voucher">0 VND</span>
+								</div>
+							</div>
+							<div class="card-footer bg-transparent py-5 px-0 mx-10">
+								<div class="d-flex align-items-center mb-6">
+									<span class="text-body-emphasis p-0">Tổng thanh toán:</span>
+									<span class="d-block ms-auto text-body-emphasis fs-4" id="tong_thanh_toan"><?= number_format($tong_tien,) ?> VND</span>
 
+								</div>
+							</div>
+						</div>
 					</div>
 
+					<div class="col-lg-7 order-lg-first pe-xl-20 pe-lg-6">
+						<div class="checkout">
+							<h4 class="fs-4 pt-4 mb-7">Thông tin</h4>
 
-					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
-						<ul class="pagination m-0">
-							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="#" aria-label="Previous">
-									<svg class="icon">
-										<use xlink:href="#icon-angle-double-left"></use>
-									</svg>
-								</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item active"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">...</a></li>
-							<li class="page-item"><a class="page-link" href="#">6</a></li>
-							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="#" aria-label="Next">
-									<svg class="icon">
-										<use xlink:href="#icon-angle-double-right"></use>
-									</svg>
-								</a>
-							</li>
-						</ul>
-					</nav>
+							<div class="mb-7">
+								<label class="mb-5 fs-13px letter-spacing-01 text-uppercase">Họ tên</label>
+								<div class="row">
+									<div class="col-md-12 mb-md-0 mb-7">
+										<input type="text" class="form-control" id="first-name" name="ten_nguoi_nhan" value="<?= $data_nhan_hang['tens'] ?>" placeholder="Nhập họ tên" required="">
+									</div>
+
+								</div>
+							</div>
+							<div class="mb-7">
+								<label class="mb-5 fs-13px letter-spacing-01 text-uppercase">Liên hệ</label>
+								<div class="row">
+									<div class="col-md-6 mb-md-0 mb-7">
+										<input type="email" class="form-control" id="email" name="email_nguoi_nhan" placeholder="Email" required="" value="<?= $data_nhan_hang['email'] ?>">
+									</div>
+									<div class="col-md-6">
+										<input type="text" class="form-control" id="phone" name="so_dien_thoai" placeholder="Số điện thoại" required="" value="<?= $data_nhan_hang['so_dien_thoai'] ?>">
+									</div>
+								</div>
+							</div>
+							<div class="mb-7">
+								<div class="row">
+									<div class="col-md-12 mb-md-0 mb-7">
+										<label for="street-address" class="mb-5 fs-13px letter-spacing-01 text-uppercase">Địa chỉ nhận hàng</label>
+										<input type="text" class="form-control" id="street-address" name="dia_chi" placeholder="Địa chỉ nhận hàng" required="" value="<?= $data_nhan_hang['dia_chi'] ?>">
+									</div>
+
+								</div>
+							</div>
+							<div class="mb-7">
+								<label for="">Voucher</label>
+								<input type="text" class="form-control" id="khuyen_mai" name="khuyen_mai" placeholder="Nhập mã Voucher">
+							</div>
+
+							<div class="form-group">
+								<label for="ghi_chu">Ghi chú</label>
+								<textarea class="form-control" id="ghi_chu" name="ghi_chu" rows="3" placeholder="Ghi chú"></textarea>
+							</div>
+
+
+
+							<div class="mt-6 mb-5 form-check">
+								<input type="checkbox" class="form-check-input rounded-0 me-4" id="customCheck5">
+								<label class="text-body-emphasis" for="customCheck5">
+									<span class="text-body-emphasis">Xác nhận </span>
+								</label>
+							</div>
+						</div>
+
+						<div class="checkout mb-7">
+							<div class="mb-7">
+								<h4 style="font-family:'Roboto';">Phương thức thanh toán</h4>
+
+
+								<div class="nav nav-tabs border-0">
+
+									<a class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link"
+										data-bs-toggle="tab" data-bs-target="#paypal-tab">
+										<span class="ms-3 text-body-emphasis fs-6">MOMO</span>
+									</a>
+
+
+									<input type="text" name="phuong_thuc_thanh_toan" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link active"
+										data-bs-toggle="tab" data-bs-target="#paypal-tab"
+										readonly value="COD">
+
+								</div>
+
+							</div>
+							<div>
+								<input type="text" name="tong_tien" id="" value="<?= $tong_tien ?>" style="display: none">
+								<input type="text" name="trang_thai_thanh_toan" id="" value="Chưa thanh toán" style="display: none">
+								<input type="text" name="thanh_toan" id="thanh_toan_hoa_don" value="<?= $tong_tien ?>" style="display: none">
+							</div>
+
+
+							<button type="submit" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary px-11 mt-md-7 mt-4 mua__hang" disabled>Thanh toán</button>
+						</div>
+
+					</div>
 				</div>
 
-			</div>
-		</div>
-
+			</form>
+		</section>
 
 	</main>
+	<script>
+		var xac_nhan = document.getElementById('customCheck5')
+		var thanh_toan = document.querySelector('.mua__hang')
+		xac_nhan.addEventListener('change', function() {
+			if (xac_nhan.checked == true) {
+				thanh_toan.disabled = false;
+			} else {
+				thanh_toan.disabled = true;
+			}
+		})
+
+		var voucher = <?= json_encode($voucher) ?>;
+		var array_san_pham = <?= json_encode($array_san_pham); ?>;
+		var khuyen_mai = document.getElementById('khuyen_mai')
+		var flag = true
+		var tong_cong = document.getElementById('tong_cong')
+		var tong_thanh_toan = document.getElementById('tong_thanh_toan')
+
+
+
+		let giam__ = 0;
+		khuyen_mai.addEventListener('change', () => {
+
+			giam__ = 0;
+			const voucher_display = document.getElementById('voucher');
+			const khuyenMaiValue = khuyen_mai.value.trim();
+			const thanh_toan_hoa_don = document.getElementById('thanh_toan_hoa_don')
+
+			voucher.forEach((value) => {
+				if (value.ma_khuyen_mai.trim() === khuyenMaiValue) {
+					array_san_pham.forEach((data) => {
+						if (data.id_danh_muc === value.id_danh_muc) {
+							giam__ += Number((value.voucher / 100) * data.gia_ban);
+						}
+					});
+				}
+				tong_thanh_toan.innerHTML = ""
+			});
+
+			voucher_display.innerHTML = "-" + giam__.toLocaleString("en-US") + " VND";
+			tong_thanh_toan.innerHTML = (Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__).toLocaleString("en-US") + " VND"
+			thanh_toan_hoa_don.value = Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__
+
+
+		});
+	</script>
+
 	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">
 		<div class="container container-xxl pt-4">
 			<div class="row">
@@ -442,6 +578,7 @@
 
 
 	<script src="../jquery.min.js"></script>
+
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/clipboard/clipboard.min.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/vanilla-lazyload/lazyload.min.js"></script>
@@ -1214,7 +1351,7 @@
 						</a>
 					</div>
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="../shop/wishlist.html">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="wishlist.html">
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-star-light"></use>
 							</svg>
@@ -1236,125 +1373,7 @@
 			</nav>
 		</div>
 	</div>
-	<div id="shoppingCart" data-bs-scroll="false" class="offcanvas offcanvas-end">
-		<div class="offcanvas-header fs-4">
-			<h4 class="offcanvas-title fw-semibold">Shopping Bag</h4>
-			<button type="button" class="btn-close btn-close-bg-none" data-bs-dismiss="offcanvas" aria-label="Close">
-				<i class="far fa-times"></i>
-			</button>
-		</div>
-		<div class="offcanvas-body me-xl-auto pt-0 mb-2 mb-xl-0">
-			<form class="table-responsive-md shopping-cart pb-8 pb-lg-10">
-				<table class="table table-borderless">
-					<thead>
-						<tr class="fw-500">
-							<td colspan="3" class="border-bottom pb-6"><i class="far fa-check fs-12px border me-4 px-2 py-1 text-body-emphasis border-dark rounded-circle"></i> Your cart is saved for the next <span class="text-body-emphasis">4m34s</span></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="position-relative">
-							<td class="align-middle text-center">
-								<a href="#" class="d-block clear-product">
-									<i class="far fa-times"></i>
-								</a>
-							</td>
-							<td class="shop-product">
-								<div class="d-flex align-items-center">
-									<div class="me-6">
-										<img src="../assets/images/products/product-03-75x100.jpg" width="60" height="80" alt="natural coconut cleansing oil">
-									</div>
-									<div class="">
-										<p class="card-text mb-1">
-											<span class="fs-13px fw-500 text-decoration-line-through pe-3">$39.00</span>
-											<span class="fs-15px fw-bold text-body-emphasis">$29.00</span>
 
-										</p>
-										<p class="fw-500 text-body-emphasis">Natural Coconut Cleansing Oil</p>
-									</div>
-								</div>
-							</td>
-							<td class="align-middle p-0">
-								<div class="input-group position-relative shop-quantity">
-									<a href="#" class="shop-down position-absolute z-index-2"><i class="far fa-minus"></i></a>
-									<input name="number[]" type="number" class="form-control form-control-sm px-6 py-4 fs-6 text-center border-0" value="1" required="">
-									<a href="#" class="shop-up position-absolute z-index-2"><i class="far fa-plus"></i>
-									</a>
-								</div>
-							</td>
-						</tr>
-						<tr class="position-relative">
-							<td class="align-middle text-center">
-								<a href="#" class="d-block clear-product">
-									<i class="far fa-times"></i>
-								</a>
-							</td>
-							<td class="shop-product">
-								<div class="d-flex align-items-center">
-									<div class="me-6">
-										<img src="../assets/images/products/product-06-75x100.jpg" width="60" height="80" alt="natural coconut cleansing oil">
-									</div>
-									<div class="">
-										<p class="card-text mb-1">
-											<span class="fs-13px fw-500 text-decoration-line-through pe-3">$39.00</span>
-											<span class="fs-15px fw-bold text-body-emphasis">$29.00</span>
-
-										</p>
-										<p class="fw-500 text-body-emphasis">Super Pure</p>
-									</div>
-								</div>
-							</td>
-							<td class="align-middle p-0">
-								<div class="input-group position-relative shop-quantity">
-									<a href="#" class="shop-down position-absolute z-index-2"><i class="far fa-minus"></i></a>
-									<input name="number[]" type="number" class="form-control form-control-sm px-6 py-4 fs-6 text-center border-0" value="1" required="">
-									<a href="#" class="shop-up position-absolute z-index-2"><i class="far fa-plus"></i>
-									</a>
-								</div>
-							</td>
-						</tr>
-						<tr class="position-relative">
-							<td class="align-middle text-center">
-								<a href="#" class="d-block clear-product">
-									<i class="far fa-times"></i>
-								</a>
-							</td>
-							<td class="shop-product">
-								<div class="d-flex align-items-center">
-									<div class="me-6">
-										<img src="../assets/images/products/product-09-75x100.jpg" width="60" height="80" alt="natural coconut cleansing oil">
-									</div>
-									<div class="">
-										<p class="card-text mb-1">
-											<span class="fs-13px fw-500 text-decoration-line-through pe-3">$39.00</span>
-											<span class="fs-15px fw-bold text-body-emphasis">$29.00</span>
-
-										</p>
-										<p class="fw-500 text-body-emphasis">Cleansing Balm</p>
-									</div>
-								</div>
-							</td>
-							<td class="align-middle p-0">
-								<div class="input-group position-relative shop-quantity">
-									<a href="#" class="shop-down position-absolute z-index-2"><i class="far fa-minus"></i></a>
-									<input name="number[]" type="number" class="form-control form-control-sm px-6 py-4 fs-6 text-center border-0" value="1" required="">
-									<a href="#" class="shop-up position-absolute z-index-2"><i class="far fa-plus"></i>
-									</a>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</form>
-		</div>
-		<div class="offcanvas-footer flex-wrap">
-			<div class="d-flex align-items-center justify-content-between w-100 mb-5">
-				<span class="text-body-emphasis">Total price:</span>
-				<span class="cart-total fw-bold text-body-emphasis">$106.00</span>
-			</div>
-			<a href="../shop/checkout.html" class="btn btn-dark w-100 mb-7" title="Check Out">Check Out</a>
-			<a href="../shop/shopping-cart.html" class="btn btn-outline-dark w-100" title="View shopping cart">View shopping cart</a>
-		</div>
-	</div>
 
 	<div class="modal" id="signInModal" tabindex="-1" aria-labelledby="signInModal" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -1446,7 +1465,7 @@
 												<use xlink:href="#icon-star-light"></use>
 											</svg>
 										</a>
-										<a href="../shop/compare.html" class="d-flex align-items-center justify-content-center mt-5 product-gallery-action rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
+										<a href="compare.html" class="d-flex align-items-center justify-content-center mt-5 product-gallery-action rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
 											<svg class="icon fs-4">
 												<use xlink:href="#icon-arrows-left-right-light"></use>
 											</svg>
@@ -1473,15 +1492,15 @@
 							<p class="d-flex align-items-center mb-6">
 								<span class="text-decoration-line-through">39.00</span>
 								<span class="fs-18px text-body-emphasis ps-6 fw-bold">29.00</span>
-								<span class="badge text-bg-primary fs-6 fw-semibold ms-7 px-6 py-3">20%</span>
+								<span class="badge text-bg-primary fs-6 ms-7 px-6 py-3">20%</span>
 							</p>
 							<h1 class="mb-4 pb-2 fs-4">
-								<a href="../shop/product-details-v1.html" title="Natural Coconut Cleansing Oil">
+								<a href="product-details-v1.html" title="Natural Coconut Cleansing Oil">
 									Natural Coconut Cleansing Oil
 								</a>
 							</h1>
 							<div class="d-flex align-items-center fs-15px mb-6">
-								<p class="mb-0 fw-semibold text-body-emphasis">4.86</p>
+								<p class="mb-0 text-body-emphasis">4.86</p>
 								<div class="d-flex align-items-center fs-12px justify-content-center mb-0 px-6 rating-result">
 									<div class="rating">
 										<div class="empty-stars">
@@ -1567,7 +1586,7 @@
 							<form class="mb-9 pb-2">
 								<div class="row align-items-end">
 									<div class="form-group col-sm-4">
-										<label class=" text-body-emphasis fw-semibold fs-15px pb-6" for="QuickViewNumber">Quantity: </label>
+										<label class=" text-body-emphasis fs-15px pb-6" for="QuickViewNumber">Quantity: </label>
 										<div class="input-group position-relative w-100 input-group-lg">
 											<a href="#" class="shop-down position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus"><i class="far fa-minus"></i></a>
 											<input name="number" type="number" id="QuickViewNumber" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
@@ -1606,11 +1625,11 @@
 							</div>
 							<ul class="single-product-meta list-unstyled border-top pt-7 mt-7">
 								<li class="d-flex mb-4 pb-2 align-items-center">
-									<span class="text-body-emphasis fw-semibold fs-14px">Sku:</span>
+									<span class="text-body-emphasis fs-14px">Sku:</span>
 									<span class="ps-4">SF09281</span>
 								</li>
 								<li class="d-flex mb-4 pb-2 align-items-center">
-									<span class="text-body-emphasis fw-semibold fs-14px">Categories:</span>
+									<span class="text-body-emphasis fs-14px">Categories:</span>
 									<span class="ps-4">Makeup, Skincare</span>
 								</li>
 							</ul>
@@ -1653,7 +1672,7 @@
 
 
 					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase fw-semibold ls-1 fs-15px dropdown-toggle"
+						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
 							href="../index-2.html" data-bs-toggle="dropdown" id="menu-item-home-canvas" aria-haspopup="true" aria-expanded="false">Home</a>
 						<div class="dropdown-menu mega-menu start-0 py-6 "
 							aria-labelledby="menu-item-home-canvas"
@@ -1730,7 +1749,7 @@
 						</div>
 					</li>
 					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth position-static">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase fw-semibold ls-1 fs-15px dropdown-toggle"
+						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
 							href="../store.html" data-bs-toggle="dropdown" id="menu-item-shop-canvas" aria-haspopup="true" aria-expanded="false">Shop</a>
 						<div class="dropdown-menu mega-menu start-0 py-6  w-100"
 							aria-labelledby="menu-item-shop-canvas">
@@ -1740,19 +1759,19 @@
 										<h6 class="fs-18px">Shop Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/shop-layout-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v1</sup></span></a>
+												<a href="shop-layout-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v1</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v2</sup></span></a>
+												<a href="shop-layout-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v2</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v3</sup></span></a>
+												<a href="shop-layout-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v3</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v4</sup></span></a>
+												<a href="shop-layout-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v4</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/shop-layout-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v5</sup></span></a>
+												<a href="shop-layout-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v5</sup></span></a>
 											</li>
 										</ul>
 									</div>
@@ -1760,28 +1779,28 @@
 										<h6 class="fs-18px">Product Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/product-details-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v1</sup></span></a>
+												<a href="product-details-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v1</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v2</sup></span></a>
+												<a href="product-details-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v2</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v3</sup></span></a>
+												<a href="product-details-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v3</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v4</sup></span></a>
+												<a href="product-details-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v4</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v5</sup></span></a>
+												<a href="product-details-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v5</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v6.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v6</sup></span></a>
+												<a href="product-details-v6.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v6</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v7.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v7</sup></span></a>
+												<a href="product-details-v7.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v7</sup></span></a>
 											</li>
 											<li>
-												<a href="../shop/product-details-v8.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v8</sup></span></a>
+												<a href="product-details-v8.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v8</sup></span></a>
 											</li>
 										</ul>
 									</div>
@@ -1789,16 +1808,16 @@
 										<h6 class="fs-18px">Product Types</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/product-simple.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Simple</span></a>
+												<a href="product-simple.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Simple</span></a>
 											</li>
 											<li>
-												<a href="../shop/product-variable.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Variable</span></a>
+												<a href="product-variable.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Variable</span></a>
 											</li>
 											<li>
-												<a href="../shop/product-time-limit.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Time Limit</span></a>
+												<a href="product-time-limit.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Time Limit</span></a>
 											</li>
 											<li>
-												<a href="../shop/product-grouped.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Grouped</span></a>
+												<a href="product-grouped.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Grouped</span></a>
 											</li>
 										</ul>
 									</div>
@@ -1806,16 +1825,16 @@
 										<h6 class="fs-18px">Other Pages</h6>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<a href="../shop/shopping-cart.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shopping Cart</span></a>
+												<a href="shopping-cart.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shopping Cart</span></a>
 											</li>
 											<li>
-												<a href="../shop/compare.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Compare</span></a>
+												<a href="compare.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Compare</span></a>
 											</li>
 											<li>
-												<a href="../shop/wishlist.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Wishlist</span></a>
+												<a href="wishlist.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Wishlist</span></a>
 											</li>
 											<li>
-												<a href="../shop/checkout.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Checkout</span></a>
+												<a href="checkout.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Checkout</span></a>
 											</li>
 											<li>
 												<a href="../user-registration.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Register</span></a>
@@ -1829,7 +1848,7 @@
 										<div class="card border-0 mt-4">
 											<img src="../assets/images/background/bg-mega-menu-shop.jpg" alt="bg mega menu" class="card-img">
 											<div class="card-img-overlay d-flex flex-column mx-2 px-9 py-6">
-												<p class="text-body-emphasis ls-1 fw-semibold mb-4 mt-6 text-uppercase">
+												<p class="text-body-emphasis ls-1 mb-4 mt-6 text-uppercase">
 													new collection
 												</p>
 												<h3 class="fs-3">
@@ -1848,7 +1867,7 @@
 						</div>
 					</li>
 					<li class="nav-item transition-all-xl-1 py-0 dropdown">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase fw-semibold ls-1 fs-15px dropdown-toggle"
+						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
 							href="#" data-bs-toggle="dropdown" id="menu-item-pages-canvas" aria-haspopup="true" aria-expanded="false">Pages</a>
 						<ul class="dropdown-menu py-6" aria-labelledby="menu-item-pages-canvas">
 							<li class="dropend" aria-haspopup="true" aria-expanded="false">
@@ -1861,39 +1880,39 @@
 								<ul class="dropdown-menu py-6"
 									aria-labelledby="menu-item-blog-canvas" data-bs-popper="none">
 									<li>
-										<a class="dropdown-item border-hover" href="grid.html">
+										<a class="dropdown-item border-hover" href="../blog/grid.html">
 											<span class="border-hover-target">Blog Grid</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="grid-sidebar.html">
+										<a class="dropdown-item border-hover" href="../blog/grid-sidebar.html">
 											<span class="border-hover-target">Blog Grid Sidebar</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="masonry.html">
+										<a class="dropdown-item border-hover" href="../blog/masonry.html">
 											<span class="border-hover-target">Blog Masonry</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="list.html">
+										<a class="dropdown-item border-hover" href="../blog/list.html">
 											<span class="border-hover-target">Blog List</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="classic.html">
+										<a class="dropdown-item border-hover" href="../blog/classic.html">
 											<span class="border-hover-target">Blog Classic</span>
 										</a>
 									</li>
 									<li class="dropdown-divider"></li>
 
 									<li>
-										<a class="dropdown-item border-hover" href="details-01.html">
+										<a class="dropdown-item border-hover" href="../blog/details-01.html">
 											<span class="border-hover-target">Blog Details 01</span>
 										</a>
 									</li>
 									<li>
-										<a class="dropdown-item border-hover" href="details-02.html">
+										<a class="dropdown-item border-hover" href="../blog/details-02.html">
 											<span class="border-hover-target">Blog Details 02</span>
 										</a>
 									</li>
@@ -2025,7 +2044,7 @@
 						</ul>
 					</li>
 					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase fw-semibold ls-1 fs-15px dropdown-toggle"
+						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
 							href="#" data-bs-toggle="dropdown" id="menu-item-blocks-canvas" aria-haspopup="true" aria-expanded="false">Blocks</a>
 						<div class="dropdown-menu mega-menu start-0 py-6 "
 							aria-labelledby="menu-item-blocks-canvas"
@@ -2106,7 +2125,7 @@
 						</div>
 					</li>
 					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase fw-semibold ls-1 fs-15px dropdown-toggle"
+						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
 							href="#" data-bs-toggle="dropdown" id="menu-item-docs-canvas" aria-haspopup="true" aria-expanded="false">Docs</a>
 						<div class="dropdown-menu mega-menu start-0 py-6 "
 							aria-labelledby="menu-item-docs-canvas">
@@ -2189,20 +2208,6 @@
 	</div>
 </body>
 
-<!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/blog/grid-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:38 GMT -->
+<!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/shop/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:37 GMT -->
 
 </html>
-<style>
-	.text-clamp-2 {
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		/* Giới hạn số dòng */
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-		/* Ẩn nội dung vượt quá */
-		text-overflow: ellipsis;
-		/* Hiển thị dấu "..." nếu cắt bớt nội dung */
-		white-space: normal;
-		/* Đảm bảo ngắt dòng khi cần thiết */
-	}
-</style>

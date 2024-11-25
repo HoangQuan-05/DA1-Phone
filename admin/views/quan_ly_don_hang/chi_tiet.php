@@ -196,7 +196,28 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                             }
                         endforeach;
                         ?>
+                        <?php
+                   
+                        $tong_cong = 0;
 
+
+                        if (isset($hoa_don['khuyen_mai'])) {
+                            foreach ($voucher as $k) {
+                                if ($hoa_don['khuyen_mai'] == $k['ma_khuyen_mai']) {
+                                    foreach ($chi_tiet_hoa_don as $tinh_tien) {
+                                        if ($k['id_danh_muc'] == $tinh_tien['id_danh_muc']) {
+                                            $tong_cong +=  $k['voucher'] / 100 * ($tinh_tien['so_luong_mua'] * $tinh_tien['don_gia']);
+                                           
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+
+
+
+                        ?>
 
 
 
@@ -283,7 +304,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                 </span>
                                 <span>
 
-                                    <?= $tong ?> VND
+                                    <?= number_format($tong,) ?> VND
                                 </span>
                             </div>
 
@@ -292,7 +313,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     Voucher
                                 </span>
                                 <span class="text-danger">
-                                    - <?= $hoa_don['voucher'] ?> %
+                                    - <?=  number_format($tong_cong,) ?> VND
                                 </span>
                             </div>
 
@@ -301,7 +322,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     Tổng cộng
                                 </span>
                                 <span>
-                                    <?= $tong -  $hoa_don['voucher'] / 100 * $tong ?> VND
+                                    <?= number_format($tong-$tong_cong,) ?> VND
                                 </span>
                             </div>
 
@@ -312,10 +333,10 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                     <form action="" method="POST">
                         <select class="form-select" aria-label="Default select example" name="trang_thai">
                             <?php foreach ($tr_thai as $key => $value) : ?>
-                                <?php if ($value['trang_thai'] == "Đã hủy") : ?>
+                                <?php if (trim($data_tt['trang_thai']) == "Đã hủy") : ?>
                                     <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
-                                <?php elseif ($data_tt['trang_thai'] == "Đã hoàn thành") : ?>
+                                <?php elseif (trim($data_tt['trang_thai']) == "Đã hoàn thành") : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 

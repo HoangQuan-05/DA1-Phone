@@ -15,10 +15,11 @@ class Don_hang
         $id = $_GET['id'];
         $data_tt = (new Md_Hoa_Don())->find_tt($id);
         $hoa_don = (new Md_Hoa_Don())->find_hoa_don($id);
+        $voucher = (new khuyenmais)->all();
         $chi_tiet_hoa_don = (new Md_Hoa_Don())->hoa_don_chi_tiet($id);
 
 
-        view('quan_ly_don_hang/chi_tiet', ['chi_tiet_hoa_don' => $chi_tiet_hoa_don, 'tr_thai' => $tr_thai, 'data_tt' => $data_tt, 'hoa_don' => $hoa_don]);
+        view('quan_ly_don_hang/chi_tiet', ['chi_tiet_hoa_don' => $chi_tiet_hoa_don, 'tr_thai' => $tr_thai, 'data_tt' => $data_tt, 'hoa_don' => $hoa_don,'voucher'=>$voucher]);
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

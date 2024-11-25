@@ -39,7 +39,7 @@
                 move_uploaded_file($file_anh['tmp_name'], $hinh_anhs);
             }
             $data['hinh_anhs'] = $hinh_anhs;
-            print_r($data);
+            
             (new banners())->insert($data);
             header("Location: index.php?act=banner");
         }
