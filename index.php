@@ -24,6 +24,7 @@ require_once "models/md_tin_tuc.php";
 require_once "models/khuyen_mai_md.php";
 require_once "models/md_khach_hang.php";
 require_once "models/md_GioHang.php";
+require_once "models/md_binh_luan.php";
 // Route
 $act = $_GET['act'] ?? '/';
 session_start();
@@ -77,5 +78,11 @@ switch ($act) {
         break;
     case 'thanh_toan':
         (new Gio_Hang())->thanh_toan();
+        break;
+    case 'don_hang':
+        (new Gio_Hang())->don_hang();
+        break;
+    case 'don_hang_chi_tiet':
+        (new Gio_Hang())->don_hang_chi_tiet();
         break;
 }

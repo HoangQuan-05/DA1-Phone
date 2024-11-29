@@ -13,5 +13,6 @@ class BinhLuan
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$id_khach_hang, $id_san_pham, $noi_dung]);
     }
+   
     
 }

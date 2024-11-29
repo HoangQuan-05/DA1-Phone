@@ -51,7 +51,7 @@ class Md_san_pham
                 ) AS hinh_anh_cu ON san_phams.id_san_pham = hinh_anh_cu.id_san_pham
                 JOIN hinh_anhs ON san_phams.id_san_pham = hinh_anhs.id_san_pham
                     AND hinh_anhs.id = hinh_anh_cu.id_cu_nhat
-                ORDER BY san_phams.id_san_pham DESC LIMIT 16 OFFSET $offset  ";
+                ORDER BY san_phams.id_san_pham DESC LIMIT 16 OFFSET $offset";
         $result = $this->conn->prepare($sql);
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
@@ -144,7 +144,7 @@ class Md_san_pham
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function get_binh_luan_by_san_pham_id($id)
+    public function get_binh_luan_by_san_pham_id($id,$offset)
     {
         $sql = "SELECT binh_luan.*, 
                    khach_hang.tens, 
@@ -152,7 +152,7 @@ class Md_san_pham
             FROM binh_luan 
             JOIN khach_hang ON binh_luan.id_khach_hang = khach_hang.id_khach_hang 
             WHERE binh_luan.id_san_pham = :id_san_pham 
-            ORDER BY binh_luan.ngay_binh_luan DESC";
+            ORDER BY binh_luan.ngay_binh_luan DESC LIMIT 5 OFFSET $offset";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id_san_pham', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -190,14 +190,17 @@ class Md_san_pham
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['total_binh_luan'];
     }
-    public function add_danh_gia($id_san_pham, $id_khach_hang, $diem_danh_gia, $noi_dung)
+
+    //THÊM ĐÁNH GIÁ 
+    public function add_danh_gia($id_san_pham, $id_khach_hang, $diem_danh_gia, $noi_dung,$id_hdct)
     {
-        $sql = "INSERT INTO danh_gias (id_san_pham, id_khach_hang, diem_danh_gia, noi_dung) VALUES (:id_san_pham, :id_khach_hang, :diem_danh_gia, :noi_dung)";
+        $sql = "INSERT INTO danh_gias (id_san_pham, id_khach_hang, diem_danh_gia, noi_dung, id_hdct) VALUES (:id_san_pham, :id_khach_hang, :diem_danh_gia, :noi_dung ,:id_hdct)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id_san_pham', $id_san_pham);
         $stmt->bindParam(':id_khach_hang', $id_khach_hang);
         $stmt->bindParam(':diem_danh_gia', $diem_danh_gia);
         $stmt->bindParam(':noi_dung', $noi_dung);
+        $stmt->bindParam(':id_hdct', $id_hdct);
         return $stmt->execute();
     }
     public function update_sl_sp($id,$so_luong)

@@ -82,6 +82,30 @@ class Md_Gio_Hang
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function don_hang__one($id_san_pham)
+    {
+        $sql = "SELECT *, hinh_anh.id AS id_hinh_anh FROM chi_tiet_san_pham
+        JOIN mau_sacs ON chi_tiet_san_pham.id = mau_sacs.id_chi_tiet_san_pham
+        JOIN san_phams ON chi_tiet_san_pham.id_san_pham = san_phams.id_san_pham
+        JOIN phien_bans ON chi_tiet_san_pham.id = phien_bans.id_chi_tiet_san_pham
+        JOIN 
+            ( SELECT * FROM hinh_anhs
+                    WHERE id IN (
+                        SELECT MIN(id) 
+                        FROM hinh_anhs
+                        GROUP BY id_san_pham
+                    )
+            ) AS hinh_anh ON hinh_anh.id_san_pham  = san_phams.id_san_pham  
+
+        WHERE chi_tiet_san_pham.id = $id_san_pham";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+
     public function voucher()
     {
         $sql = "SELECT * FROM khuyen_mai";
@@ -123,7 +147,85 @@ class Md_Gio_Hang
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function don_hang__all($id)
+    {
+        $sql = "SELECT 
+                    ma_don_hang,
+                    MIN(hoa_dons.id) AS id_hoa_don,
+                    id_khach_hang,
+                    MIN(ngay_dat) AS ngay_dat,
+                    MIN(trang_thai_don_hang) AS trang_thai_don_hang,
+                    MIN(trang_thai_thanh_toan) AS trang_thai_thanh_toan,
+                    MIN(trang_thai) AS trang_thai
+                FROM hoa_dons
+                    JOIN trang_thai_hoa_don ON trang_thai_hoa_don.id = hoa_dons.trang_thai_don_hang 
+                    WHERE id_khach_hang  = $id
+                    GROUP BY ma_don_hang
+                    ORDER BY id_hoa_don DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function don_hang__($id)
+    {
+        $sql = "SELECT *, hoa_dons.id AS id_hoa_don FROM hoa_dons
+        JOIN trang_thai_hoa_don ON trang_thai_hoa_don.id = hoa_dons.trang_thai_don_hang 
+        WHERE hoa_dons.id  = $id ";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function hoa_don_chi_tiet($id)
+    {
+        $sql = "SELECT 
+                    MIN(id_hoa_don_chi_tiet) AS id_hoa_don_chi_tiet,
+                    MIN(id_hoa_don) AS id_hoa_don,
+                    MIN(so_luong_mua) AS so_luong_mua,
+                    MIN(gia_ban) AS gia_ban,
+                    MIN(mau_sac) AS mau_sac,
+                    MIN(phien_ban) AS phien_ban,
+                    MIN(hinh_anh) AS hinh_anh,
+                    MIN(ten_san_pham) AS ten_san_pham,
+                    MIN(san_phams.id_san_pham) AS id_san_pham
+        
+           FROM hoa_don_chi_tiet 
+                JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id = hoa_don_chi_tiet.id_chi_tiet_san_pham  
+                JOIN hoa_dons ON hoa_dons.id = hoa_don_chi_tiet.id_hoa_don 
+                JOIN san_phams ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham
+
+                JOIN hinh_anhs ON hinh_anhs.id_san_pham  = san_phams.id_san_pham
+                
+                JOIN mau_sacs ON mau_sacs.id_chi_tiet_san_pham = chi_tiet_san_pham.id
+                JOIN phien_bans ON phien_bans.id_chi_tiet_san_pham = chi_tiet_san_pham.id
+
+                
+                WHERE hoa_don_chi_tiet.id_hoa_don = $id
+                
+              GROUP BY id_hoa_don_chi_tiet
+                
+                ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
+    public function danh_gias_one()
+    {
+        $sql = "SELECT * FROM danh_gias";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
+
+    public function update_HD($trang_thai_don_hang, $id, $trang_thai_thanh_toan)
+    {
+        $sql = " UPDATE hoa_dons SET trang_thai_don_hang = $trang_thai_don_hang, trang_thai_thanh_toan = '$trang_thai_thanh_toan' WHERE id = $id ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
 }

@@ -178,9 +178,7 @@
 								</a>
 							</div>
 							<div class="px-5 d-none d-xl-inline-block">
-								<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
-									data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
-									aria-expanded="false">
+								<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=gio_hang">
 									<svg class="icon icon-star-light">
 										<use xlink:href="#icon-shopping-bag-open-light"></use>
 									</svg>
@@ -400,6 +398,7 @@
 		<div class="container container-xxl pb-16 pb-lg-18 mb-lg-3">
 			<div class="row gy-50px">
 
+
 				<!-- TẤT CẢ SẢN PHẨM -->
 
 				<?php
@@ -486,7 +485,6 @@
 							}
 
 
-
 							for ($i = 1; $i <= $page; $i++) : ?>
 								<?php if (isset($_GET['page']) && $i == $_GET['page']) : ?>
 									<li class="page-item">
@@ -511,8 +509,6 @@
 				<?php
 				if (isset($_GET['danh_muc'])) : ?>
 					<?php foreach ($sp_danh_muc as $value) : ?>
-
-
 
 						<div class="col-lg-3 col-sm-6 col-12">
 							<div class="card card-product grid-2 bg-transparent border-0" data-animate="fadeInUp">
@@ -575,14 +571,10 @@
 
 
 
-
-
-
-
-
-
 					<?php
 					endforeach; ?>
+
+
 
 					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
 						<ul class="pagination m-0">
@@ -594,12 +586,11 @@
 								</a>
 							</li>
 							<?php
-							if (isset($page)) {
+							if (isset($page) && $count['COUNT(id_san_pham)'] != 0) {
 								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
-
 
 
 							for ($i = 1; $i <= $page; $i++) : ?>
@@ -620,7 +611,6 @@
 							</li>
 						</ul>
 					</nav>
-
 
 				<?php endif ?>
 
@@ -703,7 +693,6 @@
 						endif;
 					endforeach; ?>
 
-
 					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
 						<ul class="pagination m-0">
 							<li class="page-item">
@@ -714,12 +703,11 @@
 								</a>
 							</li>
 							<?php
-							if (isset($page)) {
+							if (isset($page) && $count['COUNT(id_san_pham)'] != 0) {
 								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
-
 
 
 							for ($i = 1; $i <= $page; $i++) : ?>
@@ -740,6 +728,7 @@
 							</li>
 						</ul>
 					</nav>
+
 				<?php
 				endif;
 				?>
@@ -819,7 +808,6 @@
 					<?php endif;
 					endforeach; ?>
 
-
 					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
 						<ul class="pagination m-0">
 							<li class="page-item">
@@ -829,10 +817,8 @@
 									</svg>
 								</a>
 							</li>
-
 							<?php
-
-							if (isset($page)) {
+							if (isset($page) && $count['COUNT(id_san_pham)'] != 0) {
 								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
@@ -869,7 +855,7 @@
 
 
 
-				<!-- SẢN PHẨM MIN, MAX -->
+				<!-- SẢN PHẨM MIN OR MAX -->
 
 				<?php if (isset($_GET['gia'])  && isset($_GET['by'])) : ?>
 					<?php foreach ($min_max as $value) : ?>
@@ -941,19 +927,18 @@
 					<nav class="d-flex mt-13 pt-3 justify-content-center" aria-label="pagination" data-animate="fadeInUp">
 						<ul class="pagination m-0">
 							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&gia=min&by=<?= $_GET['by'] ?>&page=1" aria-label="Previous">
+								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&gia=<?= $_GET['gia'] ?>&by=<?= $_GET['by'] ?>&page=1" aria-label="Previous">
 									<svg class="icon">
 										<use xlink:href="#icon-angle-double-left"></use>
 									</svg>
 								</a>
 							</li>
 							<?php
-							if (isset($page)) {
+							if (isset($page) && $count['COUNT(id_san_pham)'] != 0) {
 								$page = ceil($count['COUNT(id_san_pham)'] / 16);
 							} else {
 								$page = 1;
 							}
-
 
 
 							for ($i = 1; $i <= $page; $i++) : ?>
@@ -962,11 +947,13 @@
 										<p class="page-link" style="background-color:#DD4B39"><?= $i ?></p>
 									</li>
 								<?php else : ?>
-									<li class="page-item"><a class="page-link" href="index.php?act=san_pham&gia=min&by=<?= $_GET['by'] ?>&page=<?= $i ?>"><?= $i ?></a></li>
+									<li class="page-item"><a class="page-link" href="index.php?act=san_pham&gia=<?= $_GET['gia'] ?>&by=<?= $_GET['by'] ?>&page=<?= $i ?>"><?= $i ?></a></li>
 								<?php endif; ?>
 							<?php endfor ?>
+
+
 							<li class="page-item">
-								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&gia=min&by=<?= $_GET['by'] ?>&page=<?= $page ?>" aria-label="Next">
+								<a class="page-link rounded-circle d-flex align-items-center justify-content-center" href="index.php?act=san_pham&gia=<?= $_GET['gia'] ?>&by=<?= $_GET['by'] ?>&page=<?= $page ?>" aria-label="Next">
 									<svg class="icon">
 										<use xlink:href="#icon-angle-double-right"></use>
 									</svg>

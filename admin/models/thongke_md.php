@@ -38,11 +38,20 @@ class Thongkes
     }
 
 
-    public function thong_ke_doanh_thu_ngay($data)
+    public function date()
     {
-        $sql = "SELECT * FROM hoa_don_chi_tiet 
+        $sql = "SELECT DISTINCT DATE(hoa_dons.ngay_dat)  FROM hoa_don_chi_tiet 
+        JOIN  hoa_dons ON hoa_dons.id = hoa_don_chi_tiet.id_hoa_don WHERE hoa_dons.trang_thai_don_hang = 5 ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function doanh_thu_ngay($data)
+    {
+        $sql = "SELECT so_luong_mua*gia_nhap AS von,thanh_tien  FROM hoa_don_chi_tiet 
         JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id  = hoa_don_chi_tiet.id_chi_tiet_san_pham 
-        JOIN  hoa_dons ON hoa_dons.id = hoa_don_chi_tiet.id_hoa_don WHERE hoa_dons.trang_thai_don_hang = 5 AND hoa_dons.ngay_dat = '$data'";
+        JOIN  hoa_dons ON hoa_dons.id = hoa_don_chi_tiet.id_hoa_don WHERE hoa_dons.trang_thai_don_hang = 5 AND DATE(hoa_dons.ngay_dat) = '$data'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

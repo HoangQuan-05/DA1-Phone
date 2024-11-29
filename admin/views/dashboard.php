@@ -12,12 +12,22 @@ foreach ($tong_sp as $value1) {
     $tong = $value1['so_luong'];
     $tong_sp_con_lai = $tong_sp_con_lai + $tong;
 }
+// $dl_ngay = [];
 
 // $date = [];
 
 // $data_dt = [];
+// echo "<pre>";
+// print_r($doanh_thu_ngay);
+// print_r($date);
+// echo "</pre>";
 
 
+$doanh_thu = 0;
+
+foreach ($thong_ke_doanh_thu as $monney) {
+    $doanh_thu += ($monney['thanh_tien'] - $monney['gia_nhap'] * $monney['so_luong_mua']);
+}
 
 
 
@@ -51,7 +61,6 @@ foreach ($tong_sp as $value1) {
         <!-- HEADER -->
         <?php
         require_once "layouts/header.php";
-
         require_once "layouts/siderbar.php";
         ?>
 
@@ -115,7 +124,7 @@ foreach ($tong_sp as $value1) {
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target="100000000"></span> VND</h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target="<?= $doanh_thu ?>"></span> VND</h4>
                                                         <a href="#" class="text-decoration-underline">View net earnings</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -360,6 +369,11 @@ foreach ($tong_sp as $value1) {
     </div>
 
     <!-- JAVASCRIPT -->
+    <?php
+    // Dữ liệu mẫu PHP
+    $date = ["2024-11-24", "2024-11-25", "2024-11-26", "2024-11-27", "2024-11-28"];
+    $data_dt = [1000000, 1500000, 2000000, 1800000, 2200000];
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const data = {

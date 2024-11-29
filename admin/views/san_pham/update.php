@@ -280,7 +280,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                         <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
                                         <input type="text" class="form-control" id="inputEmail4" value="<?php echo $data['ten_san_pham']; ?>" placeholder="Nhập tên sản phẩm..." name="ten_san_pham">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="inputState" class="form-label">Danh mục</label>
                                         <select id="inputState" class="form-select" name="id_danh_muc">
                                             <option hidden value="<?php echo $data['id_danh_muc']; ?>"><?php echo $data['ten_danh_muc']; ?></option>

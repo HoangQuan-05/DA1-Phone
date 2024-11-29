@@ -4,18 +4,20 @@ class SanPham
 {
     public function san_pham()
     {
+        $count = (new Md_san_pham())->count_SanPham();
+
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
             if ($_GET['page'] <= 0) {
                 $page = 1;
             }
-            $offset = ($page - 1) * 32;
-            $count = (new Md_san_pham())->count_SanPham();
+            $offset = ($page - 1) * 16;
         } else {
-            $count = 0;
+            $count['COUNT(id_san_pham)'] = 0;
             $page = 1;
             $offset = 0;
         }
+
         $san_pham = (new Md_san_pham())->show_all_san_pham($offset);
 
         if (isset($_GET['by'])) {
@@ -32,7 +34,7 @@ class SanPham
 
 
         $danh_muc = (new Md_danh_muc())->all();
-        view('SanPham/SanPham', ['san_pham' => $san_pham, 'danh_muc' => $danh_muc, 'count' => $count, 'min_max' => $min_max, 'sp_danh_muc' => $sp_danh_muc]);
+        view('SanPham/SanPham', ['san_pham' => $san_pham, 'danh_muc' => $danh_muc, 'count' => $count, 'min_max' => $min_max, 'sp_danh_muc' => $sp_danh_muc, 'page' => $page]);
     }
 
 
@@ -59,7 +61,6 @@ class SanPham
             echo "Không tìm thấy sản phẩm";
             return;
         }
-
         // Xử lý thêm bình luận
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['binh_luan'])) {
             if (!isset($_SESSION['id_khach_hang'])) {
@@ -69,7 +70,6 @@ class SanPham
                 </script>";
                 return;
             }
-
             $noi_dung = trim($_POST['noi_dung']);
             if (empty($noi_dung)) {
                 echo "Nội dung bình luận không được để trống.";
@@ -84,7 +84,7 @@ class SanPham
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['danh_gias'])) {
             // Kiểm tra người dùng đã đăng nhập chưa
             if (!isset($_SESSION['id_khach_hang'])) {
-                // header("Location: index.php?act=dang_nhap&redirect=chi_tiet_san_pham&id=" . $id);
+
                 echo "<script type='text/javascript'>
                         alert('Cần đăng nhập để đánh giá');
                         window.location.href = 'index.php?act=chi_tiet_san_pham&id= $id';
@@ -97,14 +97,17 @@ class SanPham
             $diem_danh_gia = $_POST['diem_danh_gia'];
             $noi_dung = trim($_POST['noi_dung']);
             $id_khach_hang = $_SESSION['id_khach_hang'];
+            $id_hdct = $_SESSION['id_hoa_don'];
 
             // Kiểm tra dữ liệu hợp lệ
 
 
             // Thêm đánh giá vào cơ sở dữ liệu
-            $result = (new Md_san_pham())->add_danh_gia($id, $id_khach_hang, $diem_danh_gia, $noi_dung);
+            $result = (new Md_san_pham())->add_danh_gia($id, $id_khach_hang, $diem_danh_gia, $noi_dung, $id_hdct);
+
 
             if ($result) {
+                unset($_SESSION['id_hoa_don']);
                 header("Location: index.php?act=chi_tiet_san_pham&id=" . $id);
                 exit();
             } else {
@@ -112,9 +115,25 @@ class SanPham
             }
         }
 
+
+
+
+
         // Lấy bình luận và đánh giá
-        $binh_luan = $md_san_pham->get_binh_luan_by_san_pham_id($id);
         $total_binh_luan = $md_san_pham->count_binh_luan_by_san_pham_id($id);
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+            if ($_GET['page'] <= 0) {
+                $page = 1;
+            }
+            $offset = ($page - 1) * 5;
+        } else {
+
+            $page = 1;
+            $offset = 0;
+        }
+        $binh_luan = $md_san_pham->get_binh_luan_by_san_pham_id($id, $offset);
+
         $danh_gia = $md_san_pham->get_danh_gia_by_san_pham_id($id);
 
         // Tính điểm trung bình đánh giá
@@ -123,8 +142,9 @@ class SanPham
         $diem_trung_binh = $so_luong_danh_gia > 0 ? round($tong_diem / $so_luong_danh_gia, 1) : 0;
 
 
+        //THÊM SẢN PHẨM TRONG GIỎ HÀNG
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['buy__product']) && isset($_SESSION['id_khach_hang']) && isset($_POST['id_san_pham_chi_tiet'])) {
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add__product']) && isset($_SESSION['id_khach_hang']) && isset($_POST['id_san_pham_chi_tiet'])) {
             $stt = true;
             $data_gio_hang['id_khach_hang'] = $_SESSION['id_khach_hang'];
             $data_gio_hang['id_san_pham_chi_tiet'] = $_POST['id_san_pham_chi_tiet'];
@@ -140,8 +160,14 @@ class SanPham
                         if ($value2['id'] == $value['id_san_pham_chi_tiet']) {
                             if ($data_gio_hang['so_luong'] <= $value2['so_luong']) {
                                 (new Md_Gio_Hang())->update_gio_hang($value['id_san_pham_chi_tiet'], $data_gio_hang['id_khach_hang'], $data_gio_hang['so_luong']);
+                                echo "<script type='text/javascript'>
+                                window.location.href = 'index.php?act=chi_tiet_san_pham&id= $id';
+                                </script>";
                             } else {
                                 (new Md_Gio_Hang())->update_gio_hang($value['id_san_pham_chi_tiet'], $data_gio_hang['id_khach_hang'], $value2['so_luong']);
+                                echo "<script type='text/javascript'>
+                                window.location.href = 'index.php?act=chi_tiet_san_pham&id= $id';
+                                </script>";
                             }
                         }
                     }
@@ -149,56 +175,40 @@ class SanPham
             }
 
 
-            if ($stt && (new Md_Gio_Hang)->add_gio_hang($data_gio_hang)) {
+            if ($stt) {
+                (new Md_Gio_Hang)->add_gio_hang($data_gio_hang);
                 echo "<script type='text/javascript'>
-                    window.location.href = 'index.php?act=chi_tiet_san_pham&id=$id';
-                </script>";
+                        window.location.href = 'index.php?act=chi_tiet_san_pham&id= $id';
+                        </script>";
             }
         }
+        //Mua SAN PHAM
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy__product']) && isset($_SESSION['id_khach_hang']) && isset($_POST['id_san_pham_chi_tiet'])) {
+            //XÓA CÁC SS ĐÃ TỒN TẠI
+            $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
+            foreach ($_SESSION as $key => $value) {
+                if (!in_array($key, $keep_sessions)) {
+                    unset($_SESSION[$key]); // Xóa các session không cần thiết
+                }
+            }
+
+
             $stt = true;
             $_SESSION['buy__product'] = $_POST['buy__product'];
             $_SESSION['id_san_pham_chi_tiet'] = $_POST['id_san_pham_chi_tiet'];
+            $_SESSION['so_luong'] = $_POST['so_luong_mua'];
 
-            $data_gio_hang['id_khach_hang'] = $_SESSION['id_khach_hang'];
-            $data_gio_hang['id_san_pham_chi_tiet'] = $_POST['id_san_pham_chi_tiet'];
-            $data_gio_hang['so_luong'] = $_POST['so_luong_mua'];
-
-            $san_pham_gio_hang = (new Md_Gio_Hang)->find_all($data_gio_hang['id_khach_hang']);
-
-            foreach ($san_pham_gio_hang as $value) {
-                if ($value['id_san_pham_chi_tiet'] == $data_gio_hang['id_san_pham_chi_tiet']) {
-                    $stt = false;
-                    $data_gio_hang['so_luong'] += $value['so_luong_mua'];
-                    foreach ($bien_the as $value2) {
-                        if ($value2['id'] == $value['id_san_pham_chi_tiet']) {
-                            if ($data_gio_hang['so_luong'] <= $value2['so_luong']) {
-                                (new Md_Gio_Hang())->update_gio_hang($value['id_san_pham_chi_tiet'], $data_gio_hang['id_khach_hang'], $data_gio_hang['so_luong']);
-                                echo "<script type='text/javascript'>
-                                        window.location.href = 'index.php?act=gio_hang';
-                                    </script>";
-                            } else {
-                                (new Md_Gio_Hang())->update_gio_hang($value['id_san_pham_chi_tiet'], $data_gio_hang['id_khach_hang'], $value2['so_luong']);
-                                echo "<script type='text/javascript'>
-                                        window.location.href = 'index.php?act=gio_hang';
-                                    </script>";
-                            }
-                        }
-                    }
-                }
-            }
-           
-
-            if ($stt && (new Md_Gio_Hang)->add_gio_hang($data_gio_hang)) {
-
-                echo "<script type='text/javascript'>
-                    window.location.href = 'index.php?act=gio_hang';
-                </script>";
-            }
+            header("location: index.php?act=thanh_toan");
         }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['id_san_pham_chi_tiet'])) {
             echo "<script type='text/javascript'>
-                     alert('chon phien ban');
+                     alert('Chưa chọn cấu hình');
+                </script>";
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_SESSION['id_khach_hang'])) {
+            echo "<script type='text/javascript'>
+                     alert('Chưa đăng nhập');
                 </script>";
         }
 
@@ -218,6 +228,8 @@ class SanPham
             'diem_trung_binh' => $diem_trung_binh,
             'so_luong_danh_gia' => $so_luong_danh_gia,
             'total_binh_luan' => $total_binh_luan,
+            'page' => $page
+
         ]);
     }
 }

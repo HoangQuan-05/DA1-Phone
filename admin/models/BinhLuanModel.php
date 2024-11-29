@@ -10,7 +10,7 @@ class BinhLuan {
                 FROM binh_luan bl 
                 JOIN khach_hang kh ON bl.id_khach_hang = kh.id 
                 WHERE bl.id_san_pham = ? 
-                ORDER BY bl.ngay_binh_luan DESC";
+                ORDER BY bl.ngay_binh_luan ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$id_san_pham]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

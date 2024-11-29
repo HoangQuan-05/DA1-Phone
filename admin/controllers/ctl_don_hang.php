@@ -24,7 +24,13 @@ class Don_hang
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tt = $_POST['trang_thai'];
-            (new Md_Hoa_Don())->update_tt($id, $tt);
+            if($tt ==5 ){
+                $tt_thanh_toan = 'Đã thanh toán';
+            }
+            else{
+                $tt_thanh_toan = 'Chưa thanh toán';
+            }
+            (new Md_Hoa_Don())->update_tt($id,$tt_thanh_toan, $tt);
             echo "<script type='text/javascript'>
                     window.location.href = 'index.php?act=don_hang';
                 </script>";

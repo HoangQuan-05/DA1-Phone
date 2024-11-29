@@ -76,4 +76,21 @@ class KhachHang
     {
         return $this->create($data);
     }
+    public function checkEmailExists($email)
+    {
+        $sql = "SELECT COUNT(*) FROM khach_hang WHERE email = :email";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
+    public function checkPhoneExists($phone)
+    {
+        $sql = "SELECT COUNT(*) FROM khach_hang WHERE so_dien_thoai = :phone";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
 }

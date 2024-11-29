@@ -62,7 +62,7 @@
                         <button type="submit" class="btn btn-primary btn-lg btn-block" style="width:100%;">Đăng ký</button>
                     </form>
                     <div class="mt-3 text-center">
-                        <a href="index.php?ctl=login">Đã có tài khoản? Đăng nhập</a>
+                        <a href="index.php?act=login">Đã có tài khoản? Đăng nhập</a>
                     </div>
                 </div>
             </div>

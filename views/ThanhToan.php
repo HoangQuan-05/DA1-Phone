@@ -1,9 +1,13 @@
 <?php
-if (empty($_SESSION['san_pham'])) {
-	echo "<script type='text/javascript'>
-	window.location.href = 'index.php?act=gio_hang';
-</script>";
+$stt = false;
+
+if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
+	$stt = true;
 }
+
+
+
+
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="light">
@@ -21,7 +25,7 @@ if (empty($_SESSION['san_pham'])) {
 	<title>Sản phẩm</title>
 	<link rel="icon" href="../templates/glowing-bootstrap-5/assets/images/others/favicon.ico">
 
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/animate/animate.min.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/slick/slick.css">
@@ -29,6 +33,7 @@ if (empty($_SESSION['san_pham'])) {
 	<link rel="stylesheet" href="../templates/assets/vendors/mapbox-gl/mapbox-gl.min.css">
 	<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="../templates/glowing-bootstrap-5/assets/vendors/fonts/a-antara-distance/stylesheet.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css">
 
 	<link
 		href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
@@ -38,6 +43,7 @@ if (empty($_SESSION['san_pham'])) {
 
 
 </head>
+
 
 <body>
 
@@ -283,7 +289,7 @@ if (empty($_SESSION['san_pham'])) {
 										</div>
 										<div class="d-flex flex-grow-1">
 											<div class="pe-6">
-												<a href="#" class=""><span class="text-body"><?= $san_pham['ten_san_pham'] ?> </span></a>
+												<a href="index.php?act=chi_tiet_san_pham&id=<?= $san_pham['id_san_pham'] ?>" class=""><span class="text-body"><?= $san_pham['ten_san_pham'] ?> </span></a>
 												<p class="fs-14px text-body-emphasis mb-0 mt-1">
 													<?= $san_pham['phien_ban'] ?> - <?= $san_pham['mau_sac'] ?>
 												</p>
@@ -310,7 +316,7 @@ if (empty($_SESSION['san_pham'])) {
 
 								<div class="d-flex align-items-center">
 									<span>Voucher:</span>
-									<span class="d-block ms-auto text-body-emphasis " id="voucher">0 VND</span>
+									<input class="d-block ms-auto text-body-emphasis" readonly style="outline: none; border: none; text-align: right; cursor:default; "id="voucher" name="khuyen_mai" value="0"> VND</input>
 								</div>
 							</div>
 							<div class="card-footer bg-transparent py-5 px-0 mx-10">
@@ -358,7 +364,7 @@ if (empty($_SESSION['san_pham'])) {
 							</div>
 							<div class="mb-7">
 								<label for="">Voucher</label>
-								<input type="text" class="form-control" id="khuyen_mai" name="khuyen_mai" placeholder="Nhập mã Voucher">
+								<input type="text" class="form-control" id="khuyen_mai" placeholder="Nhập mã Voucher">
 							</div>
 
 							<div class="form-group">
@@ -406,6 +412,7 @@ if (empty($_SESSION['san_pham'])) {
 							<button type="submit" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary px-11 mt-md-7 mt-4 mua__hang" disabled>Thanh toán</button>
 						</div>
 
+
 					</div>
 				</div>
 
@@ -413,52 +420,7 @@ if (empty($_SESSION['san_pham'])) {
 		</section>
 
 	</main>
-	<script>
-		var xac_nhan = document.getElementById('customCheck5')
-		var thanh_toan = document.querySelector('.mua__hang')
-		xac_nhan.addEventListener('change', function() {
-			if (xac_nhan.checked == true) {
-				thanh_toan.disabled = false;
-			} else {
-				thanh_toan.disabled = true;
-			}
-		})
 
-		var voucher = <?= json_encode($voucher) ?>;
-		var array_san_pham = <?= json_encode($array_san_pham); ?>;
-		var khuyen_mai = document.getElementById('khuyen_mai')
-		var flag = true
-		var tong_cong = document.getElementById('tong_cong')
-		var tong_thanh_toan = document.getElementById('tong_thanh_toan')
-
-
-
-		let giam__ = 0;
-		khuyen_mai.addEventListener('change', () => {
-
-			giam__ = 0;
-			const voucher_display = document.getElementById('voucher');
-			const khuyenMaiValue = khuyen_mai.value.trim();
-			const thanh_toan_hoa_don = document.getElementById('thanh_toan_hoa_don')
-
-			voucher.forEach((value) => {
-				if (value.ma_khuyen_mai.trim() === khuyenMaiValue) {
-					array_san_pham.forEach((data) => {
-						if (data.id_danh_muc === value.id_danh_muc) {
-							giam__ += Number((value.voucher / 100) * data.gia_ban);
-						}
-					});
-				}
-				tong_thanh_toan.innerHTML = ""
-			});
-
-			voucher_display.innerHTML = "-" + giam__.toLocaleString("en-US") + " VND";
-			tong_thanh_toan.innerHTML = (Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__).toLocaleString("en-US") + " VND"
-			thanh_toan_hoa_don.value = Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__
-
-
-		});
-	</script>
 
 	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">
 		<div class="container container-xxl pt-4">
@@ -1318,9 +1280,7 @@ if (empty($_SESSION['san_pham'])) {
 		<div class="container-wide container-xxl">
 			<nav class="navbar navbar-expand-xl px-0 py-6 py-xl-12 row align-items-start">
 				<div class="col-xl-3 d-flex justify-content-center justify-content-xl-start">
-					<a href="../index.html" class="navbar-brand py-4 d-lg-inline-block">
-						<img src="../assets/images/others/logo.png" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
-					</a>
+
 				</div>
 				<div class="col-xl-6 d-flex justify-content-center">
 					<form class="w-xl-100 w-sm-75 w-100 mt-6 mt-xl-0 px-6 px-xl-0">
@@ -1333,41 +1293,19 @@ if (empty($_SESSION['san_pham'])) {
 							</div>
 						</div>
 						<div class="d-flex align-items-center justify-content-center mt-6">
-							<p class="text-muted mb-0 mr-3">Popular Searches</p>
-							<nav class="nav">
-								<a class="nav-link text-decoration-underline py-0 px-4" href="#">T-Shirt</a>
-								<a class="nav-link text-decoration-underline py-0 px-4" href="#">Blue</a>
-								<a class="nav-link text-decoration-underline py-0 px-4" href="#">Jacket</a>
-							</nav>
+
 						</div>
 					</form>
 				</div>
 				<div class="icons-actions col-xl-3 d-flex justify-content-end fs-28px text-body-emphasis">
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
-							<svg class="icon icon-user-light">
-								<use xlink:href="#icon-user-light"></use>
-							</svg>
-						</a>
+
 					</div>
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="wishlist.html">
-							<svg class="icon icon-star-light">
-								<use xlink:href="#icon-star-light"></use>
-							</svg>
-							<span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-						</a>
+
 					</div>
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-							data-bs-target="#shoppingCart"
-							aria-controls="shoppingCart"
-							aria-expanded="false">
-							<svg class="icon icon-star-light">
-								<use xlink:href="#icon-shopping-bag-open-light"></use>
-							</svg>
-							<span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
-						</a>
+
 					</div>
 				</div>
 			</nav>
@@ -1375,837 +1313,66 @@ if (empty($_SESSION['san_pham'])) {
 	</div>
 
 
-	<div class="modal" id="signInModal" tabindex="-1" aria-labelledby="signInModal" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-			<div class="modal-content">
-				<div class="modal-header text-center border-0 pb-0">
-					<button type="button" class="btn-close position-absolute end-5 top-5" data-bs-dismiss="modal" aria-label="Close"></button>
-					<h3 class="modal-title w-100" id="signInModalLabel">Sign In</h3>
-				</div>
-				<div class="modal-body px-sm-13 px-8">
-					<p class="text-center fs-16 mb-10">Don’t have an account yet? <a href="#" data-bs-toggle="modal" data-bs-target="#signUpModal" class="text-black">Sign up</a> for free</p>
-					<form action="#">
-						<input name="email" type="email" class="form-control mb-5" placeholder="Your email" required>
-						<input name="password" type="password" class="form-control" placeholder="Password" required>
-						<div class="d-flex align-items-center justify-content-between mt-8 mb-7">
-							<div class="custom-control d-flex form-check">
-								<input name="stay-signed-in" type="checkbox" class="form-check-input rounded-0 me-3" id="staySignedIn">
-								<label class="custom-control-label text-body" for="staySignedIn">Stay signed in</label>
-							</div>
-							<a href="#" class="text-secondary">Forgot your password?</a>
-						</div>
-						<button type="submit" value="Login" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary w-100">Log In</button>
-					</form>
-				</div>
-				<div class="modal-footer px-13 pt-0 pb-12 border-0">
-					<div class="border-bottom w-100"></div>
-					<div class="text-center lh-1 mb-8 w-100 mt-n5">
-						<span class="fs-14 bg-body lh-1 px-4">or Log-in with</span>
-					</div>
-					<div class="d-flex w-100">
-						<a href="#" class="btn btn-outline-secondary w-100 border-2x me-5 btn-hover-bg-primary btn-hover-border-primary"><i class="fab fa-facebook-f me-4" style="color: #2E58B2"></i>Facebook</a>
-						<a href="#" class="btn btn-outline-secondary w-100 border-2x mt-0 btn-hover-bg-primary btn-hover-border-primary"><i class="fab fa-google me-4" style="color: #DD4B39"></i>Google</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="signUpModal" tabindex="-1" aria-labelledby="signUpModal" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-			<div class="modal-content">
-				<div class="modal-header text-center border-0 pb-0">
-					<button type="button" class="btn-close position-absolute end-5 top-5" data-bs-dismiss="modal" aria-label="Close"></button>
-					<h3 class="modal-title w-100" id="signUpModalLabel">Sign Up</h3>
-				</div>
-				<div class="modal-body px-sm-13 px-8">
-					<p class="text-center fs-16 mb-10">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signInModal" class="text-black">Log in</a></p>
-					<form action="#">
-						<input name="first-name" type="text" class="form-control border-1 mb-5" placeholder="First name" required>
-						<input name="last-name" type="text" class="form-control border-1 mb-5" placeholder="Last name" required>
-						<input name="email" type="email" class="form-control border-1 mb-5" placeholder="Your email" required>
-						<input name="password" type="password" class="form-control border-1" placeholder="Password" required>
-						<div class="d-flex align-items-center mt-8 mb-7">
-							<div class="form-check">
-								<input name="agree-policy-terms" type="checkbox" class="form-check-input rounded-0 me-3" id="agreePolicyTerm">
-								<label class="custom-control-label text-body" for="agreePolicyTerm">Yes, I agree with Grace <a href="#" class="text-black">Privacy Policy</a> and <a href="#" class="text-black">Terms of Use</a></label>
-							</div>
-						</div>
-						<button type="submit" value="Sign Up" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary w-100">Sign Up</button>
-					</form>
-				</div>
-				<div class="modal-footer px-13 pt-0 pb-12 border-0">
-					<div class="border-bottom w-100"></div>
-					<div class="text-center lh-1 mb-8 w-100 mt-n5">
-						<span class="fs-14 bg-body lh-1 px-4">or Sign Up with</span>
-					</div>
-					<div class="d-flex w-100">
-						<a href="#" class="btn btn-outline-secondary w-100 border-2x me-5 btn-hover-bg-primary btn-hover-border-primary"><i class="fab fa-facebook-f me-4" style="color: #2E58B2"></i>Facebook</a>
-						<a href="#" class="btn btn-outline-secondary w-100 border-2x mt-0 btn-hover-bg-primary btn-hover-border-primary"><i class="fab fa-google me-4" style="color: #DD4B39"></i>Google</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="quickViewModal" aria-labelledby="quickViewModal" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header border-0 py-5">
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body pt-0">
-					<div class="row ">
-						<div class="col-md-6 pe-13">
-							<div class="position-relative">
-								<div class="position-absolute z-index-2 w-100 d-flex justify-content-end">
-									<div class="p-6">
-										<a href="#" class="d-flex align-items-center justify-content-center product-gallery-action rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Add to wishlist">
-											<svg class="icon fs-4">
-												<use xlink:href="#icon-star-light"></use>
-											</svg>
-										</a>
-										<a href="compare.html" class="d-flex align-items-center justify-content-center mt-5 product-gallery-action rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Compare">
-											<svg class="icon fs-4">
-												<use xlink:href="#icon-arrows-left-right-light"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-								<div id="slider" class="slick-slider slick-slider-arrow-inside slick-slider-dots-inside slick-slider-dots-light g-0" data-slick-options='{&#34;arrows&#34;:false,&#34;asNavFor&#34;:&#34;#slider-thumb&#34;,&#34;dots&#34;:false,&#34;slidesToShow&#34;:1}'>
-									<a href="../assets/images/shop/product-gallery-05.jpg" data-gallery="gallery1" data-thumb-src="../assets/images/shop/product-gallery-05.jpg"><img src="#" data-src="../assets/images/shop/product-gallery-05.jpg" class="h-auto lazy-image" width="540" height="720" alt=""></a>
-									<a href="../assets/images/shop/product-gallery-06.jpg" data-gallery="gallery1" data-thumb-src="../assets/images/shop/product-gallery-06.jpg"><img src="#" data-src="../assets/images/shop/product-gallery-06.jpg" class="h-auto lazy-image" width="540" height="720" alt=""></a>
-									<a href="../assets/images/shop/product-gallery-07.jpg" data-gallery="gallery1" data-thumb-src="../assets/images/shop/product-gallery-07.jpg"><img src="#" data-src="../assets/images/shop/product-gallery-07.jpg" class="h-auto lazy-image" width="540" height="720" alt=""></a>
-									<a href="../assets/images/shop/product-gallery-08.jpg" data-gallery="gallery1" data-thumb-src="../assets/images/shop/product-gallery-08.jpg"><img src="#" data-src="../assets/images/shop/product-gallery-08.jpg" class="h-auto lazy-image" width="540" height="720" alt=""></a>
-								</div>
-							</div>
-							<div class="mt-6">
-								<div id="slider-thumb" class="slick-slider slick-slider-thumb ps-1 ms-n3 me-n4" data-slick-options='{&#34;arrows&#34;:false,&#34;asNavFor&#34;:&#34;#slider&#34;,&#34;dots&#34;:false,&#34;focusOnSelect&#34;:true,&#34;slidesToShow&#34;:5,&#34;vertical&#34;:false}'>
-									<img src="#" data-src="../assets/images/shop/product-gallery-05-154x205.jpg" class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100" alt="">
-									<img src="#" data-src="../assets/images/shop/product-gallery-06-154x205.jpg" class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100" alt="">
-									<img src="#" data-src="../assets/images/shop/product-gallery-07-154x205.jpg" class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100" alt="">
-									<img src="#" data-src="../assets/images/shop/product-gallery-08-154x205.jpg" class="mx-3 px-0 h-auto cursor-pointer lazy-image" width="75" height="100" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 pt-md-0 pt-10">
-							<p class="d-flex align-items-center mb-6">
-								<span class="text-decoration-line-through">39.00</span>
-								<span class="fs-18px text-body-emphasis ps-6 fw-bold">29.00</span>
-								<span class="badge text-bg-primary fs-6 ms-7 px-6 py-3">20%</span>
-							</p>
-							<h1 class="mb-4 pb-2 fs-4">
-								<a href="product-details-v1.html" title="Natural Coconut Cleansing Oil">
-									Natural Coconut Cleansing Oil
-								</a>
-							</h1>
-							<div class="d-flex align-items-center fs-15px mb-6">
-								<p class="mb-0 text-body-emphasis">4.86</p>
-								<div class="d-flex align-items-center fs-12px justify-content-center mb-0 px-6 rating-result">
-									<div class="rating">
-										<div class="empty-stars">
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star-o">
-													<use xlink:href="#star-o"></use>
-												</svg>
-											</span>
-										</div>
-										<div class="filled-stars"
-											style="width: 100%">
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-											<span class="star">
-												<svg class="icon star text-primary">
-													<use xlink:href="#star"></use>
-												</svg>
-											</span>
-										</div>
-									</div>
-								</div>
-								<a href="#" class="border-start ps-6 text-body">Read 2947 reviews</a>
-							</div>
-							<p class="fs-15px">Niacinamide and Vitamin C are two anti-aging superstars but not usually formulated together because of their different pH levels.</p>
-
-
-							<p class="mb-4 pb-2">
-								<span class="text-body-emphasis">
-									<svg class="icon fs-5 me-4 pe-2 align-text-bottom">
-										<use xlink:href="#icon-eye-light"></use>
-									</svg>
-									17 people
-								</span>
-								are viewing this right now
-							</p>
-							<p class="mb-4 pb-2 text-body-emphasis">
-								<svg class="icon fs-5 me-4 pe-2 align-text-bottom">
-									<use xlink:href="#icon-Timer"></use>
-								</svg>
-								Only 9 left in stock
-							</p>
-							<div class="progress mb-7" style="height: 4px;">
-								<div class="progress-bar w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<form class="mb-9 pb-2">
-								<div class="row align-items-end">
-									<div class="form-group col-sm-4">
-										<label class=" text-body-emphasis fs-15px pb-6" for="QuickViewNumber">Quantity: </label>
-										<div class="input-group position-relative w-100 input-group-lg">
-											<a href="#" class="shop-down position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus"><i class="far fa-minus"></i></a>
-											<input name="number" type="number" id="QuickViewNumber" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
-											<a href="#" class="shop-up position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus"><i class="far fa-plus"></i>
-											</a>
-										</div>
-									</div>
-									<div class="col-sm-8 pt-9 mt-2 mt-sm-0 pt-sm-0">
-										<button type="submit" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Add To Bag
-										</button>
-									</div>
-								</div>
-
-							</form>
-							<p class="mb-4 pb-2">
-								<span class="text-body-emphasis">
-									<svg class="icon fs-28px me-2 pe-4">
-										<use xlink:href="#icon-delivery-1"></use>
-									</svg>Get it between:
-								</span> Feb 3 - Feb 14,2021
-							</p>
-							<p class="mb-4 pb-2">
-								<span class="text-body-emphasis">
-									<svg class="icon fs-28px me-2 pe-4">
-										<use xlink:href="#icon-Package"></use>
-									</svg>Free Shipping & Returns:
-								</span> On all orders over $200
-							</p>
-							<div class="card border-0 bg-body-tertiary rounded text-center mt-7">
-								<div class="pt-8 px-5">
-									<img class="img-fluid" src="../assets/images/shop/product-info-2.png" alt="pay" width="357" height="28">
-								</div>
-								<div class="card-body pt-6 pb-7">
-									<p class="fs-14px fw-normal mb-0">Guarantee safe &amp; secure checkout</p>
-								</div>
-							</div>
-							<ul class="single-product-meta list-unstyled border-top pt-7 mt-7">
-								<li class="d-flex mb-4 pb-2 align-items-center">
-									<span class="text-body-emphasis fs-14px">Sku:</span>
-									<span class="ps-4">SF09281</span>
-								</li>
-								<li class="d-flex mb-4 pb-2 align-items-center">
-									<span class="text-body-emphasis fs-14px">Categories:</span>
-									<span class="ps-4">Makeup, Skincare</span>
-								</li>
-							</ul>
-
-							<ul class="list-inline d-flex justify-content-start mb-0 fs-6">
-								<li class="list-inline-item">
-									<a class="text-body text-decoration-none product-info-share product-info-share" href="#"><i class="fab fa-facebook-f me-4"></i> Facebook</a>
-								</li>
-								<li class="list-inline-item ms-7">
-									<a class="text-body text-decoration-none product-info-share product-info-share" href="#"><i class="fab fa-instagram me-4"></i> Instagram</a>
-								</li>
-								<li class="list-inline-item ms-7">
-									<a class="text-body text-decoration-none product-info-share product-info-share" href="#"><i class="fab fa-youtube me-4"></i> Youtube</a>
-								</li>
-							</ul>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="navbar">
-		<div id="offCanvasNavBar" class="offcanvas offcanvas-start" style="--bs-offcanvas-width: 310px">
-
-			<div class="offcanvas-header bg-body-tertiary">
-				<h3 class="offcanvas-title text-uppercase">Glowing</h3>
-				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<hr class="mt-0">
-			<div class="offcanvas-body pt-0 mb-2">
-				<ul class="navbar-nav">
 
 
 
 
 
-
-
-
-
-					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
-							href="../index-2.html" data-bs-toggle="dropdown" id="menu-item-home-canvas" aria-haspopup="true" aria-expanded="false">Home</a>
-						<div class="dropdown-menu mega-menu start-0 py-6 "
-							aria-labelledby="menu-item-home-canvas"
-							style="width:320px">
-							<div class="megamenu-home container py-8 px-12">
-								<div class="row">
-									<div class="col">
-										<h6 class="fs-18px">Group 1</h6>
-										<ul class="list-unstyled">
-											<li>
-												<a href="../home-01.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 01</span></a>
-											</li>
-											<li>
-												<a href="../home-02.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 02</span></a>
-											</li>
-											<li>
-												<a href="../home-03.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 03</span></a>
-											</li>
-											<li>
-												<a href="../home-04.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 04</span></a>
-											</li>
-											<li>
-												<a href="../home-05.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 05</span></a>
-											</li>
-											<li>
-												<a href="../home-06.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 06</span></a>
-											</li>
-											<li>
-												<a href="../home-07.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 07</span></a>
-											</li>
-											<li>
-												<a href="../home-08.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 08</span></a>
-											</li>
-											<li>
-												<a href="../home-09.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 09</span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col">
-										<h6 class="fs-18px">Group 2</h6>
-										<ul class="list-unstyled">
-											<li>
-												<a href="../home-10.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 10</span></a>
-											</li>
-											<li>
-												<a href="../home-11.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 11</span></a>
-											</li>
-											<li>
-												<a href="../home-12.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 12</span></a>
-											</li>
-											<li>
-												<a href="../home-13.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 13</span></a>
-											</li>
-											<li>
-												<a href="../home-14.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 14</span></a>
-											</li>
-											<li>
-												<a href="../home-15.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 15</span></a>
-											</li>
-											<li>
-												<a href="../home-16.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 16</span></a>
-											</li>
-											<li>
-												<a href="../home-17.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 17</span></a>
-											</li>
-											<li>
-												<a href="../home-18.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Home 18</span></a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</li>
-					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth position-static">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
-							href="../store.html" data-bs-toggle="dropdown" id="menu-item-shop-canvas" aria-haspopup="true" aria-expanded="false">Shop</a>
-						<div class="dropdown-menu mega-menu start-0 py-6  w-100"
-							aria-labelledby="menu-item-shop-canvas">
-							<div class="megamenu-shop container-wide py-8 px-12">
-								<div class="row">
-									<div class="col">
-										<h6 class="fs-18px">Shop Pages</h6>
-										<ul class="list-unstyled mb-0">
-											<li>
-												<a href="shop-layout-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v1</sup></span></a>
-											</li>
-											<li>
-												<a href="shop-layout-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v2</sup></span></a>
-											</li>
-											<li>
-												<a href="shop-layout-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v3</sup></span></a>
-											</li>
-											<li>
-												<a href="shop-layout-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v4</sup></span></a>
-											</li>
-											<li>
-												<a href="shop-layout-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shop Layout <sup>v5</sup></span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col">
-										<h6 class="fs-18px">Product Pages</h6>
-										<ul class="list-unstyled mb-0">
-											<li>
-												<a href="product-details-v1.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v1</sup></span></a>
-											</li>
-											<li>
-												<a href="product-details-v2.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v2</sup></span></a>
-											</li>
-											<li>
-												<a href="product-details-v3.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v3</sup></span></a>
-											</li>
-											<li>
-												<a href="product-details-v4.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v4</sup></span></a>
-											</li>
-											<li>
-												<a href="product-details-v5.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v5</sup></span></a>
-											</li>
-											<li>
-												<a href="product-details-v6.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v6</sup></span></a>
-											</li>
-											<li>
-												<a href="product-details-v7.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v7</sup></span></a>
-											</li>
-											<li>
-												<a href="product-details-v8.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Detail <sup>v8</sup></span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col">
-										<h6 class="fs-18px">Product Types</h6>
-										<ul class="list-unstyled mb-0">
-											<li>
-												<a href="product-simple.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Simple</span></a>
-											</li>
-											<li>
-												<a href="product-variable.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Variable</span></a>
-											</li>
-											<li>
-												<a href="product-time-limit.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Time Limit</span></a>
-											</li>
-											<li>
-												<a href="product-grouped.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Grouped</span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col">
-										<h6 class="fs-18px">Other Pages</h6>
-										<ul class="list-unstyled mb-0">
-											<li>
-												<a href="shopping-cart.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Shopping Cart</span></a>
-											</li>
-											<li>
-												<a href="compare.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Compare</span></a>
-											</li>
-											<li>
-												<a href="wishlist.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Wishlist</span></a>
-											</li>
-											<li>
-												<a href="checkout.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Checkout</span></a>
-											</li>
-											<li>
-												<a href="../user-registration.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Register</span></a>
-											</li>
-											<li>
-												<a href="../user-login.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Login</span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col d-xxl-block d-none megamenu-shop-banner" data-bs-theme="light">
-										<div class="card border-0 mt-4">
-											<img src="../assets/images/background/bg-mega-menu-shop.jpg" alt="bg mega menu" class="card-img">
-											<div class="card-img-overlay d-flex flex-column mx-2 px-9 py-6">
-												<p class="text-body-emphasis ls-1 mb-4 mt-6 text-uppercase">
-													new collection
-												</p>
-												<h3 class="fs-3">
-													Special <br>
-													Offer
-												</h3>
-												<div class="mt-auto">
-													<a href="#" class="btn btn-white">Shop Sale</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</li>
-					<li class="nav-item transition-all-xl-1 py-0 dropdown">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
-							href="#" data-bs-toggle="dropdown" id="menu-item-pages-canvas" aria-haspopup="true" aria-expanded="false">Pages</a>
-						<ul class="dropdown-menu py-6" aria-labelledby="menu-item-pages-canvas">
-							<li class="dropend" aria-haspopup="true" aria-expanded="false">
-								<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-									href="#" data-bs-toggle="dropdown" id="menu-item-blog-canvas">
-									<span class="border-hover-target">
-										Blog
-									</span>
-								</a>
-								<ul class="dropdown-menu py-6"
-									aria-labelledby="menu-item-blog-canvas" data-bs-popper="none">
-									<li>
-										<a class="dropdown-item border-hover" href="../blog/grid.html">
-											<span class="border-hover-target">Blog Grid</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../blog/grid-sidebar.html">
-											<span class="border-hover-target">Blog Grid Sidebar</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../blog/masonry.html">
-											<span class="border-hover-target">Blog Masonry</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../blog/list.html">
-											<span class="border-hover-target">Blog List</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../blog/classic.html">
-											<span class="border-hover-target">Blog Classic</span>
-										</a>
-									</li>
-									<li class="dropdown-divider"></li>
-
-									<li>
-										<a class="dropdown-item border-hover" href="../blog/details-01.html">
-											<span class="border-hover-target">Blog Details 01</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../blog/details-02.html">
-											<span class="border-hover-target">Blog Details 02</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown-divider"></li>
-							<li class="dropend" aria-haspopup="true" aria-expanded="false">
-								<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-									href="#" data-bs-toggle="dropdown" id="menu-item-about-us-canvas">
-									<span class="border-hover-target">
-										About Us
-									</span>
-								</a>
-								<ul class="dropdown-menu py-6"
-									aria-labelledby="menu-item-about-us-canvas" data-bs-popper="none">
-									<li>
-										<a class="dropdown-item border-hover" href="../about-us-01.html">
-											<span class="border-hover-target">About Us 01</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../about-us-02.html">
-											<span class="border-hover-target">About Us 02</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropend" aria-haspopup="true" aria-expanded="false">
-								<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-									href="#" data-bs-toggle="dropdown" id="menu-item-contact-us-canvas">
-									<span class="border-hover-target">
-										Contact us
-									</span>
-								</a>
-								<ul class="dropdown-menu py-6"
-									aria-labelledby="menu-item-contact-us-canvas" data-bs-popper="none">
-									<li>
-										<a class="dropdown-item border-hover" href="../contact-us-01.html">
-											<span class="border-hover-target">Contact Us 01</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../contact-us-02.html">
-											<span class="border-hover-target">Contact Us 02</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropend" aria-haspopup="true" aria-expanded="false">
-								<a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover"
-									href="../dashboard/dashboard.html" data-bs-toggle="dropdown" id="menu-item-dashboard-canvas">
-									<span class="border-hover-target">
-										Dashboard
-									</span>
-								</a>
-								<ul class="dropdown-menu py-6"
-									aria-labelledby="menu-item-dashboard-canvas" data-bs-popper="none">
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/dashboard.html">
-											<span class="border-hover-target">Dashboard</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/product-grid.html">
-											<span class="border-hover-target">Products</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/order-list.html">
-											<span class="border-hover-target">Orders</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/sellers-cards.html">
-											<span class="border-hover-target">Sellers</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/add-product-1.html">
-											<span class="border-hover-target">Add Product</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/transactions-1.html">
-											<span class="border-hover-target">Transaction</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/reviews.html">
-											<span class="border-hover-target">Reviews</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/brands.html">
-											<span class="border-hover-target">Brands</span>
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item border-hover" href="../dashboard/profile-settings.html">
-											<span class="border-hover-target">Settings</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a class="dropdown-item pe-6 border-hover"
-									href="../faqs.html">
-									<span class="border-hover-target">
-										FAQs
-									</span>
-								</a>
-							</li>
-							<li>
-								<a class="dropdown-item pe-6 border-hover"
-									href="../find-a-store.html">
-									<span class="border-hover-target">
-										Store
-									</span>
-								</a>
-							</li>
-							<li>
-								<a class="dropdown-item pe-6 border-hover"
-									href="../404.html">
-									<span class="border-hover-target">
-										404
-									</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
-							href="#" data-bs-toggle="dropdown" id="menu-item-blocks-canvas" aria-haspopup="true" aria-expanded="false">Blocks</a>
-						<div class="dropdown-menu mega-menu start-0 py-6 "
-							aria-labelledby="menu-item-blocks-canvas"
-							style="width:800px">
-							<div class="megamenu-home container py-8 px-12">
-								<div class="row">
-									<div class="col">
-										<h6 class="fs-18px">Group 1</h6>
-										<ul class="list-unstyled">
-											<li>
-												<a href="../blocks/blog.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Blog</span></a>
-											</li>
-											<li>
-												<a href="../blocks/banner.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Banner</span></a>
-											</li>
-											<li>
-												<a href="../blocks/call-to-action.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Call To Action</span></a>
-											</li>
-											<li>
-												<a href="../blocks/hero.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Hero</span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col">
-										<h6 class="fs-18px">Group 2</h6>
-										<ul class="list-unstyled">
-											<li>
-												<a href="../blocks/products.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Products</span></a>
-											</li>
-											<li>
-												<a href="../blocks/products-slide.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Products Slide</span></a>
-											</li>
-											<li>
-												<a href="../blocks/product-tabs.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Product Tabs</span></a>
-											</li>
-											<li>
-												<a href="../blocks/news-letter.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">News Letter</span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col">
-										<h6 class="fs-18px">Group 3</h6>
-										<ul class="list-unstyled">
-											<li>
-												<a href="../blocks/features.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Features</span></a>
-											</li>
-											<li>
-												<a href="../blocks/info.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Info</span></a>
-											</li>
-											<li>
-												<a href="../blocks/instagram.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Instagram</span></a>
-											</li>
-											<li>
-												<a href="../blocks/video.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Video</span></a>
-											</li>
-										</ul>
-									</div>
-									<div class="col">
-										<h6 class="fs-18px">Group 4</h6>
-										<ul class="list-unstyled">
-											<li>
-												<a href="../blocks/team.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Team</span></a>
-											</li>
-											<li>
-												<a href="../blocks/testimonials.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Testimonials</span></a>
-											</li>
-											<li>
-												<a href="../blocks/header.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Header</span></a>
-											</li>
-											<li>
-												<a href="../blocks/footer.html" class="border-hover text-decoration-none py-3 d-block"><span class="border-hover-target">Footer</span></a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</li>
-					<li class="nav-item transition-all-xl-1 py-0 dropdown dropdown-fullwidth">
-						<a class="nav-link d-flex justify-content-between position-relative text-uppercase ls-1 fs-15px dropdown-toggle"
-							href="#" data-bs-toggle="dropdown" id="menu-item-docs-canvas" aria-haspopup="true" aria-expanded="false">Docs</a>
-						<div class="dropdown-menu mega-menu start-0 py-6 "
-							aria-labelledby="menu-item-docs-canvas">
-							<div class="menumega-docs px-8" style="min-width: 250px">
-
-
-								<a href="../docs/usage/getting-started.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
-									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-										<svg class="icon">
-											<use xlink:href="#book"></use>
-										</svg>
-									</div>
-									<div class="flex-grow-1 ps-6">
-										<h6 class="mb-2">Documentation</h6>
-										<small>Kick-start customization</small>
-									</div>
-								</a>
-
-
-								<hr class="dropdown-divider mx-n8" />
-
-								<a href="../docs/components/accordion.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
-									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-										<svg class="icon">
-											<use xlink:href="#layer-group"></use>
-										</svg>
-									</div>
-									<div class="flex-grow-1 ps-6">
-										<h6 class="mb-2">UI Kit</h6>
-										<small>Flexible components</small>
-									</div>
-								</a>
-
-
-								<hr class="dropdown-divider mx-n8" />
-
-								<a href="../docs/usage/changelog.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
-									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-										<svg class="icon">
-											<use xlink:href="#pen-to-square"></use>
-										</svg>
-									</div>
-									<div class="flex-grow-1 ps-6">
-										<h6 class="mb-2">Changelog</h6>
-										<small>Regular updates</small>
-									</div>
-								</a>
-
-
-								<hr class="dropdown-divider mx-n8" />
-
-								<a href="https://sp.g5plus.net/" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Support" target="_blank">
-									<div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
-										<svg class="icon">
-											<use xlink:href="#headset"></use>
-										</svg>
-									</div>
-									<div class="flex-grow-1 ps-6">
-										<h6 class="mb-2">Support</h6>
-										<small>https://sp.g5plus.net/</small>
-									</div>
-								</a>
-
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<hr class="mb-0">
-			<div class="offcanvas-footer bg-body-tertiary">
-				© 2023 Glowing. <br>
-				All rights reserved.
-			</div>
-		</div>
-	</div>
 	<div class="position-fixed z-index-10 bottom-0 end-0 p-10">
 		<a href="#"
 			class="gtf-back-to-top text-decoration-none bg-body text-primary bg-primary-hover text-light-hover shadow square p-0 rounded-circle d-flex align-items-center justify-content-center"
 			title="Back To Top" style="--square-size: 48px"><i class="fa-solid fa-arrow-up"></i></a>
 	</div>
+
+
+
+
+	<script>
+		var xac_nhan = document.getElementById('customCheck5')
+		var thanh_toan = document.querySelector('.mua__hang')
+		xac_nhan.addEventListener('change', function() {
+			if (xac_nhan.checked == true) {
+				thanh_toan.disabled = false;
+			} else {
+				thanh_toan.disabled = true;
+			}
+		})
+
+		var voucher = <?= json_encode($voucher) ?>;
+		var array_san_pham = <?= json_encode($array_san_pham); ?>;
+		var khuyen_mai = document.getElementById('khuyen_mai')
+		var flag = true
+		var tong_cong = document.getElementById('tong_cong')
+		var tong_thanh_toan = document.getElementById('tong_thanh_toan')
+
+
+
+		let giam__ = 0;
+		khuyen_mai.addEventListener('change', () => {
+
+			giam__ = 0;
+			const voucher_display = document.getElementById('voucher');
+			const khuyenMaiValue = khuyen_mai.value.trim();
+			const thanh_toan_hoa_don = document.getElementById('thanh_toan_hoa_don')
+
+			voucher.forEach((value) => {
+				if (value.ma_khuyen_mai.trim() === khuyenMaiValue) {
+					array_san_pham.forEach((data) => {
+						if (data.id_danh_muc === value.id_danh_muc) {
+							giam__ += Number((value.voucher / 100) * data.gia_ban);
+						}
+					});
+				}
+				tong_thanh_toan.innerHTML = ""
+			});
+
+			voucher_display.value = "-" + giam__.toLocaleString("en-US") ;
+			tong_thanh_toan.innerHTML = (Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__).toLocaleString("en-US") + " VND"
+			thanh_toan_hoa_don.value = Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__
+
+
+		});
+	</script>
 </body>
 
 <!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/shop/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2024 12:24:37 GMT -->

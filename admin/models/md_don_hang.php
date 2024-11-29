@@ -63,9 +63,9 @@ class Md_Hoa_Don
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function update_tt($id, $tt)
+    public function update_tt($id,$tt_thanh_toan, $tt)
     {
-        $sql = "UPDATE hoa_dons SET trang_thai_don_hang =$tt WHERE id = $id";
+        $sql = "UPDATE hoa_dons SET trang_thai_don_hang = $tt, trang_thai_thanh_toan = '$tt_thanh_toan' WHERE id = $id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }
