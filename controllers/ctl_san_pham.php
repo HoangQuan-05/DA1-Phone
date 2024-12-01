@@ -182,6 +182,8 @@ class SanPham
                         </script>";
             }
         }
+
+
         //Mua SAN PHAM
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy__product']) && isset($_SESSION['id_khach_hang']) && isset($_POST['id_san_pham_chi_tiet'])) {
             //XÓA CÁC SS ĐÃ TỒN TẠI
@@ -207,9 +209,8 @@ class SanPham
                 </script>";
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_SESSION['id_khach_hang'])) {
-            echo "<script type='text/javascript'>
-                     alert('Chưa đăng nhập');
-                </script>";
+            (new HomeController())->error();
+            
         }
 
 

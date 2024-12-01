@@ -519,9 +519,10 @@
                             id__chi__tiet.type = "hidden"
                             gia_ban.append(id__chi__tiet)
 
-
+                            
                             add.onclick = (e) => {
                                 e.preventDefault(); // Ngừng gửi form mặc định
+                                
 
                                 // Hiển thị Thông báo
                                 Swal.fire({

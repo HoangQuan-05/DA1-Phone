@@ -34,199 +34,196 @@
 </head>
 
 <body>
-    <header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
-        <div class="sticky-area">
-            <div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
-                <div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
-
-              
+<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
+		<div class="sticky-area">
+			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
+				<div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
 
 
-                    <a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
-                        <h3>PhonePlus</h3>
 
-                        <div class="d-none d-xl-flex w-xl-50">
-                            <ul class="navbar-nav">
+					<a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
+						<h3>PhonePlus</h3>
 
-                                <li
-                                    class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
+						<div class="d-none d-xl-flex w-xl-50">
+							<ul class="navbar-nav">
+
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
 
 
-                                    <a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-                                        href="index.php">Trang chủ</a>
-                                </li>
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php">Trang chủ</a>
+								</li>
 
-                                <li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
+								<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
 									dropdown-fullwidth position-static">
-                                    <a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-                                        href="index.php?act=san_pham&page=1">Danh mục</a>
-                                    <div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
-                                        <div class="megamenu-shop container-wide py-8 px-12 ">
-                                            <div class="row justify-content-center align-items-center text-center">
-                                                <div class="row justify-content-start align-items-center text-center">
-                                                    <!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
-                                                    <?php foreach ($danh_muc as $dm) : ?>
-                                                        <div class="col-3">
-                                                            <a href="/index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
-                                                                <span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
-                                                            </a>
-                                                        </div>
-                                                    <?php endforeach ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+									<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=san_pham&page=1">Danh mục</a>
+									<div class="dropdown-menu mega-menu start-0 py-6 w-100 " aria-labelledby="menu-item-shop">
+										<div class="megamenu-shop container-wide py-8 px-12 ">
+											<div class="row justify-content-center align-items-center text-center">
+												<div class="row justify-content-start align-items-center text-center">
+													<!-- Mỗi liên kết là 1 cột, mỗi cột chiếm 3/12 chiều rộng -->
+													<?php foreach ($danh_muc as $dm) : ?>
+														<div class="col-3">
+															<a href="/index.php?act=san_pham&danh_muc=<?= $dm['ten_danh_muc'] ?>" class="border-hover text-decoration-none py-3 d-block">
+																<span class="border-hover-target"><?= $dm['ten_danh_muc'] ?></span>
+															</a>
+														</div>
+													<?php endforeach ?>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
 
-                                <li
-                                    class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-                                    <a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
-                                        href="index.php?act=tin_tuc">Tin tức</a>
-
-
-                                </li>
-
-                                <style>
-                                    .no-arrow-link::after {
-                                        display: none;
-                                    }
-                                </style>
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=tin_tuc">Tin tức</a>
 
 
-                                </style>
-                                <li
-                                    class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
-                                    <a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
-                                        href="index.php?act=khuyen_mai">Khuyến mãi</a>
-                                </li>
-                            </ul>
-                        </div>
+								</li>
+
+								<style>
+									.no-arrow-link::after {
+										display: none;
+									}
+								</style>
+
+
+								</style>
+								<li
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover">
+									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
+										href="index.php?act=khuyen_mai">Khuyến mãi</a>
+								</li>
+							</ul>
+						</div>
 
 
 
 
-                </div>
-                <div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
-                    <div class="px-xl-5 d-inline-block">
-                        <a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
-                            <svg class="icon icon-magnifying-glass-light">
-                                <use xlink:href="#icon-magnifying-glass-light"></use>
-                            </svg>
-                        </a>
-                    </div>
+				</div>
+				<div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
+					<div class="px-xl-5 d-inline-block">
+						<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="offcanvas"
+							data-bs-target="#searchModal" aria-controls="searchModal" aria-expanded="false">
+							<svg class="icon icon-magnifying-glass-light">
+								<use xlink:href="#icon-magnifying-glass-light"></use>
+							</svg>
+						</a>
+					</div>
 
 
-                    <div class="dropdown-center">
-                        <?php if (isset($_SESSION['id_khach_hang'])) : ?>
-                            <p type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
-                            </p>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="index.php?act=thong_tin_ca_nhan">Thông tin</a></li>
-                                <li><a class="dropdown-item" href="index.php?act=doi_mat_khau">Đổi mật khẩu</a></li>
-                                <li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
-                            </ul>
+					<div class="dropdown-center">
+						<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+							<p type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<img style="width: 35px; height: 35px; border-radius: 50%;" src="admin/<?= $_SESSION['avt'] ?>">
+							</p>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="index.php?act=thong_tin_ca_nhan">Thông tin</a></li>
+								<li><a class="dropdown-item" href="index.php?act=doi_mat_khau">Đổi mật khẩu</a></li>
+								<li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
+							</ul>
 
-                        <?php else : ?>
-                            <a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
-                                <svg class="icon icon-user-light">
-                                    <use xlink:href="#icon-user-light"></use>
-                                </svg>
-                            </a>
-                        <?php endif; ?>
-
-
-                    </div>
-                    <?php if (isset($_SESSION['id_khach_hang'])) : ?>
-                        <div class="px-5 d-none d-xl-inline-block">
-                            <a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he&id_khach_hang=<?= $_SESSION['id_khach_hang'] ?>">
-                                <svg class="icon icon-magnifying-glass-light">
-                                    <use xlink:href="#icon-box-05"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    <?php endif; ?>
-
-                    <!--  -->
+						<?php else : ?>
+							<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
+								<svg class="icon icon-user-light">
+									<use xlink:href="#icon-user-light"></use>
+								</svg>
+							</a>
+						<?php endif; ?>
 
 
-                    <div class="px-5 d-none d-xl-inline-block">
-                        <a class="position-relative lh-1 color-inherit text-decoration-none"
-                            href="shop/wishlist.html">
-                            <svg class="icon icon-star-light">
-                                <use xlink:href="#icon-star-light"></use>
-                            </svg>
-                            <span
-                                class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-                                style="--square-size: 18px">3</span>
-                        </a>
-                    </div>
+					</div>
+					<?php if (isset($_SESSION['id_khach_hang'])) : ?>
+						<div class="px-5 d-none d-xl-inline-block">
+							<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=lien_he&id_khach_hang=<?= $_SESSION['id_khach_hang'] ?>">
+								<svg class="icon icon-magnifying-glass-light">
+									<use xlink:href="#icon-box-05"></use>
+								</svg>
+							</a>
+						</div>
+					<?php endif; ?>
 
-                    <!--  -->
-                    <div class="px-5 d-none d-xl-inline-block">
-                        <a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=gio_hang">
-                            <svg class="icon icon-star-light">
-                                <use xlink:href="#icon-shopping-bag-open-light"></use>
-                            </svg>
-                            <span
-                                class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-                                style="--square-size: 18px">3</span>
-                        </a>
-                    </div>
+					<!--  -->
 
-                    <div class="color-modes position-relative ps-5">
-                        <a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
-                            href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
-                            aria-label="Toggle theme (light)">
-                            <svg class="bi my-1 theme-icon-active">
-                                <use href="#sun-fill"></use>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
-                            <li>
-                                <button type="button" class="dropdown-item d-flex align-items-center active"
-                                    data-bs-theme-value="light" aria-pressed="true">
-                                    <svg class="bi me-4 opacity-50 theme-icon">
-                                        <use href="#sun-fill"></use>
-                                    </svg>
-                                    Light
-                                    <svg class="bi ms-auto d-none">
-                                        <use href="#check2"></use>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item d-flex align-items-center"
-                                    data-bs-theme-value="dark" aria-pressed="false">
-                                    <svg class="bi me-4 opacity-50 theme-icon">
-                                        <use href="#moon-stars-fill"></use>
-                                    </svg>
-                                    Dark
-                                    <svg class="bi ms-auto d-none">
-                                        <use href="#check2"></use>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item d-flex align-items-center"
-                                    data-bs-theme-value="auto" aria-pressed="false">
-                                    <svg class="bi me-4 opacity-50 theme-icon">
-                                        <use href="#circle-half"></use>
-                                    </svg>
-                                    Auto
-                                    <svg class="bi ms-auto d-none">
-                                        <use href="#check2"></use>
-                                    </svg>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </header>
+
+					<div class="px-5 d-none d-xl-inline-block">
+						<a class="position-relative lh-1 color-inherit text-decoration-none"
+							href="index.php?act=yeu_thich">
+							<svg class="icon icon-star-light">
+								<use xlink:href="#icon-star-light"></use>
+							</svg>
+							<span
+								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
+								style="--square-size: 18px"></span>
+						</a>
+					</div>
+
+					<!--  -->
+					<div class="px-5 d-none d-xl-inline-block">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=gio_hang">
+							<svg class="icon icon-star-light">
+								<use xlink:href="#icon-shopping-bag-open-light"></use>
+							</svg>
+
+						</a>
+					</div>
+
+					<div class="color-modes position-relative ps-5">
+						<a class="bd-theme btn btn-link nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center text-primary p-0 position-relative rounded-circle"
+							href="#" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static"
+							aria-label="Toggle theme (light)">
+							<svg class="bi my-1 theme-icon-active">
+								<use href="#sun-fill"></use>
+							</svg>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end fs-14px" data-bs-popper="static">
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center active"
+									data-bs-theme-value="light" aria-pressed="true">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#sun-fill"></use>
+									</svg>
+									Light
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center"
+									data-bs-theme-value="dark" aria-pressed="false">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#moon-stars-fill"></use>
+									</svg>
+									Dark
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center"
+									data-bs-theme-value="auto" aria-pressed="false">
+									<svg class="bi me-4 opacity-50 theme-icon">
+										<use href="#circle-half"></use>
+									</svg>
+									Auto
+									<svg class="bi ms-auto d-none">
+										<use href="#check2"></use>
+									</svg>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</header>
 
     <main id="content" class="wrapper layout-page">
         <section class="z-index-2 position-relative pb-2 mb-12">

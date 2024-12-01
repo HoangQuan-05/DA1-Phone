@@ -31,12 +31,7 @@ class Gio_Hang
                 }
             }
         } else {
-            echo "<script type='text/javascript'>
-                     alert('Chưa đăng nhập');
-                </script>";
-            echo "<script type='text/javascript'>
-                window.location.href = 'index.php';
-            </script>";
+            (new HomeController())->error();
         }
     }
 
@@ -173,8 +168,10 @@ class Gio_Hang
                                 unset($_SESSION[$key]); // Xóa các session không cần thiết
                             }
                         }
+                        if (isset($_SESSION['id_khach_hang'])) {
+                            hienThiThongBao();
+                        }
 
-                        hienThiThongBao();
                         gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                     }
                 } elseif (isset($_POST['payUrl']) && $_POST['payUrl'] == 'MOMO') {
@@ -386,7 +383,7 @@ class Gio_Hang
 
 
                             hienThiThongBao();
-                            gui_email_phpmailer($_SESSION['momo']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
+                            gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                             foreach ($_SESSION as $key => $value) {
                                 if (!in_array($key, $keep_sessions)) {
                                     unset($_SESSION[$key]); // Xóa các session không cần thiết
@@ -529,7 +526,7 @@ class Gio_Hang
                 }
             }
 
-            view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang,'danh_muc'=>$danh_muc]);
+            view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang, 'danh_muc' => $danh_muc]);
         }
     }
 
@@ -551,22 +548,26 @@ class Gio_Hang
 
         view('hoa_don_chi_tiet', ['data' => $data, 'oder' => $oder, 'danh_gias_one' => $danh_gias_one, 'danh_muc' => $danh_muc]);
 
+        //HUY DON
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 03) {
-            (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
-
-            foreach ($data as $index => $items) {
-                $data_san_pham_HUY = (new Md_san_pham)->find_CTSP($items['id_chi_tiet_san_pham']);
-
-
-                $sl_HUY = $items['so_luong_mua'] + $data_san_pham_HUY['so_luong'];
-                (new Md_san_pham())->update_SL_SPCT($data_san_pham_HUY['id'], $sl_HUY);
-            }
+            if ($oder['trang_thai_don_hang'] == 1) {
+                (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
+                foreach ($data as $index => $items) {
+                    $data_san_pham_HUY = (new Md_san_pham)->find_CTSP($items['id_chi_tiet_san_pham']);
 
 
-            echo "<script type='text/javascript'>
+                    $sl_HUY = $items['so_luong_mua'] + $data_san_pham_HUY['so_luong'];
+                    (new Md_san_pham())->update_SL_SPCT($data_san_pham_HUY['id'], $sl_HUY);
+                }
+
+
+                echo "<script type='text/javascript'>
                         window.location.href = 'index.php?act=don_hang';
                     </script>";
+            }
         }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 04) {
             (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
             echo "<script type='text/javascript'>
@@ -577,16 +578,31 @@ class Gio_Hang
 
     public function yeu_thich()
     {
-        $danh_muc = (new Md_danh_muc())->all();
+        if (isset($_SESSION['id_khach_hang'])) {
+            $danh_muc = (new Md_danh_muc())->all();
 
-        $data = (new Md_Gio_Hang())->find_all_yeu_thich($_SESSION['id_khach_hang']);
-        view(
-            'YeuThich',
-            [
-                'data' => $data,
-                'danh_muc' => $danh_muc
-            ]
-        );
+            $data = (new Md_Gio_Hang())->find_all_yeu_thich($_SESSION['id_khach_hang']);
+            view(
+                'YeuThich',
+                [
+                    'data' => $data,
+                    'danh_muc' => $danh_muc
+                ]
+            );
+
+            $danh_muc = (new Md_danh_muc())->all();
+
+            $data = (new Md_Gio_Hang())->find_all_yeu_thich($_SESSION['id_khach_hang']);
+            view(
+                'YeuThich',
+                [
+                    'data' => $data,
+                    'danh_muc' => $danh_muc
+                ]
+            );
+        } else {
+            (new HomeController())->error();
+        }
     }
 
     public function delete_yeu_thich()

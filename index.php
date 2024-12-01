@@ -100,4 +100,7 @@ switch ($act) {
     case 'yeu_thich_delete':
         (new Gio_Hang())->delete_yeu_thich();
         break;
+    case '404':
+        (new HomeController())->error();
+        break;
 }

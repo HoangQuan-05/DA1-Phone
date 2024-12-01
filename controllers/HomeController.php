@@ -22,4 +22,8 @@ class HomeController
             }
         }
     }
+    public function error(){
+        $danh_muc = (new Md_danh_muc())->all();
+        view('404',['danh_muc'=>$danh_muc]);
+    }
 }

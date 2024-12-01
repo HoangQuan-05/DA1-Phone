@@ -40,8 +40,6 @@
                 <div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
 
 
-              
-
 
                     <a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
                         <h3>PhonePlus</h3>
@@ -154,13 +152,13 @@
 
                     <div class="px-5 d-none d-xl-inline-block">
                         <a class="position-relative lh-1 color-inherit text-decoration-none"
-                            href="shop/wishlist.html">
+                            href="index.php?act=yeu_thich">
                             <svg class="icon icon-star-light">
                                 <use xlink:href="#icon-star-light"></use>
                             </svg>
                             <span
                                 class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-                                style="--square-size: 18px">3</span>
+                                style="--square-size: 18px"></span>
                         </a>
                     </div>
 
@@ -170,9 +168,7 @@
                             <svg class="icon icon-star-light">
                                 <use xlink:href="#icon-shopping-bag-open-light"></use>
                             </svg>
-                            <span
-                                class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-                                style="--square-size: 18px">3</span>
+
                         </a>
                     </div>
 
@@ -292,7 +288,7 @@
                 </form>
             </div>
 
-        </seformn>
+            </seformn>
 
 
 
