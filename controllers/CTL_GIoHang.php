@@ -7,9 +7,10 @@ class Gio_Hang
         ob_start(); // Bật bộ đệm đầu ra
 
         if (isset($_SESSION['id_khach_hang'])) {
+            $danh_muc = (new Md_danh_muc())->all();
             $id_khach_hang = $_SESSION['id_khach_hang'];
             $sanpham_giohang = (new Md_Gio_Hang)->find_all($id_khach_hang);
-            view('GioHang', ['sanpham_giohang' => $sanpham_giohang]);
+            view('GioHang', ['sanpham_giohang' => $sanpham_giohang, 'danh_muc' => $danh_muc]);
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (isset($_POST['update']) && $_POST['update'] == 0) {
@@ -94,12 +95,14 @@ class Gio_Hang
                 </script>";
         }
 
-
+        $danh_muc = (new Md_danh_muc())->all();
         //MUA HÀNG TỪ GIỎ HÀNG
         if (isset($_SESSION['san_pham'])) {
 
             $array_san_pham = [];
             $data_nhan_hang = (new Md_Gio_Hang())->khach_hang($_SESSION['id_khach_hang']);
+
+
 
             $voucher = (new Md_Gio_Hang())->voucher();
             $ma_don_hang = mt_rand(10000, 99999);
@@ -311,7 +314,7 @@ class Gio_Hang
 
 
 
-            view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang]);
+            view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang, 'danh_muc' => $danh_muc]);
         }
         //MUA HÀNG TRỰC TIẾP
         if (isset($_SESSION['id_san_pham_chi_tiet'])) {
@@ -526,15 +529,16 @@ class Gio_Hang
                 }
             }
 
-            view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang]);
+            view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang,'danh_muc'=>$danh_muc]);
         }
     }
 
     public function don_hang()
     {
         if (isset($_SESSION['id_khach_hang'])) {
+            $danh_muc = (new Md_danh_muc())->all();
             $data = (new Md_Gio_Hang())->don_hang__all($_SESSION['id_khach_hang']);
-            view('Donhang', ['data' => $data]);
+            view('Donhang', ['data' => $data, 'danh_muc' => $danh_muc]);
         }
     }
     public function don_hang_chi_tiet()
@@ -543,7 +547,9 @@ class Gio_Hang
         $danh_gias_one = (new Md_Gio_Hang())->danh_gias_one();
         $oder = (new Md_Gio_Hang())->don_hang__($id);
         $data = (new Md_Gio_Hang)->hoa_don_chi_tiet($id);
-        view('hoa_don_chi_tiet', ['data' => $data, 'oder' => $oder, 'danh_gias_one' => $danh_gias_one]);
+        $danh_muc = (new Md_danh_muc())->all();
+
+        view('hoa_don_chi_tiet', ['data' => $data, 'oder' => $oder, 'danh_gias_one' => $danh_gias_one, 'danh_muc' => $danh_muc]);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 03) {
             (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
@@ -571,12 +577,14 @@ class Gio_Hang
 
     public function yeu_thich()
     {
+        $danh_muc = (new Md_danh_muc())->all();
 
         $data = (new Md_Gio_Hang())->find_all_yeu_thich($_SESSION['id_khach_hang']);
         view(
             'YeuThich',
             [
-                'data' => $data
+                'data' => $data,
+                'danh_muc' => $danh_muc
             ]
         );
     }

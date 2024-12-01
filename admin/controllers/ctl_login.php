@@ -136,18 +136,7 @@ class loginController
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    //ĐĂNG XUẤT
 
     public function log_out()
     {

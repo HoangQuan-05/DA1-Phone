@@ -34,18 +34,13 @@
 
 <body>
 
-	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
+<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
 		<div class="topbar bg-primary">
 
 		</div>
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
 				<div class="container-wide container flex-nowrap">
-
-
-
-
-
 
 
 
@@ -158,25 +153,23 @@
 
 							<div class="px-5 d-none d-xl-inline-block">
 								<a class="position-relative lh-1 color-inherit text-decoration-none"
-									href="shop/wishlist.html">
+									href="index.php?act=yeu_thich">
 									<svg class="icon icon-star-light">
 										<use xlink:href="#icon-star-light"></use>
 									</svg>
 									<span
 										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-										style="--square-size: 18px">3</span>
+										style="--square-size: 18px"></span>
 								</a>
 							</div>
 							<div class="px-5 d-none d-xl-inline-block">
-								<a class="position-relative lh-1 color-inherit text-decoration-none" href="#"
-									data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart"
-									aria-expanded="false">
+								<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=gio_hang">
 									<svg class="icon icon-star-light">
 										<use xlink:href="#icon-shopping-bag-open-light"></use>
 									</svg>
 									<span
 										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-										style="--square-size: 18px">3</span>
+										style="--square-size: 18px"></span>
 								</a>
 							</div>
 

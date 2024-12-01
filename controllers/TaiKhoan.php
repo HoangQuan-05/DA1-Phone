@@ -63,6 +63,7 @@ class TaiKhoan_ctl
     public function doi_mat_khau()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $danh_muc = (new Md_danh_muc())->all();
             // Lấy thông tin người dùng từ session
             $id = $_SESSION['id_khach_hang'];
             $mat_khau_cu = $_POST['mat_khau_cu'];
@@ -73,7 +74,7 @@ class TaiKhoan_ctl
             if ($mat_khau_moi !== $mat_khau_moi_nhap_lai) {
                 // Nếu không khớp, thông báo lỗi
                 $_SESSION['error'] = "Mật khẩu mới và mật khẩu nhập lại không khớp.";
-                view("TaiKhoan/DoiMatKhau");
+                view("TaiKhoan/DoiMatKhau,['danh_muc'=>$danh_muc]");
                 return;
             }
 
@@ -83,7 +84,7 @@ class TaiKhoan_ctl
             if ($userData['mat_khau'] !== $mat_khau_cu) {
                 // Nếu mật khẩu cũ không đúng
                 $_SESSION['error'] = "Mật khẩu cũ không đúng.";
-                view("TaiKhoan/DoiMatKhau");
+                view("TaiKhoan/DoiMatKhau",['danh_muc'=>$danh_muc]);
                 return;
             }
 
@@ -98,8 +99,8 @@ class TaiKhoan_ctl
                 exit();
             }
         } else {
-
-            view("TaiKhoan/DoiMatKhau");
+            $danh_muc = (new Md_danh_muc())->all();
+            view("TaiKhoan/DoiMatKhau",['danh_muc'=>$danh_muc]);
         }
     }
 }

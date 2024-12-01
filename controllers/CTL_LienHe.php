@@ -5,10 +5,10 @@ class LienHe
     public function lien_he() {
         $id_khach_hang = $_GET['id_khach_hang'];
         $admin = (new lien_he_client())->id_admin();
-
+        $danh_muc = (new Md_danh_muc())->all();
         $data = (new lien_he_client)->hien_thi_tin_nhan($id_khach_hang,$admin['id_khach_hang']);
 
-        view('LienHe',['data'=>$data,'admin'=>$admin]);
+        view('LienHe',['data'=>$data,'admin'=>$admin,'danh_muc'=>$danh_muc]);
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
