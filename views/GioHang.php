@@ -40,13 +40,7 @@
 				<div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
 
 
-					<div class="w-72px d-flex d-xl-none">
-						<button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4"
-							type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasNavBar"
-							aria-controls="offCanvasNavBar" aria-expanded="false" aria-label="Toggle Navigation">
-							<span class="fs-24 toggle-icon"></span>
-						</button>
-					</div>
+
 
 
 					<a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
@@ -56,7 +50,7 @@
 							<ul class="navbar-nav">
 
 								<li
-									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
+									class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10">
 
 
 									<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
@@ -254,7 +248,6 @@
 		</section>
 
 
-
 		<section class="container">
 			<div class="shopping-cart">
 				<h2 class="text-center fs-2 mt-12 mb-13">Giỏ hàng</h2>
@@ -262,7 +255,20 @@
 					<table class="table border">
 						<thead class="bg-body-secondary">
 							<tr class="fs-15px letter-spacing-01 text-uppercase text-body-emphasis">
-								<th scope="col" class="border-1 ps-11">Sản phẩm</th>
+
+								<th scope="col" class="border-1">
+
+									<span style="margin:0 17px">
+										<input  type="checkbox" name="san_pha" style="background-color: white;">
+									</span>
+
+									<span>
+										Sản phẩm
+									</span>
+
+
+								</th>
+
 								<th scope="col" class="border-1">Số lượng</th>
 								<th colspan="2" class="border-1">Giá</th>
 							</tr>
@@ -271,6 +277,7 @@
 
 							<?php foreach ($sanpham_giohang as $values) : ?>
 								<tr class="position-relative">
+
 									<th scope="row" class="pe-5 ps-8 py-7 shop-product">
 										<div class="d-flex align-items-center">
 											<div class="form-check">
@@ -284,7 +291,7 @@
 													alt="Natural Coconut Cleansing Oil">
 											</div>
 											<div class="">
-												<p class="fw-500 mb-1 text-body-emphasis"><?= $values['ten_san_pham'] ?></p>
+												<a href="index.php?act=chi_tiet_san_pham&id=<?= $values['id_san_pham'] ?>" class="fw-500 mb-1 text-body-emphasis"><?= $values['ten_san_pham'] ?></a>
 												<p class="card-text">
 													<span class="fs-13px fw-500 pe-3"><?= $values['phien_ban'] ?> - <?= $values['mau_sac'] ?></span>
 

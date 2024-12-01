@@ -60,10 +60,13 @@ class Tin_tuc_ctl
                 if ($file_anh['size'] > 0) {
                     $hinh_anhs = "image/" . $file_anh['name'];
                     move_uploaded_file($file_anh['tmp_name'], $hinh_anhs);
+                    $du_lieu['anh'] = $hinh_anhs;
+                } else {
+                    $du_lieu['anh'] = $data['anh'];
                 }
-                $du_lieu['anh'] = $hinh_anhs;
 
-                
+
+
                 (new tin_tuc())->update_tin_tuc($id, $du_lieu);
                 echo "<script type='text/javascript'>
             window.location.href = 'index.php?act=tin_tuc';

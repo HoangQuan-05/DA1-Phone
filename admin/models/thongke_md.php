@@ -40,7 +40,7 @@ class Thongkes
 
     public function date()
     {
-        $sql = "SELECT DISTINCT DATE(hoa_dons.ngay_dat)  FROM hoa_don_chi_tiet 
+        $sql = "SELECT DISTINCT DATE(hoa_dons.ngay_dat) AS data_date FROM hoa_don_chi_tiet 
         JOIN  hoa_dons ON hoa_dons.id = hoa_don_chi_tiet.id_hoa_don WHERE hoa_dons.trang_thai_don_hang = 5 ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();

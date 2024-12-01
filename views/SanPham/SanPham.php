@@ -44,21 +44,6 @@
 
 
 
-
-
-
-
-					<div class="w-72px d-flex d-xl-none">
-						<button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4" type="button"
-							data-bs-toggle="offcanvas"
-							data-bs-target="#offCanvasNavBar"
-							aria-controls="offCanvasNavBar"
-							aria-expanded="false"
-							aria-label="Toggle Navigation">
-							<span class="fs-24 toggle-icon"></span>
-						</button>
-					</div>
-
 					<div class="d-none d-xl-flex w-xl-50">
 						<ul class="navbar-nav">
 
@@ -168,13 +153,13 @@
 
 							<div class="px-5 d-none d-xl-inline-block">
 								<a class="position-relative lh-1 color-inherit text-decoration-none"
-									href="shop/wishlist.html">
+									href="index.php?act=yeu_thich">
 									<svg class="icon icon-star-light">
 										<use xlink:href="#icon-star-light"></use>
 									</svg>
 									<span
 										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-										style="--square-size: 18px">3</span>
+										style="--square-size: 18px"></span>
 								</a>
 							</div>
 							<div class="px-5 d-none d-xl-inline-block">
@@ -184,7 +169,7 @@
 									</svg>
 									<span
 										class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-										style="--square-size: 18px">3</span>
+										style="--square-size: 18px"></span>
 								</a>
 							</div>
 
@@ -415,32 +400,7 @@
 											height="360">
 									</a>
 
-									<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a
-											class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Quick View">
-											<span data-bs-toggle="modal" data-bs-target="#quickViewModal"
-												class="d-flex align-items-center justify-content-center">
-												<svg class="icon icon-eye-light">
-													<use xlink:href="#icon-eye-light"></use>
-												</svg>
-											</span>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Add To Wishlist">
-											<svg class="icon icon-star-light">
-												<use xlink:href="#icon-star-light"></use>
-											</svg>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm"
-											href="shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Compare">
-											<svg class="icon icon-arrows-left-right-light">
-												<use xlink:href="#icon-arrows-left-right-light"></use>
-											</svg>
-										</a>
-									</div><a href="#"
+									<a href="#"
 										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
 										To Cart</a>
 								</figure>
@@ -520,32 +480,7 @@
 											height="360">
 									</a>
 
-									<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a
-											class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Quick View">
-											<span data-bs-toggle="modal" data-bs-target="#quickViewModal"
-												class="d-flex align-items-center justify-content-center">
-												<svg class="icon icon-eye-light">
-													<use xlink:href="#icon-eye-light"></use>
-												</svg>
-											</span>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Add To Wishlist">
-											<svg class="icon icon-star-light">
-												<use xlink:href="#icon-star-light"></use>
-											</svg>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm"
-											href="shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Compare">
-											<svg class="icon icon-arrows-left-right-light">
-												<use xlink:href="#icon-arrows-left-right-light"></use>
-											</svg>
-										</a>
-									</div><a href="#"
+									<a href="#"
 										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
 										To Cart</a>
 								</figure>
@@ -640,32 +575,7 @@
 												height="360">
 										</a>
 
-										<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a
-												class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-												href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-												data-bs-title="Quick View">
-												<span data-bs-toggle="modal" data-bs-target="#quickViewModal"
-													class="d-flex align-items-center justify-content-center">
-													<svg class="icon icon-eye-light">
-														<use xlink:href="#icon-eye-light"></use>
-													</svg>
-												</span>
-											</a>
-											<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm"
-												href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-												data-bs-title="Add To Wishlist">
-												<svg class="icon icon-star-light">
-													<use xlink:href="#icon-star-light"></use>
-												</svg>
-											</a>
-											<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm"
-												href="shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-												data-bs-title="Compare">
-												<svg class="icon icon-arrows-left-right-light">
-													<use xlink:href="#icon-arrows-left-right-light"></use>
-												</svg>
-											</a>
-										</div><a href="#"
+										<a href="#"
 											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
 											To Cart</a>
 									</figure>
@@ -757,32 +667,7 @@
 												height="360">
 										</a>
 
-										<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a
-												class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-												href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-												data-bs-title="Quick View">
-												<span data-bs-toggle="modal" data-bs-target="#quickViewModal"
-													class="d-flex align-items-center justify-content-center">
-													<svg class="icon icon-eye-light">
-														<use xlink:href="#icon-eye-light"></use>
-													</svg>
-												</span>
-											</a>
-											<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm"
-												href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-												data-bs-title="Add To Wishlist">
-												<svg class="icon icon-star-light">
-													<use xlink:href="#icon-star-light"></use>
-												</svg>
-											</a>
-											<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm"
-												href="shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-												data-bs-title="Compare">
-												<svg class="icon icon-arrows-left-right-light">
-													<use xlink:href="#icon-arrows-left-right-light"></use>
-												</svg>
-											</a>
-										</div><a href="#"
+										<a href="#"
 											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
 											To Cart</a>
 									</figure>
@@ -872,32 +757,7 @@
 											height="360">
 									</a>
 
-									<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a
-											class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Quick View">
-											<span data-bs-toggle="modal" data-bs-target="#quickViewModal"
-												class="d-flex align-items-center justify-content-center">
-												<svg class="icon icon-eye-light">
-													<use xlink:href="#icon-eye-light"></use>
-												</svg>
-											</span>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Add To Wishlist">
-											<svg class="icon icon-star-light">
-												<use xlink:href="#icon-star-light"></use>
-											</svg>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm"
-											href="shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Compare">
-											<svg class="icon icon-arrows-left-right-light">
-												<use xlink:href="#icon-arrows-left-right-light"></use>
-											</svg>
-										</a>
-									</div><a href="#"
+									<a href="#"
 										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
 										To Cart</a>
 								</figure>
@@ -1093,8 +953,6 @@
 
 
 	<script src="../jquery.min.js"></script>
-
-
 
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
 	<script src="../templates/glowing-bootstrap-5/assets/vendors/clipboard/clipboard.min.js"></script>

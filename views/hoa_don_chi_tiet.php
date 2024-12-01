@@ -39,14 +39,7 @@
             <div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
                 <div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
 
-
-                    <div class="w-72px d-flex d-xl-none">
-                        <button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4"
-                            type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasNavBar"
-                            aria-controls="offCanvasNavBar" aria-expanded="false" aria-label="Toggle Navigation">
-                            <span class="fs-24 toggle-icon"></span>
-                        </button>
-                    </div>
+              
 
 
                     <a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
@@ -245,7 +238,9 @@
                             <li class="breadcrumb-item"><a title="Home" href="index.php">Trang chủ</a></li>
                             <li class="breadcrumb-item"><a title="Shop" href="index.php?act=san_pham&page=1">Sản phẩm</a></li>
                             <li class="breadcrumb-item"><a title="Giỏ hàng" href="index.php?act=gio_hang">Giỏ hàng</a></li>
-                            <li class="breadcrumb-item active">Đơn hàng</li>
+                            <li class="breadcrumb-item"><a title="Shop" href="index.php?act=don_hang">Đơn hàng</a></li>
+                            <li class="breadcrumb-item active">Đơn hàng chi tiết</li>
+
 
                         </ol>
                     </nav>
@@ -429,17 +424,19 @@
 
                             <span lass="text-danger">
                                 <form action="" method="POST">
-                                    <?php if ($oder['trang_thai'] == "Chờ xác nhận") : ?>
+                                    <?php if ($oder['trang_thai_don_hang'] == 1) : ?>
                                         <input hidden type="text" name="trang_thai_thanh_toan" value="Chưa thanh toán" id="">
                                         <input hidden type="text" name="id_hoa_don" value="<?= $oder['id_hoa_don'] ?>">
                                         <input hidden type="text" name="trang_thai_don_hang" value="7" id="">
                                         <button type="submit" name="trang_thai" value="03" class="btn btn-danger" style="width:100px; height:30px; padding:0; font-size: 10px;">Hủy đơn hàng</button>
 
-                                    <?php elseif ($oder['trang_thai'] != "Đã thất bại" && $oder['trang_thai'] != "Đã hủy") : ?>
+                                    <?php elseif ($oder['trang_thai_don_hang'] != 6 && $oder['trang_thai_don_hang'] != 7 && $oder['trang_thai_don_hang'] > 2) : ?>
                                         <input hidden type="text" name="id_hoa_don" value="<?= $oder['id_hoa_don'] ?>">
                                         <input hidden type="text" name="trang_thai_don_hang" value="5" id="">
                                         <input hidden type="text" name="trang_thai_thanh_toan" value="Đã thanh toán" id="">
                                         <button type="submit" name="trang_thai" value="04" class="btn btn-danger" style="width:100px; height:30px; padding:0; font-size: 10px;">Đã nhận hàng</button>
+                                    <?php else : ?>
+                                        <button disabled type="submit" name="trang_thai" value="04" class="btn btn-danger" style="width:100px; height:30px; padding:0; font-size: 10px;">Đã nhận hàng</button>
 
                                     <?php endif ?>
                                 </form>
@@ -450,6 +447,7 @@
 
                     </div>
                 </div>
+
                 <hr />
                 <?php
                 $formattedVoucher = str_replace(',', '', $oder['khuyen_mai']);

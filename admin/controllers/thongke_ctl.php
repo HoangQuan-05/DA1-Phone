@@ -15,8 +15,9 @@ class ThongkeController
         $dh_da_hoan_thanh = (new Thongkes())->dh_da_hoan_thanh();
         $thong_ke_doanh_thu = (new Thongkes())->thong_ke_doanh_thu();
         $date = (new Thongkes())->date();
+        $doanh_thu_ngay = [];
         foreach($date as $date__){
-            $doanh_thu_ngay[] = (new Thongkes())->doanh_thu_ngay($date__['DATE(hoa_dons.ngay_dat)']);
+            $doanh_thu_ngay[] = (new Thongkes())->doanh_thu_ngay($date__['data_date']);
         }
        
         

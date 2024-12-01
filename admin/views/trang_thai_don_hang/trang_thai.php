@@ -99,7 +99,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
                                                 <td>
                                                     <button> <a href="index.php?act=update_trang_thai&id=<?= $trangthai['id'] ?>"><i class="fas fa-pencil-alt"></i></a></button>
-                                                    <button><a onclick="return confirm('ban co muon xoa')" href="index.php?act=delete_tt&id=<?= $trangthai['id'] ?>"><i class="fas fa-trash"></i></a></button>
+                                                    <!-- <button><a onclick="return confirm('ban co muon xoa')" href="index.php?act=delete_tt&id=<?= $trangthai['id'] ?>"><i class="fas fa-trash"></i></a></button> -->
 
                                                 </td>
 
@@ -107,7 +107,8 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                         <?php endforeach ?>
 
                                     </tbody>
-                                </table> <button><a href="index.php?act=add_trang_thai"><i class="fas fa-plus"></i>Them moi</a></button>
+                                </table>
+                                 <!-- <button><a href="index.php?act=add_trang_thai"><i class="fas fa-plus"></i>Them moi</a></button> -->
                             </div>
 
                         </div>

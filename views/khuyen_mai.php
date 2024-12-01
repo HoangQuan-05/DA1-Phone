@@ -45,21 +45,7 @@
 				<div class="container-wide container flex-nowrap">
 
 
-
-
-
-
-
-					<div class="w-72px d-flex d-xl-none">
-						<button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4" type="button"
-							data-bs-toggle="offcanvas"
-							data-bs-target="#offCanvasNavBar"
-							aria-controls="offCanvasNavBar"
-							aria-expanded="false"
-							aria-label="Toggle Navigation">
-							<span class="fs-24 toggle-icon"></span>
-						</button>
-					</div>
+				
 
 					<div class="d-none d-xl-flex w-xl-50">
 						<ul class="navbar-nav">

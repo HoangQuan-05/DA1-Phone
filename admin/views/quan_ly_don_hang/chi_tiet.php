@@ -141,7 +141,6 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
         <!-- HEADER -->
         <?php
         require_once "views/layouts/header.php";
-
         require_once "views/layouts/siderbar.php";
         ?>
 
@@ -184,7 +183,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                             Màu sắc: <span class="badge bg-primary"> <?= $value['mau_sac'] ?></span>
                                         </div>
                                         <div class="price mt-2">
-                                            Giá: <?= $value['don_gia'] ?> ₫
+                                            Giá: <?= number_format($value['don_gia'] ,) ?> VND
                                         </div>
                                         <div class="quantity">
                                             Số lượng: <?= $value['so_luong_mua'] ?>
@@ -197,7 +196,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                         endforeach;
                         ?>
                         <?php
-                   
+
                         $tong_cong = 0;
 
 
@@ -207,13 +206,12 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     foreach ($chi_tiet_hoa_don as $tinh_tien) {
                                         if ($k['id_danh_muc'] == $tinh_tien['id_danh_muc']) {
                                             $tong_cong +=  $k['voucher'] / 100 * ($tinh_tien['so_luong_mua'] * $tinh_tien['don_gia']);
-                                           
                                         }
                                     }
                                 }
                             }
                         }
-                        
+
 
 
 
@@ -313,7 +311,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     Voucher
                                 </span>
                                 <span class="text-danger">
-                                    - <?=  number_format($tong_cong,) ?> VND
+                                    - <?= number_format($tong_cong,) ?> VND
                                 </span>
                             </div>
 
@@ -322,7 +320,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     Tổng cộng
                                 </span>
                                 <span>
-                                    <?= number_format($tong-$tong_cong,) ?> VND
+                                    <?= number_format($tong - $tong_cong,) ?> VND
                                 </span>
                             </div>
 
@@ -330,30 +328,36 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                     </div>
                     <br>
                     <h4>Cập nhật trạng đơn hàng</h4>
+
                     <form action="" method="POST">
                         <select class="form-select" aria-label="Default select example" name="trang_thai">
                             <?php foreach ($tr_thai as $key => $value) : ?>
-                                <?php if (trim($data_tt['trang_thai']) == "Đã hủy") : ?>
+                                <?php if ($data_tt['trang_thai_don_hang'] == 7) : ?>
                                     <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
-                                <?php elseif (trim($data_tt['trang_thai']) == "Đã hoàn thành") : ?>
+                                <?php elseif ($data_tt['trang_thai_don_hang'] == 5) : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
-                                <?php elseif ($value['id'] >= $data_tt['id']) : ?>
+                                <?php elseif ($value['id'] > $data_tt['id'] && $value['id'] != 7 && $value['id'] != 6) : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
+                                <?php elseif ($value['id'] == 6 && $data_tt['id'] !=6 ) : ?>
+                                    <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
+                                    <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
+                                <?php elseif ($data_tt['id'] == 1) : ?>
+                                    <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
+                                    <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
                                 <?php else : ?>
                                     <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
-
                                 <?php endif; ?>
 
                             <?php endforeach ?>
                         </select> <br>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
                     </form>
 
                 </div>
@@ -361,6 +365,8 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
+
+
 
             <footer class="footer">
                 <div class="container-fluid">

@@ -40,13 +40,7 @@
                 <div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
 
 
-                    <div class="w-72px d-flex d-xl-none">
-                        <button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4"
-                            type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasNavBar"
-                            aria-controls="offCanvasNavBar" aria-expanded="false" aria-label="Toggle Navigation">
-                            <span class="fs-24 toggle-icon"></span>
-                        </button>
-                    </div>
+              
 
 
                     <a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
@@ -298,8 +292,8 @@
                 </form>
             </div>
 
-            </seformn>
-        
+        </seformn>
+
 
 
     </main>

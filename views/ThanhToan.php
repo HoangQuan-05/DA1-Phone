@@ -56,16 +56,7 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 				<div class="container-wide container flex-nowrap">
 
 
-					<div class="w-72px d-flex d-xl-none">
-						<button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4" type="button"
-							data-bs-toggle="offcanvas"
-							data-bs-target="#offCanvasNavBar"
-							aria-controls="offCanvasNavBar"
-							aria-expanded="false"
-							aria-label="Toggle Navigation">
-							<span class="fs-24 toggle-icon"></span>
-						</button>
-					</div>
+				
 
 					<div class="d-none d-xl-flex w-xl-50">
 						<ul class="navbar-nav">
@@ -316,7 +307,7 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 
 								<div class="d-flex align-items-center">
 									<span>Voucher:</span>
-									<input class="d-block ms-auto text-body-emphasis" readonly style="outline: none; border: none; text-align: right; cursor:default; "id="voucher" name="khuyen_mai" value="0"> VND</input>
+									<input class="d-block ms-auto text-body-emphasis" readonly style="outline: none; border: none; text-align: right; cursor:default; " id="voucher" name="khuyen_mai" value="0"> VND</input>
 								</div>
 							</div>
 							<div class="card-footer bg-transparent py-5 px-0 mx-10">
@@ -389,13 +380,13 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 
 								<div class="nav nav-tabs border-0">
 
-									<a class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link"
-										data-bs-toggle="tab" data-bs-target="#paypal-tab">
-										<span class="ms-3 text-body-emphasis fs-6">MOMO</span>
-									</a>
+									<input type="text" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link"
+										data-bs-toggle="tab"
+										readonly value="MOMO">
 
+									<input hidden type="text" name="payUrl" id="selected-payment" readonly>
 
-									<input type="text" name="phuong_thuc_thanh_toan" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link active"
+									<input type="text" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link active"
 										data-bs-toggle="tab" data-bs-target="#paypal-tab"
 										readonly value="COD">
 
@@ -420,6 +411,26 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 		</section>
 
 	</main>
+
+
+	<script>
+		// Lấy tất cả các input có class 'btn-payment'
+		const paymentOptions = document.querySelectorAll('.btn-payment');
+
+		// Lấy giá trị của input có class 'active' và đặt vào form
+		paymentOptions.forEach(option => {
+			if (option.classList.contains('active')) {
+				document.getElementById('selected-payment').value = option.value;
+			}
+		});
+
+		// Hoặc nếu muốn thay đổi giá trị theo sự kiện click
+		paymentOptions.forEach(option => {
+			option.addEventListener('click', function() {
+				document.getElementById('selected-payment').value = this.value;
+			});
+		});
+	</script>
 
 
 	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">
@@ -1366,7 +1377,7 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 				tong_thanh_toan.innerHTML = ""
 			});
 
-			voucher_display.value = "-" + giam__.toLocaleString("en-US") ;
+			voucher_display.value = "-" + giam__.toLocaleString("en-US");
 			tong_thanh_toan.innerHTML = (Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__).toLocaleString("en-US") + " VND"
 			thanh_toan_hoa_don.value = Number(tong_cong.innerText.replace(/[^0-9.-]+/g, "")) - giam__
 

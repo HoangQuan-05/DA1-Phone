@@ -12,18 +12,29 @@ foreach ($tong_sp as $value1) {
     $tong = $value1['so_luong'];
     $tong_sp_con_lai = $tong_sp_con_lai + $tong;
 }
-// $dl_ngay = [];
-
-// $date = [];
-
-// $data_dt = [];
-// echo "<pre>";
-// print_r($doanh_thu_ngay);
-// print_r($date);
-// echo "</pre>";
 
 
+$data_dt = [];
+$data_date = [];
+//DOANH THU NGAY
 $doanh_thu = 0;
+
+foreach ($date as $index => $one_date) {
+  $thong_ke = 0; 
+    foreach ($doanh_thu_ngay as $index_dt => $one_dt) {
+        if ($index == $index_dt) {
+            foreach ($one_dt as $value) {
+
+                $thong_ke += $value['thanh_tien'] - $value['von'];
+            }
+            array_push($data_dt, $thong_ke);
+        }
+    }
+    array_push($data_date, $one_date['data_date']);
+}
+
+
+
 
 foreach ($thong_ke_doanh_thu as $monney) {
     $doanh_thu += ($monney['thanh_tien'] - $monney['gia_nhap'] * $monney['so_luong_mua']);
@@ -125,7 +136,7 @@ foreach ($thong_ke_doanh_thu as $monney) {
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"> <span class="counter-value" data-target="<?= $doanh_thu ?>"></span> VND</h4>
-                                                        <a href="#" class="text-decoration-underline">View net earnings</a>
+                                                        <a >Sales</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-success-subtle rounded fs-3">
@@ -152,7 +163,7 @@ foreach ($thong_ke_doanh_thu as $monney) {
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?= $tong_don['COUNT(*)']; ?>">0</span> Đơn</h4>
-                                                        <a href="#" class="text-decoration-underline">View all orders</a>
+                                                        <a >View all orders</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-info-subtle rounded fs-3">
@@ -176,11 +187,11 @@ foreach ($thong_ke_doanh_thu as $monney) {
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?= $dh_da_hoan_thanh['COUNT(*)']; ?>">0</span> Đơn</h4>
-                                                        <a href="#" class="text-decoration-underline">Withdraw money</a>
+                                                        <span >Successful</span>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-warning-subtle rounded fs-3">
-                                                            <i class="fa-solid fa-list" style="color: #3700db;"></i>
+                                                        <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                        <i class="fa-solid fa-bars" style="color: #74C0FC;"></i>
                                                         </span>
 
                                                     </div>
@@ -203,7 +214,7 @@ foreach ($thong_ke_doanh_thu as $monney) {
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?= $tong_sp_con_lai ?> ">0</span> Sản phẩm </h4>
-                                                        <a href="#" class="text-decoration-underline">See details</a>
+                                                        <a>Product</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-primary-subtle rounded fs-3">
@@ -369,18 +380,16 @@ foreach ($thong_ke_doanh_thu as $monney) {
     </div>
 
     <!-- JAVASCRIPT -->
-    <?php
-    // Dữ liệu mẫu PHP
-    $date = ["2024-11-24", "2024-11-25", "2024-11-26", "2024-11-27", "2024-11-28"];
-    $data_dt = [1000000, 1500000, 2000000, 1800000, 2200000];
-    ?>
+=
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const data = {
-            labels: <?php echo json_encode($date); ?>, // Dữ liệu ngày
+            labels: <?php echo json_encode($data_date); 
+                    ?>, // Dữ liệu ngày
             datasets: [{
                 label: 'Doanh thu',
-                data: <?php echo json_encode($data_dt); ?>, // Dữ liệu doanh thu
+                data: <?php echo json_encode($data_dt); 
+                        ?>, // Dữ liệu doanh thu
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
             }]

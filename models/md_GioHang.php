@@ -120,7 +120,7 @@ class Md_Gio_Hang
         $sql = "INSERT INTO hoa_dons 
                 (ten_nguoi_nhan, email_nguoi_nhan,so_dien_thoai,dia_chi,khuyen_mai,ghi_chu,phuong_thuc_thanh_toan,tong_tien,trang_thai_thanh_toan,thanh_toan,ma_don_hang,id_khach_hang,trang_thai_don_hang ) 
                 VALUES 
-                (:ten_nguoi_nhan,:email_nguoi_nhan, :so_dien_thoai,:dia_chi,:khuyen_mai,:ghi_chu,:phuong_thuc_thanh_toan,:tong_tien,:trang_thai_thanh_toan,:thanh_toan,:ma_don_hang,:id_khach_hang,:trang_thai_don_hang)";
+                (:ten_nguoi_nhan,:email_nguoi_nhan, :so_dien_thoai,:dia_chi,:khuyen_mai,:ghi_chu,:payUrl,:tong_tien,:trang_thai_thanh_toan,:thanh_toan,:ma_don_hang,:id_khach_hang,:trang_thai_don_hang)";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
@@ -189,7 +189,9 @@ class Md_Gio_Hang
                     MIN(phien_ban) AS phien_ban,
                     MIN(hinh_anh) AS hinh_anh,
                     MIN(ten_san_pham) AS ten_san_pham,
-                    MIN(san_phams.id_san_pham) AS id_san_pham
+                    MIN(san_phams.id_san_pham) AS id_san_pham,
+                    MIN(chi_tiet_san_pham.id) AS id_chi_tiet_san_pham
+
         
            FROM hoa_don_chi_tiet 
                 JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id = hoa_don_chi_tiet.id_chi_tiet_san_pham  
@@ -227,5 +229,43 @@ class Md_Gio_Hang
         $sql = " UPDATE hoa_dons SET trang_thai_don_hang = $trang_thai_don_hang, trang_thai_thanh_toan = '$trang_thai_thanh_toan' WHERE id = $id ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
+    }
+
+
+
+    public function yeu_thich($id, $acc)
+    {
+        $sql = "INSERT INTO san_pham_yeu_thichs
+                (id_san_pham , id_khach_hang ) VALUES ($id ,$acc )";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+
+
+    public function find_all_yeu_thich($id_khach_hang)
+    {
+        $sql = "SELECT *, hinh_anh.id AS id_hinh_anh FROM san_pham_yeu_thichs
+        JOIN san_phams ON san_pham_yeu_thichs.id_san_pham = san_phams.id_san_pham
+        JOIN 
+            ( SELECT * FROM hinh_anhs
+                    WHERE id IN (
+                        SELECT MIN(id) 
+                        FROM hinh_anhs
+                        GROUP BY id_san_pham
+                    )
+            ) AS hinh_anh ON hinh_anh.id_san_pham  = san_phams.id_san_pham  
+
+        WHERE id_khach_hang  = $id_khach_hang 
+        ORDER BY san_pham_yeu_thichs.id DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function delete_YT($id, $id_khach_hang)
+    {
+        $sql = "DELETE FROM san_pham_yeu_thichs WHERE id_san_pham  = $id AND id_khach_hang  = $id_khach_hang";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
     }
 }

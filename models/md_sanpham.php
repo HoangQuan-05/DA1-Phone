@@ -217,4 +217,18 @@ class Md_san_pham
         $result->execute();
         return $result->fetch(PDO::FETCH_ASSOC);
     }
+    public function find_CTSP($id)
+    {
+        $sql = "SELECT * FROM chi_tiet_san_pham
+        WHERE id = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
+    public function update_SL_SPCT($id, $data)
+    {
+        $sql = "UPDATE chi_tiet_san_pham SET so_luong = $data WHERE  id = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
 }

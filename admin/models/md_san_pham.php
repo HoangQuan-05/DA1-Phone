@@ -141,7 +141,20 @@ class Md_san_pham
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    public function find_CTSP($id)
+    {
+        $sql = "SELECT * FROM chi_tiet_san_pham
+        WHERE id = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
+    public function update_SL_SPCT($id, $data)
+    {
+        $sql = "UPDATE chi_tiet_san_pham SET so_luong = $data WHERE  id = $id";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
 
     public function find_one_phien_ban($id)
     {
@@ -204,33 +217,6 @@ class Md_san_pham
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    // public function count_mau_sac($id)
-    // {
-    //     $sql = " SELECT COUNT(*) FROM san_phams WHERE id_chi_tiet_san_pham = $id";
-
-    //     $stmt = $this->conn->prepare($sql);
-    //     $stmt->execute();
-    //     return $stmt->fetch(PDO::FETCH_ASSOC);
-    // }
-    // public function count_phien_ban($id)
-    // {
-    //     $sql = " SELECT COUNT(*) FROM phien_bans WHERE id_chi_tiet_san_pham = $id";
-
-    //     $stmt = $this->conn->prepare($sql);
-    //     $stmt->execute();
-    //     return $stmt->fetch(PDO::FETCH_ASSOC);
-    // }
-
-
-
-
-
-
-
-
-
-
 
 
 

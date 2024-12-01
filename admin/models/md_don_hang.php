@@ -38,7 +38,11 @@ class Md_Hoa_Don
 
     public function all_hoa_don()
     {
-        $sql = "SELECT *, trang_thai_hoa_don.id AS id_trang_thai, hoa_dons.id AS id_hoa_don FROM hoa_dons JOIN trang_thai_hoa_don ON hoa_dons.trang_thai_don_hang = trang_thai_hoa_don.id";
+        $sql = "SELECT *, trang_thai_hoa_don.id AS id_trang_thai, hoa_dons.id AS id_hoa_don 
+        FROM hoa_dons 
+        JOIN trang_thai_hoa_don ON hoa_dons.trang_thai_don_hang = trang_thai_hoa_don.id
+        ORDER BY hoa_dons.id DESC
+        ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -74,7 +78,7 @@ class Md_Hoa_Don
     {
         $sql = "SELECT * FROM hoa_dons 
         JOIN trang_thai_hoa_don ON trang_thai_hoa_don.id = hoa_dons.trang_thai_don_hang 
-         WHERE hoa_dons.id = $id ";
+        WHERE hoa_dons.id = $id ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);

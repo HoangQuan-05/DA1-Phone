@@ -41,14 +41,6 @@
 				<div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
 
 
-					<div class="w-72px d-flex d-xl-none">
-						<button class="navbar-toggler align-self-center  border-0 shadow-none px-0 canvas-toggle p-4"
-							type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasNavBar"
-							aria-controls="offCanvasNavBar" aria-expanded="false" aria-label="Toggle Navigation">
-							<span class="fs-24 toggle-icon"></span>
-						</button>
-					</div>
-
 
 					<a href="index.php" class="navbar-brand py-4 mx-auto w-xl-50">
 						<h3>PhonePlus</h3>
@@ -161,13 +153,13 @@
 
 					<div class="px-5 d-none d-xl-inline-block">
 						<a class="position-relative lh-1 color-inherit text-decoration-none"
-							href="shop/wishlist.html">
+							href="index.php?act=yeu_thich">
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-star-light"></use>
 							</svg>
 							<span
 								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
+								style="--square-size: 18px"></span>
 						</a>
 					</div>
 
@@ -177,7 +169,7 @@
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-shopping-bag-open-light"></use>
 							</svg>
-							
+
 						</a>
 					</div>
 
@@ -264,6 +256,7 @@
 				</div>
 			</div>
 		</section>
+
 		<section>
 			<div class="container pt-12 pb-lg-16 pb-16">
 				<div class="text-center position-relative pt-12 pt-lg-17 pb-11 pb-lg-14 mx-auto" style="max-width:700px"
@@ -289,35 +282,15 @@
 											class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
 											height="360">
 									</a>
+									<form action="" method="POST" id="form_YeuThich_<?= $value['id_san_pham'] ?>">
+										<input hidden type="text" name="id_san_pham" value="<?= $value['id_san_pham'] ?>">
+										<button type="submit"
+											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">
+											Yêu thích
+										</button>
+									</form>
 
-									<div class="position-absolute d-flex z-index-2 product-actions  vertical"><a
-											class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm quick-view sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Quick View">
-											<span data-bs-toggle="modal" data-bs-target="#quickViewModal"
-												class="d-flex align-items-center justify-content-center">
-												<svg class="icon icon-eye-light">
-													<use xlink:href="#icon-eye-light"></use>
-												</svg>
-											</span>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist sm"
-											href="#" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Add To Wishlist">
-											<svg class="icon icon-star-light">
-												<use xlink:href="#icon-star-light"></use>
-											</svg>
-										</a>
-										<a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm compare sm"
-											href="shop/compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-											data-bs-title="Compare">
-											<svg class="icon icon-arrows-left-right-light">
-												<use xlink:href="#icon-arrows-left-right-light"></use>
-											</svg>
-										</a>
-									</div><a href="#"
-										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
-										To Cart</a>
+
 								</figure>
 								<div class="card-body text-center p-0">
 
@@ -1494,7 +1467,7 @@
 						</a>
 					</div>
 					<div class="px-5 d-none d-xl-inline-block">
-						<a class="position-relative lh-1 color-inherit text-decoration-none" href="shop/wishlist.html">
+						<a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=yeu_thich">
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-star-light"></use>
 							</svg>

@@ -1,8 +1,15 @@
 <?php
 
 // Require file Common
-require_once './commons/env.php'; // Khai báo biến môi trường
-require_once './commons/function.php'; // Hàm hỗ trợ
+require_once 'commons/env.php'; // Khai báo biến môi trường
+require_once 'commons/function.php'; // Hàm hỗ trợ
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
+
+
 
 // Require toàn bộ file Controllers
 require_once './controllers/HomeController.php';
@@ -26,15 +33,17 @@ require_once "models/md_khach_hang.php";
 require_once "models/md_GioHang.php";
 require_once "models/md_binh_luan.php";
 // Route
-$act = $_GET['act'] ?? '/';
+$act = $_GET['act'] ?? '';
 session_start();
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
 
+
 switch ($act) {
     case 'trang_chu':
     case '/':
+    case '':
         (new HomeController())->index();
         break;
     case 'san_pham':
@@ -84,5 +93,11 @@ switch ($act) {
         break;
     case 'don_hang_chi_tiet':
         (new Gio_Hang())->don_hang_chi_tiet();
+        break;
+    case 'yeu_thich':
+        (new Gio_Hang())->yeu_thich();
+        break;
+    case 'yeu_thich_delete':
+        (new Gio_Hang())->delete_yeu_thich();
         break;
 }
