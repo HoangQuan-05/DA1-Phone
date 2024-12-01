@@ -103,4 +103,7 @@ switch ($act) {
     case '404':
         (new HomeController())->error();
         break;
+    default:
+        (new HomeController())->error();
+        break;
 }
