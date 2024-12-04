@@ -49,26 +49,17 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 
 	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
 		<div class="topbar bg-primary">
-
 		</div>
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
 				<div class="container-wide container flex-nowrap">
-
-
-				
-
 					<div class="d-none d-xl-flex w-xl-50">
 						<ul class="navbar-nav">
-
 							<li
 								class="nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 ">
-
-
 								<a class="no-arrow-link nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase ls-1 fs-15px fs-xl-14px dropdown-toggle"
 									href="index.php">Trang chủ</a>
 							</li>
-
 							<li class=" nav-item transition-all-xl-1 py-xl-11 py-0 me-xxl-12 me-xl-10 dropdown dropdown-hover
 									dropdown-fullwidth position-static">
 								<a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase  ls-1 fs-15px fs-xl-14px dropdown-toggle"
@@ -356,6 +347,7 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 							<div class="mb-7">
 								<label for="">Voucher</label>
 								<input type="text" class="form-control" id="khuyen_mai" placeholder="Nhập mã Voucher">
+								<span id="error_voucher"></span>
 							</div>
 
 							<div class="form-group">
@@ -380,15 +372,20 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 
 								<div class="nav nav-tabs border-0">
 
-									<input type="text" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link"
+
+
+									<input  hidden type="text" name="payUrl" id="selected-payment" readonly>
+
+									<input onclick="cod()" type="text" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link active"
+										data-bs-toggle="tab" data-bs-target="#paypal-tab"
+										readonly value="COD">
+									<input onclick="momo()" type="text" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link"
 										data-bs-toggle="tab"
 										readonly value="MOMO">
 
-									<input hidden type="text" name="payUrl" id="selected-payment" readonly>
-
-									<input type="text" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link active"
-										data-bs-toggle="tab" data-bs-target="#paypal-tab"
-										readonly value="COD">
+									<input onclick="vnpay()" type="text" id="" class="btn btn-payment mx-2 py-6 me-7 my-3 nav-link"
+										data-bs-toggle="tab"
+										readonly value="VNpay">
 
 								</div>
 
@@ -416,6 +413,21 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 	<script>
 		// Lấy tất cả các input có class 'btn-payment'
 		const paymentOptions = document.querySelectorAll('.btn-payment');
+		function vnpay(){
+			var selectedPayment = document.getElementById('selected-payment');
+			selectedPayment.name = 'redirect';
+			console.log(selectedPayment.name)
+		}
+		function momo(){
+			var selectedPayment = document.getElementById('selected-payment');
+			selectedPayment.name = 'payUrl';
+			console.log(selectedPayment.name)
+		}
+		function cod(){
+			var selectedPayment = document.getElementById('selected-payment');
+			selectedPayment.name = 'payUrl';
+			console.log(selectedPayment.name)
+		}
 
 		// Lấy giá trị của input có class 'active' và đặt vào form
 		paymentOptions.forEach(option => {
@@ -1355,12 +1367,12 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 		var flag = true
 		var tong_cong = document.getElementById('tong_cong')
 		var tong_thanh_toan = document.getElementById('tong_thanh_toan')
+		var error_voucher = document.getElementById('error_voucher')
 
 
 
 		let giam__ = 0;
 		khuyen_mai.addEventListener('change', () => {
-
 			giam__ = 0;
 			const voucher_display = document.getElementById('voucher');
 			const khuyenMaiValue = khuyen_mai.value.trim();
@@ -1370,7 +1382,14 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 				if (value.ma_khuyen_mai.trim() === khuyenMaiValue) {
 					array_san_pham.forEach((data) => {
 						if (data.id_danh_muc === value.id_danh_muc) {
-							giam__ += Number((value.voucher / 100) * data.gia_ban);
+							if (value.ngay_ket_thuc <= new Date()) {
+								giam__ += Number((value.voucher / 100) * data.gia_ban);
+								console.log(voucher)
+							} else {
+								error_voucher.style.color = 'red'
+								error_voucher.innerHTML = 'Mã đã hết hạn'
+							}
+
 						}
 					});
 				}

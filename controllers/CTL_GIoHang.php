@@ -31,19 +31,29 @@ class Gio_Hang
                 }
             }
         } else {
-            (new HomeController())->error();
+            echo "<script type='text/javascript'>
+                        window.location.href = 'index.php?act=404';
+                    </script>";
         }
     }
 
 
     public function delete_gio_hang()
     {
-        $id = $_GET['idsp'];
-        $id_khach_hang = $_GET['idkh'];
-        (new Md_Gio_Hang())->delete($id, $id_khach_hang);
-        echo "<script type='text/javascript'>
+        if (isset($_SESSION['id_khach_hang']) && isset($_GET['idsp'])) {
+
+
+            $id = $_GET['idsp'];
+            $id_khach_hang = $_GET['idkh'];
+            (new Md_Gio_Hang())->delete($id, $id_khach_hang);
+            echo "<script type='text/javascript'>
                     window.location.href = 'index.php?act=gio_hang';
             </script>";
+        } else {
+            echo "<script type='text/javascript'>
+                        window.location.href = 'index.php?act=404';
+                    </script>";
+        }
     }
     public function execPostRequest($url, $data)
     {
@@ -84,6 +94,23 @@ class Gio_Hang
                         if (result.isConfirmed) {
                             // Chuyển hướng đến trang khác sau khi nhấn OK
                             window.location.href = 'index.php?act=don_hang';
+                        }
+                        });
+                }, 100);
+                </script>";
+        }
+        function hienThiThongBao_Error()
+        {
+            echo "<script type='text/javascript'>
+               setTimeout(() => {
+                    Swal.fire({
+                        title: 'Đã hết hàng',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Chuyển hướng đến trang khác sau khi nhấn OK
+                            window.location.href = 'index.php';
                         }
                         });
                 }, 100);
@@ -170,9 +197,10 @@ class Gio_Hang
                         }
                         if (isset($_SESSION['id_khach_hang'])) {
                             hienThiThongBao();
+                            gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                         }
-
-                        gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
+                    } else {
+                        hienThiThongBao_Error();
                     }
                 } elseif (isset($_POST['payUrl']) && $_POST['payUrl'] == 'MOMO') {
                     if (isset($_POST['ten_nguoi_nhan'])) {
@@ -203,7 +231,8 @@ class Gio_Hang
                         $amount = $amounT;
                         $ipnUrl = $ipnurl;
                         $redirectUrl = $redirecturl;
-                        $extraData = isset($_POST["extraData"]) ? $_POST["extraData"] : ""; // Sửa lỗi Undefined
+                        $extraData = $extradata;
+                        // $extraData = isset($_POST["extraData"]) ? $_POST["extraData"] : ""; // Sửa lỗi Undefined
 
                         $requestId = time() . "";
                         $requestType = "payWithATM";
@@ -228,15 +257,85 @@ class Gio_Hang
                         );
 
                         $result = (new Gio_Hang)->execPostRequest($endpoint, json_encode($data));
+                        var_dump($result);
                         $jsonResult = json_decode($result, true);  // decode JSON
 
                         if (isset($jsonResult['payUrl'])) {
                             header('Location: ' . $jsonResult['payUrl']);
                         }
                     }
-                    if (empty($extraData)) {
-                        $errorMessage = "Lỗi: Không thể thực hiện thanh toán. Vui lòng thử lại.";
-                        echo "<div class='alert alert-danger'>$errorMessage</div>";
+                } elseif (isset($_POST['redirect']) && $_POST['redirect'] == 'VNpay') {
+                    if (isset($_POST['ten_nguoi_nhan'])) {
+                        $_SESSION['vnpay'] = $_POST;
+                        $_SESSION['vnpay']['trang_thai_thanh_toan'] = 'Đã thanh toán';
+                    }
+                    $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+                    $vnp_Returnurl = "http://localhost:3000/index.php?act=thanh_toan";
+                    $vnp_TmnCode = "NVU2M6QS"; //Mã website tại VNPAY 
+                    $vnp_HashSecret = "Z0AYMH8ATFT8OIL2SNTVS7ACYARMDAP7"; //Chuỗi bí mật
+
+                    $vnp_TxnRef = rand(10000, 99999);
+
+                    $vnp_OrderInfo = 'Noi dung thanh toan';
+                    $vnp_OrderType = 'Bill';
+                    $vnp_Amount = $_SESSION['vnpay']['thanh_toan'] * 100;
+                    $vnp_Locale = 'VN';
+                    $vnp_BankCode = 'NCB';
+                    $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+
+
+                    $inputData = array(
+                        "vnp_Version" => "2.1.0",
+                        "vnp_TmnCode" => $vnp_TmnCode,
+                        "vnp_Amount" => $vnp_Amount,
+                        "vnp_Command" => "pay",
+                        "vnp_CreateDate" => date('YmdHis'),
+                        "vnp_CurrCode" => "VND",
+                        "vnp_IpAddr" => $vnp_IpAddr,
+                        "vnp_Locale" => $vnp_Locale,
+                        "vnp_OrderInfo" => $vnp_OrderInfo,
+                        "vnp_OrderType" => $vnp_OrderType,
+                        "vnp_ReturnUrl" => $vnp_Returnurl,
+                        "vnp_TxnRef" => $vnp_TxnRef
+
+
+                    );
+
+                    if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                        $inputData['vnp_BankCode'] = $vnp_BankCode;
+                    }
+
+
+                    var_dump($inputData);
+                    ksort($inputData);
+                    $query = "";
+                    $i = 0;
+                    $hashdata = "";
+                    foreach ($inputData as $key => $value) {
+                        if ($i == 1) {
+                            $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                        } else {
+                            $hashdata .= urlencode($key) . "=" . urlencode($value);
+                            $i = 1;
+                        }
+                        $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                    }
+
+                    $vnp_Url = $vnp_Url . "?" . $query;
+                    if (isset($vnp_HashSecret)) {
+                        $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
+                        $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+                    }
+                    $returnData = array(
+                        'code' => '00',
+                        'message' => 'success',
+                        'data' => $vnp_Url
+                    );
+                    if (isset($_POST['redirect'])) {
+                        header('Location: ' . $vnp_Url);
+                        die();
+                    } else {
+                        echo json_encode($returnData);
                     }
                 }
             }
@@ -307,14 +406,84 @@ class Gio_Hang
                     gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                 }
             }
+            if (isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 0) {
 
+                $hoa_don = $_SESSION['momo'];
+                $_SESSION['thanh_tien'] = $hoa_don['thanh_toan'];
+                $so_luong_c = [];
+
+                $hoa_don['ma_don_hang'] = $_GET['vnp_TxnRef'];
+                $hoa_don['id_khach_hang'] = $_SESSION['id_khach_hang'];
+                $hoa_don['trang_thai_don_hang'] = 1;
+                $hoa_don['payUrl'] = 'VNpay';
+                unset($hoa_don['redirect']);
+
+                foreach ($array_san_pham as $chi_tiet_hd) {
+                    $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
+                    $soluong__[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
+                }
+                $check_sl = false;
+                foreach ($soluong__ as $values2) {
+                    if ($values2['so_luong'] > 0) {
+                        $check_sl = true;
+                    }
+                }
+                if ($check_sl) {
+
+                    (new Md_Gio_Hang())->insert_hoa_don($hoa_don);
+                    $find_hd = (new Md_Gio_Hang())->hd();
+
+                    foreach ($array_san_pham as $chi_tiet_hd) {
+                        $dh_ct['id_hoa_don'] = $find_hd['id'];
+                        $dh_ct['so_luong_mua'] = $chi_tiet_hd['so_luong_mua'];
+                        $dh_ct['don_gia'] = $chi_tiet_hd['gia_ban'];
+                        $dh_ct['thanh_tien'] = $chi_tiet_hd['gia_ban'] * $chi_tiet_hd['so_luong_mua'];
+                        $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
+                        (new Md_Gio_Hang())->insert_hoa_don_ct($dh_ct);
+
+                        $update_soluong[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
+
+                        $so_luong_c[] = $dh_ct['so_luong_mua'];
+                    }
+
+                    foreach ($array_san_pham as $delete) {
+                        (new Md_Gio_Hang())->delete($delete['id_chi_tiet_san_pham'], $_SESSION['id_khach_hang']);
+                        foreach ($update_soluong as $key => $update) {
+                            if ($delete['id_chi_tiet_san_pham'] == $update['id']) {
+                                foreach ($so_luong_c as $key1 => $v2) {
+                                    if ($key == $key1) {
+                                        $sl_moi = $update['so_luong'] -  $v2;
+                                        (new Md_san_pham())->update_sl_sp($delete['id_chi_tiet_san_pham'], $sl_moi);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+
+                    $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
+
+                    foreach ($_SESSION as $key => $value) {
+                        if (!in_array($key, $keep_sessions)) {
+                            unset($_SESSION[$key]); // Xóa các session không cần thiết
+                        }
+                    }
+
+                    hienThiThongBao();
+                    // gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
+                } else {
+                    hienThiThongBao_Error();
+                }
+            }
 
 
 
             view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang, 'danh_muc' => $danh_muc]);
         }
+
         //MUA HÀNG TRỰC TIẾP
-        if (isset($_SESSION['id_san_pham_chi_tiet'])) {
+        if (isset($_SESSION['id_san_pham_chi_tiet']) && isset($_SESSION['id_khach_hang'])) {
 
             $array_san_pham = [];
 
@@ -342,54 +511,58 @@ class Gio_Hang
                         $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
                         $soluong__[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
                     }
+                    $check_sl = false;
                     foreach ($soluong__ as $values2) {
-                        if ($values2['so_luong'] > 0) {
+                        if ($values2['so_luong'] > 0 && $array_san_pham[0]['so_luong_mua'] <= $values2['so_luong']) {
+                            $check_sl = true;
+                        }
+                    }
+                    if ($check_sl) {
+                        (new Md_Gio_Hang())->insert_hoa_don($hoa_don);
+                        $find_hd = (new Md_Gio_Hang())->hd();
+
+                        foreach ($array_san_pham as $chi_tiet_hd) {
+                            $dh_ct['id_hoa_don'] = $find_hd['id'];
+                            $dh_ct['so_luong_mua'] = $chi_tiet_hd['so_luong_mua'];
+                            $dh_ct['don_gia'] = $chi_tiet_hd['gia_ban'];
+                            $dh_ct['thanh_tien'] = $chi_tiet_hd['gia_ban'] * $chi_tiet_hd['so_luong_mua'];
+                            $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
+                            (new Md_Gio_Hang())->insert_hoa_don_ct($dh_ct);
+
+                            $update_soluong[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
+
+                            $so_luong_c[] = $dh_ct['so_luong_mua'];
+                        }
 
 
-                            (new Md_Gio_Hang())->insert_hoa_don($hoa_don);
-                            $find_hd = (new Md_Gio_Hang())->hd();
-
-                            foreach ($array_san_pham as $chi_tiet_hd) {
-                                $dh_ct['id_hoa_don'] = $find_hd['id'];
-                                $dh_ct['so_luong_mua'] = $chi_tiet_hd['so_luong_mua'];
-                                $dh_ct['don_gia'] = $chi_tiet_hd['gia_ban'];
-                                $dh_ct['thanh_tien'] = $chi_tiet_hd['gia_ban'] * $chi_tiet_hd['so_luong_mua'];
-                                $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
-                                (new Md_Gio_Hang())->insert_hoa_don_ct($dh_ct);
-
-                                $update_soluong[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
-
-                                $so_luong_c[] = $dh_ct['so_luong_mua'];
-                            }
-
-
-                            foreach ($array_san_pham as $delete) {
-                                (new Md_Gio_Hang())->delete($delete['id_chi_tiet_san_pham'], $_SESSION['id_khach_hang']);
-                                foreach ($update_soluong as $key => $update) {
-                                    if ($delete['id_chi_tiet_san_pham'] == $update['id']) {
-                                        foreach ($so_luong_c as $key1 => $v2) {
-                                            if ($key == $key1) {
-                                                $sl_moi = $update['so_luong'] -  $v2;
-                                                (new Md_san_pham())->update_sl_sp($delete['id_chi_tiet_san_pham'], $sl_moi);
-                                            }
+                        foreach ($array_san_pham as $delete) {
+                            (new Md_Gio_Hang())->delete($delete['id_chi_tiet_san_pham'], $_SESSION['id_khach_hang']);
+                            foreach ($update_soluong as $key => $update) {
+                                if ($delete['id_chi_tiet_san_pham'] == $update['id']) {
+                                    foreach ($so_luong_c as $key1 => $v2) {
+                                        if ($key == $key1) {
+                                            $sl_moi = $update['so_luong'] -  $v2;
+                                            (new Md_san_pham())->update_sl_sp($delete['id_chi_tiet_san_pham'], $sl_moi);
                                         }
                                     }
                                 }
                             }
+                        }
 
 
 
-                            $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
+                        $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
 
 
-                            hienThiThongBao();
-                            gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
-                            foreach ($_SESSION as $key => $value) {
-                                if (!in_array($key, $keep_sessions)) {
-                                    unset($_SESSION[$key]); // Xóa các session không cần thiết
-                                }
+                        hienThiThongBao();
+                        gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
+                        foreach ($_SESSION as $key => $value) {
+                            if (!in_array($key, $keep_sessions)) {
+                                unset($_SESSION[$key]); // Xóa các session không cần thiết
                             }
                         }
+                    } else {
+                        hienThiThongBao_Error();
                     }
                 } elseif (isset($_POST['payUrl']) && $_POST['payUrl'] == 'MOMO') {
                     if (isset($_POST['ten_nguoi_nhan'])) {
@@ -457,8 +630,153 @@ class Gio_Hang
                         $errorMessage = "Lỗi: Không thể thực hiện thanh toán. Vui lòng thử lại.";
                         echo "<div class='alert alert-danger'>$errorMessage</div>";
                     }
+                } elseif (isset($_POST['redirect']) && $_POST['redirect'] == 'VNpay') {
+                    if (isset($_POST['ten_nguoi_nhan'])) {
+                        $_SESSION['vnpay'] = $_POST;
+                        $_SESSION['vnpay']['trang_thai_thanh_toan'] = 'Đã thanh toán';
+                    }
+                    $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+                    $vnp_Returnurl = "http://localhost:3000/index.php?act=thanh_toan";
+                    $vnp_TmnCode = "NVU2M6QS"; //Mã website tại VNPAY 
+                    $vnp_HashSecret = "Z0AYMH8ATFT8OIL2SNTVS7ACYARMDAP7"; //Chuỗi bí mật
+
+                    $vnp_TxnRef = rand(10000, 99999);
+
+                    $vnp_OrderInfo = 'Noi dung thanh toan';
+                    $vnp_OrderType = 'Bill';
+                    $vnp_Amount = $_SESSION['vnpay']['thanh_toan'] * 100;
+                    $vnp_Locale = 'VN';
+                    $vnp_BankCode = 'NCB';
+                    $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+
+
+                    $inputData = array(
+                        "vnp_Version" => "2.1.0",
+                        "vnp_TmnCode" => $vnp_TmnCode,
+                        "vnp_Amount" => $vnp_Amount,
+                        "vnp_Command" => "pay",
+                        "vnp_CreateDate" => date('YmdHis'),
+                        "vnp_CurrCode" => "VND",
+                        "vnp_IpAddr" => $vnp_IpAddr,
+                        "vnp_Locale" => $vnp_Locale,
+                        "vnp_OrderInfo" => $vnp_OrderInfo,
+                        "vnp_OrderType" => $vnp_OrderType,
+                        "vnp_ReturnUrl" => $vnp_Returnurl,
+                        "vnp_TxnRef" => $vnp_TxnRef
+
+
+                    );
+
+                    if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                        $inputData['vnp_BankCode'] = $vnp_BankCode;
+                    }
+
+
+                    var_dump($inputData);
+                    ksort($inputData);
+                    $query = "";
+                    $i = 0;
+                    $hashdata = "";
+                    foreach ($inputData as $key => $value) {
+                        if ($i == 1) {
+                            $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                        } else {
+                            $hashdata .= urlencode($key) . "=" . urlencode($value);
+                            $i = 1;
+                        }
+                        $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                    }
+
+                    $vnp_Url = $vnp_Url . "?" . $query;
+                    if (isset($vnp_HashSecret)) {
+                        $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
+                        $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+                    }
+                    $returnData = array(
+                        'code' => '00',
+                        'message' => 'success',
+                        'data' => $vnp_Url
+                    );
+                    if (isset($_POST['redirect'])) {
+                        header('Location: ' . $vnp_Url);
+                        die();
+                    } else {
+                        echo json_encode($returnData);
+                    }
                 }
             }
+
+
+            if (isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 00) {
+
+                $hoa_don = $_SESSION['vnpay'];
+                $_SESSION['thanh_tien'] = $hoa_don['thanh_toan'];
+                $so_luong_c = [];
+
+                $hoa_don['ma_don_hang'] = $_GET['vnp_TxnRef'];
+                $hoa_don['id_khach_hang'] = $_SESSION['id_khach_hang'];
+                $hoa_don['trang_thai_don_hang'] = 1;
+                $hoa_don['payUrl'] = 'VNpay';
+                unset($hoa_don['redirect']);
+
+                foreach ($array_san_pham as $chi_tiet_hd) {
+                    $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
+                    $soluong__[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
+                }
+
+                foreach ($soluong__ as $values2) {
+                    if ($values2['so_luong'] > 0 && $array_san_pham[0]['so_luong_mua'] < $values2['so_luong']) {
+                        (new Md_Gio_Hang())->insert_hoa_don($hoa_don);
+                        $find_hd = (new Md_Gio_Hang())->hd();
+                        foreach ($array_san_pham as $chi_tiet_hd) {
+                            $dh_ct['id_hoa_don'] = $find_hd['id'];
+                            $dh_ct['so_luong_mua'] = $chi_tiet_hd['so_luong_mua'];
+                            $dh_ct['don_gia'] = $chi_tiet_hd['gia_ban'];
+                            $dh_ct['thanh_tien'] = $chi_tiet_hd['gia_ban'] * $chi_tiet_hd['so_luong_mua'];
+                            $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
+                            (new Md_Gio_Hang())->insert_hoa_don_ct($dh_ct);
+                            $update_soluong[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
+                            $so_luong_c[] = $dh_ct['so_luong_mua'];
+                        }
+
+
+                        foreach ($array_san_pham as $delete) {
+                            (new Md_Gio_Hang())->delete($delete['id_chi_tiet_san_pham'], $_SESSION['id_khach_hang']);
+                            foreach ($update_soluong as $key => $update) {
+                                if ($delete['id_chi_tiet_san_pham'] == $update['id']) {
+                                    foreach ($so_luong_c as $key1 => $v2) {
+                                        if ($key == $key1) {
+                                            $sl_moi = $update['so_luong'] -  $v2;
+                                            (new Md_san_pham())->update_sl_sp($delete['id_chi_tiet_san_pham'], $sl_moi);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+
+                        $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
+
+
+
+                        hienThiThongBao();
+                        // gui_email_phpmailer($_SESSION['vnpay']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
+                        foreach ($_SESSION as $key => $value) {
+                            if (!in_array($key, $keep_sessions)) {
+                                unset($_SESSION[$key]); // Xóa các session không cần thiết
+                            }
+                        }
+                    } else {
+                        hienThiThongBao_Error();
+                    }
+                }
+            }
+
+
+
+
+
 
             if (isset($_GET['resultCode']) && $_GET['resultCode'] == 0) {
 
@@ -474,8 +792,9 @@ class Gio_Hang
                     $dh_ct['id_chi_tiet_san_pham'] = $chi_tiet_hd['id_chi_tiet_san_pham'];
                     $soluong__[] = (new Md_san_pham)->find_onespct($dh_ct['id_chi_tiet_san_pham']);
                 }
+
                 foreach ($soluong__ as $values2) {
-                    if ($values2['so_luong'] > 0) {
+                    if ($values2['so_luong'] > 0 && $array_san_pham[0]['so_luong_mua'] < $values2['so_luong']) {
 
 
                         (new Md_Gio_Hang())->insert_hoa_don($hoa_don);
@@ -522,6 +841,8 @@ class Gio_Hang
                                 unset($_SESSION[$key]); // Xóa các session không cần thiết
                             }
                         }
+                    } else {
+                        hienThiThongBao_Error();
                     }
                 }
             }
@@ -536,43 +857,53 @@ class Gio_Hang
             $danh_muc = (new Md_danh_muc())->all();
             $data = (new Md_Gio_Hang())->don_hang__all($_SESSION['id_khach_hang']);
             view('Donhang', ['data' => $data, 'danh_muc' => $danh_muc]);
+        } else {
+            echo "<script type='text/javascript'>
+            window.location.href = 'index.php?act=404';
+        </script>";
         }
     }
     public function don_hang_chi_tiet()
     {
-        $id = $_GET['id'];
-        $danh_gias_one = (new Md_Gio_Hang())->danh_gias_one();
-        $oder = (new Md_Gio_Hang())->don_hang__($id);
-        $data = (new Md_Gio_Hang)->hoa_don_chi_tiet($id);
-        $danh_muc = (new Md_danh_muc())->all();
+        if (isset($_SESSION['id_khach_hang']) && isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $danh_gias_one = (new Md_Gio_Hang())->danh_gias_one();
+            $oder = (new Md_Gio_Hang())->don_hang__($id);
+            $data = (new Md_Gio_Hang)->hoa_don_chi_tiet($id);
+            $danh_muc = (new Md_danh_muc())->all();
 
-        view('hoa_don_chi_tiet', ['data' => $data, 'oder' => $oder, 'danh_gias_one' => $danh_gias_one, 'danh_muc' => $danh_muc]);
+            view('hoa_don_chi_tiet', ['data' => $data, 'oder' => $oder, 'danh_gias_one' => $danh_gias_one, 'danh_muc' => $danh_muc]);
 
-        //HUY DON
+            //HUY DON
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 03) {
-            if ($oder['trang_thai_don_hang'] == 1) {
-                (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
-                foreach ($data as $index => $items) {
-                    $data_san_pham_HUY = (new Md_san_pham)->find_CTSP($items['id_chi_tiet_san_pham']);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 03) {
+                if ($oder['trang_thai_don_hang'] == 1) {
+                    (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
+                    foreach ($data as $index => $items) {
+                        $data_san_pham_HUY = (new Md_san_pham)->find_CTSP($items['id_chi_tiet_san_pham']);
 
 
-                    $sl_HUY = $items['so_luong_mua'] + $data_san_pham_HUY['so_luong'];
-                    (new Md_san_pham())->update_SL_SPCT($data_san_pham_HUY['id'], $sl_HUY);
+                        $sl_HUY = $items['so_luong_mua'] + $data_san_pham_HUY['so_luong'];
+                        (new Md_san_pham())->update_SL_SPCT($data_san_pham_HUY['id'], $sl_HUY);
+                    }
+
+
+                    echo "<script type='text/javascript'>
+                        window.location.href = 'index.php?act=don_hang';
+                    </script>";
                 }
+            }
 
-
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 04) {
+                (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
                 echo "<script type='text/javascript'>
                         window.location.href = 'index.php?act=don_hang';
                     </script>";
             }
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 04) {
-            (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
+        } else {
             echo "<script type='text/javascript'>
-                        window.location.href = 'index.php?act=don_hang';
-                    </script>";
+            window.location.href = 'index.php?act=404';
+        </script>";
         }
     }
 
@@ -601,16 +932,24 @@ class Gio_Hang
                 ]
             );
         } else {
-            (new HomeController())->error();
+            echo "<script type='text/javascript'>
+            window.location.href = 'index.php?act=404';
+        </script>";
         }
     }
 
     public function delete_yeu_thich()
     {
-        $id = $_GET['id'];
-        (new Md_Gio_Hang())->delete_YT($id, $_SESSION['id_khach_hang']);
-        echo "<script type='text/javascript'>
+        if (isset($_SESSION['id_khach_hang']) && isset($_GET['id'])) {
+            $id = $_GET['id'];
+            (new Md_Gio_Hang())->delete_YT($id, $_SESSION['id_khach_hang']);
+            echo "<script type='text/javascript'>
                         window.location.href = 'index.php?act=yeu_thich';
                     </script>";
+        } else {
+            echo "<script type='text/javascript'>
+            window.location.href = 'index.php?act=404';
+        </script>";
+        }
     }
 }

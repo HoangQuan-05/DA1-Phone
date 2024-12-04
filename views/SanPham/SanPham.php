@@ -400,9 +400,15 @@
 											height="360">
 									</a>
 
-									<a href="#"
-										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
-										To Cart</a>
+									<form action="" method="POST" id="form_YeuThich_<?= $value['id_san_pham'] ?>">
+										<input hidden type="text" name="id_san_pham" value="<?= $value['id_san_pham'] ?>">
+
+										<button type="submit"
+											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">
+											Yêu thích
+										</button>
+
+									</form>
 								</figure>
 								<div class="card-body text-center p-0">
 
@@ -480,9 +486,15 @@
 											height="360">
 									</a>
 
-									<a href="#"
-										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
-										To Cart</a>
+									<form action="" method="POST" id="form_YeuThich_<?= $value['id_san_pham'] ?>">
+										<input hidden type="text" name="id_san_pham" value="<?= $value['id_san_pham'] ?>">
+
+										<button type="submit"
+											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">
+											Yêu thích
+										</button>
+										
+									</form>
 								</figure>
 								<div class="card-body text-center p-0">
 
@@ -574,10 +586,15 @@
 												class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="270"
 												height="360">
 										</a>
+										<form action="" method="POST" id="form_YeuThich_<?= $value['id_san_pham'] ?>">
+										<input hidden type="text" name="id_san_pham" value="<?= $value['id_san_pham'] ?>">
 
-										<a href="#"
-											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
-											To Cart</a>
+										<button type="submit"
+											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">
+											Yêu thích
+										</button>
+										
+									</form>
 									</figure>
 									<div class="card-body text-center p-0">
 
@@ -667,9 +684,15 @@
 												height="360">
 										</a>
 
-										<a href="#"
-											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
-											To Cart</a>
+										<form action="" method="POST" id="form_YeuThich_<?= $value['id_san_pham'] ?>">
+										<input hidden type="text" name="id_san_pham" value="<?= $value['id_san_pham'] ?>">
+
+										<button type="submit"
+											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">
+											Yêu thích
+										</button>
+										
+									</form>
 									</figure>
 									<div class="card-body text-center p-0">
 
@@ -757,9 +780,15 @@
 											height="360">
 									</a>
 
-									<a href="#"
-										class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">Add
-										To Cart</a>
+									<form action="" method="POST" id="form_YeuThich_<?= $value['id_san_pham'] ?>">
+										<input hidden type="text" name="id_san_pham" value="<?= $value['id_san_pham'] ?>">
+
+										<button type="submit"
+											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">
+											Yêu thích
+										</button>
+										
+									</form>
 								</figure>
 								<div class="card-body text-center p-0">
 

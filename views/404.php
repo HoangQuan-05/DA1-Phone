@@ -35,7 +35,7 @@
 
 <body>
 
-<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
+	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
 		<div class="sticky-area">
 			<div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
 				<div class="container-fluid px-10 px-xl-21 px-lg-15 flex-nowrap">
@@ -232,7 +232,7 @@
 			<div class="bg-body-secondary py-5">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb breadcrumb-site py-0 d-flex justify-content-center">
-						<li class="breadcrumb-item"><a class="text-decoration-none text-body" href="#"><i class="fas fa-home-lg me-4 text-body-emphasis"></i> Home</a>
+						<li class="breadcrumb-item"><a class="text-decoration-none text-body" href="index.php"><i class="fas fa-home-lg me-4 text-body-emphasis"></i> Home</a>
 						</li>
 						<li class="breadcrumb-item active pl-0 d-flex align-items-center" aria-current="page">Page Not Found</li>
 					</ol>
@@ -254,7 +254,6 @@
 				</div>
 			</div>
 		</section>
-
 
 	</main>
 	<footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">

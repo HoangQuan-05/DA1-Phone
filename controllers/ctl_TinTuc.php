@@ -29,6 +29,8 @@ class TinTuc
                     'danh_muc' => $danh_muc
                 ]);
             }
+        }else{
+            (new HomeController)->error();
         }
     }
 }

@@ -34,7 +34,7 @@ class TaiKhoan
     public function update_mat_khau($id, $data)
     {
 
-        $sql = "UPDATE khach_hang SET mat_khau =  $data WHERE id_khach_hang = $id";
+        $sql = "UPDATE khach_hang SET mat_khau =  '$data' WHERE id_khach_hang = $id";
 
         $result = $this->conn->prepare($sql);
         $result->execute();

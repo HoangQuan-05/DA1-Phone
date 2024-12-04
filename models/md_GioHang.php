@@ -44,7 +44,8 @@ class Md_Gio_Hang
                     )
             ) AS hinh_anh ON hinh_anh.id_san_pham  = san_phams.id_san_pham  
 
-        WHERE id_khach_hang  = $id_khach_hang";
+        WHERE id_khach_hang  = $id_khach_hang
+        ORDER BY gio_hang.id DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -156,6 +157,7 @@ class Md_Gio_Hang
                     MIN(ngay_dat) AS ngay_dat,
                     MIN(trang_thai_don_hang) AS trang_thai_don_hang,
                     MIN(trang_thai_thanh_toan) AS trang_thai_thanh_toan,
+                    MIN(phuong_thuc_thanh_toan) AS phuong_thuc_thanh_toan,
                     MIN(trang_thai) AS trang_thai
                 FROM hoa_dons
                     JOIN trang_thai_hoa_don ON trang_thai_hoa_don.id = hoa_dons.trang_thai_don_hang 

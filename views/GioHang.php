@@ -154,13 +154,13 @@
 
 					<div class="px-5 d-none d-xl-inline-block">
 						<a class="position-relative lh-1 color-inherit text-decoration-none"
-							href="shop/wishlist.html">
+							href="index.php?act=yeu_thich">
 							<svg class="icon icon-star-light">
 								<use xlink:href="#icon-star-light"></use>
 							</svg>
 							<span
 								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
+								style="--square-size: 18px"></span>
 						</a>
 					</div>
 
@@ -172,7 +172,7 @@
 							</svg>
 							<span
 								class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-								style="--square-size: 18px">3</span>
+								style="--square-size: 18px"></span>
 						</a>
 					</div>
 
@@ -259,7 +259,7 @@
 								<th scope="col" class="border-1">
 
 									<span style="margin:0 17px">
-										<input  type="checkbox" name="san_pha" style="background-color: white;">
+										<input type="checkbox" name="san_pha" style="background-color: white;">
 									</span>
 
 									<span>
@@ -304,9 +304,8 @@
 										<div class="input-group position-relative shop-quantity">
 											<span onclick="down(<?= $values['id_chi_tiet_san_pham'] ?>)" style="cursor: pointer;" class="position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus "><i class="far fa-minus"></i></span>
 
-											<input name="so_luong_mua" type="number" id="number_<?= $values['id_chi_tiet_san_pham'] ?>"
-												class="form-control form-control-sm px-10 py-4 fs-6 text-center border-0" value="<?= $values['so_luong_mua'] ?>"
-												required="" disabled>
+											<input onchange="muahang(<?= $values['id_chi_tiet_san_pham'] ?>)" name="so_luong_mua" type="number" id="number_<?= $values['id_chi_tiet_san_pham'] ?>"
+												class="form-control form-control-sm px-10 py-4 fs-6 text-center border-0" value="<?= $values['so_luong_mua'] ?>">
 
 											<span onclick="up(<?= $values['id_chi_tiet_san_pham'] ?>)" style="cursor: pointer;" class="position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus"><i class="far fa-plus"></i>
 											</span>
@@ -359,6 +358,23 @@
 	<script>
 		var sanpham_giohang = <?= json_encode($sanpham_giohang) ?>;
 		var san_pham_gio_hang = document.querySelectorAll('.san_pham')
+
+		function muahang(id) {
+			sanpham_giohang.forEach((obj) => {
+				if (obj.id_chi_tiet_san_pham == id) {
+					var so_luong_mua = document.getElementById(`number_${obj.id_chi_tiet_san_pham}`)
+					var thanh_tien_ = document.getElementById(`thanh_tien_${obj.id_chi_tiet_san_pham}`)
+					var mua_hang_ = document.getElementById(`mua_hang_${obj.id_chi_tiet_san_pham}`)
+					mua_hang_.checked = true
+					if (Number(so_luong_mua.value) <= obj.so_luong) {
+						thanh_tien_.innerHTML = ""
+						thanh_tien_.innerHTML = (so_luong_mua.value * obj.gia_ban).toLocaleString("en-US") + ' VND'
+						mua_hang_.value = `${obj.id_chi_tiet_san_pham} | ${so_luong_mua.value}`;
+					}
+				}
+			})
+		
+		}
 
 
 		function up(id) {

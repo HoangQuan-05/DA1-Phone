@@ -12,7 +12,7 @@ class loginController
             $stt = false;
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 foreach ($results as $user) {
-                    if ($_POST['email'] == $user['email'] && $_POST['mat_khau'] == $user['mat_khau']) {
+                    if ($_POST['email'] == $user['email'] && password_verify($_POST['mat_khau'],$user['mat_khau'])  ) {
                         $stt = true;
                         $_SESSION['id_khach_hang'] = $user['id_khach_hang'];
                         $_SESSION['name_khach_hang'] = $user['tens'];
@@ -51,27 +51,23 @@ class loginController
             $data["vai_tro"] = "khach hang";
 
             // Xử lý upload ảnh
-            if (isset($_FILES['anh_dai_dien']) && $_FILES['anh_dai_dien']['error'] == 0) {
-                $upload_dir = __DIR__ . '/../../public/image/';
-                if (!file_exists($upload_dir)) {
-                    mkdir($upload_dir, 0777, true);
-                }
+            $img = "";
+            $file_anh = $_FILES['anh_dai_dien'];
 
-                $file_extension = pathinfo($_FILES["anh_dai_dien"]["name"], PATHINFO_EXTENSION);
-                $new_filename = uniqid() . '.' . $file_extension;
-                $target_file = $upload_dir . $new_filename;
+            if (isset($file_anh['name']) ) {
+                
+                    if ($file_anh['size'] > 0) {
+                        $path_img = "image/".$file_anh['name'] ;
+                        if (move_uploaded_file($file_anh['tmp_name'], $path_img)) {
+                            $img = $path_img;
+                        }
+                    }
 
-                if (move_uploaded_file($_FILES["anh_dai_dien"]["tmp_name"], $target_file)) {
-                    $data['anh_dai_dien'] = 'public/image/' . $new_filename;
-                } else {
-                    echo "<script type='text/javascript'>
-                        document.getElementById('er_reg').innerText = 'Có lỗi xảy ra khi tải ảnh lên: " . error_get_last()['message'] . "';
-                      </script>";
-                    return;
-                }
+                $data['anh_dai_dien'] = $img;
             } else {
-                $data['anh_dai_dien'] = "public/image/default_avatar.jpg";
+                $data['anh_dai_dien'] = $img;
             }
+
 
             if (!empty($data['tens']) && !empty($data['email']) && !empty($data['mat_khau']) && !empty($data['so_dien_thoai']) && !empty($data['ngay_sinh']) && !empty($data['dia_chi'])) {
                 if (filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
@@ -98,9 +94,10 @@ class loginController
                                   </script>";
                                 return;
                             }
+                            $data['mat_khau'] = password_hash($data['mat_khau'],PASSWORD_DEFAULT);
                             $result = $khachHang->dang_ky($data);
 
-
+                            
                             if ($result) {
                                 echo "<script type='text/javascript'>
                                     alert('Đăng ký thành công!');

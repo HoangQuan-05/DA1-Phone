@@ -309,7 +309,8 @@
                         <img height="100" src="../admin/image/<?= $item['hinh_anh'] ?>" width="100" />
                         <div>
                             <h6>
-                                <?= $item['ten_san_pham'] ?>
+                                
+                                <a href="index.php?act=chi_tiet_san_pham&id=<?= $item['id_san_pham'] ?>"><?= $item['ten_san_pham'] ?></a>
                             </h6>
                             <p>
                                 Bộ nhớ:

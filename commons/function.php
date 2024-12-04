@@ -1,7 +1,6 @@
 <?php
 require_once "env.php";
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 // Kết nối CSDL qua PDO
@@ -46,7 +45,7 @@ function view_client($view, $data = [], $id = null)
     require_once "templates/glowing-bootstrap-5/$view.php";
 }
 
-function gui_email_phpmailer($nguoi_nhan, $tieu_de, $noi_dung, $tu_email = 'quan12345za@gmail.com', $mat_khau = 'dbit quqr vxdk qqmw')
+function gui_email_phpmailer($nguoi_nhan, $tieu_de, $noi_dung, $tu_email = 'quan12345za@gmail.com', $mat_khau = 'sugm dynr cijn ynwe')
 {
     $mail = new PHPMailer(true);
     try {

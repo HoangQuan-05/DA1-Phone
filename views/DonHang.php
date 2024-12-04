@@ -255,10 +255,12 @@
                                 <th style="text-align: center; vertical-align: middle;" scope="col" class="border-1 ps-11">Mã đơn hàng</th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col" class="border-1">Ngày đặt</th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col" class="border-1">Trạng thái đơn hàng</th>
+                                <th style="text-align: center; vertical-align: middle;" scope="col" class="border-1">Phương thức Thanh toán</th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col" class="border-1">Trạng thái Thanh toán</th>
                                 <th style="text-align: center; vertical-align: middle;" scope="col" class="border-1">Hành động</th>
                             </tr>
                         </thead>
+                      
                         <tbody>
                             <?php foreach ($data as $value) : ?>
                                 <tr class="position-relative">
@@ -270,6 +272,9 @@
                                     </td>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <p class="mb-0 text-body-emphasis fw-bold mr-xl-11"><?= $value['trang_thai'] ?></p>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <p class="mb-0 text-body-emphasis fw-bold mr-xl-11"><?= $value['phuong_thuc_thanh_toan'] ?></p>
                                     </td>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <p class="mb-0 text-body-emphasis fw-bold mr-xl-11"><?= $value['trang_thai_thanh_toan'] ?></p>

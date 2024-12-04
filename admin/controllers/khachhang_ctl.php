@@ -35,6 +35,7 @@ class KhachHang_ctl
             if ($data['tens'] != "" && $data['email'] != "" && $data['mat_khau'] != "" && $data['so_dien_thoai'] != "" && $data['ngay_sinh'] != "" && $data['dia_chi'] != "") {
                 if (filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                     if (strlen($data['so_dien_thoai']) == 10) { //KIỂM TRA ĐỘ DÀI SĐT
+                        $data['mat_khau'] = password_hash($data['mat_khau'],PASSWORD_DEFAULT);
                         (new KhachHang())->create($data);
                         echo "<script type='text/javascript'>
                                 window.location.href = 'index.php?act=khachhang';

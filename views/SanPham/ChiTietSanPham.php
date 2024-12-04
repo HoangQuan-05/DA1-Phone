@@ -399,7 +399,7 @@
                                 <label class=" text-body-emphasis fw-semibold fs-15px pb-6" for="so_luong_mua">Số lượng: </label>
                                 <div class="input-group position-relative w-100 input-group-lg">
                                     <span style="cursor: pointer;" onclick="down()" class="position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus "><i class="far fa-minus"></i></span>
-                                    <input readonly name="so_luong_mua" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
+                                    <input  name="so_luong_mua" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
                                     <span style="cursor: pointer;" onclick="up()" class="position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus "><i class="far fa-plus"></i>
                                     </span>
                                 </div>
@@ -439,14 +439,8 @@
                         // Chuyển mảng PHP sang JavaScript
                         var bienThe = <?= json_encode($bien_the) ?>;
 
-
-
                         var form = document.getElementById('myForm');
                         var add = document.getElementById('add');
-
-
-
-
 
                         var ul_ms = document.querySelector('.mau_sac'); // Lấy thẻ <ul> chứa danh sách màu sắc
                         var gia_ban = document.querySelector('.pre')
@@ -456,22 +450,16 @@
                         var mua = document.getElementById('mua')
                         var add = document.getElementById('add')
 
-
-
                         function data_bien_the(btn) {
                             // Xóa tất cả các mục cũ trong ul_ms trước khi thêm mới
                             ul_ms.innerHTML = '';
                             gia_ban.innerHTML = ''
-
                             var stt = true
                             bienThe.forEach(value => {
                                 if (value.phien_ban == btn) {
-
                                     gia_ban.innerHTML = new Intl.NumberFormat('en-US').format(value.gia_ban) + ' VND'
-
                                     var li = document.createElement('li');
                                     li.classList.add('list-inline-item', 'me-4', 'fw-semibold');
-
 
                                     var input = document.createElement('input');
                                     input.classList.add('product-info-size', 'd-none', 'bt_ms');
@@ -486,10 +474,8 @@
                                     label.setAttribute('for', `mau_sac_${value.id_mau_sac}`); // Gán thuộc tính for
                                     label.textContent = value.mau_sac; // Gán nội dung cho label
 
-
                                     li.append(input);
                                     li.append(label);
-
                                     ul_ms.append(li);
                                 }
                             });
@@ -497,8 +483,12 @@
 
                         }
                         var soLuong = 0
+                        var session = <?= json_encode($_SESSION) ?>
 
                         function data_mau_sac(mau_sac, gia_ban_, so_luong_, id) {
+
+
+
                             gia_ban.innerHTML = ""
                             so_luong.innerHTML = ""
                             gia_ban.innerHTML = new Intl.NumberFormat('en-US').format(gia_ban_) + ' VND'
@@ -512,30 +502,27 @@
                                 add.disabled = false
                             }
 
-
                             var id__chi__tiet = document.createElement('input');
                             id__chi__tiet.name = "id_san_pham_chi_tiet"
                             id__chi__tiet.value = id
                             id__chi__tiet.type = "hidden"
                             gia_ban.append(id__chi__tiet)
 
-                            
+                            console.log(session.id_khach_hang)
                             add.onclick = (e) => {
-                                e.preventDefault(); // Ngừng gửi form mặc định
-                                
+                                // e.preventDefault(); // Ngừng gửi form mặc định
 
-                                // Hiển thị Thông báo
-                                Swal.fire({
-                                    title: 'Thêm thành công!',
-                                    icon: 'success',
-                                    confirmButtonText: 'OK'
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
+                                if (session.id_khach_hang == undefined) {
 
-                                        form.submit(); // Gửi form khi OK
 
-                                    }
-                                })
+                                    Swal.fire({
+                                        title: 'Chưa đăng nhập',
+                                        icon: 'error',
+                                        confirmButtonText: 'OK'
+                                    })
+                                }
+
+
                             };
 
 
@@ -928,7 +915,7 @@
                                 </a>
                             </li>
                             <?php
-                            
+
                             if (isset($page)) {
                                 $page = ceil($total_binh_luan / 5);
                             } else {
@@ -946,7 +933,7 @@
                                     </li>
                                 <?php endif; ?>
                             <?php endfor ?>
-                            
+
 
 
                             <li class="page-item">
