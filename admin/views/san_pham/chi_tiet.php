@@ -127,7 +127,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                 <?php foreach ($sp_chi_tiet as $key1 => $chi_tiet) : ?>
                                                     <?php foreach ($all_mau_sac as $key2 => $mau_sac) : ?>
                                                         <?php if ($key == $key1 && $key == $key2): ?>
-                                                            <span>Ram/Rom: <span class="badge bg-secondary"><?= $phien_ban['phien_ban'] ?></span></span>
+                                                            <span>Ram/Rom: <span class="badge bg-secondary"><?= $phien_ban['phien_ban'] ?></span></span> <br>
                                                             <span>Giá nhập: <strong class="text-danger"><?= number_format($chi_tiet['gia_nhap']) ?> VNĐ</strong> - Giá: <strong class="text-danger"><?= number_format($chi_tiet['gia_ban']) ?> VNĐ</strong>  Số lượng: <span class="badge bg-success"><?= $chi_tiet['so_luong'] ?></span></span>
                                                             <span> Màu sắc: </span><span class="badge bg-primary"> <?= $mau_sac['mau_sac'] ?></span>
 

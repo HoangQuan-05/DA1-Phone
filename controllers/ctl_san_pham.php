@@ -86,7 +86,7 @@ class SanPham
 
     public function chi_tiet_san_pham()
     {
-        if (isset($_GET['id'])) {
+        if (isset($_GET['id']) && $_GET['id'] != '' && (int)$_GET['id'] >0 ) {
             $id = $_GET['id'];
 
 
@@ -216,7 +216,7 @@ class SanPham
 
                             if ($value2['id'] == $value['id_san_pham_chi_tiet']) {
                                 if ($data_gio_hang['so_luong'] <= $value2['so_luong']) {
-                                    
+
                                     $this->hienThiThongBao($id);
                                     (new Md_Gio_Hang())->update_gio_hang($value['id_san_pham_chi_tiet'], $data_gio_hang['id_khach_hang'], $data_gio_hang['so_luong']);
                                 } else {
@@ -264,8 +264,8 @@ class SanPham
             }
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_SESSION['id_khach_hang'])) {
                 echo "<script type='text/javascript'>
-                window.location.href = 'index.php?act=404';
-            </script>";
+                alert('Chưa đăng nhập');
+           </script>";
             }
 
 

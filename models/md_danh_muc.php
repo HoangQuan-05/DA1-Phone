@@ -19,10 +19,10 @@ class Md_danh_muc
 
 
     public function banner(){
-        $sql = "SELECT * FROM banner ORDER BY id_banner  DESC LIMIT 1";
+        $sql = "SELECT * FROM banner ORDER BY id_banner";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 

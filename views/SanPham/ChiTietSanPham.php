@@ -508,21 +508,18 @@
                             id__chi__tiet.type = "hidden"
                             gia_ban.append(id__chi__tiet)
 
-                            console.log(session.id_khach_hang)
+                            // console.log(session.id_khach_hang)
                             add.onclick = (e) => {
-                                // e.preventDefault(); // Ngừng gửi form mặc định
+                         
 
                                 if (session.id_khach_hang == undefined) {
-
-
+                                    e.preventDefault(); // Ngừng gửi form mặc định
                                     Swal.fire({
                                         title: 'Chưa đăng nhập',
                                         icon: 'error',
                                         confirmButtonText: 'OK'
                                     })
                                 }
-
-
                             };
 
 

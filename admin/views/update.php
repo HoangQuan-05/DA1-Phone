@@ -126,116 +126,122 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
             <div class="page-content">
                 <div class="container-fluid">
-                <div class="container-fluid" style="background-color: white;  padding:35px; border-radius:10px; min-height:78vh;">
-                    <div class="row">
-                        <div class="col">
+                    <div class="container-fluid" style="background-color: white;  padding:35px; border-radius:10px; min-height:78vh;">
+                        <div class="row">
+                            <div class="col">
 
-                            <div class="h-100">
-                                <div class="row mb-3 pb-1">
-                                    <div class="col-12">
-                                        <center>
-                                            <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                <div class="h-100">
+                                    <div class="row mb-3 pb-1">
+                                        <div class="col-12">
+                                            <center>
+                                                <div class="d-flex align-items-lg-center flex-lg-row flex-column">
 
-                                                <h2>UPDATE <i class="fas fa-pencil-alt"></i></h2>
+                                                    <h2>UPDATE <i class="fas fa-pencil-alt"></i></h2>
 
-                                                <form action="" method="post" enctype="multipart/form-data" class="update-form">
-                                                    <input type="hidden" name="hinh_anhs" value="<?= $banners['hinh_anhs'] ?>">
+                                                    <form action="" method="post" enctype="multipart/form-data" class="update-form" style="background-color: white;">
+                                                        <input type="hidden" name="hinh_anhs" value="<?= $banners['hinh_anhs'] ?>">
 
-                                                    <!-- Display current image with some spacing -->
-                                                    <div class="form-group">
-                                                        <label>Current Image:</label><br>
-                                                        <img src="<?= $banners['hinh_anhs'] ?>" width="66" alt="Current Image">
-                                                    </div>
+                                                        <!-- Display current image with some spacing -->
+                                                        <div class="form-group">
+                                                            <label>Current Image:</label><br>
+                                                            <img src="<?= $banners['hinh_anhs'] ?>" width="66" alt="Current Image">
+                                                        </div>
 
-                                                    <!-- Image upload field -->
-                                                    <div class="form-group">
-                                                        <label for="hinh_anhs">Image:</label>
-                                                        <input type="file" name="hinh_anhs" id="hinh_anhs">
-                                                    </div>
+                                                        <!-- Image upload field -->
+                                                        <div class="form-group">
+                                                            <label for="hinh_anhs">Image:</label>
+                                                            <input type="file" name="hinh_anhs" id="hinh_anhs">
+                                                        </div>
 
-                                                    <!-- Description field -->
-                                                    <div class="form-group">
-                                                        <select name="trang_thai" id="">
-                                                            <option value="<?= $banners['trang_thai'] ?>" hidden><?= $banners['trang_thai'] ?></option>
-                                                            <option value="Hiển thị">Hiển thị</option>
-                                                            <option value="Ẩn">Ẩn</option>
+                                                        <!-- Description field -->
+                                                        <select name="vi_tri" id="" class="form-input">
+                                                            <option hidden value="<?= $banners['vi_tri'] ?>"><?= $banners['vi_tri'] ?></option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
                                                         </select>
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <select name="trang_thai" id="" class="form-input">
+                                                                <option value="<?= $banners['trang_thai'] ?>" hidden><?= $banners['trang_thai'] ?></option>
+                                                                <option value="Hiển thị">Hiển thị</option>
+                                                                <option value="Ẩn">Ẩn</option>
+                                                            </select>
+                                                        </div>
 
-                                                    <!-- Hidden field for ID -->
-                                                    <input type="hidden" name="id_banner" value="<?= $banners['id_banner'] ?>">
+                                                        <!-- Hidden field for ID -->
+                                                        <input type="hidden" name="id_banner" value="<?= $banners['id_banner'] ?>">
 
-                                                    <button type="submit" class="submit-button">Update</button>
-                                                </form>
+                                                        <button type="submit" class="submit-button">Update</button>
+                                                    </form>
 
-                                                <style>
-                                                    .update-form {
-                                                        max-width: 400px;
-                                                        margin: 0 auto;
-                                                        padding: 20px;
-                                                        background-color: #f9f9f9;
-                                                        border-radius: 8px;
-                                                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                                                        font-family: Arial, sans-serif;
-                                                    }
+                                                    <style>
+                                                        .update-form {
+                                                            max-width: 400px;
+                                                            margin: 0 auto;
+                                                            padding: 20px;
+                                                            background-color: #f9f9f9;
+                                                            border-radius: 8px;
+                                                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                                            font-family: Arial, sans-serif;
+                                                        }
 
-                                                    .update-form h2 {
-                                                        text-align: center;
-                                                        color: #333;
-                                                        margin-bottom: 20px;
-                                                        font-size: 1.5em;
-                                                    }
+                                                        .update-form h2 {
+                                                            text-align: center;
+                                                            color: #333;
+                                                            margin-bottom: 20px;
+                                                            font-size: 1.5em;
+                                                        }
 
-                                                    .form-group {
-                                                        margin-bottom: 15px;
-                                                    }
+                                                        .form-group {
+                                                            margin-bottom: 15px;
+                                                        }
 
-                                                    .form-group label {
-                                                        display: block;
-                                                        font-weight: bold;
-                                                        color: #555;
-                                                    }
+                                                        .form-group label {
+                                                            display: block;
+                                                            font-weight: bold;
+                                                            color: #555;
+                                                        }
 
-                                                    .form-group input[type="text"],
-                                                    .form-group input[type="file"] {
-                                                        width: 100%;
-                                                        padding: 8px;
-                                                        margin-top: 5px;
-                                                        border: 1px solid #ccc;
-                                                        border-radius: 4px;
-                                                        font-size: 1em;
-                                                    }
+                                                        .form-group input[type="text"],
+                                                        .form-group input[type="file"] {
+                                                            width: 100%;
+                                                            padding: 8px;
+                                                            margin-top: 5px;
+                                                            border: 1px solid #ccc;
+                                                            border-radius: 4px;
+                                                            font-size: 1em;
+                                                        }
 
-                                                    .submit-button {
-                                                        width: 100%;
-                                                        padding: 10px;
-                                                        background-color: #4CAF50;
-                                                        color: white;
-                                                        border: none;
-                                                        border-radius: 4px;
-                                                        font-size: 1em;
-                                                        cursor: pointer;
-                                                    }
+                                                        .submit-button {
+                                                            width: 100%;
+                                                            padding: 10px;
+                                                            background-color: #4CAF50;
+                                                            color: white;
+                                                            border: none;
+                                                            border-radius: 4px;
+                                                            font-size: 1em;
+                                                            cursor: pointer;
+                                                        }
 
-                                                    .submit-button:hover {
-                                                        background-color: #45a049;
-                                                    }
-                                                </style>
+                                                        .submit-button:hover {
+                                                            background-color: #45a049;
+                                                        }
+                                                    </style>
 
-                                            </div>
-                                        </center>
+                                                </div>
+                                            </center>
+                                        </div>
+
+
                                     </div>
 
 
-                                </div>
+                                </div> <!-- end col -->
+                            </div>
 
-
-                            </div> <!-- end col -->
                         </div>
-
+                        <!-- container-fluid -->
                     </div>
-                    <!-- container-fluid -->
-                </div>
                 </div>
                 <!-- End Page-content -->
 

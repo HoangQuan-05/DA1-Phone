@@ -13,12 +13,12 @@ class Md_san_pham
         $sql = "SELECT san_phams.*, chi_tiet_san_pham.*, hinh_anhs.*
                 FROM san_phams
                 JOIN (
-                    SELECT id_san_pham, MAX(gia_ban) AS gia_cao_nhat
+                    SELECT id_san_pham, MAX(id) AS id_chi_tiet
                     FROM chi_tiet_san_pham
                     GROUP BY id_san_pham
-                ) AS max_gia ON san_phams.id_san_pham = max_gia.id_san_pham
+                ) AS id_ct__ ON san_phams.id_san_pham = id_ct__.id_san_pham
                 JOIN chi_tiet_san_pham ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham 
-                    AND chi_tiet_san_pham.gia_ban = max_gia.gia_cao_nhat
+                    AND chi_tiet_san_pham.id = id_ct__.id_chi_tiet
                 JOIN (
                     SELECT id_san_pham, MIN(id) AS id_cu_nhat
                     FROM hinh_anhs
@@ -27,7 +27,8 @@ class Md_san_pham
                 JOIN hinh_anhs ON san_phams.id_san_pham = hinh_anhs.id_san_pham
                     AND hinh_anhs.id = hinh_anh_cu.id_cu_nhat
                 ORDER BY san_phams.id_san_pham DESC
-                LIMIT 12 ";
+                LIMIT 12;
+                ";
         $result = $this->conn->prepare($sql);
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
@@ -38,12 +39,12 @@ class Md_san_pham
         $sql = "SELECT san_phams.*, chi_tiet_san_pham.*, hinh_anhs.* 
                 FROM san_phams
                 JOIN (
-                    SELECT id_san_pham, MAX(gia_ban) AS gia_cao_nhat
+                    SELECT id_san_pham, MAX(id) AS id_chi_tiet
                     FROM chi_tiet_san_pham
                     GROUP BY id_san_pham
-                ) AS max_gia ON san_phams.id_san_pham = max_gia.id_san_pham
+                ) AS id_ct__ ON san_phams.id_san_pham = id_ct__.id_san_pham
                 JOIN chi_tiet_san_pham ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham 
-                    AND chi_tiet_san_pham.gia_ban = max_gia.gia_cao_nhat
+                    AND chi_tiet_san_pham.id = id_ct__.id_chi_tiet
                 JOIN (
                     SELECT id_san_pham, MIN(id) AS id_cu_nhat
                     FROM hinh_anhs
@@ -70,12 +71,12 @@ class Md_san_pham
         $sql = "SELECT san_phams.*, chi_tiet_san_pham.*, hinh_anhs.* 
                 FROM san_phams
                 JOIN (
-                    SELECT id_san_pham, MAX(gia_ban) AS gia_cao_nhat
+                    SELECT id_san_pham, MAX(id) AS id_chi_tiet
                     FROM chi_tiet_san_pham
                     GROUP BY id_san_pham
-                ) AS max_gia ON san_phams.id_san_pham = max_gia.id_san_pham
+                ) AS id_ct__ ON san_phams.id_san_pham = id_ct__.id_san_pham
                 JOIN chi_tiet_san_pham ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham 
-                    AND chi_tiet_san_pham.gia_ban = max_gia.gia_cao_nhat
+                    AND chi_tiet_san_pham.id = id_ct__.id_chi_tiet
                 JOIN (
                     SELECT id_san_pham, MIN(id) AS id_cu_nhat  
                     FROM hinh_anhs
@@ -95,14 +96,14 @@ class Md_san_pham
     {
         $sql = "SELECT san_phams.*, chi_tiet_san_pham.*, hinh_anhs.* 
                 FROM san_phams
-                 JOIN danh_muc ON san_phams.id_danh_muc = danh_muc.id_danh_muc 
+                JOIN danh_muc ON san_phams.id_danh_muc = danh_muc.id_danh_muc 
                 JOIN (
-                    SELECT id_san_pham, MAX(gia_ban) AS gia_cao_nhat
+                    SELECT id_san_pham, MAX(id) AS id_chi_tiet
                     FROM chi_tiet_san_pham
                     GROUP BY id_san_pham
-                ) AS max_gia ON san_phams.id_san_pham = max_gia.id_san_pham
+                ) AS id_ct__ ON san_phams.id_san_pham = id_ct__.id_san_pham
                 JOIN chi_tiet_san_pham ON san_phams.id_san_pham = chi_tiet_san_pham.id_san_pham 
-                    AND chi_tiet_san_pham.gia_ban = max_gia.gia_cao_nhat
+                    AND chi_tiet_san_pham.id = id_ct__.id_chi_tiet
                 JOIN (
                     SELECT id_san_pham, MIN(id) AS id_cu_nhat
                     FROM hinh_anhs
@@ -144,7 +145,7 @@ class Md_san_pham
         $result->execute();
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function get_binh_luan_by_san_pham_id($id,$offset)
+    public function get_binh_luan_by_san_pham_id($id, $offset)
     {
         $sql = "SELECT binh_luan.*, 
                    khach_hang.tens, 
@@ -192,7 +193,7 @@ class Md_san_pham
     }
 
     //THÊM ĐÁNH GIÁ 
-    public function add_danh_gia($id_san_pham, $id_khach_hang, $diem_danh_gia, $noi_dung,$id_hdct)
+    public function add_danh_gia($id_san_pham, $id_khach_hang, $diem_danh_gia, $noi_dung, $id_hdct)
     {
         $sql = "INSERT INTO danh_gias (id_san_pham, id_khach_hang, diem_danh_gia, noi_dung, id_hdct) VALUES (:id_san_pham, :id_khach_hang, :diem_danh_gia, :noi_dung ,:id_hdct)";
         $stmt = $this->conn->prepare($sql);
@@ -203,7 +204,7 @@ class Md_san_pham
         $stmt->bindParam(':id_hdct', $id_hdct);
         return $stmt->execute();
     }
-    public function update_sl_sp($id,$so_luong)
+    public function update_sl_sp($id, $so_luong)
     {
         $sql = "UPDATE chi_tiet_san_pham SET so_luong = $so_luong WHERE id  = $id ";
         $result = $this->conn->prepare($sql);

@@ -160,7 +160,7 @@ class Ctl_san_pham
                                                 $so_luong = $data['so_luong'];
 
                                                 foreach ($gia_ban as $index => $value) { // GIÁ BÁN
-                                                    foreach ($gia_ban as $index9 => $value9) {
+                                                    foreach ($gia_nhap as $index9 => $value9) {
                                                         foreach ($so_luong as $index2 => $value2) { //SỐ LƯỢNG
                                                             if ($index == $index2 && $value != "" && $value2 != "" && $index == $index9 && $value != "" && $index9 != "") {
 

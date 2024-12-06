@@ -125,7 +125,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
         <div class="main-content">
 
             <div class="page-content">
-                <div class="container-fluid">
+                <div class="container-fluid" style="background-color: white; min-height:78vh; padding:35px; border-radius:10px;">
 
                     <div class="row">
                         <div class="col">
@@ -139,9 +139,15 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
 
 
-                                                <form action="index.php?act=store" method="post" enctype="multipart/form-data" class="add-form">
+                                                <form action="index.php?act=store" method="post" enctype="multipart/form-data" class="add-form" style="background-color: white;">
                                                     <label for="hinh_anhs">Ảnh:</label>
                                                     <input type="file" name="hinh_anhs" id="hinh_anhs" class="form-input">
+                                                    <p>Vị trí</p>
+                                                    <select name="vi_tri" id="" class="form-input">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                    </select>
 
                                                     <br><br>
 

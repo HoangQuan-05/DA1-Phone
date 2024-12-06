@@ -19,7 +19,7 @@ class banners{
 
     }
     public function insert($data){
-        $sql="INSERT INTO banner(hinh_anhs,trang_thai) VALUES (:hinh_anhs,:trang_thai)";
+        $sql="INSERT INTO banner(hinh_anhs,trang_thai,vi_tri) VALUES (:hinh_anhs,:trang_thai,:vi_tri)";
         $stmt= $this->conn->prepare($sql);
       
         $stmt->execute($data);
@@ -28,7 +28,7 @@ class banners{
     
     }
     public function update($data){
-        $sql= "UPDATE banner SET hinh_anhs=:hinh_anhs,trang_thai=:trang_thai WHERE id_banner=:id_banner";
+        $sql= "UPDATE banner SET hinh_anhs=:hinh_anhs,trang_thai=:trang_thai ,vi_tri=:vi_tri WHERE id_banner=:id_banner";
         $stmt= $this ->conn->prepare($sql);
         $stmt->execute($data);
     }

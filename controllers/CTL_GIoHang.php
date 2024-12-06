@@ -207,8 +207,6 @@ class Gio_Hang
                         $_SESSION['momo'] = $_POST;
                         $_SESSION['momo']['trang_thai_thanh_toan'] = 'Đã thanh toán';
                     }
-
-
                     $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
                     $partnercode = 'MOMOBKUN20180529';
                     $accesskey = 'klm05TvNBzhg7h7j';
@@ -306,7 +304,7 @@ class Gio_Hang
                     }
 
 
-                    var_dump($inputData);
+                   
                     ksort($inputData);
                     $query = "";
                     $i = 0;
@@ -403,12 +401,12 @@ class Gio_Hang
                     }
 
                     hienThiThongBao();
-                    gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
+                    gui_email_phpmailer($_SESSION['momo']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                 }
             }
             if (isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 0) {
-
-                $hoa_don = $_SESSION['momo'];
+               
+                $hoa_don = $_SESSION['vnpay'];
                 $_SESSION['thanh_tien'] = $hoa_don['thanh_toan'];
                 $so_luong_c = [];
 
@@ -464,14 +462,15 @@ class Gio_Hang
 
                     $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
 
+                   
+
+                    hienThiThongBao();
+                    gui_email_phpmailer($_SESSION['vnpay']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                     foreach ($_SESSION as $key => $value) {
                         if (!in_array($key, $keep_sessions)) {
                             unset($_SESSION[$key]); // Xóa các session không cần thiết
                         }
                     }
-
-                    hienThiThongBao();
-                    // gui_email_phpmailer($_POST['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                 } else {
                     hienThiThongBao_Error();
                 }
@@ -761,7 +760,7 @@ class Gio_Hang
 
 
                         hienThiThongBao();
-                        // gui_email_phpmailer($_SESSION['vnpay']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
+                        gui_email_phpmailer($_SESSION['vnpay']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
                         foreach ($_SESSION as $key => $value) {
                             if (!in_array($key, $keep_sessions)) {
                                 unset($_SESSION[$key]); // Xóa các session không cần thiết
@@ -848,6 +847,9 @@ class Gio_Hang
             }
 
             view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang, 'danh_muc' => $danh_muc]);
+        }
+        if(empty($_SESSION['id_khach_hang'])){
+            (new HomeController)->error();
         }
     }
 

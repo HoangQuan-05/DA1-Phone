@@ -36,7 +36,6 @@ require_once "models/md_binh_luan.php";
 $act = $_GET['act'] ?? '';
 session_start();
 
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
 
 

@@ -296,7 +296,6 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     </div>
                                     <div class="col-12">
                                         <label for="floatingTextarea2">Mô tả dài</label>
-                                        <!-- <textarea class="form-control" placeholder="Nhập mô tả dài..." id="floatingTextarea2" name="mo_ta_dai" style="height: 150px"></textarea> -->
                                         <div id="editor"></div>
                                     </div>
 

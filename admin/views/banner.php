@@ -78,6 +78,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                             <th scope="col">Id</th>
                                             <th scope="col">Hình ảnh</th>
                                             <th scope="col">Trạng thái</th>
+                                            <th scope="col">Vị trí</th>
                                             <th scope="col">Ngày đăng</th>
                                             <th scope="col">Action</th>
 
@@ -94,6 +95,9 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                 <?php else : ?>
                                                     <td style="text-align: center; vertical-align: middle;"> <i class="fa-solid fa-toggle-off fa-2xl"></i></td>
                                                 <?php endif ?>
+                                                <td style="text-align: center; vertical-align: middle;">
+                                                    <?= $banners['vi_tri'] ?>
+                                                </td>
                                                 <td style="text-align: center; vertical-align: middle;">
                                                     <?= $banners['ngay_them'] ?>
                                                 </td>

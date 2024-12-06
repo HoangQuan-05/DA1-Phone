@@ -55,8 +55,6 @@ class Md_Hoa_Don
     }
 
 
-
-
     //TRẠNG THÁI
 
     public function trang_thai_dh()

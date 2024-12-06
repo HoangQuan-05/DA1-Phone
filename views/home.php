@@ -225,34 +225,53 @@
 		</div>
 		</div>
 	</header>
+
 	<main id="content" class="wrapper layout-page">
 
 		<section>
 			<div class="hero container">
 				<div class="row g-8">
-					<div class="col-12 mb-md-0" data-animate="fadeInUp">
+					<div class="col-12 col-lg-8 mb-md-0" data-animate="fadeInUp">
 						<div class="border-0 text-center hero-hover-shine hero-hover hero-power-1">
-							<div data-bg-src="../admin/<?php echo $banner['hinh_anhs']; ?>"
-								class="lazy-bg card-img bg-image h-100 hero-hover-item"></div>
-							<div class="position-absolute start-0 top-0 p-10 p-md-14 justify-content-start text-start">
+							<?php foreach ($banner as $value) :
+								if ($value['vi_tri'] == 1 && $value['trang_thai'] == 'Hiển thị') : ?>
+									<div data-bg-src="../admin/<?php echo $value['hinh_anhs']; ?>"
+										class="lazy-bg card-img bg-image h-100 hero-hover-item"></div>
+							<?php
+								endif;
+							endforeach; ?>
 
-								<div class="hero-content text-start">
-									<div data-animate="fadeInDown">
-										<h1 class="mb-7 text-white fs-2">Empower Yourself</h1>
-										<p class="hero-desc text-white">Get the skin you want to feel</p>
-									</div>
-									<a href="#" data-animate="fadeInUp"
-										class="pb-2 bg-transparent fw-semibold text-decoration-none hero-link p-0 text-white">
-										Shop Now
-										<svg class="icon">
-											<use xlink:href="#icon-arrow-right"></use>
-										</svg>
-									</a>
+						</div>
+					</div>
+					<div class="col-12 col-lg-4 hero-power-2">
+						<div class="row g-sm-8 g-lg-0 h-100">
+							<div class="col-12 col-sm-6 col-lg-12 h-auto" data-animate="fadeInUp">
+								<div class="border-0 text-center hero-hover-shine hero-hover h-100">
+									<?php foreach ($banner as $value) :
+										if ($value['vi_tri'] == 2 && $value['trang_thai'] == 'Hiển thị') : ?>
+											<div class="lazy-bg bg-overlay card-img hero-hover-item bg-image h-100   light-mode-img"
+												data-bg-src="../admin/<?php echo $value['hinh_anhs']; ?>">
+											</div>
+									<?php
+										endif;
+									endforeach; ?>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-lg-12 h-auto mt-8 mt-lg-8" data-animate="fadeInUp">
+								<div class="border-0 text-center hero-hover-shine hero-hover h-100">
+									<?php foreach ($banner as $value) :
+										if ($value['vi_tri'] == 3 && $value['trang_thai'] == 'Hiển thị') : ?>
+											<div class="lazy-bg bg-overlay card-img hero-hover-item bg-image h-100   light-mode-img"
+												data-bg-src="../admin/<?php echo $value['hinh_anhs']; ?>">
+											</div>
+									<?php
+										endif;
+									endforeach; ?>
+
 								</div>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</section>
@@ -289,7 +308,7 @@
 											class="btn btn-add-to-cart btn-dark btn-hover-bg-primary btn-hover-border-primary position-absolute z-index-2 text-nowrap btn-sm px-6 py-3 lh-2">
 											Yêu thích
 										</button>
-										
+
 									</form>
 
 
@@ -352,10 +371,9 @@
 					<div class="col-12 col-lg-5" data-animate="fadeInUp" style="background-color:#F6EFF7;">
 						<div class="card border-0 rounded-0 banner-09" data-bs-theme="light">
 							<div class="card-img-overlay d-inline-flex flex-column ps-md-13 pt-md-15 px-10 py-15">
-								<h3 class="card-title lh-52px fw-semibold mb-7 fs-42px">Get The Skin You Want To Feel
+								<h3 class="card-title lh-52px mb-7 fs-42px">Smart phone chất lượng
 								</h3>
-								<p class="card-text fs-18px w-md-70 text-body">Makeup with extended range in colors for
-									every human.</p>
+								<p class="card-text fs-18px w-md-70 text-body">Mua hàng và thanh toán Online.</p>
 								<div class="mt-7"><a href="#"
 										class="btn btn btn-dark btn-hover-bg-primary border-0 fs-6 text-white">Mua ngay</a></div>
 							</div>
@@ -391,12 +409,7 @@
 						<p class="mx-auto mb-10">We’ll shout you $10 off your first order.</p>
 						<form class=" mx-auto newletter-follow-form">
 							<div class="input-group position-relative">
-								<input type="email" class="form-control bg-body rounded-left"
-									placeholder="Enter your email address">
-								<button type="submit"
-									class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary ms-0">
-									Subscribe
-								</button>
+								
 							</div>
 						</form>
 					</div>
@@ -1937,7 +1950,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<hr class="mt-0">
-			
+
 			<hr class="mb-0">
 			<div class="offcanvas-footer bg-body-tertiary">
 				© 2023 Glowing. <br>

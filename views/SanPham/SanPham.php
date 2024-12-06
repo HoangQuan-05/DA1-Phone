@@ -563,8 +563,6 @@
 
 
 
-
-
 				<!-- SẢN PHẨM TRONG MIN < X < MAX -->
 
 				<?php if (isset($_GET['min'], $_GET['max']) && $_GET['min'] !== "" && $_GET['max'] !== "") :
