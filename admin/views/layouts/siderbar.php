@@ -162,7 +162,7 @@
                         <span data-key="t-dashboards">Đơn hàng</span>
                     </a>
                 </li>
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
+
 
             </ul>
         </div>

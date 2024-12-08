@@ -159,7 +159,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                 <div class="col-12 col-md-8 col-lg-6">
                                     <form action="" method="post" enctype="multipart/form-data" class="p-4 bg-white rounded shadow">
                                         <div class="form-group">
-                                            <label for="ten_voucher">Tên sản phẩm:</label>
+                                            <label for="ten_voucher">Tên Voucher:</label>
                                             <input type="text" class="form-control" name="ten_voucher" id="ten_voucher" value="<?= $khuyenmai['ten_voucher'] ?>">
                                         </div>
 
@@ -170,7 +170,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="hinh_anh">Ảnh sản phẩm mới:</label>
+                                            <label for="hinh_anh">Ảnh Voucher mới:</label>
                                             <input type="file" class="form-control-file" name="hinh_anh" id="hinh_anh">
                                         </div>
                                         <div class="form-group mb-3">

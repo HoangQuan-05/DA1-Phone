@@ -91,11 +91,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                             <nav class="navbar navbar-light ">
                                 <div class="container-fluid">
                                     <a class="navbar-brand">Tin tức</a>
-                                    <form method="GET" action="index.php" class="d-flex">
-                                        <input type="hidden" name="act" value="tin_tuc">
-                                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="tieu_de">
-                                        <button class="btn btn-outline-success" style="height: 33.5px;" type="submit">Search</button>
-                                    </form>
+                                    
 
                                 </div>
                             </nav>

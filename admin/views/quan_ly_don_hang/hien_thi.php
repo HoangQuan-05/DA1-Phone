@@ -109,9 +109,17 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                     <td><?= number_format($value['tong_tien'], 0, '', '.') ?>
                                                         VND</td>
                                                     <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
-                                                    <td><?= $value['trang_thai_thanh_toan'] ?></td>
+                                                    <td>
+                                                        <span class="badge bg-info">
+                                                            <?= $value['trang_thai_thanh_toan'] ?>
+                                                        </span>
+                                                    </td>
 
-                                                    <td style="color:red"><?= $value['trang_thai'] ?></td>
+                                                    <td style="color:red">
+                                                        <span class="badge bg-secondary">
+                                                            <?= $value['trang_thai'] ?>
+                                                        </span>
+                                                    </td>
                                                     <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
                                                         <?php if ($value['trang_thai'] == 'Đã hủy') : ?>
 
@@ -140,8 +148,9 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                     <td style="color:red">
                                                         <span class="badge bg-secondary">
                                                             <?= $value['trang_thai'] ?>
+                                                        </span>
                                                     </td>
-                                                    </span>
+
 
                                                     <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
                                                         <?php if ($value['trang_thai'] == 'Đã hủy') : ?>

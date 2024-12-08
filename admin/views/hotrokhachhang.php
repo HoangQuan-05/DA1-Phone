@@ -215,7 +215,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                             <?php //id sau nay lay bang SESSION
                                             if ($value['id_nguoi_gui'] == $id) : ?>
                                                 <div class="khach_hang">
-                                                    <img src="../admin/assets/images/about.jpg" alt="">
+                                                    <img src="../admin/<?= $value['anh_dai_dien'] ?>" alt="">
                                                     <div class="noi_dung">
                                                         <div style=" width: 735px;">
                                                             <h5><?= $value['tens'] ?></h5>
@@ -227,7 +227,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                             <?php endif ?>
                                             <!-- admin tra loi -->
 
-                                            <?php if ($value['id_nguoi_gui'] == 4) : ?>
+                                            <?php if ($value['id_nguoi_gui'] == $_SESSION['id_admin']) : ?>
                                                 <div class="khach_hang item_admin">
 
                                                     <div class="admin">
@@ -238,7 +238,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                         </div>
 
                                                     </div>
-                                                    <img src="../admin/assets/images/about.jpg" alt="">
+                                                    <img src="../admin/<?= $value['anh_dai_dien'] ?>" alt="">
                                                 </div>
                                             <?php endif ?>
                                         <?php endforeach ?>

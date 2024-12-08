@@ -622,9 +622,6 @@ class Gio_Hang
                         }
                     }
 
-
-
-
                     if (empty($extraData)) {
                         $errorMessage = "Lỗi: Không thể thực hiện thanh toán. Vui lòng thử lại.";
                         echo "<div class='alert alert-danger'>$errorMessage</div>";
@@ -753,11 +750,7 @@ class Gio_Hang
                             }
                         }
 
-
-
                         $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
-
-
 
                         hienThiThongBao();
                         gui_email_phpmailer($_SESSION['vnpay']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
@@ -771,9 +764,6 @@ class Gio_Hang
                     }
                 }
             }
-
-
-
 
 
 

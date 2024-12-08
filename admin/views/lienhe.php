@@ -145,7 +145,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                         $check = [];
                                         ?>
 
-                                        <?php foreach ($du_lieu as $data) : ?>
+                                        <?php foreach ($du_lieu as $index => $data) : ?>
                                             <?php
                                             // Kiểm tra xem ID người gửi đã có trong mảng $check hay chưa
                                             if (!in_array($data['id_nguoi_gui'], $check)) :
@@ -153,7 +153,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                 <!-- id nguoi gui khac id admin -->
                                                 <a href="index.php?act=ho_tro_khach_hang&id=<?= $data['id_nguoi_gui'] ?>">
                                                     <div class="khach_hang">
-                                                        <img src="../admin/assets/images/about.jpg" alt="">
+                                                        <img src="../admin/<?=$data['anh_dai_dien']?>" alt="">
                                                         <div class="noi_dung">
                                                             <div>
                                                                 <h5><?= $data['tens'] ?></h5>
@@ -171,14 +171,15 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
                                                             </div>
 
-                                                            
-
                                                             <?php foreach ($nguoi_nt as $value) : ?>
-                                                                <?php if ($value['trang_thai'] != "") : ?>
-                                                                    <span style="color: red;"> <h5><?= $value['trang_thai'] ?></h5></span>
-                                                                <?php else : ?>
+                                                                <?php if ( ($data['id_nguoi_gui']== $value['id_nguoi_gui'] && $value['trang_thai'] != "") || ($data['id_nguoi_gui']== $value['id_nguoi_nhan'] && $value['trang_thai'] != "")) : ?>
+                                                                    <span style="color: red;">
+                                                                        <h5><?= $value['trang_thai']  ?></h5>
+                                                                    </span>
+                                                                <?php elseif(($data['id_nguoi_gui']== $value['id_nguoi_gui'] && $value['trang_thai'] == "") || ($data['id_nguoi_gui']== $value['id_nguoi_nhan'] && $value['trang_thai'] == "")) : ?>
                                                                     <span> <?= $data['thoi_gian'] ?></span>
-                                                                <?php endif ?>
+                                                                <?php
+                                                                endif ?>
                                                             <?php endforeach; ?>
 
                                                         </div>
@@ -189,7 +190,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                             endif;
                                             ?>
                                         <?php endforeach; ?>
-                                    
+
                                     </div>
 
                                 </div>

@@ -205,12 +205,15 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                 var mo_ta = document.getElementById('mo_ta').value;
 
                 // Check if required fields are filled
-                if (ten_voucher == "" || voucher == "" || ngay_ket_thuc == "" || mo_ta == "" || ngay_bat_dau == "") {
+                if (ten_voucher == "" || voucher == "" || ngay_ket_thuc == "" || ngay_bat_dau == "") {
                     document.getElementById('error').innerText = "Tất cả các trường là bắt buộc!";
                     return false;
                 }
-
-                // If all checks pass, return true to submit the form
+                if (voucher >100) {
+                    document.getElementById('error').innerText = "Voucher không được vượt quá 100%";
+                    return false;
+                }
+                
                 return true;
             }
         </script>

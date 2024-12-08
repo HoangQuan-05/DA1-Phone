@@ -14,6 +14,7 @@ class DashboardController
         }
         $data = null;
         $id_nguoi_nt = (new lien_he())->inbox();
+        //MẢNG LƯU THÔNG TIN KHÔNG ĐƯỢC TRÙNG NHAU
         $array = [];
         foreach ($id_nguoi_nt as $item1) {
             $data = (new lien_he())->noi_dung_hien_thi($item1['id_nguoi_gui'], $item1['id_nguoi_nhan']);
@@ -37,15 +38,13 @@ class DashboardController
 
 
 
-
-
     public function ho_tro_khach_hang()
     {
         if (isset($_SESSION['id_admin'])) {
             $id_nhan = $_SESSION['id_admin'];
         }
         $id = $_GET['id'];
-        $data =  (new lien_he())->hien_thi_tin_nhan($id, 4);
+        $data =  (new lien_he())->hien_thi_tin_nhan($id, $_SESSION['id_admin']);
         view('hotrokhachhang', ['du_lieu' => $data], $id);
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

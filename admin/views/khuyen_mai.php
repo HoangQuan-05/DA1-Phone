@@ -99,8 +99,8 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                 <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['mo_ta'] ?></td>
                                                 <td style="text-align: center; vertical-align: middle;"><?= $khuyenmais['ten_danh_muc'] ?></td>
                                                 <td style="text-align: center; vertical-align: middle;">
-                                                    <a onclick="return confirm('Bạn có muốn xóa?')" href="index.php?act=deletel&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-delete btn-sm"><i class="fas fa-trash"></i></a>
                                                     <a href="index.php?act=updatekm&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-edit btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                                    <a onclick="return confirm('Bạn có muốn xóa?')" href="index.php?act=deletel&id=<?= $khuyenmais['id_voucher'] ?>" class="btn custom-button-delete btn-sm"><i class="fas fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>

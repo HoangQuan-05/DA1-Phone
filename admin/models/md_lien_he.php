@@ -32,11 +32,21 @@ class lien_he
 
     public function tin_nhan_khach_hang($id_nguoi_nhan) //lay danh sach cac khach hang ib ho tro hien thi ra man chinh
     {
-        $sql  = "SELECT tin_nhan.*, khach_hang.*
+        $sql  = "SELECT MAX(id_nguoi_gui) AS id_nguoi_gui,
+                        MAX(id_nguoi_nhan) AS id_nguoi_nhan,
+                        MAX(noi_dung) AS noi_dung,
+                        MAX(trang_thai) AS trang_thai,
+                        MAX(thoi_gian) AS thoi_gian,
+                        MAX(id_khach_hang) AS id_khach_hang,
+                        MAX(tens) AS tens,
+                        MAX(anh_dai_dien) AS anh_dai_dien,
+                        MAX(vai_tro) AS vai_tro
               FROM tin_nhan 
               JOIN khach_hang ON tin_nhan.id_nguoi_gui = khach_hang.id_khach_hang
               WHERE tin_nhan.id_nguoi_nhan = :id_nguoi_nhan 
-              ORDER BY tin_nhan.thoi_gian DESC";
+              GROUP BY id_nguoi_gui
+              ORDER BY thoi_gian DESC
+              ";
 
         $result = $this->conn->prepare($sql);
         $result->execute(['id_nguoi_nhan' => $id_nguoi_nhan]);
@@ -49,7 +59,6 @@ class lien_he
                 VALUES(:id_nguoi_gui,:id_nguoi_nhan,:noi_dung) ";
         $result = $this->conn->prepare($sql);
         $result->execute($data);
-     
     }
 
     public function noi_dung_hien_thi($id_nguoi_gui, $id_nguoi_nhan) //hien thi tin nhan
@@ -70,10 +79,10 @@ class lien_he
                     SELECT id
                     FROM tin_nhan
                     WHERE id_nguoi_gui = $id_nguoi_gui AND id_nguoi_nhan = $id_nguoi_nhan OR id_nguoi_gui = $id_nguoi_nhan AND id_nguoi_nhan = $id_nguoi_gui 
-                    ORDER BY thoi_gian DESC
+                    ORDER BY id DESC
                     LIMIT 1
                 ) AS t2 ON t1.id = t2.id
-                SET t1.trang_thai = :trang_thai;
+                SET t1.trang_thai = :trang_thai WHERE id_nguoi_gui = $id_nguoi_gui AND id_nguoi_nhan = $id_nguoi_nhan OR id_nguoi_gui = $id_nguoi_nhan AND id_nguoi_nhan = $id_nguoi_gui 
                 ";
 
         $stmt = $this->conn->prepare($sql);
