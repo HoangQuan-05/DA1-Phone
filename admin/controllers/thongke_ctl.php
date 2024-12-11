@@ -22,10 +22,6 @@ class ThongkeController
        
         
 
-
-
-
-
     
         view('dashboard',[
             'tong_don'=>$tong_don,

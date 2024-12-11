@@ -304,7 +304,7 @@ class Gio_Hang
                     }
 
 
-                   
+
                     ksort($inputData);
                     $query = "";
                     $i = 0;
@@ -405,7 +405,7 @@ class Gio_Hang
                 }
             }
             if (isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 0) {
-               
+
                 $hoa_don = $_SESSION['vnpay'];
                 $_SESSION['thanh_tien'] = $hoa_don['thanh_toan'];
                 $so_luong_c = [];
@@ -462,7 +462,7 @@ class Gio_Hang
 
                     $keep_sessions = ['id_khach_hang', 'name_khach_hang', 'avt', 'vai_tro'];
 
-                   
+
 
                     hienThiThongBao();
                     gui_email_phpmailer($_SESSION['vnpay']['email_nguoi_nhan'], "Đặt hàng thành công", "<h1>Sản phẩm sẽ sớm được giao đến bạn</h1>");
@@ -838,7 +838,7 @@ class Gio_Hang
 
             view('ThanhToan', ['array_san_pham' => $array_san_pham, 'voucher' => $voucher, 'data_nhan_hang' => $data_nhan_hang, 'danh_muc' => $danh_muc]);
         }
-        if(empty($_SESSION['id_khach_hang'])){
+        if (empty($_SESSION['id_khach_hang'])) {
             (new HomeController)->error();
         }
     }
@@ -885,12 +885,31 @@ class Gio_Hang
                     </script>";
                 }
             }
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 05) {
+                if ($oder['trang_thai_don_hang'] == 5) {
+                    (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
+                    foreach ($data as $index => $items) {
+                        $data_san_pham_HUY = (new Md_san_pham)->find_CTSP($items['id_chi_tiet_san_pham']);
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 04) {
-                (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
-                echo "<script type='text/javascript'>
+
+                        $sl_HUY = $items['so_luong_mua'] + $data_san_pham_HUY['so_luong'];
+                        (new Md_san_pham())->update_SL_SPCT($data_san_pham_HUY['id'], $sl_HUY);
+                    }
+
+
+                    echo "<script type='text/javascript'>
                         window.location.href = 'index.php?act=don_hang';
                     </script>";
+                }
+            }
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai']) && $_POST['trang_thai'] == 04) {
+                if ($oder['trang_thai_don_hang'] != 6) {
+                    (new Md_Gio_Hang())->update_HD($_POST['trang_thai_don_hang'], $_POST['id_hoa_don'], $_POST['trang_thai_thanh_toan']);
+                    echo "<script type='text/javascript'>
+                        window.location.href = 'index.php?act=don_hang';
+                    </script>";
+                }
             }
         } else {
             echo "<script type='text/javascript'>

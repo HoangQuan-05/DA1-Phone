@@ -46,7 +46,8 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
         padding: 8px;
 
     }
-    #mo_ta{
+
+    #mo_ta {
         width: 200px;
         overflow: hidden;
     }
@@ -88,7 +89,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                             </div>
                         </nav>
                         <div class="col">
-                          
+
 
                             <div class="table-responsive">
                                 <table style="background-color: white;" class="table table-hover table-nowrap">
@@ -137,7 +138,6 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                         <td style="text-align: center; vertical-align: middle;">
                                                             <p id="mo_ta"><?= $value['mo_ta_ngan'] ?></p>
                                                         </td>
-                                                        <td style="text-align: center; vertical-align: middle;"><?= $value['luot_xem'] ?></td>
                                                         <td style="text-align: center; vertical-align: middle;">
                                                             <a href="index.php?act=chi_tiet_san_pham&id=<?= $value['id_san_pham'] ?>"><i title="Chi tiết" style="font-size:20px; display: inline-block;" class="fa-solid fa-info "></i></a>
                                                         </td>
@@ -146,7 +146,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                             <a style="display: inline-block;" onclick="return confirm('Chắc chắn xóa?')" href="index.php?act=delete_san_pham&id=<?= $value['id_san_pham'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                                         </td>
                                                     </tr>
-                                                    <?php elseif( empty($_GET['ten_san_pham']) ) : ?>
+                                                <?php elseif (empty($_GET['ten_san_pham'])) : ?>
                                                     <tr>
                                                         <td style="text-align: center; vertical-align: middle;"><?= $value['id_san_pham'] ?></td>
                                                         <td style="text-align: center; vertical-align: middle;"><?= $value['ten_san_pham'] ?></td>
@@ -182,7 +182,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                     </tr>
                                                 <?php endif ?>
                                         <?php
-                                                $id[] = $value['id_san_pham']; 
+                                                $id[] = $value['id_san_pham'];
                                             endif;
                                         endforeach;
                                         ?>

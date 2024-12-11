@@ -12,7 +12,7 @@ class Thongkes
 
     public function all()
     {
-        $sql = " SELECT COUNT(*) FROM hoa_dons WHERE trang_thai_don_hang NOT IN (5, 6, 7)";
+        $sql = " SELECT COUNT(*) FROM hoa_dons WHERE trang_thai_don_hang NOT IN (5, 6, 7,8)";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();

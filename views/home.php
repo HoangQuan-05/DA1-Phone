@@ -341,7 +341,7 @@
 
 				<div class="text-center mt-12">
 					<a href="index.php?act=san_pham&page=1" class="btn btn-outline-dark" data-animate="fadeInUp">
-						Shop All Product
+						Tất cả sản phẩm
 					</a>
 				</div>
 

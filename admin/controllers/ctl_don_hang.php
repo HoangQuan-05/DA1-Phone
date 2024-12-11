@@ -27,11 +27,12 @@ class Don_hang
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['trang_thai'])) {
             $tt = $_POST['trang_thai'];
-            if ($tt >= 3 && $tt < 6) {
+            if ($tt == 5) {
                 $tt_thanh_toan = 'Đã thanh toán';
             } else {
                 $tt_thanh_toan = 'Chưa thanh toán';
             }
+         
             (new Md_Hoa_Don())->update_tt($id, $tt_thanh_toan, $tt);
 
 

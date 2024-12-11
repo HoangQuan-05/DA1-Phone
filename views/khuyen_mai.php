@@ -36,7 +36,7 @@
 
 <body>
 
-<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
+	<header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
 		<div class="topbar bg-primary">
 
 		</div>
@@ -257,19 +257,17 @@
 							<div class="card border-0 flex-row">
 								<figure class="flex-shrink-0 mb-0 me-3" style="padding-right:10px;">
 									<img src="admin/<?= $khuyenmais['hinh_anh'] ?>"
-										class="img-fluid"
-										alt="Why You Should Try an Overnight Balm" width="350px"
-										height="350px">
+										class="img-fluid"style="width:320px; height:220px;">
 								</figure>
 								<div class="card-body p-0">
-									<h5 class="card-text fw-semibold ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
+									<h5 class="card-text ls-1 text-uppercase fs-13px mb-2 text-body text-primary-hover">
 										<span class="text-decoration-none text-reset" href="#" title="Skin care">Mã voucher: <?= $khuyenmais['ma_khuyen_mai'] ?></span>
 									</h5>
 									<h5><?= $khuyenmais['ten_voucher'] ?></h5>
 									<h6>Voucher: <?= $khuyenmais['voucher'] ?>%</h6>
-									<a class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover" href="details-01.html" title="Why You Should Try an Overnight Balm">
+									<span class="card-title mb-0 text-body-emphasis fs-15px lh-base text-primary-hover">
 										<?= $khuyenmais['mo_ta'] ?>
-									</a>
+									</span>
 									<h6><?= $khuyenmais['ngay_bat_dau'] ?> - <?= $khuyenmais['ngay_ket_thuc'] ?></h6>
 									<p><?= $khuyenmais['ten_danh_muc'] ?></p>
 								</div>

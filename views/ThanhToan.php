@@ -1382,12 +1382,13 @@ if (empty($_SESSION['id_san_pham_chi_tiet']) && empty($_SESSION['san_pham'])) {
 				if (value.ma_khuyen_mai.trim() === khuyenMaiValue) {
 					array_san_pham.forEach((data) => {
 						if (data.id_danh_muc === value.id_danh_muc) {
-							if (value.ngay_ket_thuc <= new Date()) {
+							if (new Date(value.ngay_ket_thuc) >= new Date()) {
 								giam__ += Number((value.voucher / 100) * data.gia_ban);
-								console.log(voucher)
+								error_voucher.innerHTML = ''
 							} else {
 								error_voucher.style.color = 'red'
 								error_voucher.innerHTML = 'Mã đã hết hạn'
+								
 							}
 
 						}

@@ -102,7 +102,6 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     <tbody>
                                         <?php foreach ($data_hoa_don as $value) : ?>
                                             <?php if (isset($_GET['ma_don_hang']) && $_GET['ma_don_hang'] == $value['ma_don_hang']) : ?>
-
                                                 <tr>
                                                     <td><?= $value['ma_don_hang'] ?></td>
                                                     <td><?= $value['ngay_dat'] ?></td>
@@ -111,7 +110,13 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                     <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
                                                     <td>
                                                         <span class="badge bg-info">
-                                                            <?= $value['trang_thai_thanh_toan'] ?>
+                                                            <?php if ($value['trang_thai_don_hang'] >= 3 && $value['trang_thai_don_hang'] < 6) : ?>
+                                                                Đã thanh toán
+                                                            <?php elseif ($value['trang_thai_don_hang'] >= 6) : ?>
+                                                                Đã hoàn tiền
+                                                            <?php else: ?>
+                                                                Chưa thanh toán
+                                                            <?php endif; ?>
                                                         </span>
                                                     </td>
 
@@ -120,8 +125,10 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                             <?= $value['trang_thai'] ?>
                                                         </span>
                                                     </td>
+
+
                                                     <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
-                                                        <?php if ($value['trang_thai'] == 'Đã hủy') : ?>
+                                                        <?php if ($value['trang_thai_don_hang'] > 6) : ?>
 
                                                             <a href="index.php?act=delete_don_hang&id_hoa_don=<?= $value['id_hoa_don'] ?>" onclick="return confirm('Chắc chắn xóa?')"><button style="border:none;">Xoa</button></a>
                                                         <?php else : ?>
@@ -141,7 +148,13 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                                     <td><?= $value['phuong_thuc_thanh_toan'] ?></td>
                                                     <td>
                                                         <span class="badge bg-info">
-                                                            <?= $value['trang_thai_thanh_toan'] ?>
+                                                            <?php if ($value['trang_thai_don_hang'] >= 3 && $value['trang_thai_don_hang'] < 6) : ?>
+                                                                Đã thanh toán
+                                                            <?php elseif ($value['trang_thai_don_hang'] >= 6) : ?>
+                                                                Đã hoàn tiền
+                                                            <?php else: ?>
+                                                                Chưa thanh toán
+                                                            <?php endif; ?>
                                                         </span>
                                                     </td>
 
@@ -153,7 +166,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
 
 
                                                     <td><a href="index.php?act=don_hang_chi_tiet&id=<?= $value['id_hoa_don'] ?>">Xem chi tiết</a> |
-                                                        <?php if ($value['trang_thai'] == 'Đã hủy') : ?>
+                                                        <?php if ($value['trang_thai_don_hang'] > 6) : ?>
 
                                                             <a href="index.php?act=delete_don_hang&id_hoa_don=<?= $value['id_hoa_don'] ?>" onclick="return confirm('Chắc chắn xóa?')"><button style="border:none;">Xoa</button></a>
                                                         <?php else : ?>
@@ -168,6 +181,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     </tbody>
                                 </table>
                             </div>
+
 
                         </div> <!-- end col -->
                     </div>

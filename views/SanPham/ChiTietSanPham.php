@@ -211,13 +211,13 @@
 
                             <div class="px-5 d-none d-xl-inline-block">
                                 <a class="position-relative lh-1 color-inherit text-decoration-none"
-                                    href="shop/wishlist.html">
+                                    href="index.php?act=yeu_thich">
                                     <svg class="icon icon-star-light">
                                         <use xlink:href="#icon-star-light"></use>
                                     </svg>
                                     <span
                                         class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-                                        style="--square-size: 18px">3</span>
+                                        style="--square-size: 18px"></span>
                                 </a>
                             </div>
                             <div class="px-5 d-none d-xl-inline-block">
@@ -227,7 +227,7 @@
                                     </svg>
                                     <span
                                         class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square"
-                                        style="--square-size: 18px">3</span>
+                                        style="--square-size: 18px"></span>
                                 </a>
                             </div>
 
@@ -399,7 +399,7 @@
                                 <label class=" text-body-emphasis fw-semibold fs-15px pb-6" for="so_luong_mua">Số lượng: </label>
                                 <div class="input-group position-relative w-100 input-group-lg">
                                     <span style="cursor: pointer;" onclick="down()" class="position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus "><i class="far fa-minus"></i></span>
-                                    <input  name="so_luong_mua" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
+                                    <input name="so_luong_mua" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required="">
                                     <span style="cursor: pointer;" onclick="up()" class="position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus "><i class="far fa-plus"></i>
                                     </span>
                                 </div>
@@ -510,7 +510,7 @@
 
                             // console.log(session.id_khach_hang)
                             add.onclick = (e) => {
-                         
+
 
                                 if (session.id_khach_hang == undefined) {
                                     e.preventDefault(); // Ngừng gửi form mặc định

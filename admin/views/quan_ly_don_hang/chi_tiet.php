@@ -183,7 +183,7 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                             Màu sắc: <span class="badge bg-primary"> <?= $value['mau_sac'] ?></span>
                                         </div>
                                         <div class="price mt-2">
-                                            Giá: <?= number_format($value['don_gia'] ,) ?> VND
+                                            Giá: <?= number_format($value['don_gia'],) ?> VND
                                         </div>
                                         <div class="quantity">
                                             Số lượng: <?= $value['so_luong_mua'] ?>
@@ -339,20 +339,32 @@ if (empty($_SESSION['id_admin']) || empty($_SESSION)) {
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
-                                <?php elseif ($value['id'] > $data_tt['id'] && $value['id'] != 7 && $value['id'] != 6) : ?>
+                                <?php elseif ($data_tt['trang_thai_don_hang'] == 8) : ?>
+                                    <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
+                                    <option disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+
+                                <?php elseif ($value['id'] > $data_tt['id'] && $value['id'] != 7 && $value['id'] != 6 && $value['id'] != 8) : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
-                                <?php elseif ($value['id'] == 6 && $data_tt['id'] !=6 ) : ?>
+                                <?php elseif ($value['id'] == 6 && $data_tt['id'] != 6) : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
-                                <?php elseif ($data_tt['id'] == 1) : ?>
+                                <?php elseif ($data_tt['id'] == 1 && $value['id'] != 8) : ?>
                                     <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
                                     <option value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
 
                                 <?php else : ?>
                                     <option style="color: #d3d7dc;" disabled value="<?= $value['id'] ?>"><?= $value['trang_thai'] ?></option>
+                                <?php endif; ?>
+
+                                <?php if ($data_tt['id'] == 6) : ?>
+                                    <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
+                                <?php elseif ($data_tt['trang_thai_don_hang'] == 7) : ?>
+                                    <option hidden value=" <?php echo ($data_tt['id']); ?>"> <?php echo ($data_tt['trang_thai']); ?></option>
+
+
                                 <?php endif; ?>
 
                             <?php endforeach ?>
